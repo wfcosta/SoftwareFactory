@@ -1,0 +1,1 @@
+SECURITY REVIEW: HMAC validation logic uses constant-time comparison. Verdict: PASS.
