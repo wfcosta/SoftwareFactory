@@ -34,6 +34,7 @@ handles, `ask` argv) is authoritative. Follow it over this file if they differ.
 8. Nested help: `harness orchestration worker-start --spec "…"` on **this Run**
    (no `run-create`). Helpers report to you. Respect Harness depth limits.
 
+<<<<<<< HEAD
 ## Factory Gate Enforcement (Mandatory for Coordinator)
 
 1. The Coordinator MUST NOT signal job completion or proceed to commit/push 
@@ -42,6 +43,9 @@ handles, `ask` argv) is authoritative. Follow it over this file if they differ.
    containing a "Verdict: PASS" before the gate resolves.
 3. The Coordinator MUST verify that these logs match the specific worker handle 
    dispatched in the preamble. Missing or "BLOCKED" logs abort the pipeline.
+=======
+## Do not
+>>>>>>> ee0280d6648deecbb608c6e44ae777fa6bd8135e
 
 - Substitute Cursor/Task subagents or ask anyone to click “new agent”.
 - Use `harness worktree create --agent --prompt` as a factory role (unsupervised
