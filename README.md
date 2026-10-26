@@ -18,12 +18,17 @@ reviewers (parallel wave) → approver → publish
 
 `REJECT` / environment failure / product `gaps.md` end the Run. Review `CHANGES` bounce to the builder. Merge and deploy follow `config.json` policy.
 
-## Install
+## GSF CLI (Harness)
+The GSF requires a coordination CLI (the "Harness") to manage agent signals, lifecycle, and gate resolutions. This CLI bridges the gap between autonomous workers and the persistent state directory.
 
-1. Clone or copy the **.gsf/** directory into your product repository.
-2. Ensure your Harness has read access to `.gsf/`.
-3. Edit `config.json` (configure `checks`, `base_branch`, `agent_defaults`).
-4. Ignite **one** coordinator with `.gsf/agents/orchestrator.md`, `GSF_FACTORY.md`, and your quoted request.
+### Why the GSF CLI?
+Autonomous agents often fail because they lack a common "mailbox" and standard protocols. The GSF CLI provides:
+1. **Standardized Communication**: Ensures all agents use the same `send` and `check` commands, preventing ad-hoc file-writing collisions.
+2. **State Locking**: Acts as a gatekeeper for critical files in `.gsf/state/`, ensuring only one agent writes at a time.
+3. **Auditability**: Logs every `worker_done` and `ask` event into standardized files, creating a perfect audit trail for human review.
+4. **Portability**: By abstracting commands like `send` and `check`, the GSF can run on any agent-capable runtime without knowing the specific environment's native file-watcher capabilities.
+
+To use the CLI, ensure `.gsf/bin/gsf.py` is in your environment PATH.
 
 ## Core Files
 
