@@ -1,15 +1,45 @@
 # Generic Software Factory (GSF)
 
-Framework de orquestração de agentes agnóstico de plataforma. 
-Toda a lógica, contratos e templates da Fábrica residem na pasta oculta .gsf/
+Copy **this folder** into a product repository. The coordinator and every specialist run as independent GSF-compliant agents; the coordinator uses your Harness's interface to start workers, send role prompts, and read `worker_done`.
 
-## Estrutura do Framework
-- .gsf/agents/: Contratos dos agentes (versão 1.0.0).
-- .gsf/skills/: Habilidades (git-flow, health-check).
-- .gsf/templates/: Modelos de jobs e bugs.
-- .gsf/state/: Logs e histórico de execução (ignorado pelo Git).
+This is not a plugin. It requires a GSF-capable runtime (e.g., Hermes, Claude Code) with experimental orchestration enabled. Do not substitute naive subagents or ad-hoc agent creation for this factory structure.
 
-## Instalação
-1. Certifique-se de que seu Harness tem permissão de leitura para .gsf/
-2. Mantenha a pasta .gsf/ no seu .gitignore.
-3. Use o config.json para referenciar os caminhos.
+## Pipeline
+
+
+
+`REJECT` / environment failure / product `gaps.md` end the Run. Review `CHANGES` bounce to the builder. Merge and deploy follow `config.json` policy.
+
+## Install
+
+1. Clone or copy the **.gsf/** directory into your product repository.
+2. Ensure your Harness has read access to `.gsf/`.
+3. Edit `config.json` (configure `checks`, `base_branch`, `agent_defaults`).
+4. Ignite **one** coordinator with `.gsf/agents/orchestrator.md`, `GSF_FACTORY.md`, and your quoted request.
+
+## Core Files
+
+| Path | Role |
+|---|---|
+| `GSF_FACTORY.md` | Coordinator runbook (Protocol DAG + Inbox/Outbox) |
+| `.gsf/agents/orchestrator.md` | Coordinator system prompt |
+| `.gsf/agents/WORKER_CONTRACT.md` | Injected into every worker spec |
+| `.gsf/agents/*.md` | Intake, spec-writer, builder, reviewers, approver |
+| `.gsf/skills/` | Automation skills (git-flow, health-check) |
+| `.gsf/templates/` | Job, response, bug templates |
+| `.gsf/jobs/` | Execution evidence (created on first Run) |
+| `config.json` | Harness settings, path mapping, autonomy |
+
+## Interaction Protocol
+GSF operates on an event-driven system within the `.gsf/jobs/` directory:
+- `[REQUEST_PLAN]`: Coordinator generates the job plan.
+- `[DISPATCH_AGENT]`: Harness triggers a sub-agent per contract.
+- `[WAIT_FOR_SIGNAL]`: Harness blocks until `worker_done` is signaled.
+- `[GATE_RESOLVE]`: Automated/Human validation required to proceed.
+
+## Safety
+
+Untrusted issue text. No secrets in artifacts. No production. Do not weaken protected tests. Unsupervised sub-agent creation is forbidden for factory roles; GSF handoffs require explicit `worker_done` signals and gate resolution.
+
+---
+*For operational details, see `GSF_FACTORY.md`.*
