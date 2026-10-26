@@ -1,0 +1,9 @@
+{
+  "name": "GenericSoftwareFactory",
+  "version": "1.0.0",
+  "agents": {
+    "intake": "agents/intake.md",
+    "builder": "agents/builder.md",
+    "reviewer": "agents/reviewer.md"
+  }
+}
