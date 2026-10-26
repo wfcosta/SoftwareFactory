@@ -6,7 +6,7 @@
     "agents": ".gsf/agents/",
     "skills": ".gsf/skills/",
     "templates": ".gsf/templates/",
-    "jobs": "jobs/",
+    "jobs": ".gsf/jobs/",
     "constraints": "GSF_CONSTRAINTS.md"
   }
 }
