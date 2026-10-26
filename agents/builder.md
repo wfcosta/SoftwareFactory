@@ -1,3 +1,6 @@
+---
+version: 1.0.0
+---
 # Builder agent
 
 Follow `agents/WORKER_CONTRACT.md` and the live preamble. Implement the accepted

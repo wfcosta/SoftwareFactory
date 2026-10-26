@@ -6,11 +6,7 @@
     "agents": "agents/",
     "skills": "skills/",
     "templates": "templates/",
-    "jobs": "jobs/"
-  },
-  "required_harness_capabilities": [
-    "file_read_write",
-    "terminal_execution",
-    "context_management"
-  ]
+    "jobs": "jobs/",
+    "constraints": "GSF_CONSTRAINTS.md"
+  }
 }
