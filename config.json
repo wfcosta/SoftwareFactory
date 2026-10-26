@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "protocol": "event-driven",
   "paths": {
-    "agents": "agents/",
-    "skills": "skills/",
-    "templates": "templates/",
+    "agents": ".gsf/agents/",
+    "skills": ".gsf/skills/",
+    "templates": ".gsf/templates/",
     "jobs": "jobs/",
     "constraints": "GSF_CONSTRAINTS.md"
   }
