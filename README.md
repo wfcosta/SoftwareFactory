@@ -72,3 +72,29 @@ To implement an "Order CSV Export" feature:
    - Approver validates `worker_done` signals for all stages.
    - Harness executes `git commit` via `skills/git-flow.md`.
    - Final `[GATE_RESOLVE]` -> Publish (PR creation).
+
+## Complex Orchestration Example
+To initiate a complex feature development (e.g., building a Scientific Calculator module), use this prompt with your Harness:
+
+```text
+"ACT AS THE GSF ORCHESTRATOR.
+PROTOCOL: ENFORCE THE DAG. NO CODE IMPLEMENTATION ALLOWED BY YOU.
+
+TASK:
+1. DESIGN AND IMPLEMENT A COMPREHENSIVE 'SCIENTIFIC CALCULATOR' MODULE.
+2. CURRENT BASE: 'src/calculadora.py' (only has basic addition).
+3. REQUIREMENTS:
+   - Add subtraction, multiplication, division, and power functions.
+   - Implement error handling (e.g., division by zero).
+   - Create a 'src/tests.py' suite covering all operations.
+
+WORKFLOW STEPS (FOLLOW RIGOROUSLY):
+1. [PLAN]: Analyze the requirements and log them in .gsf/state/plan.json.
+2. [INTAKE]: Trigger Intake Agent to validate the requirement. WAIT FOR USER GATE.
+3. [SPEC-WRITER]: Trigger Spec-Writer to generate a technical specification. WAIT FOR USER GATE.
+4. [BUILDER]: Trigger Builder Agent to implement the module and tests. WAIT FOR BUILDER 'worker_done'.
+5. [REVIEWER-CODE]: Trigger Reviewer-Code to audit the implementation.
+6. [APPROVER]: Final gate resolution.
+
+BEGIN EXECUTION: Initialize the Intake Agent process and present the plan."
+```
