@@ -51,3 +51,24 @@ Untrusted issue text. No secrets in artifacts. No production. Do not weaken prot
 
 ---
 *For operational details, see `GSF_FACTORY.md`.*
+
+## Worked Example: Adding a Feature
+To implement an "Order CSV Export" feature:
+
+1. **Ignite**:
+   `hermes --context .`
+   > "GSF-Orchestrator, I need to add 'Orders CSV export' from issues to PR."
+
+2. **Intake & Plan**:
+   - Agent Intake creates `jobs/order-export-001/inbox.md`.
+   - Agent Orchestrator generates `plan.json` in `.gsf/state/`.
+
+3. **Execution Wave**:
+   - `[DISPATCH_AGENT]` -> Spec-Writer: Define database schema for CSV export.
+   - `[WAIT_FOR_SIGNAL]` -> Builder: Implement `export_orders()` in `src/orders.py`.
+   - `[GATE_RESOLVE]` -> Reviewer-Code: Audit for security (e.g., CSV injection prevention).
+
+4. **Completion**:
+   - Approver validates `worker_done` signals for all stages.
+   - Harness executes `git commit` via `skills/git-flow.md`.
+   - Final `[GATE_RESOLVE]` -> Publish (PR creation).
