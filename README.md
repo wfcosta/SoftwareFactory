@@ -1,14 +1,7 @@
 # Generic Software Factory (GSF)
 
-Framework de orquestração de agentes agnóstico de plataforma.
-
-## Recursos Avançados
-- **Protocolo Inbox/Outbox**: Comunicação assíncrona entre subagentes para auditoria.
-- **GSF_CONSTRAINTS**: Guardrails de segurança e escopo.
-- **Auto-Diagnóstico**: Skills de auto-recuperação (Self-Healing).
-- **Versionamento**: Contratos versionados para compatibilidade.
-
-## Estrutura do Workflow
-1. O Harness monitora `jobs/<job-id>/inbox.md`.
-2. As decisões são registradas em `jobs/<job-id>/outbox.md`.
-3. Em caso de falha, use `skills/health-check.md`.
+## Installation (Hidden Workspace)
+The factory stores its runtime state in a hidden directory.
+1. Run: `mkdir -p .gsf/logs .gsf/state`
+2. Ensure `.gsf/` is in your `.gitignore`.
+3. Load the root directory as your Harness context.
