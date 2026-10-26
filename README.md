@@ -6,7 +6,15 @@ This is not a plugin. It requires a GSF-capable runtime (e.g., Hermes, Claude Co
 
 ## Pipeline
 
-
+```text
+you ignite one coordinator
+        │
+        ▼
+run-create → intake → spec → builder → checks
+        │
+        ▼
+reviewers (parallel wave) → approver → publish
+```
 
 `REJECT` / environment failure / product `gaps.md` end the Run. Review `CHANGES` bounce to the builder. Merge and deploy follow `config.json` policy.
 
