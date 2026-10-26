@@ -1,13 +1,13 @@
-# Generic Software Factory (GSF) — Protocolo de Orquestração
+# Generic Software Factory (GSF) — Orchestrator Runbook
 
-O GSF é um protocolo de automação de software agnóstico de plataforma. Não depende de um binário específico, mas sim da implementação de um "Harness" (agente ou sistema) que interprete este protocolo.
+## Visual Workflow
+[User-Coordinator] -> [Intake] -> [Spec-Writer] -> [Builder] -> [Checks-Gate] -> [Reviews] -> [Approver] -> [Publish]
 
-## Protocolo de Interação (Event-Driven)
-O Harness deve observar os arquivos de estado e responder às seguintes ações:
-- [REQUEST_PLAN]: O agente de orquestração gera um plano baseado nos requisitos.
-- [DISPATCH_AGENT]: O harness inicia um subagente especializado (builder, reviewer, etc.) fornecendo o contrato correspondente em `agents/`.
-- [WAIT_FOR_SIGNAL]: O harness suspende a execução e monitora a conclusão do subagente.
-- [GATE_RESOLVE]: O harness valida o resultado de uma etapa (ex: aprovação de PR).
+## Mission
+One request -> gated, reviewed branch -> factory-owned PR.
 
-## Runtime Agnóstico
-O Harness deve manter um log de estado em `jobs/<job-id>/inbox.md` para permitir que qualquer LLM retome a execução caso seja interrompido.
+## Protocol
+- [REQUEST_PLAN]: Initiate job.
+- [DISPATCH_AGENT]: Trigger sub-agent.
+- [WAIT_FOR_SIGNAL]: Block until 'worker_done'.
+- [GATE_RESOLVE]: Approve or Reject current stage.
