@@ -1,30 +1,59 @@
-# Generic Software Factory (GSF)
+# Orca Software Factory (package)
 
-A Software Factory Genérica é um framework agnóstico de harness projetado para orquestrar fluxos de trabalho de desenvolvimento de software utilizando agentes inteligentes. Ela permite que qualquer plataforma de automação (Hermes, Claude Code, GitHub Copilot, etc.) utilize um conjunto padronizado de instruções e contratos para disparar agentes.
+Copy **this folder** into a product repository. The coordinator and every
+specialist run as Orca agents; the coordinator uses the **`orca` CLI** to start
+workers, send role prompts, and read `worker_done`.
 
-## Estrutura da Factory
+The full install guide and a worked feature (Orders CSV export from issue → PR)
+live in the [repository README](../README.md).
 
-A factory utiliza uma abordagem baseada em diretórios e arquivos Markdown, onde a lógica é ditada pelos contratos definidos nos arquivos `agents/`.
+This is not an Orca plugin. It requires the Orca desktop runtime, experimental
+orchestration, and the `orca` CLI. Do not substitute Cursor/Task subagents or a
+human creating five UI agents.
 
-- `agents/`: Contratos e diretrizes para cada agente (ex: `intake.md`, `builder.md`).
-- `templates/`: Modelos para bugs, jobs e respostas.
-- `REGISTRY.md`: Registro de agentes disponíveis.
+## Pipeline
 
-## Como instalar em seu Harness
+```text
+you ignite one coordinator
+        │
+        ▼
+run-create → intake → spec → builder (child worktree) → checks
+        │
+        ▼
+reviewers (parallel wave) → approver → gh pr create
+```
 
-1. Clone este repositório no seu ambiente de trabalho ou adicione-o como uma dependência de conhecimento (contexto) do seu agente/harness.
-2. Certifique-se de que o seu harness tenha permissão de leitura sobre a pasta `agents/` e `templates/`.
-3. Configure o seu harness para carregar os arquivos dentro da pasta `agents/` como "System Prompts" ou "Tools" dependendo da capacidade do seu harness.
+`REJECT` / environment failure / product `gaps.md` end the Run. Review
+`CHANGES` bounce to the builder. Merge and deploy follow `config.json` policy
+(`merge_pr` and `deploy` default false).
 
-## Fluxo de Operação
+## Install (short)
 
-1. **Intake (Entrada):** O usuário envia um pedido. O agente de Intake (via `agents/intake.md`) analisa o pedido, solicita esclarecimentos e refina os requisitos.
-2. **Orquestração:** O harness utiliza o arquivo de configuração para entender quais agentes devem ser acionados.
-3. **Execução:** O harness delega as subtarefas aos agentes especializados (`builder`, `reviewer`, etc.).
-4. **Finalização:** O agente de Review entrega o resultado conforme os padrões de qualidade definidos.
+1. Install Orca + `orca` CLI. Open the **product** repo in Orca.
+2. Enable Settings → Experimental → orchestration. `orca status --json` must work.
+3. Copy this directory into the product repo and edit `config.json` (real
+   `checks`, `base_branch`, `orca.default_worker_agent`).
+4. Ignite **one** coordinator with `agents/orchestrator.md`, `ORCA_FACTORY.md`,
+   and the quoted request.
 
-## Exemplo de Prompt de Teste
+Details: [root README — Install](../README.md#install).
 
-Para iniciar um fluxo, utilize o seguinte prompt no seu harness após carregar este repositório:
+## Files
 
-"Baseado na documentação de Generic Software Factory, assuma o papel do Agente de Intake. O meu pedido é: [insira aqui a tarefa, ex: 'Criar um endpoint GET /health']. Analise, faça as perguntas necessárias para refinar este pedido e prepare o plano de execução."
+| Path | Role |
+|---|---|
+| `ORCA_FACTORY.md` | Coordinator runbook (CLI DAG + inbox) |
+| `agents/orchestrator.md` | Coordinator prompt |
+| `agents/WORKER_CONTRACT.md` | Injected into every worker spec |
+| `agents/*.md` | Intake, spec, builder, reviewers, approver |
+| `config.json` | Checks, reviewers, autonomy, Orca defaults |
+| `templates/` | Job, response, bug templates |
+| `bugs/` | Ledger (`factory_bug` / `environment` / `product`) |
+
+Job evidence: `jobs/<job-id>/` in the **product** repo (create on first Run).
+
+## Safety
+
+Untrusted issue text. No secrets in artifacts. No production. Do not weaken
+protected tests. Unsupervised `worktree create --agent --prompt` is forbidden
+for factory roles (Orca handoffs do not wait for results).
