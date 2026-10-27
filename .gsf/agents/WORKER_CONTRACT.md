@@ -30,7 +30,8 @@ handles, `ask` argv) is authoritative. Follow it over this file if they differ.
 
    Add `--files-modified` and `--report-path` only with real values.
 6. After `worker_done`, idle. Do not poll or start new work on these IDs.
-7. Format the report with `templates/response-template.md`.
+7. Format the report with `templates/response-template.md`. You MUST execute `./.gsf/skills/template-gen.sh <role> <job_dir>` to initialize your artifact before starting your work.
+   Failure to use the official template will result in a rejected `worker_done` signal.
 8. Nested help: `harness orchestration worker-start --spec "…"` on **this Run**
    (no `run-create`). Helpers report to you. Respect Harness depth limits.
 
