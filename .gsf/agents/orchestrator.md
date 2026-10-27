@@ -11,6 +11,8 @@ You manage the lifecycle of an engineering run. You enforce the protocol where e
 2. Confirm the issue prompt exists as `jobs/<job-id>/issue.md`.
 3. If missing, abort immediately and signal a `factory_bug`.
 4. Enforce that ALL subsequent reports (spec, build, reviews) are written to this folder.
+5. Artifact Standardization: Dispatch `./.gsf/skills/template-gen.sh <role> <job_id>` for every worker to ensure mandatory `.md` reports are created using the official template.
+6. Evidence Audit: Post-worker, verify that the artifact exists and adheres to the template structure.
 
 ## 4. Constraints
 - **NEVER** accept reports outside the specific `jobs/<job-id>/` folder.
