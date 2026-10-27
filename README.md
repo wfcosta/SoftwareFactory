@@ -98,6 +98,13 @@ The Spec-Writer Agent reads existing components and routing patterns, producing 
 ### Step 4: Builder & Checks Gate
 The Builder Agent creates a workspace branch, implements the Login Screen and corresponding unit/integration tests, and signals completion. 
 The harness then executes the `checks` defined in `config.json` (e.g., `npm test`, `npm run lint`).
+### 4. Automatic Environment Setup
+The GSF includes a smart setup skill (`.gsf/skills/setup.sh`) that automatically detects project requirements (Node.js, npm, GitHub CLI). 
+When you run `./.gsf/bin/run.sh`, the factory will:
+- Verify your local environment dependencies.
+- Automatically run `npm install` if a `package.json` is detected.
+- Warn you if critical tools like `gh` (GitHub CLI) are missing for PR automation.
+
 - If **PASS**: Proceeds to the parallel review wave.
 - If **FAIL**: Bounces back to the builder with error logs.
 
