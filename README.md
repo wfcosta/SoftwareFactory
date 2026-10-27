@@ -116,13 +116,26 @@ gh pr create --base main --head <builder-branch> --title "[Factory] Create Login
 
 ---
 
+## 🧱 Contributing & Creating New Agents
+
+Every agent prompt in `.gsf/agents/` must strictly follow the **5 Pillars of the Perfect Prompt** framework:
+
+1. **Role**: Define persona, seniority, and core domain expertise.
+2. **Context**: Explain operational environment and upstream/downstream flows.
+3. **Task**: Sequential step-by-step actions.
+4. **Constraints**: Prohibited actions and safety guardrails.
+5. **Format**: Exact output structures and expected artifacts.
+
+For detailed guidelines and templates, check [CONTRIBUTING_AGENTS.md](./CONTRIBUTING_AGENTS.md).
+
+---
+
 ## 🗂️ Core Files Overview
 
 | Path | Role |
 |---|---|
 | `GSF_FACTORY.md` | Coordinator runbook (Protocol DAG + Inbox/Outbox) |
-| `.gsf/agents/orchestrator.md` | Coordinator system prompt |
-| `.gsf/agents/WORKER_CONTRACT.md` | Injected into every worker spec |
+| `.gsf/agents/` | Specialist agent role prompts (5 Pillars compliant) |
 | `.gsf/skills/` | Pluggable automation scripts (`validate.sh`, `setup.sh`) |
 | `.gsf/bin/run.sh` | Main harness runner for environment bootstrap |
 | `.gsf/bin/gsf.py` | Coordination CLI for state & logging |
