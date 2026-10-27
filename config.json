@@ -2,6 +2,28 @@
   "factory": "Generic Software Factory",
   "version": "1.0.0",
   "protocol": "event-driven",
+  "base_branch": "main",
+  "checks": [
+    "npm test",
+    "npm run lint"
+  ],
+  "protected_paths": [
+    "tests/**",
+    "**/*.test.*"
+  ],
+  "required_reviewers": [
+    "code",
+    "security"
+  ],
+  "surface_reviewers": [
+    "ui",
+    "ux"
+  ],
+  "autonomy": {
+    "publish_pr": true,
+    "merge_pr": false,
+    "deploy": false
+  },
   "paths": {
     "agents": ".gsf/agents/",
     "skills": ".gsf/skills/",

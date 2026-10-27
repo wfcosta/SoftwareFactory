@@ -1,105 +1,138 @@
 # Generic Software Factory (GSF)
 
-Copy **this folder** into a product repository. The coordinator and every specialist run as independent GSF-compliant agents; the coordinator uses your Harness's interface to start workers, send role prompts, and read `worker_done`.
+An **issue-to-PR factory** that runs on autonomous agent orchestration.
 
-This is not a plugin. It requires a GSF-capable runtime (e.g., Hermes, Claude Code) with experimental orchestration enabled. Do not substitute naive subagents or ad-hoc agent creation for this factory structure.
+**What this project is:** playbooks, role prompts, config, ledger, and modular skills (`.gsf/`). You copy them into your product repository.
 
-## Pipeline
+**What the GSF Runtime is:** The coordination layer where an orchestrator agent manages subagents (`worker-start`), executes modular skills (`.gsf/skills/`), and processes signals (`worker_done`).
 
-```text
-you ignite one coordinator
-        │
-        ▼
-run-create → intake → spec → builder → checks
-        │
-        ▼
-reviewers (parallel wave) → approver → publish
+**What you do:** install the runtime, configure checks, and **ignite one coordinator** with your request. You do not manually paste prompts into multiple UI agents or sit in the review loop.
+
+---
+
+## 📊 Visual Flow
+
+```mermaid
+graph TD
+    classDef process fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
+    classDef decision fill:#313244,stroke:#f38ba8,stroke-width:2px,color:#cdd6f4;
+    classDef action fill:#45475a,stroke:#a6e3a1,stroke-width:2px,color:#cdd6f4;
+
+    A[You: Ignition Only<br>Start ONE coordinator agent with orchestrator.md] -->|Request| B[Orchestrator Agent<br>Reads project, coordinates all workers via GSF CLI]
+    B -->|run-create| C[Job Workspace & Inbox]
+    C -->|Dispatch| D[Intake Worker<br>Assess risk, surface reviewers needed]
+    D -->|ACCEPT| E[Spec Worker<br>Write technical spec]
+    E -->|Dispatch| F[Builder Worker<br>Implement in child worktree]
+    F -->|Done| G[Checks Gate<br>Run test/lint/build from config.json]
+    G -->|PASS| H1[Code Rev Worker]
+    G -->|PASS| H2[Security Worker]
+    G -->|PASS| H3[UX/UI Workers]
+    H1 --> I[Approver Worker<br>Verify all evidence]
+    H2 --> I
+    H3 --> I
+    I -->|APPROVE| J[gh pr create<br>Factory-owned PR]
+
+    class A,B,C,D,E,F,G,H1,H2,H3,I,J process;
 ```
 
-`REJECT` / environment failure / product `gaps.md` end the Run. Review `CHANGES` bounce to the builder. Merge and deploy follow `config.json` policy.
+---
 
-## GSF CLI (Harness)
-The GSF requires a coordination CLI (the "Harness") to manage agent signals, lifecycle, and gate resolutions. This CLI bridges the gap between autonomous workers and the persistent state directory.
+## 🛠️ Installation & Setup on Any Machine
 
-### Why the GSF CLI?
-Autonomous agents often fail because they lack a common "mailbox" and standard protocols. The GSF CLI provides:
-1. **Standardized Communication**: Ensures all agents use the same `send` and `check` commands, preventing ad-hoc file-writing collisions.
-2. **State Locking**: Acts as a gatekeeper for critical files in `.gsf/state/`, ensuring only one agent writes at a time.
-3. **Auditability**: Logs every `worker_done` and `ask` event into standardized files, creating a perfect audit trail for human review.
-4. **Portability**: By abstracting commands like `send` and `check`, the GSF can run on any agent-capable runtime without knowing the specific environment's native file-watcher capabilities.
+### 1. Copy the Factory into Your Product Repo
+Clone or copy the `.gsf/` directory, `config.json`, and all `GSF_*.md` files directly into the root of the repository you want to develop:
 
-To use the CLI, ensure `.gsf/bin/gsf.py` is in your environment PATH.
+```bash
+cp -r GSF/.gsf /your/target/repo/
+cp GSF/config.json /your/target/repo/
+cp GSF/GSF_*.md /your/target/repo/
+```
 
-## Core Files
+### 2. Make Harness and Skills Executable
+```bash
+cd /your/target/repo
+chmod +x .gsf/bin/*.sh
+chmod +x .gsf/skills/*.sh
+```
+
+### 3. Configure Your Project (`config.json`)
+Edit `config.json` to define your project's build, test, and lint commands:
+```json
+{
+  "base_branch": "main",
+  "checks": [
+    "npm test",
+    "npm run lint"
+  ],
+  "protected_paths": [
+    "tests/**",
+    "**/*.test.*"
+  ],
+  "autonomy": {
+    "publish_pr": true,
+    "merge_pr": false
+  }
+}
+```
+
+---
+
+## 🚀 Worked Example: Creating a Login Screen
+
+Suppose issue **#101** is filed on your repository:
+> *Create a responsive Login Screen with email and password fields, form validation (empty fields and invalid email format), and error handling for failed authentication.*
+
+### Step 1: Initialize the Run (The Only Human Step)
+Run the GSF execution harness to validate the environment and create the job workspace:
+```bash
+./.gsf/bin/run.sh "101-login-screen: Responsive login form with validation"
+```
+
+### Step 2: Intake & Plan
+The orchestrator triggers the Intake Agent.
+- **Intake**: Validates requirements, checks for ambiguities, assesses risk, and flags required review surfaces (`ui`, `security`). Produces `decision.md`.
+
+### Step 3: Specification
+The Spec-Writer Agent reads existing components and routing patterns, producing `spec.md` with exact UI component layouts, state management rules, validation logic, and test cases.
+
+### Step 4: Builder & Checks Gate
+The Builder Agent creates a workspace branch, implements the Login Screen and corresponding unit/integration tests, and signals completion. 
+The harness then executes the `checks` defined in `config.json` (e.g., `npm test`, `npm run lint`).
+- If **PASS**: Proceeds to the parallel review wave.
+- If **FAIL**: Bounces back to the builder with error logs.
+
+### Step 5: Parallel Review Wave
+Specialized reviewers (Code, Security, UI, UX) inspect the changes simultaneously in isolated read-only contexts:
+- **Code Reviewer**: Audits component architecture and test coverage.
+- **Security Reviewer**: Checks for credential exposure, secure password handling, and input sanitization.
+- **UI/UX Reviewers**: Validate responsiveness and design consistency against requirements.
+
+### Step 6: Approval & Publication
+The Approver Agent reviews all accumulated evidence (`spec.md`, `build.md`, `checks.md`, review logs) and signs off (`APPROVE`). 
+If `publish_pr` is true, the factory automatically executes:
+```bash
+gh pr create --base main --head <builder-branch> --title "[Factory] Create Login Screen" --body "Implements responsive login screen with validation and error handling (#101)."
+```
+
+---
+
+## 🗂️ Core Files Overview
 
 | Path | Role |
 |---|---|
 | `GSF_FACTORY.md` | Coordinator runbook (Protocol DAG + Inbox/Outbox) |
 | `.gsf/agents/orchestrator.md` | Coordinator system prompt |
 | `.gsf/agents/WORKER_CONTRACT.md` | Injected into every worker spec |
-| `.gsf/agents/*.md` | Intake, spec-writer, builder, reviewers, approver |
-| `.gsf/skills/` | Automation skills (git-flow, health-check) |
-| `.gsf/templates/` | Job, response, bug templates |
-| `.gsf/jobs/` | Execution evidence (created on first Run) |
-| `config.json` | Harness settings, path mapping, autonomy |
-
-## Interaction Protocol
-GSF operates on an event-driven system within the `.gsf/jobs/` directory:
-- `[REQUEST_PLAN]`: Coordinator generates the job plan.
-- `[DISPATCH_AGENT]`: Harness triggers a sub-agent per contract.
-- `[WAIT_FOR_SIGNAL]`: Harness blocks until `worker_done` is signaled.
-- `[GATE_RESOLVE]`: Automated/Human validation required to proceed.
-
-## Safety
-
-Untrusted issue text. No secrets in artifacts. No production. Do not weaken protected tests. Unsupervised sub-agent creation is forbidden for factory roles; GSF handoffs require explicit `worker_done` signals and gate resolution.
+| `.gsf/skills/` | Pluggable automation scripts (`validate.sh`, `setup.sh`) |
+| `.gsf/bin/run.sh` | Main harness runner for environment bootstrap |
+| `.gsf/bin/gsf.py` | Coordination CLI for state & logging |
+| `.gsf/jobs/` | Execution evidence ledger |
+| `config.json` | Project policies, checks, and autonomy settings |
 
 ---
-*For operational details, see `GSF_FACTORY.md`.*
 
-## Worked Example: Adding a Feature
-To implement an "Order CSV Export" feature:
-
-1. **Ignite**:
-   `hermes --context .`
-   > "GSF-Orchestrator, I need to add 'Orders CSV export' from issues to PR."
-
-2. **Intake & Plan**:
-   - Agent Intake creates `jobs/order-export-001/inbox.md`.
-   - Agent Orchestrator generates `plan.json` in `.gsf/state/`.
-
-3. **Execution Wave**:
-   - `[DISPATCH_AGENT]` -> Spec-Writer: Define database schema for CSV export.
-   - `[WAIT_FOR_SIGNAL]` -> Builder: Implement `export_orders()` in `src/orders.py`.
-   - `[GATE_RESOLVE]` -> Reviewer-Code: Audit for security (e.g., CSV injection prevention).
-
-4. **Completion**:
-   - Approver validates `worker_done` signals for all stages.
-   - Harness executes `git commit` via `skills/git-flow.md`.
-   - Final `[GATE_RESOLVE]` -> Publish (PR creation).
-
-## Complex Orchestration Example
-To initiate a complex feature development (e.g., building a Scientific Calculator module), use this prompt with your Harness:
-
-```text
-"ACT AS THE GSF ORCHESTRATOR.
-PROTOCOL: ENFORCE THE DAG. NO CODE IMPLEMENTATION ALLOWED BY YOU.
-
-TASK:
-1. DESIGN AND IMPLEMENT A COMPREHENSIVE 'SCIENTIFIC CALCULATOR' MODULE.
-2. CURRENT BASE: 'src/calculadora.py' (only has basic addition).
-3. REQUIREMENTS:
-   - Add subtraction, multiplication, division, and power functions.
-   - Implement error handling (e.g., division by zero).
-   - Create a 'src/tests.py' suite covering all operations.
-
-WORKFLOW STEPS (FOLLOW RIGOROUSLY):
-1. [PLAN]: Analyze the requirements and log them in .gsf/state/plan.json.
-2. [INTAKE]: Trigger Intake Agent to validate the requirement. WAIT FOR USER GATE.
-3. [SPEC-WRITER]: Trigger Spec-Writer to generate a technical specification. WAIT FOR USER GATE.
-4. [BUILDER]: Trigger Builder Agent to implement the module and tests. WAIT FOR BUILDER 'worker_done'.
-5. [REVIEWER-CODE]: Trigger Reviewer-Code to audit the implementation.
-6. [APPROVER]: Final gate resolution.
-
-BEGIN EXECUTION: Initialize the Intake Agent process and present the plan."
-```
+## 🚪 Exit Strategy (Migration)
+If you decide to stop using GSF orchestration:
+1. Move your source code to a clean directory structure.
+2. Delete `.gsf/`, `config.json`, and all `GSF_*.md` files.
+3. See `MIGRATION.md` for full cleanup steps.
