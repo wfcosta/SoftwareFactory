@@ -1,59 +1,38 @@
-# Contributing Agents to Generic Software Factory (GSF)
+# Contributing Agents & Dynamic Routing to GSF
 
 Welcome to the GSF agent development guide. Every specialist agent in the factory operates under strict governance, defined protocols, and reproducible contracts.
 
-When creating or modifying an agent in `.gsf/agents/`, you **MUST** follow the **5 Pillars of the Perfect Prompt** framework. This ensures consistency, reliability, and strict compliance with the GSF DAG pipeline.
+---
+
+## 🧭 Dynamic Routing & DAG Configuration (How Intake Decides)
+
+Unlike rigid factories with a single hardcoded pipeline, GSF features **Dynamic Routing**. 
+
+### How Intake Manages Delegation:
+1. **Agent Discovery**: The **Intake Agent** scans `.gsf/agents/` during its initial assessment.
+2. **Surface & Impact Analysis**: Based on the issue requirements, Intake evaluates which architectural domains are affected:
+   - *Database changes* → Dispatches `db-specialist`
+   - *Public API changes* → Dispatches `api-contract`
+   - *Performance-critical paths* → Dispatches `performance`
+   - *UI/UX features* → Dispatches `reviewer-ui`, `reviewer-ux`, `i18n`
+   - *Auth & sensitive data* → Dispatches `reviewer-security`
+3. **Custom DAG Generation**: Intake writes a custom execution graph into `decision.md`. The Orchestrator reads this plan and dynamically spawns only the required specialist workers in sequence or parallel waves.
 
 ---
 
 ## 🧱 The 5 Pillars of the Perfect Prompt Standard
 
-Every agent prompt file (`.md`) must contain the following five sections:
-
-1. **Role (Who You Are)**
-   - Define the agent's professional persona, seniority, core domain expertise, and tone of voice.
-2. **Context (The Scenario)**
-   - Explain the operational environment, input sources, downstream consumers, and overarching objective.
-3. **Task (What to Do Step-by-Step)**
-   - Detail the sequential actions the agent must execute from start to finish.
-4. **Constraints (What NOT to Do)**
-   - Explicitly list prohibited actions, safety guardrails, out-of-scope behaviors, and fail-closed conditions.
-5. **Format (How to Deliver)**
-   - Specify the exact output structure (e.g., Markdown headers, required file names, verdicts, templates).
+Every agent prompt file (`.md`) must follow the **5 Pillars**:
+1. **Role**: Persona, seniority, and domain expertise.
+2. **Context**: Operational environment and workflow inputs/outputs.
+3. **Task**: Sequential step-by-step actions.
+4. **Constraints**: Prohibited actions and safety guardrails.
+5. **Format**: Exact output structures and expected evidence artifacts.
 
 ---
 
-## 📝 Agent Template
-
-Copy and adapt this template when creating a new agent in `.gsf/agents/<agent-name>.md`:
-
-```markdown
-# <Agent Name> Agent (GSF Specialist)
-
-## 1. Role (Who You Are)
-You are an expert [Role/Title] specializing in [Domain]. You possess deep expertise in [Core Skills].
-
-## 2. Context (The Scenario)
-You operate within the Generic Software Factory (GSF) pipeline. Your input is [Input Source] and your output feeds into [Downstream Consumer].
-
-## 3. Task (What to Do Step-by-Step)
-1. Step 1...
-2. Step 2...
-3. Step 3...
-
-## 4. Constraints (What NOT to Do)
-- NEVER do [Prohibited Action 1].
-- NEVER do [Prohibited Action 2].
-
-## 5. Format (How to Deliver)
-Produce [Artifact Name] structured with:
-- **Verdict**: [PASS / FAIL / etc.]
-- **Details**: ...
-```
-
----
-
-## 🔒 Governance & Verification Rules
-- **No Unsupervised Handoffs**: All agents must adhere to `.gsf/agents/WORKER_CONTRACT.md`.
-- **Evidence-First**: Reviewers and builders must produce explicit evidence artifacts (`spec.md`, `build.md`, `review-*.md`) before signaling `worker_done`.
-- **Fail-Closed**: If an agent encounters ambiguities or unresolvable failures, it must abort via protocol rather than guessing.
+## 🚀 Advanced Enterprise Factory Agents Available
+- `db-specialist`: Zero-downtime database migrations & schema design.
+- `api-contract`: OpenAPI/Swagger & backward-compatible REST/GraphQL contracts.
+- `performance`: N+1 query profiling, memory leak detection, and benchmarks.
+- `i18n`: Localization keys audit, RTL support, and hardcoded text detection.
