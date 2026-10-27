@@ -1,1 +1,0 @@
-CODE REVIEW: Retry logic uses Resilience4j appropriately. Tests cover 403 and 200 cases. Verdict: PASS.
