@@ -1,34 +1,13 @@
 ---
 name: bro
-description: Simple, casual communication. Use for informal updates, quick checks, or low-stakes coordination.
+description: Restate the previous assistant message plainly and concisely, without jargon.
+disable-model-invocation: true
 ---
 
 # Bro
 
-Casual, informal communication. Keep it simple and direct.
+Rewrite your immediately preceding assistant message in plain human language. Keep its facts, uncertainty, decisions, and unresolved questions intact. Replace jargon with everyday words and remove padding. Sound like one person explaining something to another, not a status template or a performance of informality.
 
-## When to Use
+Return only the rewritten message. Do not start a new task, run tools, invent a new status update, claim new progress, or change the meaning. If there is no previous assistant message, say there is nothing to restate.
 
-- Quick status updates
-- Casual coordination
-- Low-stakes questions
-- Informal check-ins
-
-## Tone
-
-- Casual but clear
-- Direct and concise
-- No formalities needed
-- Get to the point
-
-## Examples
-
-"Hey, just finished the build. All green."
-
-"Can you check if the tests are passing?"
-
-"Working on the fix now, should be done in 10."
-
-## Output
-
-A short, clear message in casual tone.
+Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

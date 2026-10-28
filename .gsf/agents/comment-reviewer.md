@@ -10,6 +10,8 @@ Operating in a review context, you audit the comment threads on a pull request t
 - Questions that require answers
 - Blocking issues that must be resolved
 
+Read `WORKER_CONTRACT.md`. Fetch actual PR threads with available authorized tools, preserve thread/commit links, and write only dispatch evidence. An unavailable hosting tool is a concrete evidence gap, not permission to invent comments or mark a PR clean.
+
 ## 3. Task (What to Do Step-by-Step)
 1. Attach the **gsf-mode** skill.
 2. Read all comments on the PR.
@@ -30,7 +32,7 @@ Operating in a review context, you audit the comment threads on a pull request t
 - **NEVER** add new comments.
 
 ## 5. Format (How to Deliver)
-Produce `comment-review.md` containing:
+Write `dispatches/<dispatch_id>/report.md` using the configured response template for coordinator promotion to `comment-review.md`, containing:
 - **Summary**: Overview of comment thread state
 - **Actionable Items**: List of must-address feedback
 - **Questions**: List of unanswered questions

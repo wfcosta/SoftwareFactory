@@ -6,26 +6,28 @@ disable-model-invocation: true
 
 # How
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 Explore the codebase to answer "how does X work?" questions. Produce architectural explanations at the level of a senior engineer onboarding onto a subsystem, enough to build a working mental model, not so much that it reads like annotated source code.
 
-Every spawn is a Task subagent with `subagent_type: generalPurpose` and `readonly: true`. Explorers use a faster model for broad exploration, and every explainer uses a higher-reasoning model for synthesis. Pick each subagent's reasoning level appropriately for the job.
+Use the host's available read-only investigation capability and supported models; do not assume a `generalPurpose` API. Consult optional `.gsf/state/models.md`. Answer narrow questions inline; parallelize independent slices only when the read set warrants it.
 
 ## 1. Assess complexity
 
 If the scope is ambiguous, state your interpretation and explore. The user can redirect.
 
-- **Simple** (a single module, a small utility, a narrow question such as "how does function X work"): no explorers. Spawn one explainer that explores and explains in one pass, built from `references/explainer-prompt.md` without the explorer-findings section. Go to step 4.
+- **Simple** (one module or a narrow question): explore and explain inline using `references/explainer-prompt.md` without the explorer-findings section. Go to step 4.
 - **Complex** (a subsystem spanning multiple files or services, a cross-cutting feature, a full architectural overview): go to step 2.
 
 When in doubt, take the simple path.
 
 ## 2. Explore (complex only)
 
-Decompose the question into 2 to 4 angles, each a distinct slice of the subsystem. Spawn all explorers in a single message, each with `references/explorer-prompt.md` and its angle filled in.
+Decompose the question into 2 to 4 angles, each a distinct slice of the subsystem. When delegation is available, spawn all explorers in a single message; otherwise investigate the same angles serially inline. Give each explorer `references/explorer-prompt.md` and its angle filled in.
 
 ## 3. Synthesize (complex only)
 
-Once all explorers have returned, spawn one explainer with `references/explainer-prompt.md` and every explorer's findings filled in.
+Once explorers return, synthesize using `references/explainer-prompt.md`. A separate explainer is useful only when independent judgment or context size warrants it; preserve null findings and uncertainty.
 
 ## 4. Present
 

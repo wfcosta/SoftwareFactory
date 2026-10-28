@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Architect
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch.
 
 ## Start
@@ -28,7 +30,7 @@ Skip Phase A only when the work is genuinely greenfield with no surrounding syst
 
 Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass `references/runner-prompt.md` as each runner's prompt.
 
-Design it twice. Require at least two structurally distinct candidates before synthesis, even when the first looks sufficient. This is the **exhaust-the-design-space** principle skill made concrete. Whole-shape alternatives, not point fixes inside one shape.
+For a consequential unresolved design, require at least two structurally distinct candidates before synthesis. A settled mechanical boundary change can use one inline sketch with a risk rationale; unsupported delegation uses serial exploration without claiming independence. This is the **exhaust-the-design-space** principle skill made concrete. Whole-shape alternatives, not point fixes inside one shape.
 
 Screen every candidate against [`references/design-red-flags.md`](references/design-red-flags.md) before synthesis. Assume the next contributor is an agent that sees only the files it opened, copies the nearest example, and takes the shortest path that compiles. Prefer the design where a change that looks right from one file is right for the whole repo.
 
@@ -42,7 +44,7 @@ Default: proceed directly to implementation with the synthesized design. No huma
 
 Opt in to a checkpoint when the invoker explicitly asks: "/architect with checkpoint," "stop and show me before implementing," or similar. Then surface the synthesized design and pause for sign-off.
 
-The synthesis can ship as its own commit either way, as the "scaffold first" mode of the **foundational-thinking** principle skill. Planned and scoped breakage during fill-in is fine, per the **outcome-oriented-execution** principle skill. For adversarial pressure on the design before implementing, run the **interrogate** skill on the synthesized sketch.
+The synthesis can ship as its own commit either way, as the "scaffold first" mode of the **foundational-thinking** principle skill. A checked local design-document commit is permitted when authorized; do not deliver executable stubs or publish a failed candidate. Planned and scoped private breakage during fill-in is bounded by configured local commit policy, per the **outcome-oriented-execution** principle skill. For adversarial pressure on the design before implementing, run the **interrogate** skill on the synthesized sketch.
 
 If the human pushes back on the shape (in a checkpoint or after the fact), treat that as Phase A evidence. Re-ground and re-run Phase B before writing more code.
 

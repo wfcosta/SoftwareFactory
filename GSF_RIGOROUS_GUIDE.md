@@ -1,169 +1,83 @@
-# GSF Rigorous Execution Guide (Markdown-First & Low-Model Optimized)
+# GSF architecture
 
-This guide details the pure Markdown architecture of the Generic Software Factory (GSF), engineered to guarantee rigorous execution even on lower-reasoning models.
+## Purpose and authority
 
-## Architecture Philosophy
-- **Zero Imperative Code**: No `.sh`, `.py`, or `.js` runtimes. All logic, playbooks, principles, and skills live in structured Markdown (`.md`), making them universally readable by any LLM harness.
-- **Deterministic Checklists**: Formatted with explicit steps (`1, 2, 3`) and strict constraints (`MUST`, `NEVER`) so lower-reasoning models follow protocols reliably without drift.
-- **Skill-Based Execution**: All execution flows through skills with proper frontmatter, references, and structured procedures.
+GSF is a Markdown-only instruction framework for tool-capable coding agents, not a background runtime. Preserve its original five-pillar roles, one-coordinator workflow, dynamic intake DAG, durable evidence, configured checks, independent approval, protected paths and separately scoped publication/merge/deployment.
 
-## Structure
+The active repository's `GSF_CONFIG.md` is the sole GSF policy source. Resolve its configured paths from that repository root; application-owned configuration is unrelated and must not be overwritten. The normative [worker contract](.gsf/agents/WORKER_CONTRACT.md) owns lifecycle, policy/evidence authority, legal transitions and recovery. Guides explain it; they do not create competing rules.
 
-### Skills (`.gsf/skills/`)
-Modular markdown skill definitions (`SKILL.md`) for rigorous execution:
+The canonical format is a Markdown document containing exactly one identified YAML data block for policy, plan or model preferences. State-format contracts contain one JSON Schema block plus semantic rules. YAML parsing must reject duplicate keys and malformed values; schema validation and relationship checks are distinct. There is no bundled parser/validator executable. A host can use available standard tools, and must disclose missing mechanical validation.
 
-**Main Routing Skill:**
-- **gsf-mode**: The primary entry point. Routes to 23 playbooks, invokes supporting skills, and enforces principles. Contains all non-negotiables, autonomy rules, and delegation logic.
+## Contracts and progressive loading
 
-**Job Initialization:**
-- **gsf-run**: Initializes job workspace, validates environment, replaces the previous script-based `run.sh`.
+| Contract | Responsibility |
+|---|---|
+| [Configuration](.gsf/state/config-contract.md) | Profile, typed checks, paths, reviewers, defaults and policy bootstrap |
+| [Plan](.gsf/state/plan-contract.md) | Task/dispatch identities, typed state and DAG relationships |
+| [Events](.gsf/state/event-contract.md) | Event envelope, sender/transition validation and complete-record boundaries |
+| [Model preferences](.gsf/state/models-contract.md) | Role scalar versus panel/pool shape and actual capability limits |
+| [Candidate identity](.gsf/state/candidate-contract.md) | Covered source, immutable policy baseline, narrow evidence exclusions and freshness |
+| [Worker lifecycle](.gsf/agents/WORKER_CONTRACT.md) | Ownership, dispatch, ingestion, gates, partial-state reconciliation and external effects |
 
-**Design & Architecture:**
-- **architect**: Parallel design exploration with references/ subdirectory containing templates (design-red-flags.md, rationale-template.md, runner-prompt.md)
-- **arena**: N parallel candidates with base selection and grafting
-- **how**: Architectural explanations with references/ (explorer-prompt.md, explainer-prompt.md)
-- **why**: Motivation investigation with references/ (investigator-prompt.md, synthesizer-prompt.md, epistemics.md)
+1. Load the configured constraints and mode. Identify direct read-only use versus an evidence-producing factory job.
+2. Read the selected playbook in full. Create a checklist with concrete acceptance and only applicable verification surfaces.
+3. Read support/principle skills before applying them. Load reference prompts for the step that needs them, rather than the whole catalog.
+4. Give workers actual absolute mode/role/leaf paths, IDs, exact candidate, ownership, constraints, evidence destination and done predicate. A name in a prompt does not load a file.
+5. The coordinator integrates and verifies actual artifacts and owns shared state. Workers do not become extra coordinators by loading the mode.
 
-**Review & Verification:**
-- **interrogate**: Adversarial review for contested designs
-- **blast-radius**: Impact assessment before changes
-- **tdd**: Test-driven development
-- **swarm**: Parallel workers across different slices
-- **benchmark-checklist**: Performance measurement validation
+Record the active instruction paths and content identities in the job. Skills being developed on a branch need not exist on trunk. Instruction upgrades during a run require explicit reconciliation; never silently switch to a different trunk version.
 
-**Writing & Communication:**
-- **unslop**: Remove AI writing tells
-- **technical-writing**: Diátaxis framework documentation
-- **no-comments**: Self-documenting code
-- **gsf-help**: Navigation assistance
+## Execution modes
 
-### Playbooks (`.gsf/skills/gsf-mode/playbooks/`)
-23 step-by-step operational playbooks, each with explicit steps and success criteria:
+- **Direct read-only:** cited answer/proposal, no initialization or filesystem mutation when the request forbids writes.
+- **Factory investigation:** authorized job evidence, read-only product inspection, no implementation/publication under an investigation exception.
+- **Implementation:** intake/specification, owned writes, real configured checks, independent mandatory/applicable reviews and final approval.
 
-**Investigation & Analysis:**
-- investigation.md: Read-only questions about how things work
-- runtime-forensics.md: Diagnose live symptoms from instrumentation
-- trace-forensics.md: Diagnose captured profiling artifacts
+Partition work only across useful independent seams. Serial fallback is allowed for implementation/analysis when host delegation is absent, but is not independent review. Routine unambiguous edits do not require competing architecture panels. Risk, affected surface and explicit acceptance determine depth; a document-only task does not automatically need ten live lanes or a performance benchmark.
 
-**Implementation:**
-- bug-fix.md: Reproduce, root-cause, and fix with runtime evidence
-- feature.md: New behavior from named data shape
-- refactoring.md: Behavior-preserving structural changes
-- perf-issue.md: Trace and improve measured slowness
-- hillclimb.md: Sustained metric improvement loop
-- prototype.md: Throwaway sketches for design decisions
-- visual-parity.md: Pixel-exact UI equivalence
+Checked local unit commits may occur when authorized. Final readiness/publication needs the complete gate on the final candidate. Merge/deploy remain separate operations. Do not preserve a red intermediate commit if project policy prohibits it; preserve failing-before/passing-after evidence instead.
 
-**Meta & Orchestration:**
-- authoring-a-skill.md: Writing or editing SKILL.md files
-- eval.md: Blinded skill/prompt evaluation
-- babysit.md: Drive PR to merge-ready
-- shipping.md: Verify and land green stacks
-- autonomous-run.md: Drive long tasks to completion
-- orchestrate.md: Multi-day, multi-PR coordination
-- autopilot-full.md: Run independent PRs to merged
-- autopilot-stack.md: Build and verify PRs for operator review
-- session-pickup.md: Resume prior in-flight work
-- pause-safely.md: Suspend work cleanly
-- multi-phase-plan.md: Work spanning phases or stacked PRs
-- worktree-cleanup.md: Prune merged worktrees
-- opening-a-pr.md: Open ready PR from ordered commits
+## Policy, identity and recovery
 
-### Principles (`.gsf/skills/`)
-24 foundational engineering rules encoded as individual skills:
+The distributed framework policy defaults publication/merge/deployment to false and checks GSF through `verify-gsf`. Product installation establishes actual commands/working directories rather than inheriting nonexistent npm defaults. A template is not an accepted permission grant. A job retains its accepted effective policy baseline, including any real operator-scoped exceptions; lower-trust issues, worker reports and prior chat summaries cannot authorize actions.
 
-**Core (10):**
-- attack-the-premise: Test shared premises before assuming
-- boundary-discipline: Guards at boundaries, pure business logic
-- build-the-lever: Build tools, don't do by hand
-- encode-lessons-in-structure: Encode repeated instructions as structure
-- exhaust-the-design-space: Build 2-3 competing prototypes
-- experience-first: User delight over implementation convenience
-- explain-the-number: Understand what limits a measurement
-- fix-root-causes: Trace symptoms to first wrong turn
-- foundational-thinking: Types before logic, concurrency before locks
-- laziness-protocol: Smallest change, bias to deletion
+Candidate identity is not merely HEAD or an undifferentiated worktree hash. The candidate contract covers actual implementation/configuration inputs, including new relevant untracked files, binaries and removals, while excluding only named active evidence. It separates source identity, policy identity and evidence identity. Changing a skill under review changes the candidate; appending its check receipt does not.
 
-**Architecture (6):**
-- model-the-domain: Encode domain in structures, not conditionals
-- make-operations-idempotent: Converge to same end state
-- migrate-callers-then-delete: Migrate and delete in one wave
-- minimize-reader-load: Collapse layers, shrink scope
-- never-block-on-the-human: Proceed on reversible work
-- outcome-oriented-execution: Converge on target, no throwaway states
-- redesign-from-first-principles: Redesign as if requirement was day-one
-- separate-before-serializing-shared-state: Eliminate sharing first
-- sequence-verifiable-units: Small verifiable units
-- subtract-before-you-add: Remove dead weight first
-- type-system-discipline: Make illegal states unrepresentable
+The accepted event history and dispatch evidence support recovery; plans and canonical reports are projections to reconcile. A retry uses a fresh dispatch, preserves older attempts and requires ownership/liveness resolution. Partial writes, lost handles, a report without completion and completion before projection are explicit cases in the worker contract. A lost PR receipt requires actual forge inspection before another create call. These are safe procedures, not guarantees of transactional storage or exactly-once remote effects.
 
-**Verification (5):**
-- prove-it-works: Verify against real artifact
-- sequence-verifiable-units: Break work into verifiable units
-- test-behavior-not-implementation: Assert observable behavior
-- explain-the-number: Understand measurement limits
+## Reference coverage
 
-**Delegation (2):**
-- guard-the-context-window: Route bulk to subagents
-- never-block-on-the-human: Don't ask on reversible work
+Adapted from [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack), revision `c742dd61706fbacc1b95f1a20b7b988cf096ce6c`. Preserve [the MIT attribution](.gsf/LICENSE-pstack.md). GSF-specific role names and configured policy take precedence over upstream runtime assumptions.
 
-**Meta (1):**
-- encode-lessons-in-structure: Encode patterns as structure
+| Reference capability | GSF disposition |
+|---|---|
+| Main mode and 23 task playbooks | Retained with local ownership/policy/recovery and proportional verification |
+| 24 principle skills | Retained as unprefixed leaf directories |
+| Design, coverage and adversarial review | `architect`, `arena`, `swarm`, `interrogate`, with supported host models/contexts only |
+| Plain previous-answer rewrite / deeper prompt | `bro` / `sharpen`, preserving the actual operations rather than generic tone editing |
+| Generated verification and upkeep | `create-verification-skill`, `maintain-verification-skill`; Launch/Doctor/Drive/Evidence/Cleanup and source/live correspondence |
+| Rationale research | `why` plus source-specific investigation recipes and preserved uncertainty |
+| Recent context / teaching / learning | `recall`, `teach`, `reflect`; authorized history, evidence and proposal-first durable edits |
+| Working-style updates | `automate-me`, distinct create/update paths and established preference preservation |
+| Measurement integrity | `benchmark-checklist`, correct work/error counts, timed region, fair tuning and repeated comparisons |
+| Source-comment audit | Independent read-only source review; distinct from PR discussion triage |
+| Formal models and statecharts | Bounded installed-checker procedure and evidence-grounded Mermaid, not automatic graph-extraction parity |
+| Decision trail / media catch-up | Markdown decisions and actual supported renderer, not copied logging/rendering scripts |
+| TypeScript syntax-specific guidance | Optional leaf, not a dependency for other product languages |
+| Upstream bots, vendor automations, cloud-agent APIs, private histories, watch/generator executables | Deliberately excluded; no fictitious capability or automatic external mutation |
 
-### Agents (`.gsf/agents/`)
-30 specialized roles with 5-pillar prompts:
-- All agents attach the **gsf-mode** skill for rigorous execution
-- Orchestrator: Job coordination via gsf-run skill
-- Intake: Risk assessment with blast-radius skill
-- Spec-Writer: Investigation with how/why skills
-- Builder: Implementation with appropriate playbook (feature/bug-fix/refactoring)
-- Reviewers: Interrogate skill for adversarial review
-- Approver: Evidence verification with prove-it-works
+This is not a byte-identical vendor mirror. Reference revisions are reviewed deliberately; a newer upstream tree does not silently expand permissions or make the existing installation obsolete.
 
-## Execution Flow
+## Authoring and maintenance
 
-1. **Initialization**: Orchestrator invokes **gsf-run** skill to create job workspace
-2. **Routing**: Orchestrator attaches **gsf-mode** skill and selects appropriate playbook
-3. **Execution**: Workers execute with **gsf-mode** attached, routing to skills as needed
-4. **Evidence**: All reports written to job workspace
-5. **Verification**: Approver reviews all evidence before publication
+Every skill uses matching kebab-case directory/name, a concrete description and boolean invocation flag. The flag is host metadata, not authorization. Optional reference prompts are linked relatively and must resolve. Roles retain exactly Role, Context, Task, Constraints and Format; legal exceptions and important failure paths cannot be reduced to slogans.
 
-## Skill Frontmatter
-
-Every SKILL.md must include:
-```yaml
----
-name: skill-name
-description: When to use this skill
-disable-model-invocation: true  # For skills that manage subagents
----
-```
-
-Optional fields:
-- `icon`: UI display icon
-- `color`: UI display color
-
-## Skill References
-
-Skills that need templates or prompts include a `references/` subdirectory:
-- architect: design-red-flags.md, rationale-template.md, runner-prompt.md
-- how: explorer-prompt.md, explainer-prompt.md
-- why: investigator-prompt.md, synthesizer-prompt.md, epistemics.md
-
-## Constraints for Lower-Reasoning Models
-
-1. **Explicit Steps**: Numbered lists (1, 2, 3) not bullet points
-2. **No Ambiguity**: No "you might want to", "consider", "optionally"
-3. **Clear Conditions**: Explicit if/then logic
-4. **Deterministic Outcomes**: Each step has a clear success/failure criterion
-5. **No Nested Choices**: Flatten decision trees into sequential steps
+Use `create-skill` for instructions and `technical-writing` for prose. Keep one normative source for a shared rule. Product verification skills have feature maps and maintenance loops; frozen formal models record correspondence and dirty snapshot identity separately from commit provenance.
 
 ## Verification
 
-Before claiming a task is complete:
-1. All skill files have proper frontmatter
-2. All playbooks have explicit numbered steps
-3. All principles are encoded as skills
-4. All agents attach gsf-mode skill
-5. No script files remain in .gsf/
-6. Documentation reflects the skill-based architecture
+[verify-gsf](.gsf/skills/verify-gsf/SKILL.md) defines the framework check; its [matrix](.gsf/skills/verify-gsf/references/scenarios.md) identifies required structural, semantic and real lifecycle scenarios. The [verification report](docs/verification/README.md) records observed results and limits for this revision.
+
+File counts, valid metadata and a scratch protocol simulator alone do not prove real dispatch or independent approval. Exercise an actual coordinator/worker flow, real product commands, candidate stability, denied-publication handoff and interrupted-state reconciliation. Negative review/check results remain blockers. Capability-specific media/formal/device work is unexercised unless actually run.
+
+No Markdown procedure can guarantee deterministic model behavior, atomic writes, process fencing or every future deployment environment. Completion means the agreed predicates passed for the recorded version and host, with all remaining limits explicitly stated.

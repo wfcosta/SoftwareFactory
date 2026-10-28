@@ -1,17 +1,17 @@
-### Pause Safely
+### Pause safely
 
-**You own the clean suspension.** Suspend in-flight work cleanly so it can be resumed later. This is for when you need to stop work mid-task without losing progress.
+**You own a clean stop. Leave a checkpoint a cold-start agent can resume.** Use this playbook for an explicit pause/stop request or capability-forced host suspension, never a voluntary escape while reachable authorized work remains. “Going to bed, keep going” routes to Autonomous run, not here.
 
-1. **Assess the current state.** What phase is the work in? What's completed? What's in progress? What's the next step?
-2. **Record the state explicitly.** Write down:
-   - Where you are in the playbook
-   - What's been done (with evidence if possible)
-   - What's pending
-   - What the next step is when resuming
-   - Any decisions made and their rationale
-3. **Commit or save the evidence.** Ensure all work is committed to git or saved to the job directory. Don't leave uncommitted changes that could be lost.
-4. **Document the resume point.** Create a clear marker (a comment in the inbox, a note in the project plan, a dedicated RESUME.md) that tells the next agent exactly where to pick up.
-5. **Verify the resume point.** Ask yourself: if I were a new agent reading this, would I know exactly what to do next? If not, add more detail.
-6. **Report the pause.** Tell the operator that work is paused cleanly, where it is, and how to resume.
+1. **Quiesce the current unit.** Start nothing new. Stop at an atomic boundary, or undo only your unfinished step if safe. Send nested workers and watchers a zero-writes stop and collect their latest reports; account for running processes and late results. Do not kill unrelated processes or assume cancellation already prevented writes.
+2. **Take no irreversible action to pause.** No new PR, merge, deployment, branch rewrite, credential change, or publication solely for durability. An existing authorized remote branch may receive an owned checkpoint only if its publication grant still applies. A pause never expands authority.
+3. **Make owned work durable.** Save exact paths and diffs in the existing job. If the work is already checked and committing is permitted, stage only owned paths and make a clear `wip:` checkpoint commit on the owned branch, stating any broken state. If constraints prohibit unchecked commits, preserve the working tree and save an owned patch and untracked-file inventory in job evidence instead. Never commit others' edits, silently stash them, reset the worktree, or hide that it is dirty. Record actual SHA, status, and whether the saved patch covers untracked files.
+4. **Write one resume note.** Use the existing job trail or `resume.md` inside that job, not a throwaway temp directory. Include original goal, current playbook/step, intent, completed units and receipts, unchecked/broken work, branch/worktree/base/head, active or cancelled task ids, pending forge operations, open operator gates, key paths, gotchas, and the first exact action on resume. Point to [show-me-your-work](../../show-me-your-work/SKILL.md) rather than duplicating its log.
+5. **Record the pause.** Follow the configured worker contract: coordinator emits `pause_requested` with reason `operator` or `capability`; worker checkpoints durably and acknowledges `worker_paused`; coordinator then records `job_paused` and the resume prerequisite. Unconfirmed worker liveness remains blocked, never permission for an overlapping replacement. Resume via reconciliation and `job_resumed`, not by treating suspension as approval/completion. If durability failed, report where the sole copy remains and what could be lost. Route a later resume through [Session pickup](./session-pickup.md).
 
-**Reply:** current state, what's recorded, resume point location, how to resume.
+**Reply:** where the loop stopped, on-disk paths versus unsaved context, checkpoint SHA or saved patch, clean/dirty/broken state, outstanding workers, and first resume action. This is a pause, not a completion report.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack pause-safely.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

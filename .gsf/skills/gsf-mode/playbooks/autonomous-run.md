@@ -1,17 +1,24 @@
-### Autonomous Run
+### Autonomous run
 
-**You own the completion.** Drive a long task to completion without stopping. This is for when the user steps away ("going to bed", "trust it when i'm back", "/loop until X").
+**You own the exit condition. Define done, then drive to it without silently stopping or relaxing it.**
 
-1. **Understand the task and constraints.** What needs to be done? What are the success criteria? What are the guardrails (GSF_CONSTRAINTS.md, project-specific rules)?
-2. **Decompose into phases.** Break the task into logical phases or milestones. Create a todo list with one entry per phase.
-3. **Work phase by phase.** Execute each phase to completion before moving to the next. Verify each phase's output.
-4. **Handle blockers without blocking.** If you hit a blocker:
-   - Try to resolve it yourself (read docs, run commands, investigate)
-   - If you truly need the operator, state the blocker clearly, propose a resolution path, and pause
-   - Don't ask "should I do X?" on reversible work
-5. **Make reversible calls autonomously.** Use the operator's delegated autonomy to act on reversible decisions without asking. Report what you did and why.
-6. **Maintain a decision trail.** Use the **show-me-your-work** skill to record significant decisions and their rationale. Commit this trail if stakes are high.
-7. **Verify the final output.** Before declaring completion, verify that the task meets all success criteria and guardrails.
-8. **Report completion.** Summarize what you did, the phases completed, the final output, and any open decisions or next steps.
+1. **Pin the predicate.** Record the accepted goal, a checkable exit predicate (repro fixed, all named checks green, N authorized PRs merged, zero visual diff), boundaries, permissions, and the starting candidate in the job. An attempt floor or budget the user gave remains part of the predicate. Do not replace a merge goal with PR opening or an experiment goal with an anecdote.
+2. **Choose an available wake mechanism.** Prefer the host's event subscriptions or task completion notifications for CI, a merge, or a ref
+   advancing. If useful, assign a read-only watcher worker that reports the exact event/head and does not write the owner's branch. Add a
+   long heartbeat fallback through a real host scheduler when available. With no event, use a bounded watch such as `gh pr checks <pr>
+   --watch` or the forge's equivalent, sized to useful change, not a second sleep loop. Record the mechanism, interval, owner, cancellation
+   handle, and next predicate evaluation. No `/loop` command, shell daemon, or proprietary runtime is required. If the host has no
+   persistent wake facility, continue reachable work in the active session; record that unattended continuation is unavailable rather than
+   claiming a nonexistent scheduled run.
+3. **Iterate by evidence.** Read the previous checkpoint, select the smallest discriminating action, execute through the matching playbook, verify that unit against the predicate, and commit only if it advanced and configured pre-commit gates permit it. Undo only your own rejected hypothesis. Sequence verifiable units; do not stack unmeasured fixes or keep belt-and-suspenders code that might help.
+4. **Own discoveries within scope.** Resolve reversible operational failures, flaky verifiers, review noise, and tooling drift supported by evidence. A supporting fix must be necessary for the goal and authorized; put separable fixes in their own PR when publication is allowed. A newly found unrelated product bug is a recorded follow-up, not permission for scope expansion. Return to the main predicate after each supporting action. Product/preference calls no experiment settles, missing credentials, forbidden changes, and irreversible actions go through the worker contract’s `gate_blocked` disposition.
+5. **Checkpoint every iteration.** Use [show-me-your-work](../../show-me-your-work/SKILL.md): iteration id, hypothesis, candidate before/after, action, commands/artifacts, measured predicate state, kept/discarded decision, blocker, and next action. Record worker ids and active dispatches so a replacement can resume. A heartbeat is liveness, never completion.
+6. **Stop honestly.** Stop when the exact predicate is met, the operator stops the run, or a genuine dead end remains after a cause-specific pivot. A plateau alone is not success. State a blocked predicate explicitly and cancel only your own watches/workers; do not leave a hidden loop writing after stop.
 
-**Reply:** task understanding, phase decomposition, work completed per phase, blockers encountered and how they were handled, autonomous decisions made, final verification, completion report.
+**Reply:** the predicate, iterations, what landed, what was discarded, final evidence, and any precise unmet condition.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack autonomous-run.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

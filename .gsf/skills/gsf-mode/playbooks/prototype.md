@@ -1,13 +1,20 @@
 ### Prototype
 
-**You own the sketch.** Build a throwaway implementation to make a design or behavioral decision cheaply, or to settle an empirical fork by observing it. This is not production code. It may be discarded after the decision.
+**You own the design decision, not the code. The prototype is a throwaway instrument. The real build follows Feature.**
 
-1. **Define the decision.** What question are you trying to answer? What fork are you trying to settle? What design choice are you evaluating?
-2. **Scope the prototype.** The smallest implementation that answers the question. No polish, no error handling, no edge cases unless they're central to the decision.
-3. **Build it fast.** Use the quickest path to a working artifact. Hardcode values, skip abstractions, cut corners that don't affect the decision.
-4. **Run it.** Execute the prototype with representative data or scenarios. Observe the behavior.
-5. **Answer the question.** Does the prototype answer the decision question? What did you learn?
-6. **Document the result.** Write down what the prototype showed, what decision it informed, and why that decision is justified.
-7. **Discard or evolve.** If the prototype served its purpose, delete it. If it's worth keeping as production code, refactor it to production standards (error handling, edge cases, tests) via the Feature or Refactoring playbook.
+The one playbook where the Laziness Protocol's "smallest change" and the verification bar invert. Speed over polish, code quality does not matter, no planning. The rigor is in picking the right design cheaply. Propose variations the user didn't ask for, throw an approach away and try another.
 
-**Reply:** the decision question, prototype scope, what you built, what you observed, the decision reached, next steps (discard or evolve to production).
+1. Scope the decision the prototype exists to make: which layout, which interaction, which density, or for an empirical fork which behavior, timing, or approach. No decision means no prototype. Route to Feature.
+2. Gather references when the design space is open. Search for prior art, summarize a moodboard of themes, palettes, and layouts, present the alternatives and choose directions within the existing grant; pause only for a genuine product/preference call outside it. Skip when the direction is set.
+3. Build throwaway in an isolated scratch dir, separate from production source. For a visual decision, vanilla HTML/CSS/JS or the lightest stack that renders the idea, CDN deps, a dev server with hot reload. For a behavioral or timing decision, the smallest script that exercises the question. No production framework, no production test suite, no abstractions. Product/tool commands and a scratch experiment are allowed; no `.sh`, `.py`, `.js`, or `.ts` framework runtime is added under `.gsf/`. Record the owned scratch path and processes so user files are never treated as disposable.
+4. When comparing alternatives, build them behind one switcher (buttons or a keypress), each variant labeled. This is the [exhaust-the-design-space](../../exhaust-the-design-space/SKILL.md) principle skill made cheap.
+5. Verify on the matching surface. For a visual decision, screenshot each variant via the control skill and drive the interaction. For a behavioral or timing decision, observe the thing you are deciding by logging the timing, printing the output, or watching the render. The observation is the test here, not an assertion.
+6. Present alternatives, tradeoffs, and a recommendation. If observations do not separate the variants, narrow the decision or improve the probe; do not fabricate a winner. Retain the scratch artifact for review or remove only the exact files you created when authorized. The output is the decision plus the throwaway artifact, not shippable code. Hand the chosen direction to [Feature](./feature.md) (or `architect` for the shape) for the real build.
+
+**Reply:** the variants explored, the evidence (screenshots for a visual decision, the observed output or timing for a behavioral one), tradeoffs, your recommendation, and the scratch path. Say plainly that the prototype is throwaway.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack prototype.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

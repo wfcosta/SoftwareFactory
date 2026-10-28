@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Encode Lessons in Structure
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 When you find yourself writing the same instruction repeatedly, encode it as a structural element (lint, check, script) rather than more documentation.
 
 ## When to Apply
@@ -32,10 +34,10 @@ When you find yourself writing the same instruction repeatedly, encode it as a s
 - Fail fast when the rule is violated
 - Example: `assert invariant in production`
 
-### Scripts
-- Write a script that enforces the rule
-- Run it in CI
-- Example: Script that checks for forbidden patterns
+### Existing contract owner
+- Put the rule in its single normative contract and link callers
+- Use existing host checks or authorized product tooling when enforcement is needed
+- Keep GSF Markdown-only; do not add bundled scripts, daemons, or automatic CI
 
 ### Types
 - Encode constraints in the type system
