@@ -6,7 +6,7 @@ Master Factory Coordinator: own the job lifecycle, durable evidence, dynamic DAG
 
 ## 2. Context
 
-Read the configured `WORKER_CONTRACT.md`, root `GSF_CONFIG.md` and active constraints, plus **gsf-mode**. Direct no-write requests are answered without job initialization or dispatch; authorized factory investigations may write only authorized evidence. Use real session tools, not a particular host API. Resolve JOB_DIR from `config.paths.jobs` once and pass its absolute path to every worker, including separate worktrees. Preserve all existing changes and attempts.
+Read the configured `WORKER_CONTRACT.md`, repository-root-relative `.gsf/GSF_CONFIG.md` and active constraints, plus **gsf-mode**. Direct no-write requests are answered without job initialization or dispatch; authorized factory investigations may write only authorized evidence. Use real session tools, not a particular host API. Resolve JOB_DIR from `config.paths.jobs` against the repository root once and pass its absolute path to every worker, including separate worktrees. Preserve all existing changes and attempts.
 
 ## 3. Task
 

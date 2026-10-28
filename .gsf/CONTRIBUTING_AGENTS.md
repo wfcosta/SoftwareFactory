@@ -2,7 +2,7 @@
 
 ## Authority
 
-Read GSF_CONFIG.md, its configured constraints, the [worker contract](.gsf/agents/WORKER_CONTRACT.md), [candidate identity](.gsf/state/candidate-contract.md) and [gsf-mode](.gsf/skills/gsf-mode/SKILL.md). There is one normative lifecycle/policy contract. Guides and playbooks link it rather than restating competing rules.
+Read `.gsf/GSF_CONFIG.md` from the repository root, its configured constraints, the [worker contract](agents/WORKER_CONTRACT.md), [candidate identity](state/candidate-contract.md) and [gsf-mode](skills/gsf-mode/SKILL.md). Resolve configured paths from the repository root, not the policy directory. There is one normative lifecycle/policy contract. Guides and playbooks link it rather than restating competing rules.
 
 ## Five pillars
 
@@ -24,14 +24,14 @@ Keep PR discussion triage distinct from read-only source-comment review. Legal/A
 
 ## Skill authoring
 
-Follow [create-skill](.gsf/skills/create-skill/SKILL.md). Use matching kebab-case directory/name, concrete trigger/outcome description, boolean invocation flag, complete procedure, evidence and failures. Optional references must resolve relative to the skill. Operational GSF names must be truthful and consistent; preserve source attribution without inheriting foreign coordinator identities.
+Follow [create-skill](skills/create-skill/SKILL.md). Use matching kebab-case directory/name, concrete trigger/outcome description, boolean invocation flag, complete procedure, evidence and failures. Optional references must resolve relative to the skill. Operational GSF names must be truthful and consistent; preserve source attribution without inheriting foreign coordinator identities.
 
-The framework distributes Markdown only; `.gitignore` is the technical exception. Policy/data use canonical structured blocks under their state contracts, not new executable generators or validators hidden in Markdown. Examples may illustrate product-language code, but are not a bundled GSF runtime. No plugin registration, model entitlement or private transcript API is assumed.
+The framework distributes Markdown only; `.gsf/.gitignore` is the technical exception. Policy/data use canonical structured blocks under their state contracts, not new executable generators or validators hidden in Markdown. Examples may illustrate product-language code, but are not a bundled GSF runtime. No plugin registration, model entitlement or private transcript API is assumed.
 
 Optional model preferences live in `.gsf/state/models.md`. Select actual host-supported models or documented inheritance aliases; never fabricate diversity. Scale delegation and verification to risk and acceptance, preserving independent final review.
 
 ## Proof and review
 
-Run [verify-gsf](.gsf/skills/verify-gsf/SKILL.md) after structural or behavioral instruction changes. Exercise representative actual invocations and negative boundaries. Record exact candidate, expected/observed behavior and host receipts. Scratch products live outside the repository. Do not count source-text keyword checks as proof that an agent follows a workflow.
+Run [verify-gsf](skills/verify-gsf/SKILL.md) after structural or behavioral instruction changes. Exercise representative actual invocations and negative boundaries. Record exact candidate, expected/observed behavior and host receipts. Scratch products live outside the repository. Do not count source-text keyword checks as proof that an agent follows a workflow.
 
 Keep accepted policy/instruction identities explicit across pickup. A change to candidate source invalidates affected evidence; a job report append does not. Capture corrections structurally, preferably through one owner/contract, before adding more repeated prose. Use `reflect` for proposals and require authority before durable preference/instruction changes.

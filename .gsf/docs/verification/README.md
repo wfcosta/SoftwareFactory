@@ -2,15 +2,15 @@
 
 ## Scope
 
-Verified the Markdown-only GSF instruction distribution and its bounded lifecycle behavior on Windows with Python 3.12, PyYAML, a Draft 2020-12 JSON Schema validator, Git and actual host workers. Source policy remains default-deny. The operator separately authorized this source commit, existing-branch push and existing PR update; that does not authorize merge or deployment.
+This document separates the historical full lifecycle verification below from the current self-contained layout checks at the end. The historical run verified the Markdown-only GSF instruction distribution and its bounded lifecycle behavior on Windows with Python 3.12, PyYAML, a Draft 2020-12 JSON Schema validator, Git and actual host workers. Source policy remained default-deny. The operator separately authorized that source commit, existing-branch push and existing PR update; that did not authorize merge or deployment.
 
-This report contains observed results, not a generated passing fixture. Scratch applications were outside the source repository and are not distributed. The [reusable procedure](../../.gsf/skills/verify-gsf/SKILL.md) and [scenario matrix](../../.gsf/skills/verify-gsf/references/scenarios.md) define how to repeat the checks.
+The observations and receipts below are retained unchanged in meaning. At the time, policy and several guides were at the repository root; they now live under `.gsf/`, with canonical policy `.gsf/GSF_CONFIG.md` and repository-root-relative configured paths. Historical source counts, identities and path checks do not establish current relocation correctness. The [reusable procedure](../../skills/verify-gsf/SKILL.md) and [scenario matrix](../../skills/verify-gsf/references/scenarios.md) define how to repeat checks. Scratch applications were outside the source repository and are not distributed.
 
 ## Structural and source review
 
 - Parsed 62 skill frontmatters; matching names/descriptions and boolean invocation metadata were valid. All 23 playbooks and 19 five-pillar role prompts remain.
-- Parsed all five embedded JSON Schema contracts and the actual YAML root policy. Permission booleans default to false; the framework check names the real verification skill, not nonexistent npm scripts.
-- Operational source files are Markdown only; `.gitignore` is the explicit technical exception. No bundled runtime helpers, standalone state-data files or operational foreign role names remain. Test products are ignored and absent from the source tree.
+- Parsed all five embedded JSON Schema contracts and the then-root YAML policy. Permission booleans defaulted to false; the framework check named the real verification skill, not nonexistent npm scripts.
+- Operational source files were Markdown only; `.gitignore` was the explicit technical exception. No bundled runtime helpers, standalone state-data files or operational foreign role names remained. Test products were ignored and absent from the source tree at that time. The current nested `.gsf/.gitignore` does not ignore root-level test products.
 - Checked local Markdown references and actual route/role/format names. The shared worker contract is normative; the playbooks no longer copy its global policy blocks.
 - An independent source review found three remaining multi-phase defects: narrative/DAG collision, silent trunk instruction replacement and an unsupported forge command. All were corrected. Fresh independent current-source code and security reviews returned no findings within their stated scope. A failed reviewer execution produced no accepted verdict and was replaced by an actual fresh review.
 
@@ -86,3 +86,18 @@ No CI result, actual media render, formal theorem/model-check result, production
 Markdown contracts cannot enforce process fencing, filesystem isolation, atomic appends, authentic writers or exactly-once external effects by themselves. Native host capabilities, honest evidence inspection and the specified fail-closed decisions remain necessary.
 
 The disposable task recipe and expected outputs are retained in the scenario matrix. A new generated implementation can reproduce the behavioral checks but need not have the same source hash. Raw host/task receipts are retained locally as ignored job evidence; absolute private paths and generated executable products are not published. Cleanup removes only owned scratch resources after receipts are preserved.
+
+## Current self-contained layout checks
+
+These observations cover the directory relocation, not a new full lifecycle certification. All framework files now live under `.gsf/`; the distribution root contains only `README.md` and `.gsf/`, apart from Git administration.
+
+- Validated the nested canonical `.gsf/GSF_CONFIG.md` against the five current state schemas and resolved its configured paths from the repository root. Protected policy/constraint paths name their new locations; publication, merge and deployment remain false.
+- Parsed all 62 skill frontmatters. Permission strings, repository-escaping agent paths, empty checks and missing mandatory security review were rejected by the policy schema.
+- Exercised Git's actual ignore matching: `.gsf/jobs`, logs, bugs, local models and other explicitly named local-data directories are ignored, while policy, skills, state contracts and the root README remain visible. These nested rules do not ignore root-level products.
+- Copied only the distributable `.gsf/` files into a fresh external Git repository, without the source README, jobs, logs or personal model preferences. The first portability check found two documentation links depending on the uncopied root README; those dependencies were removed. All 252 installed local Markdown links then resolved entirely within `.gsf/`.
+- A separate actual `RelocatedSetup` context read that installation's setup skill, canonical policy, configuration contract, worker contract and constraints. Real YAML/schema validation passed, configured paths resolved without `.gsf/.gsf` duplication, and the absent jobs directory remained absent.
+- A separate actual `MissingPolicy` context inspected a second fixture with no `.gsf/GSF_CONFIG.md` but a stale root policy granting publication, merge and deployment. It refused initialization, did not adopt the old policy and kept all permissions denied. Bootstrap was not authorized.
+- Before/after SHA-256 snapshots confirmed that both read-only contexts left every fixture file unchanged and created no jobs. The negative case's expected BLOCKED disposition is a successful fail-closed observation, not a passing policy validation.
+- The source tree contains no `produto/`, `products/` or installed test application. Disposable fixtures stay outside the source repository and are removed after retaining these sanitized observations.
+
+The two setup contexts did not execute the configured full verification skill, run a product implementation lifecycle or perform remote effects. Historical lifecycle receipts above remain historical; these path/discovery checks must not be presented as a new full framework gate.

@@ -19,7 +19,7 @@ Document the operational assumption, safe retry, or fail-closed action with evid
 
 ## Correction to apply
 
-Concrete authorized change to prompts, `GSF_CONFIG.md`, coordinator procedure, worker contract, typed checks or state contracts. Preserve the immutable policy baseline and never suppress a failure to manufacture PASS.
+Concrete authorized change to prompts, `.gsf/GSF_CONFIG.md`, coordinator procedure, worker contract, typed checks or state contracts. Preserve the immutable policy baseline and never suppress a failure to manufacture PASS.
 
 ## Verification
 

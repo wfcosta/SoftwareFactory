@@ -18,7 +18,7 @@ Learn from source, existing tests/harnesses, manifests, and documented startup i
 - **Observe:** screenshots, action traces, terminal output and exit status, responses, logs, persistent state, files, or outgoing messages. Identify the independent predicate proving the user's goal.
 - **Isolate:** owned ports, scratch data, profiles, fixtures and accounts. Determine whether concurrent instances are safe. If only a shared user session is possible, require explicit access and serialization; never double-drive it silently.
 
-Record source paths supporting commands and selectors. Use GSF_CONFIG.md and its typed checks when applicable; do not invent an npm command for a framework-only repository. Policy, model preferences, plans and evidence follow the active Markdown contracts.
+Record source paths supporting commands and selectors. Use `.gsf/GSF_CONFIG.md` and its typed checks when applicable; do not invent an npm command for a framework-only repository. Policy, model preferences, plans and evidence follow the active Markdown contracts.
 
 A broken baseline is not a valid recipe. Establish whether the app builds and starts only when that execution is authorized. Repair a baseline only within separately authorized product scope; otherwise report the exact blocker. A required empty asset directory may be temporary verification scaffolding only if irrelevant to the tested behavior, explicitly named, owned, and removed later. Missing authentication, seed data, or a real runtime is BLOCKED, not a substitute mock success.
 

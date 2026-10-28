@@ -2,12 +2,14 @@
 
 ## Install and establish policy
 
-Copy the framework files listed in the [README](../../README.md), preserving the license notice. Do not copy old job evidence, personal model choices or test products. Preserve the application's own configuration; GSF uses [GSF_CONFIG.md](../../GSF_CONFIG.md), not a generic application configuration filename.
+Copy the single `.gsf/` directory described in the [architecture guide](../../GSF_RIGOROUS_GUIDE.md), preserving the [legal notices](../../THIRD_PARTY_NOTICES.md). Exclude old jobs, logs, bug evidence and personal model preferences; do not copy test products. Preserve the application's own configuration; GSF uses [.gsf/GSF_CONFIG.md](../../GSF_CONFIG.md), not a generic application configuration filename. Constraints live at [.gsf/GSF_CONSTRAINTS.md](../../GSF_CONSTRAINTS.md).
 
 The repository's distributed `framework` profile runs `verify-gsf` as a skill check. For a product, accept a `product` policy with actual check commands and working directories, required reviewers, protected paths and explicit permissions. Never use a missing package script as a passing placeholder or inherit a publication grant from an unaccepted template.
 
+All `config.paths` entries, check paths/working directories and protected paths are relative to the repository root, not to `.gsf/` or this guide. The canonical policy has no root-file fallback. `.gsf/.gitignore` covers runtime data within `.gsf/`, not repository-root product or audit directories.
+
 ```text
-Read GSF_CONFIG.md and .gsf/skills/gsf-setup/SKILL.md.
+Read .gsf/GSF_CONFIG.md and .gsf/skills/gsf-setup/SKILL.md.
 Prepare only this repository's intended product. Discover actual commands
 and supported host capabilities, preserve existing policy, and report
 missing prerequisites. Do not install dependencies or publish implicitly.
@@ -24,7 +26,7 @@ A terminal/filesystem host can execute CLI/product workflows. UI changes require
 ## Start one coordinator
 
 ```text
-Read GSF_CONFIG.md, .gsf/agents/orchestrator.md and
+Read .gsf/GSF_CONFIG.md, .gsf/agents/orchestrator.md and
 .gsf/skills/gsf-mode/SKILL.md. Fix the login form accepting an invalid
 email. Reproduce on the actual form, preserve neighboring behavior,
 run configured checks, and obtain mandatory/applicable independent
@@ -92,4 +94,4 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 
 ## Remove GSF safely
 
-Pause owned workers, preserve required evidence, remove only identified factory-owned files and explicit host registrations, and run the product's normal checks. Preserve application source, its own configuration, Git history/remotes and unrelated user-level skills. Never delete `.git`, hard-reset history or blanket-clean the repository as an uninstall step.
+Pause owned workers and preserve required evidence outside the directory before removal. Remove only the identified factory-owned `.gsf/` directory (including its policy, constraints, runbook, guides and nested ignore file) and explicit GSF host registrations, then run the product's normal checks. The root `README.md` may be product-owned: remove only GSF-specific instructions you own. Preserve application source, its own configuration, Git history/remotes and unrelated user-level skills. Never delete `.git`, hard-reset history or blanket-clean the repository as an uninstall step.

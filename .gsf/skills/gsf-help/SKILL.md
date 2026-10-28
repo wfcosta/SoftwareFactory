@@ -13,7 +13,7 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 - [gsf-setup](../gsf-setup/SKILL.md): establish or adapt a repository's factory configuration.
 - [gsf-mode](../gsf-mode/SKILL.md): shared working policy and task/playbook routing.
 - [gsf-run](../gsf-run/SKILL.md): execute an authorized factory job using the current policy and job lifecycle.
-- Root `GSF_CONFIG.md`: canonical policy; `.gsf/state/*-contract.md`: state formats and validation contracts. Active job plans and model preferences are Markdown (`plan.md`, `models.md`), not a separate runtime installation. Resolve root paths from the actual repository; never invent an absent skill or command.
+- Repository-root-relative `.gsf/GSF_CONFIG.md`: canonical policy; `.gsf/state/*-contract.md`: state formats and validation contracts. Active job plans and model preferences are Markdown (`plan.md`, `models.md`), not a separate runtime installation. Resolve configured paths from the actual repository root, not the policy directory; never invent an absent skill or command.
 
 ## Investigation and understanding
 

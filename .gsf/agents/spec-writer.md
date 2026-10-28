@@ -16,7 +16,7 @@ Read `WORKER_CONTRACT.md`. Use the supplied JOB_DIR and lifecycle IDs; product f
 5. Establish numbered, verifiable acceptance criteria.
 6. Specify edge cases, negative test scenarios, and security considerations.
 7. List exact files likely to be modified or created.
-8. Define validation from the effective `GSF_CONFIG.md` baseline: exact typed command checks with safe repository-relative cwd, or existing skill paths with actual acceptance criteria. Do not invent package commands or treat a skill as a shell command.
+8. Define validation from the effective `.gsf/GSF_CONFIG.md` baseline: exact typed command checks with safe repository-root-relative cwd, or existing repository-root-relative skill paths with actual acceptance criteria. Do not invent package commands or treat a skill as a shell command.
 9. Resolve protected-path constraints before promising test edits: identify allowed coverage locations or the exact missing scoped authorization. Include specialist decisions and check working directories; do not silently remove configured validation.
 
 ## 4. Constraints (What NOT to Do)

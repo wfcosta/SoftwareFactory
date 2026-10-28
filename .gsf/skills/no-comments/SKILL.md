@@ -10,7 +10,7 @@ Reduce comments that repeat code or conceal a fixable design problem. This is no
 
 ## Scope and inputs
 
-Use the caller's files or diff. Otherwise discover `base_branch` from GSF_CONFIG.md and use the current diff against that base, including working-tree changes; when no policy exists discover the actual upstream default. Do not silently assume a branch. Record scope and authorization to edit. A request for review alone remains read-only and creates no job.
+Use the caller's files or diff. Otherwise discover `base_branch` from `.gsf/GSF_CONFIG.md` and use the current diff against that base, including working-tree changes; when no policy exists discover the actual upstream default without treating it as factory authorization. Do not silently assume a branch. Record scope and authorization to edit. A request for review alone remains read-only and creates no job.
 
 ## Ordered work
 

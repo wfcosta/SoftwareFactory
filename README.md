@@ -4,13 +4,13 @@ An issue-to-PR workflow executed by a coding agent. GSF ships **Markdown instruc
 
 ## Start
 
-1. Copy `.gsf/`, `GSF_CONFIG.md`, `GSF_CONSTRAINTS.md`, `GSF_FACTORY.md`, `GSF_RIGOROUS_GUIDE.md` and `CONTRIBUTING_AGENTS.md` into the target repository. Preserve existing product configuration and local customizations; GSF uses its own policy filename and never merges into a generic application config. Do not copy jobs, logs, model preferences or private evidence from another installation.
-2. Read [GSF_CONFIG.md](GSF_CONFIG.md). The distributed `framework` profile verifies GSF itself through `verify-gsf`; it does not pretend there is an npm product in this repository. For product work, use the `product` profile and configure real project checks and working directories. Keep publication, merge and deploy denied until explicitly authorized.
+1. Copy the single `.gsf/` directory into the target repository, excluding private runtime data: jobs, logs, bug evidence and personal model preferences. Preserve the [legal notices](.gsf/THIRD_PARTY_NOTICES.md), existing product configuration and local customizations. GSF never merges policy into a generic application config.
+2. Read [.gsf/GSF_CONFIG.md](.gsf/GSF_CONFIG.md). The distributed `framework` profile verifies GSF itself through `verify-gsf`; it does not pretend there is an npm product in this repository. For product work, use the `product` profile and configure real project checks and working directories. Keep publication, merge and deploy denied until explicitly authorized.
 3. Ask your coding agent to read [gsf-setup](.gsf/skills/gsf-setup/SKILL.md). It validates policy, discovers actual project/runtime/tool capabilities and reports missing prerequisites without silently installing dependencies or weakening checks.
 4. Start one coordinator:
 
 ```text
-Read GSF_CONFIG.md, .gsf/agents/orchestrator.md and
+Read .gsf/GSF_CONFIG.md, .gsf/agents/orchestrator.md and
 .gsf/skills/gsf-mode/SKILL.md. Implement the requested issue,
 preserve the configured constraints, run every configured check,
 and obtain the required independent reviews. Do not publish,
@@ -47,9 +47,28 @@ Commit, publication, merge and deployment are distinct actions. Authorized local
 
 ## Policy and state
 
+The canonical policy is `.gsf/GSF_CONFIG.md`; constraints are `.gsf/GSF_CONSTRAINTS.md`. All `config.paths` entries, check paths/working directories and protected paths resolve from the **repository root**, never from the policy file's `.gsf/` directory. There is no fallback to root-level policy files.
+
+```text
+README.md
+.gsf/
+  GSF_CONFIG.md
+  GSF_FACTORY.md
+  GSF_CONSTRAINTS.md
+  CONTRIBUTING_AGENTS.md
+  GSF_RIGOROUS_GUIDE.md
+  THIRD_PARTY_NOTICES.md
+  .gitignore
+  docs/
+  agents/
+  skills/
+  state/
+  templates/
+```
+
 | Artifact | Responsibility |
 |---|---|
-| `GSF_CONFIG.md` | One canonical YAML policy block: profile, checks, paths, reviewer policy and permissions |
+| `.gsf/GSF_CONFIG.md` | One canonical YAML policy block: profile, checks, paths, reviewer policy and permissions |
 | `.gsf/state/*-contract.md` | Format contracts with a canonical JSON Schema block and normative semantic rules |
 | `.gsf/state/candidate-contract.md` | Source manifest, policy identity, evidence exclusions and snapshot freshness |
 | `.gsf/state/models.md` | Optional local YAML model preferences; available host models only |
@@ -105,9 +124,9 @@ No count of files or absence of scripts proves autonomous reliability. Report th
 
 ## Guides
 
-- [First task, host setup and safe removal](docs/guide/README.md)
-- [Architecture and capabilities](GSF_RIGOROUS_GUIDE.md)
-- [Contributing roles and skills](CONTRIBUTING_AGENTS.md)
-- [Verification evidence](docs/verification/README.md)
+- [First task, host setup and safe removal](.gsf/docs/guide/README.md)
+- [Architecture and capabilities](.gsf/GSF_RIGOROUS_GUIDE.md)
+- [Contributing roles and skills](.gsf/CONTRIBUTING_AGENTS.md)
+- [Verification evidence](.gsf/docs/verification/README.md)
 
-Only operational Markdown is distributed; `.gitignore` is the explicit Git metadata exception. Jobs, logs, bug evidence, personal model choices and audit trails are ignored by default. The local `products/` test directory is not part of the distribution.
+Only operational Markdown is distributed; `.gsf/.gitignore` is the explicit Git metadata exception. Its rules ignore jobs, logs, bug evidence and personal model preferences **within `.gsf/`**. They do not ignore repository-root `products/` or audit directories; keep scratch products outside the repository and manage any product-specific ignore rules separately.

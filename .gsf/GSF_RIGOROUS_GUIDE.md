@@ -4,7 +4,7 @@
 
 GSF is a Markdown-only instruction framework for tool-capable coding agents, not a background runtime. Preserve its original five-pillar roles, one-coordinator workflow, dynamic intake DAG, durable evidence, configured checks, independent approval, protected paths and separately scoped publication/merge/deployment.
 
-The active repository's `GSF_CONFIG.md` is the sole GSF policy source. Resolve its configured paths from that repository root; application-owned configuration is unrelated and must not be overwritten. The normative [worker contract](.gsf/agents/WORKER_CONTRACT.md) owns lifecycle, policy/evidence authority, legal transitions and recovery. Guides explain it; they do not create competing rules.
+The active repository's `.gsf/GSF_CONFIG.md` is the sole GSF policy source, with constraints at `.gsf/GSF_CONSTRAINTS.md` and no root-policy fallback. Resolve every `config.paths` entry, check path/working directory and protected path from the repository root, never from `.gsf/`. Application-owned configuration is unrelated and must not be overwritten. The normative [worker contract](agents/WORKER_CONTRACT.md) owns lifecycle, policy/evidence authority, legal transitions and recovery. Guides explain it; they do not create competing rules.
 
 The canonical format is a Markdown document containing exactly one identified YAML data block for policy, plan or model preferences. State-format contracts contain one JSON Schema block plus semantic rules. YAML parsing must reject duplicate keys and malformed values; schema validation and relationship checks are distinct. There is no bundled parser/validator executable. A host can use available standard tools, and must disclose missing mechanical validation.
 
@@ -12,12 +12,12 @@ The canonical format is a Markdown document containing exactly one identified YA
 
 | Contract | Responsibility |
 |---|---|
-| [Configuration](.gsf/state/config-contract.md) | Profile, typed checks, paths, reviewers, defaults and policy bootstrap |
-| [Plan](.gsf/state/plan-contract.md) | Task/dispatch identities, typed state and DAG relationships |
-| [Events](.gsf/state/event-contract.md) | Event envelope, sender/transition validation and complete-record boundaries |
-| [Model preferences](.gsf/state/models-contract.md) | Role scalar versus panel/pool shape and actual capability limits |
-| [Candidate identity](.gsf/state/candidate-contract.md) | Covered source, immutable policy baseline, narrow evidence exclusions and freshness |
-| [Worker lifecycle](.gsf/agents/WORKER_CONTRACT.md) | Ownership, dispatch, ingestion, gates, partial-state reconciliation and external effects |
+| [Configuration](state/config-contract.md) | Profile, typed checks, paths, reviewers, defaults and policy bootstrap |
+| [Plan](state/plan-contract.md) | Task/dispatch identities, typed state and DAG relationships |
+| [Events](state/event-contract.md) | Event envelope, sender/transition validation and complete-record boundaries |
+| [Model preferences](state/models-contract.md) | Role scalar versus panel/pool shape and actual capability limits |
+| [Candidate identity](state/candidate-contract.md) | Covered source, immutable policy baseline, narrow evidence exclusions and freshness |
+| [Worker lifecycle](agents/WORKER_CONTRACT.md) | Ownership, dispatch, ingestion, gates, partial-state reconciliation and external effects |
 
 1. Load the configured constraints and mode. Identify direct read-only use versus an evidence-producing factory job.
 2. Read the selected playbook in full. Create a checklist with concrete acceptance and only applicable verification surfaces.
@@ -26,6 +26,8 @@ The canonical format is a Markdown document containing exactly one identified YA
 5. The coordinator integrates and verifies actual artifacts and owns shared state. Workers do not become extra coordinators by loading the mode.
 
 Record the active instruction paths and content identities in the job. Skills being developed on a branch need not exist on trunk. Instruction upgrades during a run require explicit reconciliation; never silently switch to a different trunk version.
+
+The distribution keeps only the public `README.md` at the repository root. Policy, constraints, runbook, contributing instructions, this architecture guide, docs, agents, skills, state contracts, templates and legal notices live inside `.gsf/`. Install by copying that single directory while excluding private jobs, logs, bug evidence and model preferences. Installed instructions do not depend on the distribution's root README or replace an application's README. `.gsf/.gitignore` scopes its rules to `.gsf/`; it does not ignore root-level products or audit data. See the [installation/removal guide](docs/guide/README.md) for host registration and safe uninstall.
 
 ## Execution modes
 
@@ -74,11 +76,11 @@ Every skill uses matching kebab-case directory/name, a concrete description and 
 
 Use `create-skill` for instructions and `technical-writing` for prose. Keep one normative source for a shared rule. Product verification skills have feature maps and maintenance loops; frozen formal models record correspondence and dirty snapshot identity separately from commit provenance.
 
-Preserve the applicable copyright and license text in [Third-party notices](.gsf/THIRD_PARTY_NOTICES.md).
+Preserve the applicable copyright and license text in [Third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Verification
 
-[verify-gsf](.gsf/skills/verify-gsf/SKILL.md) defines the framework check; its [matrix](.gsf/skills/verify-gsf/references/scenarios.md) identifies required structural, semantic and real lifecycle scenarios. The [verification report](docs/verification/README.md) records observed results and limits for this revision.
+[verify-gsf](skills/verify-gsf/SKILL.md) defines the framework check; its [matrix](skills/verify-gsf/references/scenarios.md) identifies required structural, semantic and real lifecycle scenarios. The [verification report](docs/verification/README.md) preserves historical observed results and their limits; those receipts do not certify the relocated layout.
 
 File counts, valid metadata and a scratch protocol simulator alone do not prove real dispatch or independent approval. Exercise an actual coordinator/worker flow, real product commands, candidate stability, denied-publication handoff and interrupted-state reconciliation. Negative review/check results remain blockers. Capability-specific media/formal/device work is unexercised unless actually run.
 
