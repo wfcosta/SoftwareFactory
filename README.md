@@ -2,8 +2,6 @@
 
 An issue-to-PR workflow executed by a coding agent. GSF ships **Markdown instructions and contracts only**: skills, role prompts, playbooks, templates, policy and durable job records. It has no bundled executable, daemon, dependency installer, scheduler or automatic plugin registration.
 
-The design adapts [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack) to GSF's five-pillar agents, dynamic routing and fail-closed approval gates. The [MIT attribution](.gsf/LICENSE-pstack.md) remains with the adapted material. Operational names and roles are GSF-owned; source provenance is not a runtime dependency.
-
 ## Start
 
 1. Copy `.gsf/`, `GSF_CONFIG.md`, `GSF_CONSTRAINTS.md`, `GSF_FACTORY.md`, `GSF_RIGOROUS_GUIDE.md` and `CONTRIBUTING_AGENTS.md` into the target repository. Preserve existing product configuration and local customizations; GSF uses its own policy filename and never merges into a generic application config. Do not copy jobs, logs, model preferences or private evidence from another installation.
