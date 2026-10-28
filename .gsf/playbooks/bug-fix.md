@@ -1,9 +1,17 @@
 # Playbook: Bug Fix
 
-**Objective:** Reproduce a defect, trace root cause, and implement a verified fix with zero regression.
+**Objective:** Reproduce a defect with failing test evidence, trace root cause to the originating flaw, implement the minimal fix, and verify regression safety.
 
-## Steps
-1. **Reproduction:** Observe and capture the failure behavior (failing test case, script, or reproduction steps).
-2. **Root Cause Analysis:** Trace symptom to the exact originating flaw using code inspection and logs. Apply *Fix Root Causes* principle.
-3. **Minimal Fix:** Implement the smallest change necessary. Apply *Laziness Protocol* and *Subtract Before You Add*.
-4. **Verification:** Run tests and smoke verify the fixed path. Confirm passing regression.
+## Operational Steps
+1. **Reproduction Gate:**
+   - Write a failing test or isolated reproduction script that exercises the exact failure mode.
+   - Run the test and confirm it fails for the correct reason. Never proceed without observing failure.
+2. **Root Cause Analysis:**
+   - Trace symptom back to the first place the system went wrong (*Fix Root Causes* principle).
+   - Inspect call stack, state transitions, and boundary inputs.
+3. **Minimal Implementation:**
+   - Apply *Laziness Protocol* and *Subtract Before You Add*.
+   - Make the smallest possible change that addresses the root cause without adding speculative abstractions.
+4. **Verification:**
+   - Run test suite and confirm regression test passes cleanly.
+   - Inspect diff for unintended modifications.

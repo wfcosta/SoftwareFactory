@@ -1,9 +1,13 @@
 # Playbook: Refactoring
 
-**Objective:** Behavior-preserving structural improvement that reduces cognitive load and simplifies domain model.
+**Objective:** Behavior-preserving structural improvement that reduces cognitive load and simplifies domain models.
 
-## Steps
-1. **Baseline Verification:** Ensure all existing checks and tests pass.
-2. **Structural Design:** Apply *Foundational Thinking* and *Model the Domain* to simplify types and call graphs.
-3. **Migrate & Delete:** Update callers and remove legacy abstractions simultaneously (*Migrate Callers Then Delete*).
-4. **Post-Check:** Verify behavior via automated test suite and smoke run.
+## Operational Steps
+1. **Baseline Verification:**
+   - Ensure all existing tests and checks pass before touching code.
+2. **Structural Design:**
+   - Apply *Foundational Thinking* and *Model The Domain*. Simplify types and call graphs.
+3. **Migration & Deletion:**
+   - Migrate callers and delete legacy APIs in the same wave (*Migrate Callers Then Delete* principle).
+4. **Post-Refactor Validation:**
+   - Run complete test suite and verify behavior remains identical.
