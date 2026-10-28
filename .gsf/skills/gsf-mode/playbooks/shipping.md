@@ -1,0 +1,33 @@
+### Shipping
+
+**You own what lands. Independently verify each PR, land only the contiguous verified run from the root, then keep your hands off the stack.** Green CI is necessary, not a behavioral verdict or merge permission.
+
+1. **Pin authority, forge, and candidate set.** Read `autonomy.merge_pr`, `autonomy.publish_pr`, the accepted shipping scope, configured base/checks/reviewers, and forge branch protection. False or missing merge authority means stop at merge-ready until an explicit scoped operator grant is recorded; merely publishing, babysitting, or planning is not a merge grant. Retarget/rewrite pushes also need publication authority. Resolve the actual forge per [Opening a PR](./opening-a-pr.md); do not substitute local `git merge` and a trunk push when forge access fails. Freeze the bottom-to-top PR list, branch owners, head/base SHAs, and operator-reserved items.
+2. **Verify each PR independently.** Dispatch one non-author verifier per PR through GSF's real task tool, preferably using a different
+   available model family. The verifier compares that PR's parent against head, runs configured gates, reviews the diff, and drives the
+   load-bearing change as a user through [control-ui](../../control-ui/SKILL.md), [control-cli](../../control-cli/SKILL.md), or a named
+   repository driver. Require concrete inputs, expected/actual results, head/base, artifact paths, and `PASS`, `PASS+NOTES`, or `FAIL`. Save
+   `review-<role>.md` and the full dispatch report; publish the verdict to the PR only with publication authority. Authors' self-proof,
+   green CI, and bot approval do not replace independence. A missing driver or inconclusive/wrong-surface result is BLOCKED.
+3. **Choose the contiguous verified run.** Walk from the lowest unmerged PR. Stop at the first missing/failed/stale verdict, failed gate, or operator-reserved item. The verified prefix is the run and its top is the ceiling; verified items above a gap wait. An independent PR may move onto trunk only through its owner with fresh base-aware proof, because a verdict over a dependency-containing base does not prove independence. Do not require every higher PR to pass before landing a valid lower prefix.
+4. **Bind evidence to the code.** Record verdict head and base, the actual PR delta, current head/base, and `git diff <parent-base> <head> | git patch-id --stable` for both verdict and current candidate. Never compute a stacked child's patch against trunk, which folds in its dependencies. An unchanged patch-id can carry a lane only after checking that changed base/dependencies cannot invalidate what it exercised; every new head still needs green configured checks/CI. A semantic code change gets fresh independent proof.
+
+   When only tests/docs/lint config changed, an old behavioral lane may stand only if the artifact it ran builds identically at old and new SHAs apart from demonstrated noise. Demonstrate noise by two builds of the old SHA or a known embedded commit id, and name the differing files. Fresh checks and review still cover the new test/doc/config diff. A lane with no comparable build output, such as a dev server, reruns. Never stretch a patch-id match into permission to ignore a conflict resolution, altered dependency, or changed checked surface.
+5. **Land bottom-up, one at a time.** Immediately before each merge, fetch configured trunk and read live PR state. Confirm its base is
+   trunk, current head is the verified candidate, all required checks/approvals remain green, and no user hold arrived. For GitHub use `gh
+   pr merge <pr> --squash --match-head-commit <verified-head>`; preserve repository policy if another merge method is required. Do not use
+   admin/bypass flags. Use auto-merge only when it is explicitly authorized, current-head proof is valid, and the branch is frozen against
+   unreviewed pushes. On another forge, confirm whether a merge command also merges ancestors, and invoke only the lowest member so nothing
+   beyond the ceiling is armed.
+
+   Read back `gh pr view <pr> --json state,mergedAt,baseRefName,headRefOid,mergeCommit` or the selected forge equivalent. A successful command, queue entry, or armed auto-merge is not a landed PR. Confirm MERGED into configured trunk and record the merge commit. Monitor a queued candidate through native forge events/status until that actual state appears; if it stalls, inspect its blocker before changing anything.
+6. **Advance only through the branch owner.** After an actual parent merge, its child's owner moves the child patch onto the merge result and retargets its PR to trunk (for GitHub `gh pr edit <child> --base <trunk>`). The owner alone rebases/pushes its branch, with an exact observed-SHA lease and no user work loss. Compare patch-ids and base effects using step 4, rerun invalidated lanes, and wait for new-head checks. If conflict, overlapping trunk change, unexpected push, or altered behavior appears, stop that candidate and return it to the owner/verifier rather than resolving unverified code in the shipping lane.
+7. **Freeze the run while it lands and stop at the ceiling.** No unrelated branch/base edits, follow-up commits, or stack-wide submissions while a verified head is armed. The next child's necessary move in step 6 is the sole planned topology change. If another actor pushes, cancel pending auto-merge where available and re-evaluate proof before proceeding. Extending the ceiling needs a new independent verification pass and scope/authority check. An operator stop reaches every owner as zero-writes immediately.
+
+**Reply:** the run and ceiling, verdict/producer/head for each PR, actual merges with read-back evidence, queue versus merged distinction, operator holds, and precisely what the next gap needs.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack shipping.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.
