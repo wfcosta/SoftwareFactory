@@ -115,6 +115,7 @@ gh pr create --base main --head <builder-branch> --title "[Factory] Create Login
 Modular markdown skill definitions for rigorous execution:
 - **gsf-mode**: Main routing skill with 23 playbooks (bug-fix, feature, refactoring, perf-issue, etc.)
 - **gsf-run**: Job workspace initialization and environment validation
+- **gsf-setup**: Model configuration per role with reasoning budget
 - **architect**: Parallel design exploration with references/templates
 - **arena**: N parallel candidates with base selection and grafting
 - **how**: Architectural explanations for subsystems
@@ -122,7 +123,15 @@ Modular markdown skill definitions for rigorous execution:
 - **interrogate**: Adversarial review for contested designs
 - **blast-radius**: Impact assessment before changes
 - **tdd**: Test-driven development
-- **swarm**: Parallel workers across different slices
+- **swarm**: Parallel workers across different slices with references/
+- **benchmark-checklist**: Performance measurement validation
+- **create-verification-skill**: Project-local verification skill generation
+- **in-your-own-words**: Goal restatement before work begins
+- **automate-me**: Capture working style into personal skills
+- **correct**: Targeted code fixes
+- **figure-it-out**: Autonomous problem resolution
+- **sharpen**: Prompt refinement for clarity
+- **bro**: Casual, simple communication
 - **unslop**: Remove AI writing tells
 - **technical-writing**: Diátaxis framework documentation
 - **no-comments**: Self-documenting code
@@ -138,7 +147,7 @@ Modular markdown skill definitions for rigorous execution:
 - session-pickup, pause-safely, multi-phase-plan, worktree-cleanup, opening-a-pr
 
 ### Agents (`.gsf/agents/`)
-30 specialized roles with worker contracts:
+34 specialized roles with worker contracts:
 - orchestrator, intake, spec-writer, builder, approver
 - reviewer-code, reviewer-security, reviewer-ui, reviewer-ux
 - db-specialist, api-contract, performance, i18n
@@ -198,9 +207,16 @@ For detailed guidelines and templates, check [CONTRIBUTING_AGENTS.md](./CONTRIBU
 | `.gsf/skills/` | Modular markdown skills with playbooks and principles |
 | `.gsf/skills/gsf-mode/` | Main routing skill with 23 playbooks |
 | `.gsf/skills/gsf-mode/playbooks/` | Step-by-step operational procedures |
+| `.gsf/skills/swarm/references/` | Swarm runner and aggregation prompts |
+| `.gsf/skills/architect/references/` | Design templates and red flags |
+| `.gsf/skills/how/references/` | Explainer and explorer prompts |
+| `.gsf/skills/why/references/` | Investigator and synthesizer prompts |
+| `.gsf/skills/create-verification-skill/references/` | Feature map examples |
 | `.gsf/jobs/` | Execution evidence ledger |
 | `config.json` | Project policies, checks, and autonomy settings |
 | `GSF_RIGOROUS_GUIDE.md` | Pure Markdown architecture documentation |
+| `docs/guide/` | Getting started guide with worked examples |
+| `assets/` | Project assets and logo |
 
 ---
 
@@ -215,6 +231,7 @@ If you decide to stop using GSF orchestration:
 ## 📚 Additional Documentation
 
 - **GSF_RIGOROUS_GUIDE.md**: Complete architecture guide for the markdown-first, low-model optimized framework
+- **docs/guide/README.md**: Getting started guide with worked examples and common patterns
 - **GSF_FACTORY.md**: Factory coordinator runbook
 - **GSF_CONSTRAINTS.md**: Project-specific constraints and guardrails
 - **CONTRIBUTING_AGENTS.md**: Guidelines for creating new agents
