@@ -40,4 +40,3 @@ After approval, apply only the approved subset via create-skill's conventions. S
 
 Use create-skill alone for a task-specific workflow or a single narrow habit that does not require a personal mode.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

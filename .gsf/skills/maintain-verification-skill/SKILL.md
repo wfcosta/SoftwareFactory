@@ -30,4 +30,3 @@ Keep a project-local ordinary verification skill honest as its application chang
 
 Lead with clean / changed / blocked. Give a feature-by-feature source/live coverage table, confirmed drift and correction paths, product regressions separately, fixture or capability gaps, candidate/build identity, evidence location, teardown result, and any authorized PR link. Keep private transcripts and credentials out of public reports. Scratch notes do not become committed framework artifacts; durable job proof follows the job contract where applicable. A Markdown procedure is not an atomic executor or exactly-once guarantee.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

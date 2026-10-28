@@ -106,7 +106,7 @@ No count of files or absence of scripts proves autonomous reliability. Report th
 ## Guides
 
 - [First task, host setup and safe removal](docs/guide/README.md)
-- [Architecture and reference coverage](GSF_RIGOROUS_GUIDE.md)
+- [Architecture and capabilities](GSF_RIGOROUS_GUIDE.md)
 - [Contributing roles and skills](CONTRIBUTING_AGENTS.md)
 - [Verification evidence](docs/verification/README.md)
 

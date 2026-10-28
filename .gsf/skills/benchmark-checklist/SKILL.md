@@ -32,4 +32,3 @@ Lead with faster, slower, no measurable difference, or inconclusive. Include the
 
 Keep the public PR concise with one primary number; link an authorized Markdown evidence artifact containing per-run data, configuration, profiler evidence, physical-limit arithmetic and limitations. The framework supplies procedures, not a bundled benchmark runtime. Apply the checklist to [perf-issue](../gsf-mode/playbooks/perf-issue.md) baselines and claims, and to [hillclimb](../gsf-mode/playbooks/hillclimb.md) before freezing its harness; a frozen harness must expose actual errors and completed work on every comparison.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

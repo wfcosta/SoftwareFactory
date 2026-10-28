@@ -68,4 +68,3 @@ When execution is authorized, run the generated instructions from a clean fixtur
 
 Report exact skill/map paths, discovered and exercised coverage, candidate/build, PASS/FAIL/BLOCKED results, durable proof, cleanup outcome, and stand-in limitations. Link it from existing authorized project guidance when in scope. Offer [maintain-verification-skill](../maintain-verification-skill/SKILL.md) as the ordinary maintenance loop, distinct from formal-verification maintenance. No automatic cadence, daemon, publication, or runtime is installed.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

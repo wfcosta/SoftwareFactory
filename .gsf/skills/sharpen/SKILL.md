@@ -19,4 +19,3 @@ Then provide a rewritten prompt asking for exactly that depth. Preserve the orig
 
 Output the four diagnostics followed by the rewritten prompt. This is prompt work only: do not execute the rewritten task, inspect unrelated private material, initialize a factory job, or modify files.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

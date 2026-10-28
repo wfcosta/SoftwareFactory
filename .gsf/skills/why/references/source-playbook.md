@@ -62,4 +62,3 @@ Apply this when the question names an incident, postmortem, regression, reliabil
 3. Preserve external/protocol/legal constraints and past failures as evidence-backed planning constraints. Do not strip a guard merely because its purpose is not obvious today.
 4. Return incident/postmortem identifier, exact quote linking the defensive behavior to the incident, dates, linked corrective work and observed recurrence. If searches find nothing, name the queries and limits. With no direct link, phrase a plausible connection as inference, not author intent.
 
-Adapted from the source and incident recipes in [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

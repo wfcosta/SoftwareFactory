@@ -50,4 +50,3 @@ Routing after approval:
 
 Apply only approved edits. Preserve existing style and unaffected rules, inspect actual changed instructions, and perform validation only if authorized by the assignment. Report applied paths and one-line changes, new skills if any, approved backlog actions actually filed (with IDs), rejected findings and remaining evidence gaps. Distinguish proposed, approved and applied. If approval has not arrived, the complete deliverable is the proposal set, not a claimed implementation.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack), with approval required for all durable and external changes.

@@ -74,4 +74,3 @@ Return the understood goal, one primary recommendation (one companion only if ne
 
 If an expected path is absent in the actual installation, say so and select an existing equivalent only when it fulfills the same goal; do not fabricate navigation. If the user then asks to execute, leave this helper and follow the chosen workflow and active authority contract.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
 
-This is a Markdown procedure, not the upstream pstack statechart script. Use the actual installed model checker and its documented CLI. Do not claim automatic graph extraction or an exhaustive result without the checker's output.
+This is a Markdown procedure, not a bundled executable. Use the actual installed model checker and its documented CLI. Do not claim automatic graph extraction or an exhaustive result without the checker's output.
 
 ## Inputs
 

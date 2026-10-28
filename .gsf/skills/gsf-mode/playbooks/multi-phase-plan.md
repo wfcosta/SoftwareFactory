@@ -112,4 +112,3 @@ A tick is an observation/action cycle, not a promise of unattended wakes. Regist
 
 Direct planning/read-only requests do not initialize files unless a saved plan was requested. Evidence-writing factory plans follow the configured WORKER_CONTRACT.md and canonical state contracts, including candidate/evidence identity and reconciliation. Use configured paths throughout generated plans, not copied default paths. The coordinator alone edits lifecycle `plan.md`, shared ledgers and canonical reports; workers own assigned evidence and paths. Missing permissions/capabilities remain blockers, not fabricated execution.
 
-Reference: adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack); GSF policy, recorded branch instructions and native host capability govern execution.

@@ -45,34 +45,36 @@ Candidate identity is not merely HEAD or an undifferentiated worktree hash. The 
 
 The accepted event history and dispatch evidence support recovery; plans and canonical reports are projections to reconcile. A retry uses a fresh dispatch, preserves older attempts and requires ownership/liveness resolution. Partial writes, lost handles, a report without completion and completion before projection are explicit cases in the worker contract. A lost PR receipt requires actual forge inspection before another create call. These are safe procedures, not guarantees of transactional storage or exactly-once remote effects.
 
-## Reference coverage
+## Capabilities
 
-Adapted from [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack), revision `c742dd61706fbacc1b95f1a20b7b988cf096ce6c`. Preserve [the MIT attribution](.gsf/LICENSE-pstack.md). GSF-specific role names and configured policy take precedence over upstream runtime assumptions.
+GSF combines task-specific procedures with configured authority, explicit evidence and actual host capabilities.
 
-| Reference capability | GSF disposition |
+| Capability | GSF procedure |
 |---|---|
-| Main mode and 23 task playbooks | Retained with local ownership/policy/recovery and proportional verification |
-| 24 principle skills | Retained as unprefixed leaf directories |
-| Design, coverage and adversarial review | `architect`, `arena`, `swarm`, `interrogate`, with supported host models/contexts only |
-| Plain previous-answer rewrite / deeper prompt | `bro` / `sharpen`, preserving the actual operations rather than generic tone editing |
+| Main mode and 23 task playbooks | Task routing with local ownership, policy, recovery and proportional verification |
+| 24 principle skills | Unprefixed leaf directories |
+| Design, coverage and adversarial review | `architect`, `arena`, `swarm`, `interrogate`, with supported host models and independent contexts |
+| Plain previous-answer rewrite / deeper prompt | `bro` / `sharpen`, with distinct operations rather than generic tone editing |
 | Generated verification and upkeep | `create-verification-skill`, `maintain-verification-skill`; Launch/Doctor/Drive/Evidence/Cleanup and source/live correspondence |
 | Rationale research | `why` plus source-specific investigation recipes and preserved uncertainty |
 | Recent context / teaching / learning | `recall`, `teach`, `reflect`; authorized history, evidence and proposal-first durable edits |
 | Working-style updates | `automate-me`, distinct create/update paths and established preference preservation |
 | Measurement integrity | `benchmark-checklist`, correct work/error counts, timed region, fair tuning and repeated comparisons |
 | Source-comment audit | Independent read-only source review; distinct from PR discussion triage |
-| Formal models and statecharts | Bounded installed-checker procedure and evidence-grounded Mermaid, not automatic graph-extraction parity |
-| Decision trail / media catch-up | Markdown decisions and actual supported renderer, not copied logging/rendering scripts |
+| Formal models and statecharts | Bounded installed-checker procedure and evidence-grounded Mermaid; no automatic graph extraction |
+| Decision trail / media catch-up | Markdown decisions and an actual supported renderer |
 | TypeScript syntax-specific guidance | Optional leaf, not a dependency for other product languages |
-| Upstream bots, vendor automations, cloud-agent APIs, private histories, watch/generator executables | Deliberately excluded; no fictitious capability or automatic external mutation |
+| Automation boundaries | No bundled bots, vendor services, private-history assumptions, watchers or generators; only actual authorized host capabilities |
 
-This is not a byte-identical vendor mirror. Reference revisions are reviewed deliberately; a newer upstream tree does not silently expand permissions or make the existing installation obsolete.
+Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
 ## Authoring and maintenance
 
 Every skill uses matching kebab-case directory/name, a concrete description and boolean invocation flag. The flag is host metadata, not authorization. Optional reference prompts are linked relatively and must resolve. Roles retain exactly Role, Context, Task, Constraints and Format; legal exceptions and important failure paths cannot be reduced to slogans.
 
 Use `create-skill` for instructions and `technical-writing` for prose. Keep one normative source for a shared rule. Product verification skills have feature maps and maintenance loops; frozen formal models record correspondence and dirty snapshot identity separately from commit provenance.
+
+Preserve the applicable copyright and license text in [Third-party notices](.gsf/THIRD_PARTY_NOTICES.md).
 
 ## Verification
 

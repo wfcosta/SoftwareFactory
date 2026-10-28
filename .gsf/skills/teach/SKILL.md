@@ -17,4 +17,3 @@ Explain the thing itself, not a report about your teaching process. This is a th
 
 Return the explanation itself: what it is, how it works, why, and relevant limits, with lightweight citations. Do not modify code, preferences, docs, external systems or factory state under a teaching-only request.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

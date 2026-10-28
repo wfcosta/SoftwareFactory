@@ -85,4 +85,3 @@ After Sources Consulted, if the user's `why` question is a precursor to changing
 - **Single-source reliance.** Believing one source without corroboration when multiple sources are available.
 - **Overconfidence.** Stating as fact what is actually inference. Mark inferences clearly.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

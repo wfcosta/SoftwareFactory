@@ -25,4 +25,3 @@ Reconstruct where the user's work stands now before resuming it. This is bounded
 
 Cite private chat findings with stable transcript/session locators and shared findings with PR/ticket/record links. Sanitize private names, personal data, customer context and secrets before any public output; public publication needs separate authority. When the brief exceeds a screen, cut detail before omitting relevant threads. Say which window and sources were inaccessible. No writes or new durable memory by default.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

@@ -25,4 +25,3 @@ Use the caller's files or diff. Otherwise discover `base_branch` from GSF_CONFIG
 
 Report reviewed scope and reviewer independence, accepted/rejected findings, actual comment deletions/restorations, suppressions kept/removed/fixed and why, design/root-cause edits, approved encodings, retained external constraints and remaining open risks. Distinguish proposed changes from applied changes. Deletion count is accounting, not the success criterion.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack), with read-only review and GSF authority boundaries.

@@ -10,4 +10,3 @@ Rewrite your immediately preceding assistant message in plain human language. Ke
 
 Return only the rewritten message. Do not start a new task, run tools, invent a new status update, claim new progress, or change the meaning. If there is no previous assistant message, say there is nothing to restate.
 
-Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).
