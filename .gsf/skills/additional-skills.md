@@ -1,0 +1,25 @@
+# Skill Collection (Part 2)
+
+- **in-your-own-words:** Agent plays back goal and problem before starting.
+- **sharpen:** Deepen prompt before sending: professional methods, tools, outside check.
+- **recall:** Rebuild recent context from chat history and shared records.
+- **ketchup:** Catch up on changes since last message with decidable items.
+- **ketchup-video:** Subtitled slide deck catch-up.
+- **automate-me:** Draft a custom mode skill from recent working patterns.
+- **make-bot-ui:** Page/dashboard waking a bot over webhook with Tailscale.
+- **setup-pstack:** Configure model choices per role.
+- **reflect:** Capture recipe as a skill edit after a long task.
+- **correct:** Mine history for mistake classes and fix at highest level.
+- **teach:** Weave plain explanation built diagram by diagram.
+- **benchmark-checklist:** Vet measured speedup or regression before reporting.
+- **no-comments:** Strip comments before review and fix findings.
+- **typescript-best-practices:** Ground type system discipline in syntax.
+- **figure-it-out:** Design rigorous auditable playbook when none fits.
+- **show-me-your-work:** Log decisions to a reviewable TSV.
+- **create-verification-skill:** Generate project-local verification skill and feature map.
+- **maintain-verification-skill:** Periodic pass keeping verification skill and feature map honest.
+- **create-formal-verification-skill:** Verify race, retry, state machine, or parser properties.
+- **maintain-formal-verification-skill:** Update formal verification model when code changes.
+- **statechart:** Check TLA+ model and draw mermaid statechart of behavior.
+- **bro:** Restate last message in plain human language without jargon.
+- **technical-writing:** Layered documentation standard (Diátaxis + Google Style).
