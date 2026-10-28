@@ -1,18 +1,17 @@
-### Visual Parity
+### Visual parity
 
-**You own the pixel match.** Achieve pixel-exact UI equivalence between two implementations. This is for when you need to ensure a redesign, port, or migration looks exactly like the original.
+**You own pixel-exact equivalence. The baseline is the spec. You do not touch it.** Equivalence is verified by image diff, not by eye.
 
-1. **Capture the reference.** Take screenshots or capture visual output from the reference implementation at all relevant states and breakpoints.
-2. **Capture the target.** Take the same screenshots from the target implementation at the same states and breakpoints.
-3. **Compare side by side.** Overlay or place images side by side. Identify differences pixel by pixel.
-4. **Document each difference.** For each discrepancy, note:
-   - Location (element, component, viewport)
-   - Type (color, spacing, font, alignment, size)
-   - Magnitude (how far off)
-   - Whether it's intentional or a bug
-5. **Fix each difference.** Adjust the target implementation to match the reference. Re-capture and re-compare after each fix.
-6. **Automate if feasible.** If this parity needs to be maintained, set up visual regression tests (screenshot comparison CI).
-7. **Verify at all states.** Check not just the default state, but also interactive states (hover, active, focus, error, loading, empty, etc.).
-8. **Run Opening a PR.**
+1. Establish the baseline first, before any migration: a visual regression harness that screenshots the current component across its states, plus the target when matching two implementations. No baseline, no parity claim. A blocking prerequisite, not a follow-up.
+2. Anti-shortcut clauses, stated and held: no harness modifications, no baseline tampering, no component restructuring to make a diff pass. If the baseline looks wrong, stop and raise the worker contract’s `gate_blocked` disposition; do not edit it. If an apparent fix requires changing the capture harness or a shared component contract, stop that parity attempt and seek a separately scoped decision rather than moving the goalposts.
+3. Migrate one component at a time. Parallelize across worktrees, one owner per component (the [separate-before-serializing-shared-state](../../separate-before-serializing-shared-state/SKILL.md) principle skill). Shared primitives migrate first as a blocking phase.
+4. Verify each component against its baseline via image diff on the matching surface via the control skill. A nonzero diff is a fail. Investigate the pixel delta and use the Autonomous run event/heartbeat procedure per component until the diff is zero; never inflate a tolerance to hide it. Pin viewport, device scale, fonts, browser/runtime version, fixture data, animation/clock state, and screenshot masks before capturing; save expected, actual, and diff images plus pixel counts. A nondeterministic harness must be made repeatable before a parity verdict.
+5. Run [Opening a PR](./opening-a-pr.md) per component or per safe batch.
 
-**Reply:** reference and target states captured, differences documented with screenshots, fixes applied, visual regression test setup (if any), confirmation of parity.
+**Reply:** components migrated, the diff result for each, the baseline harness location, what's left.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack visual-parity.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

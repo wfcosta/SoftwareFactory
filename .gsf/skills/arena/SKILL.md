@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Arena
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 Open a todolist with one entry per phase (Frame, Fan out, Cross-judge, Pick, Graft, Verify) before launching anything.
 
 ## Phase A: Frame
@@ -14,18 +16,18 @@ Every candidate gets the same prompt, so the prompt is the contract.
 
 1. State the artifact each candidate is producing.
 2. Derive the rubric, 3-6 concrete gradeable criteria for what success looks like on *this* task. It is the picker's tool in Phase D. Candidates only see the task.
-3. Pick the runners. Use at least two different models for diversity. If available, use one higher-reasoning model and one faster model.
+3. Pick available runners from optional `.gsf/state/models.md` role `arena runners`. Prefer different families; otherwise use independent contexts and disclose the diversity limit.
 4. Give each candidate its own output location (a git worktree where possible, otherwise a temporary directory), per the **separate-before-serializing-shared-state** principle skill.
 
 ## Phase B: Fan out
 
-Spawn all N subagents in one message with `run_in_background: true`, each with the task, the path to the shared grounding, its own output path, and instructions to produce the artifact and a short rationale naming the alternatives it considered and what it rejected.
+Launch candidates together through the host's native delegation facility, each with task, grounding, owned output path, and rationale naming alternatives considered and rejected. Without delegation, execute isolated candidates serially and disclose the limit.
 
-If a candidate produces no output, proceed with N-1 and note the dropout.
+Record dropouts. Continue only when enough candidates remain for comparison; one surviving artifact is not a completed bakeoff.
 
 ## Phase C: Cross-judge
 
-After all Phase B candidates complete, spawn one readonly judge subagent. The judge should be from a different model family than the runners for adversarial pressure. The judge sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with your reading in Phase D. Don't spawn it while candidates are still writing.
+After all Phase B candidates complete, spawn one readonly judge subagent. The judge should be from a different model family than the runners for adversarial pressure. The judge sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with your reading in Phase D. Don't spawn it while candidates are still writing. Without independent delegation, compare serial artifacts inline and label Phase C unavailable, not independently judged. This fallback cannot satisfy a configured independent review gate.
 
 ## Phase D: Pick a base
 

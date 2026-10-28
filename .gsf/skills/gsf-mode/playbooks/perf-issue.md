@@ -1,19 +1,31 @@
-### Performance Issue
+### Perf issue
 
-**You own the measurement and fix.** Be scientific. A number without a limit and a measurement method is not evidence.
+**You own the measurement story. Plan, review, verify the numbers.** Tie every fix to a measurement, don't read source instead of measuring.
 
-1. **Baseline the problem.** Measure the current performance of the code path in question. Record:
-   - The measurement method (benchmark, profiler, timing harness)
-   - The limit or target (e.g., "under 100ms", "2x faster than baseline")
-   - The current number and units
-   - The environment (hardware, dataset size, configuration)
-   Apply the **benchmark-checklist** skill before proceeding.
-2. **Profile to find the limiter.** Use a profiler (cpu, memory, flame graph, trace) to identify where time is spent. Don't guess from code inspection. The profiler tells you what actually runs.
-3. **Form hypotheses.** For each hot spot, form a hypothesis about why it's slow (algorithmic complexity, unnecessary work, data structure choice, cache behavior, etc.).
-4. **Test each hypothesis.** Modify the code to address the hypothesis, remeasure, and compare. Only keep changes that move the needle. If a change doesn't improve the number, revert it. Don't accumulate speculative optimizations.
-5. **Explain the number.** Once you achieve the target, apply the **explain-the-number** principle skill. What limits it now? Is there headroom? What would break it again?
-6. **Verify the fix** on the same surface and environment as the baseline. Confirm the number meets the target and doesn't regress elsewhere.
-7. **Add a regression guard** if appropriate (benchmark, timing test, performance assertion). The guard should fail if the issue returns.
-8. **Run Opening a PR.**
+1. Capture a baseline trace via the matching control skill. Vet the baseline, and each later number, with the [benchmark-checklist](../../benchmark-checklist/SKILL.md) skill.
+2. `how` to ground hypotheses. Don't claim a perf ceiling without running it first.
+   Try the performance mantras in order, cheapest first:
+   1. Don't do it. Stop work whose result nothing uses rather than cheapening it.
+   2. Do it, but don't do it again.
+   3. Do it less.
+   4. Do it later.
+   5. Do it when they're not looking.
+   6. Do it concurrently.
+   7. Do it cheaper.
 
-**Reply:** baseline measurement, profiling findings, hypotheses tested, what worked and what didn't, final measurement with limit confirmation, regression guard added.
+   When an earlier mantra meets the target, stop.
+3. Plan the fix from the trace. If it crosses a function boundary, `architect` first. Delegate implementation when worthwhile and supported, otherwise work inline using the configured GSF role guidance. Select available models and reasoning through the GSF mode delegation contract and `.gsf/state/models.md` when present; never require an unavailable model. Review the diff. Capture a post-fix trace.
+   Apply the [sequence-verifiable-units](../../sequence-verifiable-units/SKILL.md) principle skill, verifying each attempt before trying the next.
+4. Parse and compare the artifacts (JSON to sqlite, diff). "Inconclusive" or wrong-surface is not a pass. Flag it.
+5. Cite the measurement in the PR.
+6. Run [Opening a PR](./opening-a-pr.md).
+
+For sustained improvement against a metric rather than a one-off fix, use the Hillclimb playbook (`./hillclimb.md`).
+
+**Reply:** baseline number, post-fix number, delta, artifact path.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack perf-issue.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

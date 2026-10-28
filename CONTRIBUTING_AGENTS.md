@@ -1,38 +1,37 @@
-# Contributing Agents & Dynamic Routing to GSF
+# Contributing GSF roles and skills
 
-Welcome to the GSF agent development guide. Every specialist agent in the factory operates under strict governance, defined protocols, and reproducible contracts.
+## Authority
 
----
+Read GSF_CONFIG.md, its configured constraints, the [worker contract](.gsf/agents/WORKER_CONTRACT.md), [candidate identity](.gsf/state/candidate-contract.md) and [gsf-mode](.gsf/skills/gsf-mode/SKILL.md). There is one normative lifecycle/policy contract. Guides and playbooks link it rather than restating competing rules.
 
-## 🧭 Dynamic Routing & DAG Configuration (How Intake Decides)
+## Five pillars
 
-Unlike rigid factories with a single hardcoded pipeline, GSF features **Dynamic Routing**. 
+Every role prompt retains five sections:
 
-### How Intake Manages Delegation:
-1. **Agent Discovery**: The **Intake Agent** scans `.gsf/agents/` during its initial assessment.
-2. **Surface & Impact Analysis**: Based on the issue requirements, Intake evaluates which architectural domains are affected:
-   - *Database changes* → Dispatches `db-specialist`
-   - *Public API changes* → Dispatches `api-contract`
-   - *Performance-critical paths* → Dispatches `performance`
-   - *UI/UX features* → Dispatches `reviewer-ui`, `reviewer-ux`, `i18n`
-   - *Auth & sensitive data* → Dispatches `reviewer-security`
-3. **Custom DAG Generation**: Intake writes a custom execution graph into `decision.md`. The Orchestrator reads this plan and dynamically spawns only the required specialist workers in sequence or parallel waves.
+1. **Role:** domain expertise and decision authority.
+2. **Context:** exact inputs, instructions, candidate/policy identity and owned workspace.
+3. **Task:** ordered observable actions, including important failure paths.
+4. **Constraints:** prohibited mutations, trust boundary and permissions.
+5. **Format:** actual report, verdict, evidence, limitations and completion event.
 
----
+The coordinator alone owns shared plan/ledgers/canonical reports. Workers own their dispatch evidence and authorized implementation paths. Successful worker execution does not imply PASS; a reviewer may successfully return CHANGES. A delegate is not a second coordinator.
 
-## 🧱 The 5 Pillars of the Perfect Prompt Standard
+## Routing
 
-Every agent prompt file (`.md`) must follow the **5 Pillars**:
-1. **Role**: Persona, seniority, and domain expertise.
-2. **Context**: Operational environment and workflow inputs/outputs.
-3. **Task**: Sequential step-by-step actions.
-4. **Constraints**: Prohibited actions and safety guardrails.
-5. **Format**: Exact output structures and expected evidence artifacts.
+Intake discovers roles under configured `paths.agents`, records impact and proposes the `plan.md` DAG. It preserves every mandatory reviewer and adds relevant specialists: database, API contract, performance, localization or user-facing review. UI/UX applicability follows the actual surface; lack of auth changes does not remove mandatory security review.
 
----
+Keep PR discussion triage distinct from read-only source-comment review. Legal/API/external-constraint comments are not redundant prose; suppression changes need correctness evidence. Do not remove them merely to satisfy a style rule.
 
-## 🚀 Advanced Enterprise Factory Agents Available
-- `db-specialist`: Zero-downtime database migrations & schema design.
-- `api-contract`: OpenAPI/Swagger & backward-compatible REST/GraphQL contracts.
-- `performance`: N+1 query profiling, memory leak detection, and benchmarks.
-- `i18n`: Localization keys audit, RTL support, and hardcoded text detection.
+## Skill authoring
+
+Follow [create-skill](.gsf/skills/create-skill/SKILL.md). Use matching kebab-case directory/name, concrete trigger/outcome description, boolean invocation flag, complete procedure, evidence and failures. Optional references must resolve relative to the skill. Operational GSF names must be truthful and consistent; preserve source attribution without inheriting foreign coordinator identities.
+
+The framework distributes Markdown only; `.gitignore` is the technical exception. Policy/data use canonical structured blocks under their state contracts, not new executable generators or validators hidden in Markdown. Examples may illustrate product-language code, but are not a bundled GSF runtime. No plugin registration, model entitlement or private transcript API is assumed.
+
+Optional model preferences live in `.gsf/state/models.md`. Select actual host-supported models or documented inheritance aliases; never fabricate diversity. Scale delegation and verification to risk and acceptance, preserving independent final review.
+
+## Proof and review
+
+Run [verify-gsf](.gsf/skills/verify-gsf/SKILL.md) after structural or behavioral instruction changes. Exercise representative actual invocations and negative boundaries. Record exact candidate, expected/observed behavior and host receipts. Scratch products live outside the repository. Do not count source-text keyword checks as proof that an agent follows a workflow.
+
+Keep accepted policy/instruction identities explicit across pickup. A change to candidate source invalidates affected evidence; a job report append does not. Capture corrections structurally, preferably through one owner/contract, before adding more repeated prose. Use `reflect` for proposals and require authority before durable preference/instruction changes.

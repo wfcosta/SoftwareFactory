@@ -1,14 +1,20 @@
 ### Investigation
 
-**You own this task.** Produce a cited, read-only answer to a question about how something works, why it was built this way, or whether a claim is true. No code changes. Use the **how** and **why** skills as needed.
+**You own the answer. Plan, route, write.**
 
-1. **Clarify the scope.** If the question is ambiguous, state your interpretation and explore. The user can redirect.
-2. **Match to the right skill.**
-   - "How does X work?" or "Where should this live?" → **how** skill
-   - "Why does X work this way?" or "Why did we pick Y?" → **why** skill
-   - Need both? Run **how** first for the architectural mental model, then **why** for the motivation and tradeoffs.
-3. **Run the skill.** Invoke the appropriate skill with the question. Let it do the full investigation.
-4. **Present the answer.** Light edits for clarity or context from the conversation are fine. Do not substantially rewrite the skill's output. Preserve any confidence language and citation structure.
-5. **Answer from evidence only.** Never guess or infer without running the investigation skill. If the skill returns null or cannot answer, say so explicitly rather than filling in gaps.
+Investigation requests are read-only. They produce a cited explanation or a recommendation, not a code change.
 
-**Reply:** the investigation skill's output, lightly edited for clarity. If you ran both how and why, present both outputs in order.
+1. Route through the [how](../../how/SKILL.md) skill. For motivation questions, also route through the [why](../../why/SKILL.md) skill.
+2. Throughput checkpoint stays one line: `throughput checkpoint: n/a, read-only investigation`.
+3. Produce the `how`-shaped output (Overview / Key Concepts / How It Works / Where Things Live / Gotchas), or a recommendation with a tradeoffs table if the request is a decision between alternatives.
+4. Apply the [unslop](../../unslop/SKILL.md) skill to the reply.
+
+No PR, no babysit, no architecture implementation. If a change is requested after the answer, route that authorized work to Bug fix or Feature. Cite file/symbol/line or primary-source URL for each load-bearing claim, separate observed facts from inference, list rejected hypotheses and remaining uncertainty. If the evidence cannot answer the question, return that bounded result and the missing evidence, not a guessed explanation.
+
+**Reply:** the investigation output. For "are we sure?" answers, include your real judgment with reasons. Push back if the premise is wrong (see Autonomy).
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack investigation.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

@@ -1,25 +1,73 @@
-# Feature Map Example
+# Worked feature-map example
 
-This is an example feature map for a search application. The verification skill uses this to understand what features exist and how to verify them.
+This fictional notes app demonstrates the required specificity. Names, routes and accessible labels below are example data, not a runnable framework helper or evidence about the current repository. A generated skill must replace them with observed application facts and its actual host harness. No product runtime is bundled here.
 
-## Features
+## features/README.md
 
-### Search
-- **Trigger**: User types a query
-- **Expected**: Results appear matching the query
-- **Verification**: Check that results contain the query terms
+A real index links one file per feature and states coverage, rather than treating the index as proof:
 
-### Pagination
-- **Trigger**: User clicks "next page"
-- **Expected**: Next page of results loads
-- **Verification**: Check that results offset changes correctly
+| Feature file | User result | Preconditions | Proof |
+| --- | --- | --- | --- |
+| `create-note.md` | Create and reopen a persisted note | Signed-in isolated account, empty owned notebook | Save action trace, displayed note ID, reopen result, persisted record |
+| `search.md` | Find only matching accessible notes | Two owned notes, search index ready | Query trace, matching result ID, nonmatching exclusion, empty state |
 
-### Filters
-- **Trigger**: User applies a filter (date, category, etc.)
-- **Expected**: Results are filtered
-- **Verification**: Check that results match filter criteria
+The generated README also names the parent verification skill, shared fixture recipe, current uncovered surfaces, and where durable evidence survives cleanup.
 
-### Sorting
-- **Trigger**: User changes sort order
-- **Expected**: Results reorder
-- **Verification**: Check that results are in the correct order
+## features/create-note.md
+
+### Sub-features
+
+Create a text note, validate its title, and reopen it after navigation. This example does not cover attachments, sharing, offline edits, or concurrent edits; list those separately if the application has them.
+
+### How to get to it (user POV)
+
+Sign into the isolated verification account. Open the Notes page and choose the `New note` button. The editor contains textboxes labelled `Title` and `Body`, a `Save note` button, and a visible save status.
+
+**Preconditions:** Doctor proves the owned server's correct build, completed migrations, valid account, and writable isolated notebook. The account has no real user's data. If authentication or notebook creation fails, report that precondition failure; do not skip directly to an internal write API.
+
+**Fixture:** Allocate a unique run label such as `verification-042`. Through the public app, create an owned notebook named with that label. Record its ID. The note title will be `verification-042 cedar plan`; the body is `Bring the blue notebook`. Ensure the title does not already exist. Fixture setup failures are captured before cleanup.
+
+### Driving it with the browser harness
+
+1. Capture the initial empty notebook and action trace. Activate `New note` by its accessible role and name.
+2. Leave `Title` empty, enter the body, and activate `Save note`. Assert `Title is required` is visible, the editor remains open, no note ID is assigned, and the notebook's note count stays zero. This is the negative boundary; a successful save here fails verification.
+3. Fill `Title` with the unique fixture title. Save. Wait for the explicit `Saved` status, not a fixed sleep. Record the newly displayed note ID and resulting page URL.
+4. Assert title and body render exactly. Navigate to the notebook list, then reopen the saved note through its visible title. Assert the same note ID, title, and body survive navigation.
+5. Verify persistence independently using the repository's existing authorized read-only data-inspection tool: one record under the owned notebook and note ID, correct title/body, correct owner. If that observation is unavailable, record the proof gap; the UI alone does not prove all required side effects.
+
+**Proof:** Preserve the input action trace, rejected empty-title save, successful save state, reopen state, and sanitized persistent-record observation in the run's durable evidence. Include source/build identity and notebook/note IDs. Never store account tokens. The success predicate requires all of the above, not merely the presence of a Save button.
+
+### Gotchas
+
+- A database answering health requests before migrations finish is not readiness. Return to Doctor; never drive through initialization failures.
+- If Save reports success but reopening loses the body, capture both states as a product regression. Do not rewrite the journey to omit reopening.
+- A changed accessible label with equivalent behavior is probable map/harness drift; confirm the actual current label from source and live UI before editing the map.
+- On any surprising drive, capture evidence, run Doctor, then reset the owned editor/session or relaunch. Do not keep clicking a wedged UI.
+- Cleanup deletes only the run-labelled notebook/note and closes the owned browser/server handles. Failed saves may leave partial owned records; inspect and remove only those. Evidence is outside that scratch directory and must remain readable afterward.
+
+## features/search.md
+
+### Sub-features
+
+Search note titles and body text, handle no matches, and exclude nonmatching notes. Permission filtering is a separate feature if it requires additional accounts.
+
+### How to get to it (user POV)
+
+Open the owned notebook and focus the `Search notes` textbox. Results show a linked title and note ID; the empty state reads `No notes found`.
+
+**Preconditions:** The same ready, owned instance; an authorized account; a documented readiness signal for asynchronous indexing. If the seed lacks a searchable note or the index never becomes ready within the documented bound, report that failure and put the prerequisite gap here. Do not replace the query with one matching accidental global data.
+
+**Fixture:** Create two notes through the valid create-note journey: `verification-042 cedar plan` with body `Bring the blue notebook`, and `verification-042 quartz list` with body `Bring the red folder`. Record IDs C and Q. Wait for the app's actual indexing readiness condition.
+
+### Driving it with the browser harness
+
+1. Search `blue notebook`; wait for the app's result-complete signal. Assert exactly C appears, with its exact title, and Q does not appear.
+2. Open C from the result, assert its ID and body, then return to search. This proves the result is actionable rather than stale display text.
+3. Search the unique nonexistent term `verification-042-no-such-note`. Assert zero result rows and `No notes found`; no previous result may linger.
+4. Clear the query and confirm the documented reset behavior. If this product intentionally requires a submit action or has a minimum query length, the real generated recipe must state it and cover its boundary.
+
+**Expected output and proof:** Capture query input, completed matching results with IDs, opened matching note, completed empty results and reset state. Record result counts and the IDs compared, not just screenshots. Compare against the owned fixture inventory. A result count alone cannot prove that the correct note was found.
+
+### Gotchas
+
+An index delay is a readiness problem, not permission to wait indefinitely. Capture the observed timeout and index diagnostics. Returning Q for `blue notebook`, leaking another account's note, or retaining C after the nonexistent query is a product failure, not documentation drift. Capture the mismatch before cleanup. Delete only the two owned notes/notebook and owned sessions, leaving all durable proof intact. The real map must document its observed empty-query semantics rather than copying this example.

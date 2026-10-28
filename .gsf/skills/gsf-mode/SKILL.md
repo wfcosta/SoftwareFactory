@@ -8,7 +8,23 @@ color: blue
 
 # GSF Mode
 
-The Generic Software Factory's main execution mode. Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every GSF agent prompt.
+The Generic Software Factory's main execution mode. Bundled skills live at `../<name>/SKILL.md` from this file. Give delegates this file's absolute path and the applicable leaf skill/playbook paths; names alone do not load instructions.
+
+## Execution entry
+
+Read-only direct requests never initialize a job or write evidence. Factory work resolves the normative `<config.paths.agents>/WORKER_CONTRACT.md` through repository-root `GSF_CONFIG.md`; that contract alone owns shared authority, lifecycle/reconciliation, recovery and candidate identity. State formats are defined in repository-root `.gsf/state/config-contract.md`, `plan-contract.md`, `event-contract.md`, `models-contract.md`, and `candidate-contract.md`. Parse the one fenced YAML block in policy, `plan.md`, and optional `models.md` with actual host tools; validate parsed data against those Markdown contracts.
+
+## Harness and capability contract
+
+GSF ships instructions, not a background runtime or automatically registered plugin. Read the chosen `SKILL.md` and execute its steps with the host's available file, terminal, browser, source-control, and delegation tools. Slash commands work only when the host has registered the skill. Otherwise attach its file or ask the agent to read its path.
+
+1. Read repository-root `GSF_CONFIG.md`, then resolve `config.paths.constraints` and `<config.paths.agents>/WORKER_CONTRACT.md` relative to that root. Default `.gsf/` paths in examples are not alternative policy sources. Configured paths, checks, required reviewers, protected paths, and autonomy flags are authoritative; a playbook cannot weaken them.
+2. Discover actual capabilities. Generic instructions to spawn, ask, wait, loop, or drive a surface mean the host's native equivalent, not a particular API signature. Do not invoke invented tools, Cursor-only commands, or uninstalled plugins.
+3. Read optional `.gsf/state/models.md` for role preferences. Select only models the host actually exposes. Without it, use the current available model; when model diversity is unavailable, disclose that limit and use independent contexts rather than claiming cross-model review.
+4. Delegate only independent, worthwhile slices. Give each worker the goal, owned paths, shared contracts, allowed actions, evidence required, output location, and stop condition. Read the matching `<config.paths.agents>/<role>.md`, never a stale default copy. The caller retains integration and verification ownership. A small task may stay inline.
+5. Keep concurrent writes disjoint. Workers write only their dispatch evidence and assigned product paths. The coordinator alone appends job inbox/outbox and updates shared job state. If no delegation facility exists, execute worthwhile slices serially and record the limitation. Serial self-review cannot satisfy independent required review; readiness/publication remains blocked until a real independent reviewer is available.
+6. A loop means repeated observation/action with a completion predicate, bounded retries for identical failure, and durable checkpoints. Do not assume `/loop`, scheduled wakeups, or a service survives the conversation. Use `pause-safely` when execution cannot continue.
+7. Markdown-only excludes bundled framework `.sh`, `.py`, `.js`, and `.ts` runtime scripts, not tool use. Run real project checks, applications, Git, and `gh` when available. Missing runtime, credentials, or surface access is `INCONCLUSIVE`/blocked, never a simulated pass.
 
 ## Non-negotiables
 
@@ -18,26 +34,26 @@ Remaining triggers:
 
 - Your first message on a task → tell the user, in your own words, their goal, the problem they are solving, and, if the task ships a change, the smallest change you expect to meet it. Don't wait for confirmation. If the evidence rules out the change the user asked for, show it and stop. Restate the user's goal in each subagent brief, and open each PR's `## Why` with it. Open each final report with it too, your final reply included, except after a fully specified one-line edit.
 - Nontrivial change, architecture decision, or "are we sure?" → the **how** skill.
-- About to `AskQuestion` on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook (`playbooks/prototype.md`) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, for a call only the operator can make, apply a default, report it with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates the operator named and the Always-pause list in Autonomy still need the operator.
-- Any code → name the data shape first, and choose its organizing structure per **principle-model-the-domain**.
-- Code crossing a function boundary → the **architect** skill, parallel design exploration before implementing.
+- Before asking the operator to choose an approach, distinguish an observable fact from a preference. Run a cheap experiment through `playbooks/prototype.md` for observable behavior, timing, layout, or output. Read-only investigations stay read-only. Decide reversible choices covered by the request; ask only for a material product preference or an Always-pause gate. Never apply a default that bypasses configuration or security policy.
+- Any code → name the data shape first, and choose its organizing structure per **model-the-domain**.
+- Code crossing a meaningful architectural boundary → the **architect** skill; use competing designs when risk and uncertainty justify them, not for settled mechanical edits.
 - Parallel fan-out → the **swarm** skill for coverage matrices, races, gauntlets, and exploration partitions. Use **arena** for design or code bakeoffs with base selection and grafting.
 - Contested design → the **interrogate** skill (multi-model adversarial) before shipping.
-- Nontrivial multi-step → write the throughput checkpoint (Feature step 3).
-- Any prose surface, your reply to the user included → the **unslop** skill. Write the reply per **Writing the reply**. Agent-facing prose also follows the **create-skill** skill.
+- Nontrivial multi-step → write the throughput checkpoint: blocking prerequisites, independent workstreams, shared mutable state and ownership, smallest safe decomposition. Mark genuinely inapplicable dimensions with a reason.
+- Any prose surface → the **unslop** skill. Replies state the goal, concrete change or finding, evidence, and remaining risks without invented success. Agent-facing prose also follows **create-skill**.
 - Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill.
-- Before commit → ensure evidence is recorded in the job workspace.
+- Before an authorized local intermediate commit → record applicable unit-check evidence in the authorized evidence location. The full independent gate applies to final readiness/publication, not every private commit; never publish a failed candidate.
 - Before review → the **no-comments** skill.
-- Shipping UI / IDE / CLI → the matching control skill. For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
+- Shipping UI / IDE / CLI → **control-ui** for browser surfaces or **control-cli** for terminal surfaces. For bug fixes, reproduce first on the same surface; use the Bug fix playbook's explicit access exception only after attempting available controls.
 - Running a benchmark, measuring perf yourself, or reporting a speedup or regression you measured → the **benchmark-checklist** skill before you report or act on the number.
-- Any PR-status request ("babysit this", "get it green", "address comments", and most often "check on PR X" or "anything outstanding on X") → the **Babysit** playbook (`playbooks/babysit.md`). Never triggered by merely opening a PR. Declare its mode before polling. Reaching for `drive` inside a phase agent stops that agent finishing its turn.
+- Any PR-status request ("babysit this", "get it green", "address comments", "anything outstanding on PR X") → **Babysit** (`playbooks/babysit.md`). Never triggered merely by opening a PR. Declare observe or drive mode; mutating work still obeys configuration and operator authorization.
 - Asked to land or ship a green stack → the **Shipping** playbook (`playbooks/shipping.md`). Green is not safe. Nothing gets armed before an independent per-PR verdict, and only the contiguous verified run from the root lands.
-- Broken skill mid-task → fix it in its own PR. Don't block. Don't silently work around it.
+- Broken skill mid-task → record the defect, repair it within authorized scope, and verify the repaired procedure. A separate PR is warranted only when the change is independent and publication is permitted; do not silently work around missing instructions.
 - Long, autonomous, or multi-phase work, or any task the user steps away from to review later ("going to bed", "trust it when i'm back", "/loop until X") → a decision trail via the **show-me-your-work** skill. Commit it when stakes need an auditable record. Keep it local otherwise.
 
 ## Principles
 
-Read the leaf skill in full for any principle you apply. Each entry names when it applies. Each leaf is the **principle-<title>** skill, with the title in kebab case, hyphens kept and other punctuation dropped, unless the entry gives its name.
+Read the leaf skill in full for any principle you apply. Principle directories use the unprefixed kebab-case names below, for example `../model-the-domain/SKILL.md`. The two shortened names are `migrate-callers-then-delete` and `sequence-verifiable-units`. Do not look for `principle-*` aliases.
 
 **Core**
 
@@ -50,7 +66,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 - **Outcome-Oriented Execution.** Planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture, don't preserve throwaway compatibility states.
 - **Experience First.** Product, UX, or feature-scope tradeoffs. Choose user delight over implementation convenience.
 - **Exhaust the Design Space.** A novel interaction or architectural decision with no precedent. Build 2-3 competing prototypes and compare before committing.
-- **Build the Lever.** Any non-trivial work. Build the tool that does or proves it (codemod, script, generator), not by hand. The tool is the artifact a reviewer reruns.
+- **Build the Lever.** Any non-trivial work. Use an existing host tool or an authorized product codemod when it reduces risk. GSF keeps the reproducible procedure and receipts in Markdown, never a bundled runtime.
 
 **Architecture**
 
@@ -65,7 +81,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 - **Prove It Works.** After a task, before declaring done. Verify against the real artifact, not a proxy or "it compiles".
 - **Fix Root Causes.** Debugging. Trace each symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate.
-- **Sequence Work into Verifiable Units** (**principle-sequence-verifiable-units**). Multi-step work (sweeps, migrations, runs of similar edits) and how you stack commits and PRs. Break work into small units that each end in a check, verify each before the next, and order delivery so the sequence proves itself.
+- **Sequence Work into Verifiable Units** (**sequence-verifiable-units**). Multi-step work (sweeps, migrations, runs of similar edits) and how you stack commits and PRs. Break work into small units that each end in a check, verify each before the next, and order delivery so the sequence proves itself.
 - **Test Behavior, Not Implementation.** Writing, changing, or keeping a test. Assert what the code's users can observe, so the test fails when that behavior breaks and keeps passing when only the internals change.
 - **Explain the Number.** Apply before you measure, and before you trust, report, or act on a number you measured (a speedup, a regression, a throughput, a latency, or an eval result). Find what limits it, and rule out that it measured something other than the work you think.
 
@@ -76,39 +92,17 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 **Meta**
 
-- **Encode Lessons in Structure.** You catch yourself writing the same instruction a second time. Encode it as a lint, metadata flag, runtime check, or script instead of more text.
+- **Encode Lessons in Structure.** You catch yourself writing the same instruction a second time. Use the existing contract owner and links; product tooling may enforce it when authorized, without bundling a framework runtime.
 
 ## Autonomy
 
-**Just do it.** Use any model choice the operator has delegated, and act on reversible calls without asking. The operator grants autonomy by:
-- Invoking with an autonomy grant ("/gsf-mode with full autonomy", "i trust you on this", "land this stack")
-- Setting `autonomy.publish_pr: true` in config.json
-- Not pausing at Always-pause gates (those that need the operator even under autonomy)
-
-Under autonomy, for calls the operator must make (security policy changes, production database writes, credentials, releases, branching schemes), apply a sensible default, report it fully, and say what the operator could override instead. Never present shorthand tokens. The operator answers in their own words.
-
-Gates that always need the operator even under autonomy:
-- Breaking existing GSF guardrails or project-specific constraints in GSF_CONSTRAINTS.md
-- Merging to main without green checks
-- Bypassing configured checks in config.json
-- Any operation that requires secrets or credentials not already in the environment
+Resolve configured policy and scoped operator grants through `<config.paths.agents>/WORKER_CONTRACT.md`. That contract owns protected-path, publication, merge and deployment authority; generic “full autonomy” is not a scoped exception. A playbook or prior trail cannot override it. Pause only the affected action for an unresolved gate; continue unrelated reachable authorized work. Use [Pause safely](playbooks/pause-safely.md) for an explicit operator pause or capability-forced suspension, not to abandon unfinished reachable work.
 
 ## Factory Execution
 
-When running in factory mode (orchestrator-managed), this skill is invoked by the orchestrator agent. The orchestrator:
-1. Initializes the job workspace via the **gsf-run** skill
-2. Attaches this skill (gsf-mode) to coordinate worker execution
-3. Routes work to appropriate workers (intake, spec, builder, reviewers)
-4. Aggregates evidence from worker reports
-5. Makes approval decisions based on accumulated evidence
+For factory execution, initialize or resume the exact authorized job through [gsf-run](../gsf-run/SKILL.md), select the task playbook, and follow the configured worker contract for all shared lifecycle, reconciliation, dispatch, event and final-gate rules. Resolve roles from `<config.paths.agents>`; `gsf-delegate.md` is an implementation delegate, not a second coordinator. Keep the typed DAG in job `plan.md` and use [multi-phase-plan](playbooks/multi-phase-plan.md) for a separate narrative execution plan.
 
-The factory workflow differs from direct invocation:
-- Job ID and workspace are pre-initialized
-- Workers write reports to the job directory
-- Evidence is tracked across all worker turns
-- The orchestrator makes final approval decisions
-
-For direct invocation (non-factory), this skill functions as a rigorous mode for any engineering task, following the same principles and playbook structure.
+For direct invocation, use the relevant task procedure without initializing a factory job. Read-only requests remain no-write, including evidence; an authorized factory investigation may write only its granted job evidence. Neither a prior trail nor a local instruction shortcut grants authority.
 
 ## Playbooks
 

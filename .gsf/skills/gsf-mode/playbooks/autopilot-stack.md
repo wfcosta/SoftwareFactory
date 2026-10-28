@@ -1,19 +1,17 @@
-### Autopilot Stack
+### Autopilot-stack
 
-**You own the parallel build and verify.** Build and verify PRs for the operator to review and land, stacking a PR only on a PR it builds on. This is Autopilot Full without the merge step.
+**Run [Autopilot-full](./autopilot-full.md), but never merge.** This playbook builds and independently verifies PRs for operator review and landing. Its no-merge rule overrides any general merge authority or inherited owner brief.
 
-1. **Identify the work items and dependencies.** List the tasks and their dependency graph. Independent tasks can proceed in parallel. Dependent tasks must wait.
-2. **Assign owners.** For each work item, assign a subagent as the owner.
-3. **Launch independent owners in parallel.** Spawn owners for tasks with no dependencies simultaneously.
-4. **Each owner executes:**
-   - If complex, run **how** and **architect**
-   - Implement the work (Feature or Refactoring playbook)
-   - Verify on the real surface
-   - Run checks from config.json
-   - Open a PR (stacked correctly on its dependencies)
-5. **Swarm verification.** After each owner opens a PR, spawn a swarm of reviewers to verify. The owner incorporates feedback.
-6. **Re-verify on changes.** Every patch revision gets a fresh check.
-7. **When dependent tasks are ready, launch their owners.** Once a dependency's PR is open and verified, spawn owners for tasks that depend on it.
-8. **Report completion.** List each work item, its owner, PR status, verification status, and dependency satisfaction.
+1. **State the override in every owner and watcher brief.** The target is each PR verified and green at its current head, then operator handoff. Do not arm auto-merge, enqueue merges, merge locally, or push trunk. Every host heartbeat/tick prompt names this file and its no-merge rule. `autonomy.publish_pr` remains required for branch pushes and PR operations; without it prepare local artifacts and report the gate rather than inventing PR URLs.
+2. **Keep independent work independent.** Start independent owners in parallel off the configured trunk as in Autopilot-full. Stack only when the child genuinely builds on the parent. Record the dependency graph, file ownership, bases, exact parent tips, and bottom-to-top PR order. Owners may build dependent work on the parent's branch once the prerequisite contract is usable; no need to pretend it already merged.
+3. **Substitute the parent base.** Where Autopilot-full says rebase onto trunk, a child rebases onto its parent's exact current tip; only roots use trunk. The child's PR targets that parent branch per [Opening a PR](./opening-a-pr.md). A new lower head invalidates dependent bases: the relevant owner restacks its branch, reports new head, and reruns head-specific checks. Carry an independent behavioral lane only when its own patch-id and exercised dependency behavior remain valid under [Shipping](./shipping.md); unchanged delta is not proof against a changed parent contract.
+4. **Keep the full proof lifecycle.** Owners finish configured checks/reviews, real-surface self-proof, code-ready report, non-author swarm, and assigned Babysit. Root checks actual receipts and live forge states. Large behavioral changes get a fresh full swarm; minor fixes/rebases get the independent verification described by Autopilot-full. A failed lane blocks handoff until fixed or explicitly reported BLOCKED; no missing evidence is relabeled pass.
+5. **Replace the merge phase with a frozen handoff.** Stop when every delivered PR has current-head green checks, required approvals/reviews, independent verdict, and dependency-safe base. Return links, graph, heads/bases, evidence, pending operator interaction reviews, and the exact recommended bottom-up landing sequence. If one PR is blocked, state the verified prefix and gap without narrowing the promised scope. After handoff nobody pushes, retargets, restacks, or mutates the delivered candidates without the operator's go. Later landing is a separately authorized Shipping pass.
 
-**Reply:** work items and dependency graph, owners, parallel execution, PR statuses, verification results, operator review handoff.
+**Reply:** each PR's live state and verdict rather than what merged, its parent/head/base, evidence links, verified prefix, open gates, and the operator handoff.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack autopilot-stack.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

@@ -6,54 +6,28 @@ disable-model-invocation: true
 
 # Swarm
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 Run N parallel workers across different slices or races, then aggregate their findings. This is for coverage matrices, gauntlets, exploration partitions, or any work that can be split across independent dimensions.
 
-## Process
+## Frame
 
-1. **Define the dimensions.** What are the independent axes along which to split the work? Examples:
-   - Different browsers or platforms
-   - Different data sets or scenarios
-   - Different test suites
-   - Different code paths or features
-   - Different models running the same task (race)
+1. State the done predicate and artifact. Build a matrix of required slices; for races declare `first pass`, `rank all`, or `best-of` before spawning.
+2. Give writers disjoint output paths. Verification briefs name the exact candidate commit plus uncommitted snapshot if present; measurement briefs name sampling method, ordering, and what one sample means.
+3. Read optional `.gsf/state/models.md` role `swarm workers`; select only available models. Unconfigured roles inherit the current model. Disclose unavailable diversity.
+4. Give each brief the goal, inputs, owned paths, skills, method, done predicate, output, and failure behavior. Use [runner-prompt.md](references/runner-prompt.md). Workers do not write shared job ledgers.
 
-2. **Create work packets.** For each dimension or slice, define a specific work packet:
-   - What the worker should do
-   - What inputs it gets
-   - What output it should produce
-   - Success criteria
+## Fan out
 
-3. **Assign workers.** Spawn N workers in parallel, one per work packet. Use the same model or different models depending on the task. For races, use different models to compare their outputs.
+Launch independent slices together through the host's delegation tool. Choose an environment with actual access; cloud workers may not see local services. Without delegation, run slices serially and disclose the limit. This preserves coverage but cannot create independent reviewers; mandatory independent gates remain blocked. Select coverage proportional to risk and actual surfaces, not a fixed lane count.
 
-4. **Workers execute independently.** Each worker completes its work packet and reports its findings.
+Workers report `PASS`, `ISSUES`, or `BLOCKED`, candidate identity, method, commands/observations, evidence pointers, and every proven issue. A result without required evidence is incomplete.
 
-5. **Aggregate results.** Collect all worker outputs and synthesize them into a unified report:
-   - Summarize what each worker found
-   - Compare results across workers (for races)
-   - Identify patterns or discrepancies
-   - Highlight any failures or issues
+## Aggregate
 
-6. **Report.** Present the aggregated findings with:
-   - Overview of what was tested
-   - Results per worker
-   - Synthesis and conclusions
-   - Any issues or discrepancies found
+1. Receive terminal results through the host's completion facility. A dropout is a gap, not a pass.
+2. Read actual artifacts. Retry a missing candidate identity or method once with a corrected brief; a second miss stays a gap. Do not rerun observed failures merely to make them green.
+3. Merge findings by root cause while preserving evidence. Every required coverage slice needs a result; `N-1` cannot satisfy full coverage. For races, apply the declared rule and stop owned surplus workers only when safe.
+4. Use [aggregation-prompt.md](references/aggregation-prompt.md). Keep optional dropouts separate from required blocked coverage.
 
-## Output
-
-An aggregated report combining all worker findings, with synthesis and conclusions.
-
-## Notes
-
-Swarm is different from Arena. Arena has multiple candidates competing on the same task, and you pick the best. Swarm has workers covering different slices of a larger task, and you aggregate all their results.
-
-Use Swarm when:
-- You need to test across multiple independent dimensions
-- You want to compare different models on the same task (race)
-- You need broad coverage that would be slow to do sequentially
-- You have a large exploratory task that can be partitioned
-
-Use Arena when:
-- You need to choose between alternative designs or implementations
-- You want the best of N attempts at the same thing
-- You're doing a design bakeoff
+Return one result table, proven issues, gaps, and race-selection rationale. Arena synthesizes competing artifacts; swarm combines coverage or applies a declared race rule.

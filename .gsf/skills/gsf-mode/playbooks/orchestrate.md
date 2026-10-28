@@ -1,31 +1,34 @@
 ### Orchestrate
 
-**You own the coordination.** A standing project handed to one coordinator chat: multi-day, many stacked PRs, fleets of subagents. This is for ongoing work that spans sessions.
+**Run the program, not the product code. Decide who owns each unit and inspect what they produce.** Use for a standing multi-day/multi-PR program. One bounded predicate belongs to Autonomous run; one ambitious task needing a tailored approach belongs to figure-it-out. A plan request alone is not execution authority.
 
-1. **Understand the project scope.** What is the overall goal? What are the phases or milestones? What is the timeline?
-2. **Maintain a project plan.** Keep a running todo list or plan document that tracks:
-   - Overall milestones
-   - Current phase
-   - Next steps
-   - Open decisions
-   - Dependencies
-3. **Dispatch work to subagents.** For each work item:
-   - Define the scope and success criteria
-   - Assign to a subagent (or run it yourself if small)
-   - Set the model and reasoning level appropriately
-   - Track the assignment
-4. **Aggregate results.** As subagents complete work:
-   - Review their output against criteria
-   - Integrate their changes
-   - Verify integration
-   - Update the project plan
-5. **Manage dependencies.** Ensure work proceeds in the right order. Block dependent work until prerequisites are done.
-6. **Handle blockers and pivots.** If evidence shows the plan is wrong:
-   - Reassess the plan
-   - Communicate the pivot to the operator
-   - Adjust the project plan
-   - Redirect subagents
-7. **Maintain context across sessions.** Use **session-pickup** when resuming. The project plan is the single source of truth.
-8. **Report progress regularly.** After each milestone or significant work item, report: what's done, what's in progress, what's next, any blockers.
+## Inputs and durable state
 
-**Reply:** project scope, current phase, work completed, work in progress, next steps, blockers, open decisions.
+Read the accepted program plan, operator-reserved items, constraints, config, base branch, and exact publish/merge/deploy grants. Keep the typed dependency DAG in the existing job `plan.md`, intent/decisions in `decision.md`, checkpoint events in `inbox.md`, dispatch ownership in `outbox.md`, and attempt evidence under `dispatches/<dispatch_id>/`. Reuse GSF's five pillars and existing intake/spec/builder/reviewer/approver agents, not a foreign Project store or hard-coded cloud environment. Native task results and event subscriptions drive coordination; real product commands remain permitted in assigned workers. No framework shell runtime or polling daemon is required.
+
+## Topology
+
+1. **One owner per PR.** Only that owner writes, pushes, rebases, or retargets its branch and carries the assigned lifecycle. Closing or retargeting a parent can orphan children, so owner does it only on coordinator's scoped instruction. The coordinator never authors product fixes or resolves conflicts; send those to the owner. Independent writers get isolated worktrees and disjoint ownership.
+2. **Fresh workers for independent tasks.** Each kickoff includes the original goal, Target/Change/Constraints/Ownership/observable acceptance, lifecycle ids, exact base/head and prerequisite reports or durable accessible artifact paths, authorized and prohibited actions, model policy, and expected evidence. Do not assume workers can see sibling conversations. Use the environment actually needed: local authenticated UI/CLI/simulator work stays where its runtime exists; remote isolated workers are optional, not mandatory cloud VMs. Follow the existing worker contract for mailbox/checkpoint/completion semantics.
+3. **Sub-coordination only for a real parallel area.** Keep at most three logical levels (root, area coordinator, workers) subject to host depth/concurrency. An area coordinator owns its workers and returns one validated rollup, while the root samples original reports and briefs. Choose worker count proportional to risk, actual host capacity and independent coverage; there is no target count; start a replacement unit as a prerequisite completes, not by waiting on artificial batches.
+4. **Preserve built state deliberately.** Use a supported worker fork only when a follow-up requires that worker's checkout or running runtime; otherwise persist the state and supply a fresh kickoff. Message an existing worker only about its own task. Never keep reviving idle agents just for status. Agents communicate directly through actual host tools when available; the coordinator supplies missing prerequisite context, not a permanent status-relay bottleneck.
+5. **Independent verification for every PR.** A non-author verifier, preferably another available model family, checks exact-head behavior and required gates. Owners may merge only with that valid verdict and separate operator/config authority through Shipping. A merge-disabled program uses Autopilot-stack and stops at handoff.
+6. **Prove the workflow with one unit before scaling.** Run a representative unit through kickoff, owner, verifier, checks, and authorized merge or handoff. Inspect the diff, receipts, and dispatch transitions. Repair a flawed kickoff before cloning it fifty times; on cheap near-identical tasks the first unit is this test.
+
+## Supervision and recovery
+
+- Every unit names concrete done evidence (command plus expected output, exact user-visible scenario, artifact, or SHA), not “looks good”. If no observable proof can be named, the unit is not scoped yet. Admit ready DAG nodes only after prerequisite evidence is validated.
+- Read actual diffs/artifacts, run logs, and verifier receipts, not just summaries. Behavioral work needs real-surface proof, not only type checks. Record candidate/head with each gate; edits invalidate affected evidence. Use Shipping's narrow patch-id/artifact carry rule instead of treating all new SHAs as equal or blindly rerunning every lane.
+- Reject drift and unauthorized expansion. Keep only fixes necessary to the accepted program; record unrelated discoveries as follow-ups. Missing product intent or irreversible decisions go to the worker contract’s `gate_blocked` disposition; reversible operational fixes stay with the owning worker.
+- Read live PR state with `gh pr view`, `gh pr checks`, and required thread/approval data or the selected forge equivalent before reporting. Events can be stale or duplicated: correlate job/task/dispatch and candidate, consume completion once, and classify every spawned worker as active, succeeded, failed, replaced, or absorbed. A heartbeat never clears acceptance.
+- Judge stalls by side effects and a recorded threshold from comparable runs. Missing durable reports are drift to repair; waiting on operator/root is not a stall. Retry by cause: narrower scope after resource exhaustion, same scoped brief after a connection drop, different available model after a model/tool fault. After two failed retries, mark the node blocked and replan; do not silently drop a promised unit. Invalidate/revoke the old dispatch and eliminate its write authority before reassignment. Late results are checked against current head and never overwrite a newer owner.
+- Prefer task/forge subscriptions and a real host audit scheduler; use Autonomous run's capability-aware fallback if unavailable. Do not claim background supervision exists without a handle. On each useful event/audit reconcile ownership, evidence, DAG state, live forge state, and grants. Ask the operator only for a genuine decision, forbidden/irreversible action, missing credential, or dead end after replanning, never “should I keep going”.
+- On hold, broadcast zero-writes, stop owned watchers, account for leaves and pending merges, and save a durable resume point. On completion, verify every promised node is evidenced or explicitly blocked, approval matches final candidates, and no writer remains unaccounted for.
+
+**Reply:** what landed against the accepted goal, each PR's actual state/verdict/link, DAG nodes completed/blocked/replanned and why, active or replaced owners, evidence paths, and decisions waiting on the operator.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack orchestrate.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

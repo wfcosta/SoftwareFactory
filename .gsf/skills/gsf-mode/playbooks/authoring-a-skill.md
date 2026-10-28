@@ -1,22 +1,18 @@
-### Authoring a Skill
+### Authoring or modifying a skill
 
-**You own the skill definition.** Write or edit a SKILL.md file that defines a reusable engineering pattern or workflow.
+**You own the skill's voice.**
 
-1. **Identify the pattern.** What engineering work does this skill codify? When should it be invoked? What problem does it solve?
-2. **Name it descriptively.** The skill name should be clear and searchable. Use kebab-case.
-3. **Write the frontmatter.** Include:
-   - `name`: The skill identifier
-   - `description`: When to use it (trigger phrases)
-   - `disable-model-invocation: true` if the skill manages subagents itself
-   - Optional: `icon`, `color` for UI display
-4. **Define the steps.** Write a step-by-step procedure that is:
-   - Deterministic (no "you might want to", "consider")
-   - Actionable (clear instructions, not abstract guidance)
-   - Complete (covers the full workflow from start to finish)
-   - Principle-grounded (cite which principles apply)
-5. **Add references if needed.** If the skill uses templates or prompts, create a `references/` subdirectory with those files.
-6. **Test the skill.** Invoke it on a real task. Does it work? Do the steps make sense? Are there gaps?
-7. **Iterate.** Refine based on testing. Remove ambiguity, add missing steps, tighten language.
-8. **Document the skill** in the main README or skill catalog if it's meant for others to use.
+1. Use the local [create-skill](../../create-skill/SKILL.md) skill. Name the trigger, caller, inputs, steps, outputs, and failure path. Read the existing skill and its callers before editing; preserve GSF conventions rather than installing a host-specific authoring runtime.
+2. Validate the skill: frontmatter has `name` and `description` and GSF invocation metadata required by the local authoring skill, referenced files exist, cross-skill links resolve.
+3. For a structural change, exercise representative invocations including missing inputs and a failed gate. Validate frontmatter, file links, dispatch boundaries, and expected artifacts; capture the actual results. For a wording-only change, document why structural execution is unchanged instead of inventing a test.
+4. Run [Opening a PR](./opening-a-pr.md).
 
-**Reply:** what pattern this skill codifies, when to invoke it, the step-by-step procedure, any references/templates, how you tested it.
+When in doubt, delete. Keep only prose that changes a decision. Tell it to do the thing and skip the reason. Explain only when the rule is confusing without one. Match tone to scope. Point at structural sources (types, READMEs, config) per the [encode-lessons-in-structure](../../encode-lessons-in-structure/SKILL.md) principle skill. Delegate to other skills by path. Don't restate. A workflow you keep hitting but isn't captured → propose a new skill.
+
+**Reply:** summary of the skill, key design decisions, validation notes.
+
+## Applicability
+
+Use [GSF mode](../SKILL.md) to select direct, read-only, or factory execution. The configured `<config.paths.agents>/WORKER_CONTRACT.md` is the normative policy, lifecycle, recovery, and candidate-evidence contract; this playbook adds only task-specific steps. Direct read-only requests create no jobs or evidence files. Factory execution uses [gsf-run](../../gsf-run/SKILL.md) only within authorized write scope; investigation evidence requires an explicit write grant.
+
+Reference: adapted from [cursor/plugins/pstack authoring-a-skill.md](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack). GSF authority, evidence paths, and tool mappings override reference-specific runtime details.

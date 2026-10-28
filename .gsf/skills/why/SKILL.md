@@ -8,7 +8,9 @@ disable-model-invocation: true
 
 Investigate the motivation and intent behind code. The companion `how` skill answers what the code does and how it works. `why` answers what forces led to its shape.
 
-Every spawn is `generalPurpose` with `readonly: false` (agent mode). Investigators still shouldn't write anything.
+Use available read-only investigators through native delegation. Investigators must not mutate source, external services, or shared job ledgers. Without delegation inspect the same evidence categories serially and disclose the limit.
+
+This is a read-only investigation unless the caller separately authorizes job evidence writes. Do not initialize a factory job for a direct no-write question. Model preferences, when needed, come from the active Markdown `models.md` contract; do not require vendor model slugs or a particular MCP.
 
 ## Operating Posture
 
@@ -23,6 +25,8 @@ If the target is vague ("why do we do it this way?" with no clear referent), mak
 ## Step 2. Establish the Code Anchor
 
 Before spawning investigators, build the seed context inline: file paths and line ranges, key symbols (functions, classes, constants), the last few commits touching the target, PR numbers from merge commits. Then pull the PR bodies and discussion for any substantive commit. This anchor goes to every investigator and to the synthesizer.
+
+Trace line-level last-touch history with blame, rename-aware history with `git log --follow`, exact constants with pickaxe history, and substantive commits with full diffs. Read full PR descriptions, review threads, and linked tickets, not only titles. Seed identifiers, exact error text, business synonyms, ship date/time window, and cross-source leads go into the anchor.
 
 ## Step 3. Spawn Parallel Investigators
 
@@ -40,11 +44,11 @@ List the available evidence sources in this environment:
 6. Error / exception tracking (if available)
 7. Product analytics warehouse (if available)
 
-Source control is always available through git and `gh`. For the other six, use what's available in the environment.
+Discover local Git and remote PR access separately. Local history may exist while `gh`, credentials, or network access do not. Record unavailable sources; never assume access or fabricate findings.
 
 Spawn one investigator per category that has an available source, all in a single message so they run concurrently, each owning exactly one source. Don't ask one agent to cover multiple sources.
 
-Each investigator's prompt is `references/investigator-prompt.md` filled in, plus the code anchor and the user's original question.
+Each investigator's prompt is `references/investigator-prompt.md` filled in, plus its category recipe from [source-playbook.md](references/source-playbook.md), the code anchor, and the user's original question. For an incident/postmortem question, or defensive code (guards, retry/timeout/rate-limit handling, feature flags, OOM or egress checks), also apply that playbook's incident/postmortem overlay within every source. Available vendor tools are optional access methods, never dependencies.
 
 ### When to skip an investigator
 
@@ -80,3 +84,5 @@ After Sources Consulted, if the user's `why` question is a precursor to changing
 - **Confirmation bias.** Only looking for evidence that supports your initial guess. Search broadly.
 - **Single-source reliance.** Believing one source without corroboration when multiple sources are available.
 - **Overconfidence.** Stating as fact what is actually inference. Mark inferences clearly.
+
+Adapted from [pstack at the pinned revision](https://github.com/cursor/plugins/tree/c742dd61706fbacc1b95f1a20b7b988cf096ce6c/pstack).

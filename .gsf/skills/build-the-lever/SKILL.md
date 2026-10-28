@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Build the Lever
 
+Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
+
 For non-trivial work, build a tool that does it or proves it, rather than doing it by hand. The tool becomes a reviewable artifact that others can run and verify.
 
 ## When to Build a Lever
@@ -31,7 +33,7 @@ For non-trivial work, build a tool that does it or proves it, rather than doing 
 
 2. **Design the lever.** What tool would do this work? What's its input and output?
 
-3. **Build the lever.** Write the script, codemod, or generator. Make it:
+3. **Build the lever.** Prefer existing host tools. In a target product, write a codemod or generator only within authorized scope. GSF framework artifacts remain Markdown-only: record the repeatable host procedure and evidence, never bundle `.sh`, `.py`, `.js`, or `.ts` runtime. Make the procedure:
    - Deterministic (same input → same output)
    - Idempotent (running it twice is safe)
    - Well-documented (what it does, how to use it)
@@ -41,7 +43,7 @@ For non-trivial work, build a tool that does it or proves it, rather than doing 
 
 5. **Verify the output.** Review the changes. Did the lever do what you intended?
 
-6. **Commit the lever.** The lever is part of the artifact. Reviewers can rerun it to verify.
+6. **Preserve the lever.** Commit authorized product tooling when appropriate; in GSF preserve the reproducible Markdown procedure and actual receipts instead of a runtime script.
 
 ## Benefits
 

@@ -1,6 +1,0 @@
-GSF
-Generic Software Factory
-
-A markdown-first, rigorous engineering framework for autonomous agent orchestration.
-
-Purpose: High-quality code through rigorous skills, principles, and evidence-based execution.
