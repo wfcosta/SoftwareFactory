@@ -1,0 +1,24 @@
+# Data migrations, coexistence and reconciliation
+
+Use with the [domain-review procedure](../SKILL.md). The database specialist designs; the builder implements; independent reviews and explicitly assigned checks assess the final candidate. Migration instructions never authorize production execution.
+
+## Inputs
+
+Obtain actual database/driver/ORM versions, schema and migration history, data volume/distribution, tenant boundaries, live reader/writer versions and deployment order, replication topology/lag, transactional-DDL capabilities, lock behavior, maintenance constraints, backup/restore evidence and accepted availability/integrity objectives. Identify the data owner, stable record identity and authoritative source during transition. Unknown engine semantics cannot be replaced by generic SQL claims.
+
+## Sequence and decisions
+
+1. Inventory every old/new reader and writer, background worker, report, CDC stream and API consumer. Build a coexistence matrix for old code/new schema, new code/expanded schema and mixed-version writes. Define invariants for nulls, defaults, uniqueness, ordering and tenant scope. Choose a simple compatible expansion; do not rely on an atomic fleet upgrade.
+2. **Expand** with additive nullable fields/tables or compatible indexes first. Specify exact engine-supported migration statements, preconditions and verification queries in the product plan. Estimate table/index size, disk headroom and lock acquisition/hold time from representative evidence. Define lock/statement timeouts and replication-lag/load abort thresholds before running; an online/concurrent option does not mean no locks. State which DDL cannot be transactionally rolled back.
+3. Deploy compatible readers/writers with a defined source of truth. If dual-writing, specify transaction boundaries, partial-write detection and reconciliation; do not assume two separate commits are atomic. Protect concurrent updates with engine-supported isolation/version checks or another justified mechanism. Define which version wins conflicting values.
+4. **Backfill** by stable indexed key ranges, not shifting offsets. Specify transform/version, bounded batch size and pacing, durable checkpoint meaning, progress counters, retries and conflict policy. Persist a checkpoint only after its batch commits; tie it to dataset/transform identity. Re-execution must converge without overwriting newer user writes. Describe ownership/lease/fencing with actual database controls; a Markdown checkpoint is not a lock. On timeout first query committed state and reconcile uncertain batches, then resume from the last verified boundary.
+5. Reconcile counts, null/constraint violations and key-scoped values against authoritative data; use checksums/samples only with documented collision/sampling limits. Exercise concurrent writes and restart at each commit/checkpoint boundary. Require zero unexplained divergence or the explicitly accepted product error budget; never dismiss missing records as a successful backfill.
+6. **Contract** only after verified backfill, new-path behavior and removal of all old readers/writers over the agreed coexistence window, including dormant jobs and supported clients. Record traffic/version/deployment evidence and authorized removal decision. Enforce constraints and remove old fields in separately sequenced changes; absence of recent telemetry alone does not prove a dormant consumer is retired.
+
+## Evidence, failure and recovery
+
+Deliver the migration graph/statements, compatibility matrix, lock/load measurements, exact engine/version/configuration, checkpoints, reconciliation queries/results, mixed-version and interruption results, removal evidence and recovery decision points. A reversible application deploy is not reversal of lost data. For each phase distinguish safe code rollback, compensating data repair and [backup restore](restore-recovery.md); identify the last point rollback preserves new writes. On lock timeout, lag/capacity breach or mismatch, stop batches at a safe transaction boundary, preserve checkpoints, release only owned locks and inspect actual committed state. Resume only after correcting the cause and revalidating identity/invariants; never blindly run a destructive down migration.
+
+## Consumer acceptance scenario
+
+In an authorized isolated database with representative concurrent traffic, an old client and new client update the same tenant records while expansion/backfill runs. Interrupt after a committed batch but before checkpoint acknowledgment, restart and reconcile. Both versions must read the agreed values without lost updates, tenant crossover or duplicate records; requests remain within the selected availability/latency objective and lock budget. Contract is rejected while a supported old reader still requires the old field. Capture actual observations, not only a successful migration-tool exit.

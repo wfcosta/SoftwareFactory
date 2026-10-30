@@ -3,6 +3,7 @@
 **You own the verdicts, never the PR branches. One owner carries each independent PR from build to merge; non-authors prove what lands.** A verdict covers a patch and its exercised base, while green CI covers one head. This is a scoped execution grant, not permission to ignore config.
 
 1. **Record operator gates before launch.** Enumerate the accepted queue, independent units, owner paths, checkable acceptance, and operator-reserved PRs. A request for a plan is not a go. Resolve `autonomy.publish_pr` and `autonomy.merge_pr` independently; without a scoped grant for either disabled action, stop at its local/merge-ready boundary. Queue-external work and operator-reserved items never inherit merge permission. Interaction review gates and forge approvals remain mandatory.
+   Use the [impact matrix](../references/impact-matrix.md) to bind each unit's invariants, existing domain/operational procedures, exact proofs and external resources as well as paths. Apply [execution/evidence boundaries](../references/execution-evidence.md): one canonical coordinator, current/frozen accepted baseline, effect/target/grants, real capability/limits and scoped evidence reuse. Missing optional tools block affected actions/claims, not unrelated authorized work. This merge lifecycle does not imply artifact publication, deployment or healthy rollout; route separately accepted operational endpoints through **release**/**cloud-change**.
 2. **Resolve the forge and dispatch one durable owner per PR.** Use [Opening a PR](./opening-a-pr.md) for repository/forge resolution. Select existing builder/gsf-delegate roles and available models through GSF mode, not a required cloud vendor. Each owner gets full task fields, disjoint worktree, own branch, parent/base, evidence paths, lifecycle boundaries, and current publication/merge authority. Record task/dispatch ids, ownership, agent handle, state, start time, and a cause-specific stuck-after threshold derived from comparable work; absent history, state the provisional threshold instead of inventing one.
 
    Owner lifecycle is build → configured checks/reviews → publish ready → code-ready/self-proof → Babysit → independent verdict → authorized
@@ -28,10 +29,11 @@
 
    Tool errors, inability to start turns, or no side effects past the recorded threshold trigger cause-specific recovery. Revoke the old
    writer's dispatch and establish that it can no longer write before replacement acquires branch ownership; a late result is evidence to
-   review, never permission for a second writer. Narrow a scope for resource failure, retry a dropped connection, or switch an available
-   model for a model/tool fault. Two failed retries require replanning rather than a hidden infinite loop. Gate/budget/allowlist loosening
-   needs independent proof and an authorized operator policy decision plus a recorded root countersign; neither owner nor root may
-   disable/soft-fail checks or bypass forge approval. Keep unrelated follow-ups separate and authorized.
+   review, never permission for a second writer. Narrow a scope for resource failure, retry after restored connectivity, or switch an available
+   model for a model/tool fault only within accepted no-progress/elapsed/cost allowance. A reached cap or actual quota/tool unavailability
+   requires durable checkpoint/replan and authentic renewed authority before exceeding a limit; never assume credit reset or scheduled wake.
+   Gate/budget/allowlist changes require an authorized operator policy decision and new effective baseline; a root countersign alone is not authority.
+   Neither owner nor root may disable/soft-fail checks or bypass forge approval. Keep unrelated follow-ups separate and authorized.
 7. **Honor stop immediately.** Send zero-writes to every owner and leaf, stop your watchers, collect head/state/trail locations, and preserve their briefs. Never let a queued merge or late worker continue silently after a hold. Resume only under the operator's release and refreshed candidate/authority checks.
 
 **Reply:** use [ketchup](../../ketchup/SKILL.md) to report each PR's live state, exact verdict/head, links, actual merges, countersigns and why, operator gates, failed/replaced workers, and separately parked follow-ups with trail paths. Unchanged audit ticks log a row but need no repetitive chat update.

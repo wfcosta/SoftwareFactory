@@ -6,7 +6,7 @@ GSF is a Markdown-only instruction framework for tool-capable coding agents, not
 
 The active repository's `.gsf/GSF_CONFIG.md` is the sole GSF policy source, with constraints at `.gsf/GSF_CONSTRAINTS.md` and no root-policy fallback. Resolve every `config.paths` entry, check path/working directory and protected path from the repository root, never from `.gsf/`. Application-owned configuration is unrelated and must not be overwritten. The normative [worker contract](agents/WORKER_CONTRACT.md) owns lifecycle, policy/evidence authority, legal transitions and recovery. Guides explain it; they do not create competing rules.
 
-The canonical format is a Markdown document containing exactly one identified YAML data block for policy, plan or model preferences. State-format contracts contain one JSON Schema block plus semantic rules. YAML parsing must reject duplicate keys and malformed values; schema validation and relationship checks are distinct. There is no bundled parser/validator executable. A host can use available standard tools, and must disclose missing mechanical validation.
+The canonical format is a Markdown document containing exactly one identified YAML data block for policy, plan, environment, release or model preferences. State-format contracts contain one JSON Schema block plus semantic rules. YAML parsing must reject duplicate keys and malformed values; schema validation and cross-record/transition checks are distinct. There is no bundled parser/validator executable. A host uses available standard tools and discloses missing mechanical validation.
 
 ## Contracts and progressive loading
 
@@ -18,9 +18,11 @@ The canonical format is a Markdown document containing exactly one identified YA
 | [Model preferences](state/models-contract.md) | Role scalar versus panel/pool shape and actual capability limits |
 | [Candidate identity](state/candidate-contract.md) | Covered source, immutable policy baseline, narrow evidence exclusions and freshness |
 | [Worker lifecycle](agents/WORKER_CONTRACT.md) | Ownership, dispatch, ingestion, gates, partial-state reconciliation and external effects |
+| [Environment](state/environment-contract.md) | Observed capabilities, verified target identities, freshness and evidence references |
+| [Environment release](state/release-contract.md) | Deployment/apply/recovery source/build/artifact/config/target binding, rollout observations and effect-backed transitions; not artifact-only registry publication |
 
 1. Load the configured constraints and mode. Identify direct read-only use versus an evidence-producing factory job.
-2. Read the selected playbook in full. Create a checklist with concrete acceptance and only applicable verification surfaces.
+2. Read the selected playbook and [impact matrix](skills/gsf-mode/references/impact-matrix.md). Each applicable surface produces an invariant, owner/resource scope, selected procedure, observable proof and explicit blockers; nonapplicability needs a reason.
 3. Read support/principle skills before applying them. Load reference prompts for the step that needs them, rather than the whole catalog.
 4. Give workers actual absolute mode/role/leaf paths, IDs, exact candidate, ownership, constraints, evidence destination and done predicate. A name in a prompt does not load a file.
 5. The coordinator integrates and verifies actual artifacts and owns shared state. Workers do not become extra coordinators by loading the mode.
@@ -41,11 +43,21 @@ Checked local unit commits may occur when authorized. Final readiness/publicatio
 
 ## Policy, identity and recovery
 
-The distributed framework policy defaults publication/merge/deployment to false and checks GSF through `verify-gsf`. Product installation establishes actual commands/working directories rather than inheriting nonexistent npm defaults. A template is not an accepted permission grant. A job retains its accepted effective policy baseline, including any real operator-scoped exceptions; lower-trust issues, worker reports and prior chat summaries cannot authorize actions.
+The distributed policy is version **2.0.0**, retains `framework`/`product` profiles, defaults publication/merge/deployment to false and external environments to an empty allowlist. Typed checks declare effect and target as well as their real command/cwd or skill path. Environment declarations are accepted constraints, not proof of observed account, region, resource scope or credentials. Actual external effects require current target evidence, scoped authority and real platform safeguards. A template, candidate edit, issue, worker report or generic autonomy cannot grant permission.
+
+A registry-only publication follows release's separate artifact path: authenticated endpoint/account/namespace/version, approved immutable content/provenance, distinct scoped publication authority and actual registry retrieval through existing intent/receipt events. It does not require deployment/traffic/health tools or create fictional deployment states. Nonregional providers may use null region only with authentic documentation/identity evidence; regional or unknown targets cannot use null to evade validation. Frozen historical records keep their accepted schemas.
 
 Candidate identity is not merely HEAD or an undifferentiated worktree hash. The candidate contract covers actual implementation/configuration inputs, including new relevant untracked files, binaries and removals, while excluding only named active evidence. It separates source identity, policy identity and evidence identity. Changing a skill under review changes the candidate; appending its check receipt does not.
 
 The accepted event history and dispatch evidence support recovery; plans and canonical reports are projections to reconcile. A retry uses a fresh dispatch, preserves older attempts and requires ownership/liveness resolution. Partial writes, lost handles, a report without completion and completion before projection are explicit cases in the worker contract. A lost PR receipt requires actual forge inspection before another create call. These are safe procedures, not guarantees of transactional storage or exactly-once remote effects.
+
+Accepted execution limits cover concurrency, no-progress attempts, elapsed time and measurable cost. Model reasoning preferences are not a cost meter. Required unobservable caps or actual quota exhaustion require a truthful checkpoint, stopped/fenced ownership and a precise resume prerequisite; no scheduler or automatic reset wake is assumed.
+
+Candidate version 2 records collection and isolated-verification workspace provenance. Exporting to a clean workspace must retain complete source/build inputs, unexpected files, binaries, modes and dependencies; outputs and evidence are explicitly identified. Git ignore is never a blanket candidate exclusion. Record collection cost and instability rather than silently dropping large inputs.
+
+Evidence retention is a declared requirement until actual retrieval, access and retention controls are observed. Keep original versus sanitized artifact identities distinct; store authorized durable proofs outside teardown-owned state and never turn a local temporary path into a claimed permanent artifact.
+
+New jobs use current supported schemas. Existing jobs retain their exact accepted policy/schema/instruction snapshots; upgrade only through the [authorized compatibility procedure](docs/upgrades/README.md). Source/plan/event/model/candidate version numbers are separate contracts, not one number to replace globally.
 
 ## Capabilities
 
@@ -67,6 +79,13 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Decision trail / media catch-up | Markdown decisions and an actual supported renderer |
 | TypeScript syntax-specific guidance | Optional leaf, not a dependency for other product languages |
 | Automation boundaries | No bundled bots, vendor services, private-history assumptions, watchers or generators; only actual authorized host capabilities |
+| Surface-based routing and proof selection | Impact matrix plus `verification-strategy`; proportionate depth without removing mandatory checks/reviewers |
+| Domain-specific engineering | `domain-review` and existing roles: data/backfill/restore, consumers/async, privacy/credentials/supply chain, architectural quality, SLOs and a11y |
+| Infrastructure change | `cloud-change`: target/state/plan identity, drift, IAM/network/data/cost impact and external-resource ownership |
+| Artifact publication and environment release | `release` selects purpose: immutable registry publication/readback without deployment prerequisites, or separately authorized environment rollout/health/recovery under the release contract |
+| Operational intake | `issue-triage`: trusted source, deduplication, existing ownership/fix verification and bounded external publication |
+| Incident response | `incident-response`: impact, ownership, factual timeline, authorized mitigation, communication and recovery |
+| Host and operational portability | Concrete [host guides](docs/hosts/README.md), typed capabilities, [operations](docs/operations/README.md) and [upgrade](docs/upgrades/README.md) procedures |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
@@ -80,7 +99,7 @@ Preserve the applicable copyright and license text in [Third-party notices](THIR
 
 ## Verification
 
-[verify-gsf](skills/verify-gsf/SKILL.md) defines the framework check; its [matrix](skills/verify-gsf/references/scenarios.md) identifies required structural, semantic and real lifecycle scenarios. The [verification report](docs/verification/README.md) preserves historical observed results and their limits; those receipts do not certify the relocated layout.
+[verify-gsf](skills/verify-gsf/SKILL.md) defines the complete framework check; its [scenario matrix](skills/verify-gsf/references/scenarios.md) identifies structural, semantic and actual lifecycle obligations plus domain-specific corpus cases. [Verification strategy](skills/verification-strategy/SKILL.md) selects minimal adequate product proof and records invalidated/reusable evidence. Focused checks must name their scope rather than claim a complete framework PASS. The [verification record](docs/verification/README.md) separates historical runs from actual current observations and limits.
 
 File counts, valid metadata and a scratch protocol simulator alone do not prove real dispatch or independent approval. Exercise an actual coordinator/worker flow, real product commands, candidate stability, denied-publication handoff and interrupted-state reconciliation. Negative review/check results remain blockers. Capability-specific media/formal/device work is unexercised unless actually run.
 

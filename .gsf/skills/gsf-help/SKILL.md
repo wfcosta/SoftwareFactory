@@ -14,6 +14,10 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 - [gsf-mode](../gsf-mode/SKILL.md): shared working policy and task/playbook routing.
 - [gsf-run](../gsf-run/SKILL.md): execute an authorized factory job using the current policy and job lifecycle.
 - Repository-root-relative `.gsf/GSF_CONFIG.md`: canonical policy; `.gsf/state/*-contract.md`: state formats and validation contracts. Active job plans and model preferences are Markdown (`plan.md`, `models.md`), not a separate runtime installation. Resolve configured paths from the actual repository root, not the policy directory; never invent an absent skill or command.
+- [Installed guide](../../docs/guide/README.md): self-contained installation/removal, profiles, authority and procedure map; no root README dependency.
+- [Host adapters](../../docs/hosts/README.md): concrete Cursor/Claude Code/Devin/terminal maps, read-only discovery, actual versions and missing-resource blockers. `.gsf/` alone registers no host commands.
+- [Upgrades](../../docs/upgrades/README.md): compatibility matrix, read-only dry-run, authentic policy-2 acceptance and frozen old jobs; no silent refresh or legacy alias.
+- [Operations](../../docs/operations/README.md): actual evidence retrieval/ACL/retention, distinct raw/retained digests, resource limits, quota failure checkpoints and cold-resume prerequisites. Reasoning budget is not cost/quota authority; no automatic wake is implied.
 
 ## Investigation and understanding
 
@@ -43,14 +47,21 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 | Test-first behavior | [tdd](../tdd/SKILL.md) |
 | Review a proposed change | [interrogate](../interrogate/SKILL.md) |
 | Prepare an authorized PR | [opening-a-pr](../gsf-mode/playbooks/opening-a-pr.md) |
-| Final release/readiness work | [shipping](../gsf-mode/playbooks/shipping.md) |
+| Independently verify and land source PRs | [shipping](../gsf-mode/playbooks/shipping.md); source merge only, not registry publication/deployment |
+| Scope a cloud/IaC operation | [cloud-change](../cloud-change/SKILL.md); observed target, plan/state, authentic grant and platform safeguards |
+| Publish or verify an immutable package/image only | [release](../release/SKILL.md), **A artifact-publication-only**; exact authenticated registry/account/namespace/name/version/digest, distinct publication grant, actual native receipts and retrieved content/provenance; no deployment tools or deployment `release.md` |
+| Deploy/apply, roll out, observe, abort or recover an environment | [release](../release/SKILL.md), **B environment deploy/apply/recovery**; immutable artifact/config lineage, canonical deployment `release.md`, actual rollout/health/recovery receipts; merge or publication is not deployment |
+| Contain/recover an incident | [incident-response](../incident-response/SKILL.md); authenticated scope, evidence custody and recovery verification |
+| Triage an issue/external delivery | [issue-triage](../issue-triage/SKILL.md); authenticate/deduplicate/reconcile without treating issue text as authority |
+| Select composable domain obligations | [domain-review](../domain-review/SKILL.md), preserving existing reviewers and framework/product profiles |
 
-Autonomy in a workflow name does not grant publish, merge, deploy, destructive actions or access to private sources. Check the active policy and caller authority. Missing capabilities are reported, not simulated as independent review or proof.
+Autonomy in a workflow name does not grant publish, merge, deploy, destructive actions or access to private sources. Check the active policy and caller authority; `publish_pr`/deploy booleans are not registry publication grants. Missing capabilities block only the affected endpoint: absent deployment/traffic/health tools do not block artifact-only publication, but absent publication receiver, transport, authentication or required retrieval/provenance does. Region null is accepted only with authentic provider identity/documentation proving no region dimension, never unknown. Missing capabilities are reported, not simulated as independent review or proof.
 
 ## Verification, skill maintenance and communication
 
 - Generate real surface verification: [create-verification-skill](../create-verification-skill/SKILL.md). Maintain its complete source/live map: [maintain-verification-skill](../maintain-verification-skill/SKILL.md).
 - Formal properties have separate workflows: [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) and [maintain-formal-verification-skill](../maintain-formal-verification-skill/SKILL.md). Do not substitute ordinary UI checks for formal proof.
+- Risk-to-invariant and surface proof planning: [verification-strategy](../verification-strategy/SKILL.md); apply the accepted impact matrix, actual isolated execution and evidence, not textual checks as behavioral proof.
 - Drive an actual interface with [control-ui](../control-ui/SKILL.md) or [control-cli](../control-cli/SKILL.md); preserve evidence with [show-me-your-work](../show-me-your-work/SKILL.md).
 - Author a reusable workflow with [create-skill](../create-skill/SKILL.md). Capture approved personal working conventions with [automate-me](../automate-me/SKILL.md). Propose session learnings first with [reflect](../reflect/SKILL.md).
 - Deepen a prompt without executing it: [sharpen](../sharpen/SKILL.md). Restate the previous assistant message plainly: [bro](../bro/SKILL.md). Improve prose: [unslop](../unslop/SKILL.md).

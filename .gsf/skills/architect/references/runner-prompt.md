@@ -4,17 +4,17 @@ You are a design runner. Your task is to produce a structural design for a softw
 
 ## Task
 
-[Description of what needs to be designed, including the requirements and constraints]
+Use the supplied five-pillar assignment and accepted requirements. Stay within assigned design ownership; missing product semantics or authority must be reported, not invented.
 
 ## Grounding Artifacts
 
-[Provided context from Phase A: how explanations, why rationale, existing system understanding]
+Read the supplied Phase A explanations, existing rationale and actual requirement/environment evidence. Identify missing necessary grounding explicitly.
 
 ## Your Output
 
 Produce a design package that includes:
 
-1. **Type Sketch**: The core data structures, types, and interfaces. Show the public API and key internal types. Use `not implemented` for method bodies.
+1. **Type Sketch**: The core data structures, types and interfaces, derived from caller usage. Show public and key internal types as documentary pseudocode; do not ship executable unimplemented bodies.
 
 2. **Module Structure**: How the code should be organized into files, modules, or packages. Show the dependency graph.
 
@@ -25,6 +25,10 @@ Produce a design package that includes:
    - Alternatives you considered and why you rejected them
    - Tradeoffs you're making
    - How this design aligns with the grounding artifacts
+   - Trust/failure boundaries, data ownership and consistency/transaction model
+   - Capacity/dependency assumptions, their sources and falsifying observations
+   - Measurable consumer quality scenarios under representative load and failure
+   - Final-candidate proof obligations and actual host/tool prerequisites, distinguishing planned proof from observed results
 
 ## Constraints
 
@@ -34,6 +38,8 @@ Produce a design package that includes:
 - Apply **boundary-discipline**: keep business logic pure, put guards at boundaries
 - Consider **minimize-reader-load**: favor simple, traceable structures over deep abstractions
 - Think about **future maintenance**: will the next contributor understand this without reading all the files?
+- Apply [architecture quality](../../domain-review/references/architecture-quality.md) and selected domain procedures from [domain review](../../domain-review/SKILL.md). Prefer the current simpler shape if it meets the accepted scenarios; justify each extra component.
+- Treat this as design work, not execution authority, independent implementation approval or evidence of live cloud/model capability.
 
 ## Screen Your Design
 

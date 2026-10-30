@@ -3,6 +3,7 @@
 **You own the design. Plan, review, verify.** Delegate independent worthwhile slices when host capabilities permit; otherwise own implementation inline.
 
 1. `how` over the affected subsystem.
+   Build the [impact/proof matrix](../references/impact-matrix.md) before selecting implementation/design lanes. Turn applicable rows into exact invariants, exclusive source/external-resource owners and minimal positive/adverse proof through [domain-review](../../domain-review/SKILL.md) and [verification-strategy](../../verification-strategy/SKILL.md). Cloud/data/async/UI/dependency changes compose their rows; inspected N/A reasons do not remove required checks or code/security reviews. Resolve capability/target/authority blockers per step and retain the generic local-feature path when operational surfaces are absent.
 2. `architect` for parallel design exploration.
 3. Write the throughput checkpoint as four todo items. A dimension that genuinely does not apply (single file, no fan-out) keeps its item with `n/a: <reason>` rather than being dropped:
    - **Blocking first steps.** Gates run before fan-out.
@@ -18,7 +19,7 @@
    forbidden to spawn satisfies this by owning the diff directly with the same review separation. No "standing by" reply that waits on a
    nested agent. Read [no-comments](../../no-comments/SKILL.md) before review. Surgical edits, re-ground against the source for
    upstream-derived files. Port shared-primitive improvements to all consumers and verify each. Commit liberally.
-5. Verify on the matching surface. "Inconclusive" or wrong-surface is not a pass. Flag it.
+5. Verify on the matching surface against the matrix's acceptance thresholds and [execution/evidence boundaries](../references/execution-evidence.md). Writing checks use the candidate contract's isolated workspace; retain immutable artifact/input/output lineage. "Inconclusive" or wrong-surface is not a pass. Flag it. Invoke **cloud-change**/**release** only for accepted operational effects; a merged feature is not necessarily published as an artifact, deployed or healthy.
 6. Rebase into small, ordered commits. Stack follow-ups.
    Use the [sequence-verifiable-units](../../sequence-verifiable-units/SKILL.md) principle skill, building, verifying, and committing each small unit before the next.
 7. If the design is contested, `interrogate` before shipping.

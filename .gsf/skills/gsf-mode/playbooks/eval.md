@@ -15,7 +15,9 @@
 **Steps:**
 
 1. **Frame.** State what variant is under test and what behavior counts as success. Write the rubric (3-6 concrete criteria) for the judge only. Hold it back from candidates.
+   Map task surfaces through the [impact matrix](../references/impact-matrix.md) and [verification-strategy](../../verification-strategy/SKILL.md): each rubric claim needs an observable invariant and exact positive/adverse proof, not transcript compliance alone. Keep code/security reviews and configured checks independent of the blinded score. A prompt/skill eval cannot prove cloud safety, restore, delivery or deployment health without those actual authorized lanes.
 2. **Set up sanitized environments.** Per-candidate working dir with the variant in place. Plant any context an organic task would have: a project skeleton, the skills the candidate would naturally read.
+   Use owned external fixtures outside the Markdown-only distribution for product code/runtime/build output. Keep source and evidence immutable under the candidate contract, record real tool/model versions and environment limitations, and give each candidate disjoint credentials/resource leases as well as directories. Bound sample/concurrency/no-progress/elapsed/cost through [execution/evidence boundaries](../references/execution-evidence.md); missing diversity/telemetry/billing/scheduling never becomes a claimed capability. If a capability is absent, block or accurately narrow only that claim without silently changing the accepted experiment.
 3. **Author one organic prompt.** What a user would type. No leakage of what's being measured.
 4. **Spawn N parallel candidates** on different models per the [arena](../../arena/SKILL.md) skill's Phase B. Each works in its own sanitized dir. Same prompt to each. Select available models and reasoning through the GSF mode delegation contract and `.gsf/state/models.md` when present; never require an unavailable model.
 5. **Spawn one blinded judge** on a different model family per the [arena](../../arena/SKILL.md) skill's Phase C. Judge sees outputs by sanitized label and the rubric, never a model name.
@@ -23,6 +25,7 @@
 If the host cannot isolate directories, hide identity/rubric metadata, supply model diversity, or expose tool receipts, record the missing capability. Do not label the run blinded or its chain verified when it is not. Keep the label-to-variant mapping judge-invisible until scoring is locked.
 
 7. **Read every candidate output yourself** end to end. Compare to the judge's verdict. Disagreement means a model is biased or the rubric is ambiguous. Synthesize.
+   Retain the immutable prompt/variant/artifact/input/toolchain/config identities and evidence retrieval/ACL/retention receipts. Reuse a result only after explicit artifact/base/environment equivalence and expiry review; changed prompts/rubric/execution conditions invalidate affected comparisons. A judge preference is not permission to publish, merge or deploy the variant.
 
 **Reply:** variant under test, rubric, per-candidate notes, judge's verdict, your synthesis, and a recommendation for whether to promote the variant.
 

@@ -16,19 +16,25 @@
 
 - Immutable baseline in policy.md (exact policy/constraints/active instruction revisions):
 - Baseline policy_id / current effective policy_id and version:
-- Configured typed checks: command+cwd or skill path/revision and criterion evidence:
+- Configured typed checks: kind, command+cwd or skill path/revision, effect, target, actual nested effects and per-criterion evidence:
 - Protected path globs:
 - Required reviewers (never removed by intake):
 - Applicable surface reviewers and rationale (see decision.md):
 - Autonomy: publish_pr=<actual boolean>, merge_pr=<actual boolean>, deploy=<actual boolean>
 - Scoped operator grants in grants.md: authentic source, action/paths, job/branch/candidate scope, reason, preconditions, expiry/single-use boundary (none unless recorded):
 - Available tools and capability limitations:
+- Accepted schema/instruction versions / immutable references (frozen older job or explicit authorized upgrade evidence):
+- Accepted environments / explicit provider-account-region-resource scope (empty denies external effects):
+- execution_limits / observed live owners, no-progress attempts, elapsed time, cost/currency/meter source:
+- Budget checkpoints / exhaustion / authentic renewed authority / fencing before resume:
+- evidence.store/location/retention_days / retention owner, control and required recovery window:
 
 ## Request and environment
 
 - Request evidence: issue.md when linked, otherwise original task text/source.
-- Setup and validation: environment.md.
-- Validation result: pending.
+- Setup and validation: environment.md under [environment-contract.md](../state/environment-contract.md), exactly one YAML mapping.
+- Validation result: pending; observed tools/versions, capability limitations, receipt locators/digests, observation/expiry and exact accepted target comparison:
+- Frozen raw environment_id / affected evidence invalidations on identity/capability change:
 
 ## Intake and DAG
 
@@ -61,6 +67,18 @@ Only link reports that actually exist. Keep old attempts in dispatches/<dispatch
 - Durable checkpoint / last outbox read / pause reason (operator or capability only):
 - Liveness observation / actual cancellation or fencing evidence / resume prerequisite:
 
+## Evidence and resource index
+
+Only record actual items; each row links an existing immutable receipt or frozen snapshot. Relative locators resolve from JOB_DIR. Do not place secrets in locators/reports. Preserve prior snapshots and raw digests; no concurrent canonical writers.
+
+| Exact locator / raw digest | Source job/task/dispatch/event / captured time | Classification / authorized readers-writers / ACL receipt | Retrieval method/time/result | Retention owner/deadline/control receipt | Resource/current owner / lock-operation-fence IDs |
+| --- | --- | --- | --- | --- | --- |
+
+- Complete candidate collection procedure / accepted entry-byte-time limits / measured entries-bytes-elapsed / stability receipts:
+- Isolated verification workspace ownership/boundaries / source_candidate_id / input-output-artifact manifest receipts / actual cleanup or retained owner:
+- External-resource handoff / observed stop-fence / state reconciliation / compensation owner:
+- Append expected prior event/revision/digest / immutable prior snapshot / actual atomic-write or fencing/readback evidence:
+
 ## Gate and disposition
 
 - **Gate:** GATE: BLOCKED
@@ -74,5 +92,9 @@ Only link reports that actually exist. Keep old attempts in dispatches/<dispatch
 - Private intermediate commit authority/unit evidence (not final readiness):
 - Publication / merge / deployment: distinct authority, durable intent and actual receipt:
 - Lost external receipt recovery: queried remote repository/branch/head and observed result:
+- Release applicability / release.md under [release-contract.md](../state/release-contract.md), exactly one YAML mapping when applicable:
+- Source-build-artifact-config-target-environment-plan identities / saved plan state-expiry / exact authorized action:
+- Last proven release state / ordered transition event IDs / actual provider and rollout observation receipts:
+- Observation window / measurable acceptance-abort / separately authorized recovery and actual disposition:
 - Ledger items opened:
 - Final delivered outcome / exact resume instructions if blocked:

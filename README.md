@@ -1,12 +1,12 @@
 # Generic Software Factory (GSF)
 
-An issue-to-PR workflow executed by a coding agent. GSF ships **Markdown instructions and contracts only**: skills, role prompts, playbooks, templates, policy and durable job records. It has no bundled executable, daemon, dependency installer, scheduler or automatic plugin registration.
+A change-to-evidence workflow executed by a coding agent: classify impact, design, implement, verify, review and, only when separately authorized, release and observe the result. GSF ships **Markdown instructions and contracts only**: skills, role prompts, playbooks, templates, policy and durable job records. It has no bundled executable, daemon, dependency installer, scheduler or automatic plugin registration.
 
 ## Start
 
 1. Copy the single `.gsf/` directory into the target repository, excluding private runtime data: jobs, logs, bug evidence and personal model preferences. Preserve the [legal notices](.gsf/THIRD_PARTY_NOTICES.md), existing product configuration and local customizations. GSF never merges policy into a generic application config.
-2. Read [.gsf/GSF_CONFIG.md](.gsf/GSF_CONFIG.md). The distributed `framework` profile verifies GSF itself through `verify-gsf`; it does not pretend there is an npm product in this repository. For product work, use the `product` profile and configure real project checks and working directories. Keep publication, merge and deploy denied until explicitly authorized.
-3. Ask your coding agent to read [gsf-setup](.gsf/skills/gsf-setup/SKILL.md). It validates policy, discovers actual project/runtime/tool capabilities and reports missing prerequisites without silently installing dependencies or weakening checks.
+2. Read [.gsf/GSF_CONFIG.md](.gsf/GSF_CONFIG.md). Policy **2.0.0** distinguishes `framework` verification from a `product` profile with actual project checks. Declare each check's effect and target; an executable command or configured check is not permission to deploy. Keep publication, merge and deploy denied until explicitly authorized. External environments default to an empty allowlist.
+3. Ask your coding agent to read [gsf-setup](.gsf/skills/gsf-setup/SKILL.md) and the [host guide](.gsf/docs/hosts/README.md). Setup validates policy, records observed capabilities and target identities, and reports missing prerequisites without silently installing dependencies or weakening checks. Existing installations follow the [explicit upgrade procedure](.gsf/docs/upgrades/README.md); never reinterpret an in-flight job with new schemas.
 4. Start one coordinator:
 
 ```text
@@ -24,6 +24,10 @@ For an explicitly read-only question, attach `gsf-mode` directly. That mode must
 `.gsf/skills/` is the canonical source, **not a universal host search path**. Attach/read the actual SKILL.md files, or register them through your host's documented mechanism before using slash commands. Cursor, Claude Code, Devin and other hosts do not share one registration directory or task API.
 
 Filesystem and terminal access are needed for execution. UI proof needs actual UI controls; parallel workers need real delegation; GitHub effects need authenticated forge access. Missing capability is disclosed. Serial execution can replace permitted work partitioning, never required independent review.
+
+### Classify the change, not just its files
+
+The [impact matrix](.gsf/skills/gsf-mode/references/impact-matrix.md) connects each affected surface to an invariant, owner, resource scope and observable proof. A database migration, cloud change, asynchronous consumer and UI fix need different evidence. Missing tools or authority block the affected action; they do not justify a passing result or a fictional fallback.
 
 ## Workflow
 
@@ -68,9 +72,11 @@ README.md
 
 | Artifact | Responsibility |
 |---|---|
-| `.gsf/GSF_CONFIG.md` | One canonical YAML policy block: profile, checks, paths, reviewer policy and permissions |
+| `.gsf/GSF_CONFIG.md` | Versioned policy: typed checks/effects/targets, environments, execution limits, evidence retention, reviewers and permissions |
 | `.gsf/state/*-contract.md` | Format contracts with a canonical JSON Schema block and normative semantic rules |
 | `.gsf/state/candidate-contract.md` | Source manifest, policy identity, evidence exclusions and snapshot freshness |
+| `.gsf/state/environment-contract.md` | Observed host capabilities and target identity, freshness and evidence; not an authority grant |
+| `.gsf/state/release-contract.md` | Source/build/artifact/config/target binding, authorized effects, rollout observations and recovery |
 | `.gsf/state/models.md` | Optional local YAML model preferences; available host models only |
 | `<jobs>/<job-id>/plan.md` | YAML DAG, task states and dispatch history |
 | `inbox.md`, `outbox.md`, `dispatches/*/events.md` | Append-only Markdown event records with structured YAML envelopes |
@@ -81,13 +87,16 @@ Markdown is the file format, not a promise of automatic enforcement. A real host
 
 ### Checks and permissions
 
-Checks are explicit typed entries: a real command with its repository-relative working directory, or a skill with an actual repository-relative SKILL.md path. Every entry must execute and produce evidence. A framework skill check is not permission to omit product tests.
+Checks are explicit typed entries: a real command with its repository-relative working directory, or a skill with an actual repository-relative SKILL.md path. Each declares `effect` (`read`, `local-write`, `external-write` or `destructive`) and `target` (null for local work, otherwise the configured target ID). Inspect actual nested effects; metadata does not sandbox a command. Every assigned check must execute and produce evidence. A framework skill check is not permission to omit product tests.
 
 - Required reviewers cannot be removed by intake. Surface reviewers are selected by actual impact and recorded with reasons.
 - Protected paths require scoped authorization before writes. TDD or a skill invocation is not an override.
 - Publication, merge and deployment default to false. An explicit operator exception must name the denied action and scope and be recorded before acting; generic autonomy is not an exception.
 - No exception bypasses mandatory checks/reviews, branch protection, credentials or security safeguards.
 - The accepted policy baseline is retained immutably in the job; a later edited policy cannot retroactively excuse a failure.
+- External operations bind the observed account, region and resource scope to accepted policy and authentic scoped grants. `region: null` is only proven nonapplicability for a documented nonregional provider, never unknown identity or a way around regional checks. Separate worktrees do not isolate shared external resources.
+- Artifact-only publication verifies exact registry endpoint/account/namespace/version and immutable content readback; it does not require deployment, traffic or service-health tools and does not claim deployed/healthy state. Environment deployment separately binds build/config/target and its rollout/recovery proof. PR, registry-publication and deploy authority are distinct.
+- Execution limits are operator policy, not invented provider controls. Unknown cost is not zero cost; an unobservable required cap blocks the affected work. On actual quota or tool unavailability, checkpoint ownership and resume prerequisites without claiming an automatic wake.
 
 ## Choose a skill
 
@@ -104,6 +113,12 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Authoring and communication | `create-skill`, `technical-writing`, `unslop`, `no-comments`, `bro`, `sharpen` |
 | Working style and learning | `automate-me`, `correct`, `reflect`, `figure-it-out` |
 | Language-specific discipline | `typescript-best-practices` when the product uses TypeScript |
+| Infrastructure plans, drift, IAM, network and resource ownership | [cloud-change](.gsf/skills/cloud-change/SKILL.md) |
+| Artifact-only registry publication or separately authorized environment rollout/recovery | [release](.gsf/skills/release/SKILL.md), with purpose-specific prerequisites and receipts |
+| Trusted issue intake, deduplication and verification of existing fixes | [issue-triage](.gsf/skills/issue-triage/SKILL.md) |
+| Incident coordination, authorized mitigation and handoff | [incident-response](.gsf/skills/incident-response/SKILL.md) |
+| Data/restore, API/async, security/privacy, quality and accessibility | [domain-review](.gsf/skills/domain-review/SKILL.md) with existing specialists |
+| Requirement–risk–proof mapping and evidence invalidation | [verification-strategy](.gsf/skills/verification-strategy/SKILL.md) |
 | Verify this distribution | [verify-gsf](.gsf/skills/verify-gsf/SKILL.md) |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
@@ -113,6 +128,10 @@ The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They
 The coordinator alone owns shared job state, the DAG, ledgers, policy decisions and canonical stage reports. Workers own their assigned product paths and dispatch-local reports/events. IDs are explicit: never infer a hyphenated job ID by splitting another identifier.
 
 Resume reconciles intent, actual invocation receipts, complete worker events, accepted event history and report/plan projections before new effects. Unknown worker liveness blocks overlapping retries. Before retrying an interrupted publication, inspect actual forge state; a missing local receipt is not proof no PR was created.
+
+The coordinator records observed environment capabilities and, for an operational release, the release state under their typed contracts. A merged PR, a queued deployment, a deployed artifact and a healthy user journey are distinct observations. Recovery may require roll-forward or data restoration rather than undoing code. Reports identify the supported action and its real result, never a guessed remote effect.
+
+Keep evidence retrievable after cleanup under the accepted store, access and retention policy. A local path, digest or claimed expiry alone does not prove durable storage, authenticity or deletion. The [operations guide](.gsf/docs/operations/README.md) defines the retrieval and handoff procedure.
 
 The [worker contract](.gsf/agents/WORKER_CONTRACT.md) is normative. Playbooks link it rather than duplicating global policy. Read-only direct use, factory investigations and implementation jobs have explicit applicability boundaries.
 
@@ -128,5 +147,8 @@ No count of files or absence of scripts proves autonomous reliability. Report th
 - [Architecture and capabilities](.gsf/GSF_RIGOROUS_GUIDE.md)
 - [Contributing roles and skills](.gsf/CONTRIBUTING_AGENTS.md)
 - [Verification evidence](.gsf/docs/verification/README.md)
+- [Host capabilities and adapters](.gsf/docs/hosts/README.md)
+- [Policy and instruction upgrades](.gsf/docs/upgrades/README.md)
+- [Operational limits, evidence and recovery](.gsf/docs/operations/README.md)
 
 Only operational Markdown is distributed; `.gsf/.gitignore` is the explicit Git metadata exception. Its rules ignore jobs, logs, bug evidence and personal model preferences **within `.gsf/`**. They do not ignore repository-root `products/` or audit directories; keep scratch products outside the repository and manage any product-specific ignore rules separately.

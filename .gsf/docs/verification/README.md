@@ -1,8 +1,10 @@
 # GSF verification record
 
+The [operational-policy v2 verification record](operational-v2.md) records the newer typed-policy, domain, recovery, support-maintenance and artifact-publication exercises, including preserved failures and untested live surfaces. The historical results below are not promoted to that revision's results.
+
 ## Scope
 
-This document separates the historical full lifecycle verification below from the current self-contained layout checks at the end. The historical run verified the Markdown-only GSF instruction distribution and its bounded lifecycle behavior on Windows with Python 3.12, PyYAML, a Draft 2020-12 JSON Schema validator, Git and actual host workers. Source policy remained default-deny. The operator separately authorized that source commit, existing-branch push and existing PR update; that did not authorize merge or deployment.
+This document retains the historical full lifecycle verification and the later self-contained-layout probes below. Their counts, schemas, identities and receipts describe those recorded revisions, not automatic certification of a newer operational policy or domain procedure. The historical full run verified the Markdown-only GSF instruction distribution and its bounded lifecycle behavior on Windows with Python 3.12, PyYAML, a Draft 2020-12 JSON Schema validator, Git and actual host workers. Source policy remained default-deny. Its operator authorization covered that source commit, branch push and PR update, not merge or deployment.
 
 The observations and receipts below are retained unchanged in meaning. At the time, policy and several guides were at the repository root; they now live under `.gsf/`, with canonical policy `.gsf/GSF_CONFIG.md` and repository-root-relative configured paths. Historical source counts, identities and path checks do not establish current relocation correctness. The [reusable procedure](../../skills/verify-gsf/SKILL.md) and [scenario matrix](../../skills/verify-gsf/references/scenarios.md) define how to repeat checks. Scratch applications were outside the source repository and are not distributed.
 
@@ -87,11 +89,11 @@ Markdown contracts cannot enforce process fencing, filesystem isolation, atomic 
 
 The disposable task recipe and expected outputs are retained in the scenario matrix. A new generated implementation can reproduce the behavioral checks but need not have the same source hash. Raw host/task receipts are retained locally as ignored job evidence; absolute private paths and generated executable products are not published. Cleanup removes only owned scratch resources after receipts are preserved.
 
-## Current self-contained layout checks
+## Historical self-contained layout checks
 
-These observations cover the directory relocation, not a new full lifecycle certification. All framework files now live under `.gsf/`; the distribution root contains only `README.md` and `.gsf/`, apart from Git administration.
+These observations cover the earlier directory relocation, not a new full lifecycle certification or the later operational-policy upgrade. At that revision all framework files moved under `.gsf/`; the distribution root contained only `README.md` and `.gsf/`, apart from Git administration.
 
-- Validated the nested canonical `.gsf/GSF_CONFIG.md` against the five current state schemas and resolved its configured paths from the repository root. Protected policy/constraint paths name their new locations; publication, merge and deployment remain false.
+- Validated the then-canonical `.gsf/GSF_CONFIG.md` against the five state schemas at that revision and resolved its configured paths from the repository root. Protected policy/constraint paths named their new locations; publication, merge and deployment remained false.
 - Parsed all 62 skill frontmatters. Permission strings, repository-escaping agent paths, empty checks and missing mandatory security review were rejected by the policy schema.
 - Exercised Git's actual ignore matching: `.gsf/jobs`, logs, bugs, local models and other explicitly named local-data directories are ignored, while policy, skills, state contracts and the root README remain visible. These nested rules do not ignore root-level products.
 - Copied only the distributable `.gsf/` files into a fresh external Git repository, without the source README, jobs, logs or personal model preferences. The first portability check found two documentation links depending on the uncopied root README; those dependencies were removed. All 252 installed local Markdown links then resolved entirely within `.gsf/`.
