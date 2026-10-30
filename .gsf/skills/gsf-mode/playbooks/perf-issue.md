@@ -2,6 +2,8 @@
 
 **You own the measurement story. Plan, review, verify the numbers.** Tie every fix to a measurement, don't read source instead of measuring.
 
+Route measurement/SLI/SLO/cost and affected domain invariants through the [impact matrix](../references/impact-matrix.md), existing performance specialist and **domain-review**/**verification-strategy**. Name workload, sample/window, supported target/platform, baseline and numerical acceptance before collecting results. A verify-existing measurement does not authorize a fix; production load/fault probes need exact resource ownership and scoped authority. Use [execution/evidence boundaries](../references/execution-evidence.md) for effects, observed environment, actual caps and artifact/base/environment-aware comparisons; unknown spend is not zero or live credits. An active service incident routes to **incident-response**, not an unbounded benchmark.
+
 1. Capture a baseline trace via the matching control skill. Vet the baseline, and each later number, with the [benchmark-checklist](../../benchmark-checklist/SKILL.md) skill.
 2. `how` to ground hypotheses. Don't claim a perf ceiling without running it first.
    Try the performance mantras in order, cheapest first:

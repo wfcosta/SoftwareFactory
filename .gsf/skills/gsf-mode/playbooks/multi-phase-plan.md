@@ -6,8 +6,8 @@
 2. Partition substantial independent unknowns into bounded read-only research slices where delegation exists. Each returns entry points, conventions, real check/surface commands and evidence. Do not invent model entitlement, a scheduler or nested agents.
 3. Resolve the exact JOB_DIR under configured paths.jobs. Write the narrative to `JOB_DIR/execution-plan.md` unless the operator named another authorized path. **Never overwrite `plan.md`: it is exclusively the coordinator's typed YAML lifecycle DAG.** Index the narrative as an authorized evidence attachment before excluding it from candidate identity.
 4. Fill the skeleton below with the smallest independently verifiable units and actual dependency/ownership boundaries. Replace placeholders in the delivered plan; one PR is one coherent change with evidence. Name the execution playbook: feature/refactoring for a task, orchestrate for standing coordination, autopilot-full only when landing is authorized, autopilot-stack for operator handoff.
-5. Size verification from acceptance, blast radius and actual surfaces. Configured checks/reviewers remain mandatory. Specify meaningful unit/contract checks, a real changed-surface scenario and its regression neighbor; performance measurement only when the change affects a named metric or acceptance explicitly requires it. Document genuinely inapplicable surfaces with reasons, not fake timings or screenshots. Preserve any lane count the user explicitly required, otherwise choose nonduplicative coverage rather than a fixed ten-lane ritual.
-6. Review dependency acyclicity, parent/base branches, ownership, authority, exact instruction identities, evidence durability, required review and pause/resume conditions. Record PASS/FAIL per criterion. Unresolved placeholders, missing prerequisites or unowned risks block an executable-plan claim.
+5. Size verification from the [impact matrix](../references/impact-matrix.md) and **verification-strategy**: every applicable invariant names exact minimal positive/adverse proof, existing specialist/procedure, product/external-resource owner and effect/target/tool/authority blocker; every N/A names the inspected boundary. Configured checks and required code/security reviewers remain mandatory. Use actual changed-surface and regression-neighbor scenarios, not invented commands, timings or screenshots. Preserve an explicitly required lane count; otherwise select nonduplicative coverage.
+6. Review dependency acyclicity, parent/base branches, source and external-resource/state/lease ownership, authentic authority, exact frozen instruction/schema identities, observed environment and evidence retrieval/ACL/retention, required review and accepted parallel/no-progress/elapsed/cost limits. Apply [execution/evidence boundaries](../references/execution-evidence.md) for checkpoints and lane reuse. Record PASS/FAIL per criterion. Unresolved placeholders, missing prerequisites or unowned risks block an executable-plan claim.
 7. Apply technical-writing/unslop and return the plan path, decisions, evidence requirements and remaining operator calls. Stop after a planning-only deliverable. Execute only when the current request/go actually authorizes execution.
 
 ## Instruction version and permission rules
@@ -40,6 +40,9 @@ A tick is an observation/action cycle, not a promise of unattended wakes. Regist
 
 - [ ] Read the accepted policy/constraints and pinned instruction identities; reconcile changes before effects.
 - [ ] Confirm environment, dependency graph, check executability, protected paths and independent review capability.
+- [ ] Accept the current/new versus exact frozen job baseline; upgrade only with authentic new-policy acceptance, preserved history and affected-proof revalidation.
+- [ ] Complete the impact/proof matrix, effects/targets and exclusive external-resource/state/lease owners; select only applicable domain/cloud/release/incident/triage procedures.
+- [ ] Record accepted limits and observable counters/meter/control prerequisites; checkpoint/fence on actual quota/tool failure or reached cap, never promise credits or a scheduled wake.
 - [ ] Record actual host task/wake handles and completion predicates, or disclose unavailable scheduling/delegation.
 - [ ] At each real tick inspect active owners and artifact receipts, not self-reported progress. Preserve unknown liveness as blocked ownership until fenced/stopped.
 - [ ] On explicit pause or capability suspension, account for writers and persist exact checkpoint/next action through pause-safely. Never kill unrelated processes or silently reset/stash work.
@@ -64,6 +67,7 @@ A tick is an observation/action cycle, not a promise of unattended wakes. Regist
 - [ ] Any source change invalidates affected checks/reviews; only Shipping's documented narrow carry conditions permit carrying appropriate unchanged evidence.
 - [ ] Independent mandatory/applicable reviewers return PASS and approver returns APPROVE; missing reviews, failed/unrun checks, CHANGES or stale identity block readiness.
 - [ ] <Actual landing rule under shipping and separate merge authority, or explicit no-merge operator handoff.>
+- [ ] <If separately authorized, real release/cloud procedure with immutable artifact/config/target/env identity, observation/abort/recovery acceptance and actual receipts; otherwise no deployment/health claim.>
 
 ## <Unit outcome and PR identifier>
 

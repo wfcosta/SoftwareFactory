@@ -5,7 +5,7 @@ These are behavioral scenarios, not prefilled passes. The executor records actua
 | ID | Scenario | Required observation |
 |---|---|---|
 | F01 | Markdown distribution and reference closure | Only operational Markdown plus Git ignore metadata; valid frontmatter, contracts, paths and license; no legacy operational names or dual formats |
-| F02 | Typed policy/state boundaries | Valid policy/plan/events/models accepted; malformed permissions/paths/events/panels rejected; semantic DAG/sender checks performed separately |
+| F02 | Seven typed policy/state boundaries | Config/plan/event/models/candidate/environment/release schemas and new examples validated; unsupported versions and malformed fields rejected; semantic authority/DAG/identity checks performed separately |
 | F03 | Fresh initialization then cold pickup | Exact explicit job ID, bootstrap intake, preserved prior attempts/evidence, no duplicate finished work |
 | F04 | Configured layout without default copies | Configured policy/agents/skills/templates/jobs resolve inside repository; no fallback to stale defaults |
 | F05 | Real implementation and independent approval | Actual intake/spec/builder/check/reviewer/approver receipts; real product interaction passes; final candidate agrees; publication disabled yields local approved handoff |
@@ -25,8 +25,29 @@ These are behavioral scenarios, not prefilled passes. The executor records actua
 | O01 | Optional media | Real renderer output inspected before claiming video; unavailable renderer is a disclosed limit |
 | O02 | Optional formal checker | Actual checker/tool version, model/code correspondence, bounds and counterexample or completed result; no proof inferred from syntax or diagrams |
 
-F01–F10 and F12 are core lifecycle coverage for a complete framework check; live external publication in F11 is gated by explicit authorization and real capability and is not required to test a denied-publication handoff. S scenarios are required when their corresponding skill changes. O scenarios become mandatory only when the request requires their surface.
+F01–F10 and F12 remain required core lifecycle coverage for a complete framework check. Core operational contract coverage additionally requires D05, D09's locally observable limits/checkpoint/resume cases, D10's local retrieval/integrity cases, D11 and D12 below; no newly required capability can silently be waived. A missing core host/delegation/observer is BLOCKED. F11 live publication remains gated by authentic authorization and real capability and is not needed to prove denied-publication handoff. S scenarios are required when their skill changes. O scenarios and domain/live surface cases become mandatory for affected accepted requirements, not for every change. A complete framework-core result is not a claim all domain/live scenarios passed. A focused subset must name its exact scope and uncovered rows; it does not replace the complete configured gate.
 
 ## Canonical disposable product task
 
 Create a small real CLI in an owned temporary Git repository, outside GSF source. It accepts a comma-separated integer list and an optional nonnegative minimum, prints the sum of retained integers and their count, and returns a documented nonzero error for invalid integers or a negative minimum. Require deterministic exact-output tests for mixed/negative values, filtering, an empty result and invalid input. Use the installed runtime, no dependency download. The specification must freeze exact invocation/output/error behavior before implementation. This is a lifecycle exercise, not a shipped product.
+
+## Beyond-CLI operational corpus
+
+The [full host-executable recipes](operational-scenarios.md) define concrete fixtures, inputs, expected values, adverse mutations, recovery, failure dispositions and cleanup. They are procedures, not executed evidence. Instantiate only outside the source distribution with real available tools; actual invocations and host bindings must be frozen in evidence before execution. Missing required infrastructure stays BLOCKED; recorded plans are never live cloud proof.
+
+| ID | Surface and fixed oracle | Required scope |
+|---|---|---|
+| D01 | Authenticated browser, keyboard/a11y, two tenants; forbidden fetch 404, anonymous 401, persisted exact body and zero foreign sentinel leakage | Affected web/auth/privacy/a11y requirements |
+| D02 | Real database; interrupted 2-row backfill, four preserved balances sum 155, idempotent resume, actual backup restore and row-level equality | Affected migration/backfill/recovery requirements |
+| D03 | Durable async E1 +7/E2 -2; duplicate/crash/ack/replay yields two effects and balance 5; conflicting duplicate quarantines | Affected async/deduplication/replay requirements |
+| D04 | Actual prior/current SDK consumers compile/run; exact values/errors, optional field compatible, required field removal rejected | Affected public API/SDK compatibility requirements |
+| D05 | Recorded synthetic cloud plan/account/state/expiry/action mismatches reject effects; no live succeeded claim | Core authority/plan/release contract cases |
+| D06 | Separately authorized real provider sandbox; actual immutable artifact/readback, receipts, abort/recovery, owned cleanup | Only authorized live-cloud requirement; otherwise explicit NOT RUN/BLOCKED |
+| D07 | Real build/output A versus substituted B, dependency/config/toolchain drift; mismatched provenance blocks handoff | Affected build/supply-chain/artifact requirements |
+| D08 | Actual host/version observations, unsupported adapter/version rejection, frozen old-job versus authorized policy2 migration | Affected portability/upgrade requirements; report each unexercised host |
+| D09 | Parallel cap 1, two no-progress attempts, one-minute deadline, fenced checkpoint/cold resume with no silent reset | Core locally observable cases; real quota/cost cases only with actual counters/controls |
+| D10 | Retained proof bytes retrieved after teardown/cold resume; missing/mutated proof blocks; actual ACL/expiry cases separately reported | Core local retrieval/integrity; affected selected-store ACL/retention capabilities |
+| D11 | Configured paths with legacy sentinel ignored; dirty/ignored/untracked/binary/deleted inputs change identity; isolated external export/output links | Core no-fallback and candidate/evidence identity |
+| D12 | Risk-selected minimal proofs preserve required gates; unavailable required surface blocks; exact dependency proof for reused evidence | Core scope/strategy/reuse semantics |
+
+When reporting a scenario containing subcases, enumerate each one; one successful positive input cannot mark interrupted/adverse/recovery or unavailable live subcases PASS. A core-local D09/D10 result must explicitly exclude unexecuted provider quota, remote ACL and real expiry behavior. Platform/media/formal claims require their actual tools, supported versions and artifacts.

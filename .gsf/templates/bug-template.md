@@ -11,6 +11,12 @@
 
 Quote the actual stop condition (unanswered product gap, tool error, missing evidence, or interrupted dispatch), with job/task/dispatch IDs and sanitized evidence links.
 
+- Accepted policy/schema/instruction version and candidate/policy/environment/release identities:
+- Actual effect/target/resource scope and current owner; real provider intent/operation/receipt or unresolved state:
+- Budget/collection measurements, expiry and capability limitation (unknown is not a successful probe):
+- Indexed immutable evidence locators/digests, actual retrieval/ACL/retention proof and partial-tail snapshot when applicable:
+- Safe stopped/fenced ownership or precise unknown liveness before any retry/cleanup:
+
 ## Why this class
 
 ## Autonomous workaround used (if any)

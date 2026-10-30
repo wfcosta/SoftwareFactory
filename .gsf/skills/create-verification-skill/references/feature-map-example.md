@@ -13,6 +13,12 @@ A real index links one file per feature and states coverage, rather than treatin
 
 The generated README also names the parent verification skill, shared fixture recipe, current uncovered surfaces, and where durable evidence survives cleanup.
 
+For this example, requirement `NOTE-1` is “an authenticated author can save and reopen the exact title/body”; invariant `TENANT-1` is “another tenant cannot read or search that note.” Selected minimum proof is a public save/reopen journey plus independent persistence/ownership observation and two-tenant authenticated forbidden-request/search integration. A unit-only save handler check does not cover either cross-boundary claim. Load/formal checks are not selected merely because this example exists; select them when actual accepted capacity/state-space risk requires them. Required configured checks and independent reviews remain.
+
+The generated map records actual `effect`/`target`, candidate/policy/environment, fixture, exact command/cwd or skill receipt, loaded artifact and build-input/toolchain/config identities rather than fictional digest values. Local save/seed/cleanup is local-write/null; remote equivalents require accepted observed target and authentic scope. Missing browser/auth/persistence observation is BLOCKED, never a mock success.
+
+Example invalidation dependencies for NOTE-1: editor/save route, request/response serializer, persistence schema/write path, auth/session, fixture ownership, effective flags, loaded artifact/config/toolchain and driver semantics. TENANT-1 additionally depends on all read/search/cache authorization filters and supported account roles. A changed dependency invalidates that proof; matching HEAD or a screenshot cannot establish unchanged behavior. Retained evidence needs exact indexed locators/digests, actual retrieval/ACL/retention/expiry and post-cleanup/cold-resume readability. The real app must enumerate its own complete dependencies before reusing evidence.
+
 ## features/create-note.md
 
 ### Sub-features

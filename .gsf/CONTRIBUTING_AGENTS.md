@@ -18,7 +18,7 @@ The coordinator alone owns shared plan/ledgers/canonical reports. Workers own th
 
 ## Routing
 
-Intake discovers roles under configured `paths.agents`, records impact and proposes the `plan.md` DAG. It preserves every mandatory reviewer and adds relevant specialists: database, API contract, performance, localization or user-facing review. UI/UX applicability follows the actual surface; lack of auth changes does not remove mandatory security review.
+Intake discovers roles under configured `paths.agents`, applies the [impact matrix](skills/gsf-mode/references/impact-matrix.md), records invariants/proof/blockers and proposes the `plan.md` DAG. Preserve every mandatory reviewer and add applicable domain/surface specialists. Use [domain-review](skills/domain-review/SKILL.md) references before creating another role; data recovery, async consumers, infrastructure targets, privacy and platform evidence require concrete procedures, not a larger agent catalog. UI/UX applicability follows the actual surface; lack of auth changes does not remove mandatory security review.
 
 Keep PR discussion triage distinct from read-only source-comment review. Legal/API/external-constraint comments are not redundant prose; suppression changes need correctness evidence. Do not remove them merely to satisfy a style rule.
 
@@ -28,10 +28,12 @@ Follow [create-skill](skills/create-skill/SKILL.md). Use matching kebab-case dir
 
 The framework distributes Markdown only; `.gsf/.gitignore` is the technical exception. Policy/data use canonical structured blocks under their state contracts, not new executable generators or validators hidden in Markdown. Examples may illustrate product-language code, but are not a bundled GSF runtime. No plugin registration, model entitlement or private transcript API is assumed.
 
+New operational procedures consume [environment](state/environment-contract.md), [release](state/release-contract.md) and current candidate contracts instead of duplicating authority or event rules. Policy version 2.0.0 check effects/targets, limits and evidence declarations do not prove controls were enforced. Describe actual host prerequisites, negative/recovery paths and consumer-visible acceptance; unavailable required tools remain BLOCKED. Do not introduce source branding, executable wrappers, private transcript assumptions or placeholder capabilities.
+
 Optional model preferences live in `.gsf/state/models.md`. Select actual host-supported models or documented inheritance aliases; never fabricate diversity. Scale delegation and verification to risk and acceptance, preserving independent final review.
 
 ## Proof and review
 
-Run [verify-gsf](skills/verify-gsf/SKILL.md) after structural or behavioral instruction changes. Exercise representative actual invocations and negative boundaries. Record exact candidate, expected/observed behavior and host receipts. Scratch products live outside the repository. Do not count source-text keyword checks as proof that an agent follows a workflow.
+Run [verify-gsf](skills/verify-gsf/SKILL.md) after structural or behavioral instruction changes. Use [verification-strategy](skills/verification-strategy/SKILL.md) for requirement/risk/proof mapping and evidence invalidation. Exercise actual invocations, negative boundaries and the applicable non-CLI corpus; distinguish recorded-plan semantics from authorized live cloud proof. Record exact candidate, expected/observed behavior, host receipts and unexercised surfaces. Scratch products live outside the repository. Source-text keyword checks, a local stand-in, a scanner or an unexecuted procedure are not runtime proof.
 
 Keep accepted policy/instruction identities explicit across pickup. A change to candidate source invalidates affected evidence; a job report append does not. Capture corrections structurally, preferably through one owner/contract, before adding more repeated prose. Use `reflect` for proposals and require authority before durable preference/instruction changes.

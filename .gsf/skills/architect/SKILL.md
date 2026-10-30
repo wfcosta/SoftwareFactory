@@ -8,11 +8,11 @@ disable-model-invocation: true
 
 Applicability and host-capability boundaries follow [GSF mode](../gsf-mode/SKILL.md), with shared factory policy in the configured worker contract.
 
-Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch.
+Produce a usage-first design document containing types, signatures, module boundaries and pseudocode, then implement the accepted shape only when assigned and authorized. Sketches are design evidence, never deliverable executable stubs or a substitute for actual consumer proof. Synthesize real perspectives only when the host supports them; do not invent model availability or independent review.
 
 ## Start
 
-Open a todolist with one entry per phase before starting.
+Use the assigned lifecycle plan for the phases below; any private phase notes are not a second coordinator or authority path.
 
 1. Ground
 2. Sketch
@@ -26,6 +26,12 @@ Build a real mental model of every system the new code touches. Run the **how** 
 
 Skip Phase A only when the work is genuinely greenfield with no surrounding system to integrate.
 
+### Inputs and quality obligations
+
+Read the exact requirement, candidate/policy identity, current interfaces, actual environment/tool evidence and accepted consumer quality objectives. Apply [domain review](../domain-review/SKILL.md), particularly [architecture quality](../domain-review/references/architecture-quality.md), to deepen existing design practice rather than create another approval gate. Select its data/API/async/security/recovery/observability/experience references for affected surfaces.
+
+Ground the trust/failure boundaries, data owner and authoritative source, transaction/consistency model, dependency behavior and capacity limits. Record assumptions with sources, uncertainty, owner and a falsifying observation. Express quality requirements as consumer scenarios with stimulus, operating/load conditions, measurable response and observation window. Unknown objectives or necessary capabilities block that design claim rather than licensing invented targets or fake runtime evidence.
+
 ## Phase B: Sketch
 
 Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass `references/runner-prompt.md` as each runner's prompt.
@@ -36,11 +42,13 @@ Screen every candidate against [`references/design-red-flags.md`](references/des
 
 Compare viable candidates on interface depth. Prefer the design that hides more complexity behind a smaller, simpler public surface. A rich interface can keep call chains short by concentrating capability instead of scattering it across layers.
 
+Prefer the current simple shape or no new component when it meets the accepted scenarios. For every proposed queue, cache, service or abstraction, justify its data ownership, consistency, capacity and failure behavior against simpler alternatives. Compare dependency slowness/outage, concurrency, trust/authorization failures and recovery, not just steady-state call graphs. Record concrete consumer-visible acceptance and how the final candidate will be proved with actual tools.
+
 Arena returns one synthesized design package. Its synthesis decision fills the rationale's "Synthesis decision" section.
 
 ## Phase C: Agree (opt-in)
 
-Default: proceed directly to implementation with the synthesized design. No human checkpoint.
+Default: proceed to implementation only within the existing assignment and effective authority after required prerequisites. Skipping an optional design discussion never bypasses protected-path grants, unresolved product decisions, mandatory independent reviews or external-action authorization.
 
 Opt in to a checkpoint when the invoker explicitly asks: "/architect with checkpoint," "stop and show me before implementing," or similar. Then surface the synthesized design and pause for sign-off.
 
@@ -50,7 +58,9 @@ If the human pushes back on the shape (in a checkpoint or after the fact), treat
 
 ## Phase D: Implement against the sketch
 
-Replace `not implemented` bodies with code, pseudocode with logic. The synthesized sketch is the contract. Deviations from it are signal to surface, not friction to absorb silently. If a function needs a parameter the sketch didn't anticipate, ask whether the sketch was wrong, the requirement was missed, or the implementation is overreaching.
+Implement the documentary types/signatures and replace pseudocode with complete logic in the assigned product workspace. The synthesized design is the contract. Deviations from it are signal to surface, not friction to absorb silently. If a function needs an unanticipated parameter, determine whether the sketch was wrong, a requirement was missed or implementation is overreaching; do not silently change the accepted consumer behavior.
+
+Maintain the scenario-to-proof map as the implementation changes. Explicitly assigned checks execute on the actual supported isolated surface; design reasoning and simulated examples are not measured results. Missing runtime/failure/assistive-technology capability blocks only the affected claim. Reviewers remain independent and read-only; this skill never authorizes production queries, penetration tests, cloud changes or deployment.
 
 ## Phase E: Scrap when the architecture is wrong
 
@@ -77,3 +87,9 @@ When you scrap:
 ## Outputs
 
 The caller's usage is written first and the type sketch derived from it. One file with new types and signatures for small changes. Module map plus type definitions for larger work. The rationale ships alongside, shaped per `references/rationale-template.md`, including the usage sketch and the synthesis decision.
+
+## Failures, evidence and outcome
+
+If ownership, consistency, safety or a measurable consumer scenario cannot be satisfied, stop the affected implementation/effect, preserve the grounded evidence and route the exact missing decision/prerequisite through the worker contract. Distinguish a revised design from a waived requirement. Account for accepted writes and persistent-data compatibility before rollback; redesign alone is not recovery.
+
+The rationale records exact candidate/configuration and sources, chosen/rejected alternatives, trust/failure/data boundaries, capacity/dependency assumptions, consumer quality scenarios, proof obligations and actual result limitations. Record which obligations remain design-only and which were exercised; acceptance of the design is not approval of implementation or release. Complete the assigned implementation without executable stubs, remove only owned temporary sketch scaffolding and hand evidence to the coordinator for the existing independent gates.

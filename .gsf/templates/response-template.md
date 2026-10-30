@@ -23,10 +23,16 @@ Describe the assigned acceptance criteria and what actually happened. Execution 
 
 - Files inspected:
 - Exact modified files (repository-relative, empty for read-only work):
-- Typed checks actually executed: exact command+cwd with actual exit/output, or skill path/revision with per-criterion real evidence (no fabricated skill process exit):
+- Typed checks actually executed: kind/effect/target and observed nested effects, exact command+cwd with actual exit/output or skill path/revision with per-criterion evidence (no fabricated skill process exit):
 - Checks not run and why:
 - Coordinator updates read through event ID / durable checkpoint:
 - Completion event ID (populate when appending worker_done):
+- Frozen environment_id / actual capability-tool versions and expiry / exact provider-account-region-resource observations:
+- Owned isolated workspace/source_candidate_id / complete input-output-artifact manifest receipts / collection limits and measurements:
+- Each attachment's exact indexed locator/digest/source/event identity / real retrieval-ACL-retention evidence:
+- Local/external current ownership / provider lock-operation-intent-receipt IDs / observed fencing or continuing owner:
+- Accepted budget / actual elapsed, attempts-progress, parallel ownership and metered-cost observations / checkpoint or renewal evidence:
+- Release transition proposed with real observations and receipts (coordinator alone promotes canonical environment.md/release.md; no new event types):
 
 ## Acceptance and policy
 
@@ -35,6 +41,8 @@ Describe the assigned acceptance criteria and what actually happened. Execution 
 - Protected-path matches and scoped authorization, if any:
 - Immutable baseline and grants relied on (grant source, exact scope and validity):
 - Same candidate/policy before and after assigned checks or review:
+- Same artifact/config/target/plan state and expiry before effects / authentic action-specific authority and safeguards:
+- Frozen accepted schema/instruction versions / explicit upgrade evidence if applicable (no reinterpretation of old jobs):
 - Material findings unresolved:
 
 ## Gaps and limitations

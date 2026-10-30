@@ -18,7 +18,9 @@ Learn from source, existing tests/harnesses, manifests, and documented startup i
 - **Observe:** screenshots, action traces, terminal output and exit status, responses, logs, persistent state, files, or outgoing messages. Identify the independent predicate proving the user's goal.
 - **Isolate:** owned ports, scratch data, profiles, fixtures and accounts. Determine whether concurrent instances are safe. If only a shared user session is possible, require explicit access and serialization; never double-drive it silently.
 
-Record source paths supporting commands and selectors. Use `.gsf/GSF_CONFIG.md` and its typed checks when applicable; do not invent an npm command for a framework-only repository. Policy, model preferences, plans and evidence follow the active Markdown contracts.
+Record source paths supporting commands and selectors. Read [verification-strategy](../verification-strategy/SKILL.md) and accepted task-matrix rows in `decision.md`/`spec.md`: map each requirement/invariant/risk to the minimal sufficient proof, exact fixture/environment, limitation, evidence and invalidation dependencies. Unit, integration, consumer-contract, journey, property/fuzz, concurrency, load and formal checks are selected by affected risk, not universally mandatory. Preserve accepted configured checks and code/security reviews. A journey skill proves only its stated surface; do not replace required concurrency/restore/consumer proof with UI clicks.
+
+Use `.gsf/GSF_CONFIG.md` and its typed checks; every check requires `effect` and `target`. Inspect setup, nested tools, drive, capture and cleanup effects against the declaration and accepted observed environment, not the command's name or dry-run label. Local checks use null target; external writes/destruction require authentic scoped grants and real platform safeguards under the worker contract. Policy, models, plans, environment, release and evidence follow their active canonical Markdown contracts. Unknown/stale required capability, target identity or tool version blocks that proof. Do not invent an npm command for a framework-only repository.
 
 A broken baseline is not a valid recipe. Establish whether the app builds and starts only when that execution is authorized. Repair a baseline only within separately authorized product scope; otherwise report the exact blocker. A required empty asset directory may be temporary verification scaffolding only if irrelevant to the tested behavior, explicitly named, owned, and removed later. Missing authentication, seed data, or a real runtime is BLOCKED, not a substitute mock success.
 
@@ -28,7 +30,7 @@ Include valid YAML frontmatter with the actual `verify-<app>` name, explicit app
 
 ### Launch
 
-Give exact repository-relative working directories, existing tool invocations, setup/migration/seed order, and isolated resource choices. Start from an empty owned data directory. Record a run ID, active source revision plus dirty-state identity, actual build/binary version, process/session handle, bound address, port ownership, and fixture identity. Never reuse an unidentified or stale build.
+Give exact repository-relative working directories, existing tool invocations, setup/migration/seed order, time/resource bounds, readiness timeout and isolated resource choices. Start from an empty owned data directory. Record run ID, candidate/policy IDs including dirty inputs, actual build/binary digest, build-input/toolchain/config identity, process/session handle, bound address, port ownership, fixture identity and canonical environment observation/expiry. For scalable builds follow the candidate contract's clean external export and complete input/output/artifact manifests; no blanket build/cache ignore or stale unidentified build is allowed.
 
 For a server or persistent UI, keep one owned instance alive and drive it serially. Readiness must prove usability: migrations and seed complete, correct build, usable authenticated user path, and required services ready, not just an open port or database health signal. Bound readiness waiting and name the diagnostic evidence to capture on timeout.
 
@@ -44,11 +46,17 @@ Use real selectors, commands, requests, or public APIs from this checkout. Descr
 
 Define PASS (all predicates witnessed), FAIL (observed incorrect behavior), and INCONCLUSIVE/BLOCKED (missing prerequisite, unsafe interaction, or unavailable observation). A missing fixture fails the journey's precondition; do not delete the assertion or change the story to make it green.
 
+For every selected check capture the actual command/cwd or skill invocation, readiness observation and loaded artifact identity; source-text checks, mock echoes and assertions forwarding to the same implementation are not behavioral proof. Use an independent result/persistence/side-effect oracle. Record why each unselected proof type is unnecessary for the stated risk, and enumerate target-only assumptions/untested surfaces. A required unsupported consumer runtime, database, broker, browser, formal tool or external observer remains BLOCKED; do not substitute a mock and mark the original obligation PASS.
+
 ### Evidence
 
 Name an authorized durable Markdown evidence location outside teardown-owned scratch state, such as the existing job's evidence directory when the job contract permits it. A direct no-write request creates neither a job nor evidence files. Capture candidate/build identity, fixture, actions and resulting state, predicate results, side effects, timestamps, and actual tool outputs or safe artifact links. A final screenshot alone is insufficient. Redact secrets and personal data; if host captures cannot be stored under the project's artifact policy, use sanitized Markdown observations and explicitly state the missing proof. Do not claim unseen screenshots or outputs.
 
 Capture failed actions and doctor output before reset/cleanup. Evidence survives teardown. If proof is on a stand-in (local stack versus remote target, container versus VM), enumerate every setup difference and mark target-only steps unverified; do not label the target proved.
+
+Apply verification-strategy's exact invalidation matrix. Candidate source, accepted policy/instruction, consumed dependency/config/toolchain, fixture/schema/auth role, target state/expiry or proof predicate drift invalidates dependent results. Reuse needs immutable original receipts plus exact unchanged dependency, provenance, artifact and current retrieval/expiry proof; matching HEAD or command text is insufficient. Distinguish newly executed, reused, NOT RUN and BLOCKED.
+
+Use configured evidence `store`, `location`, `retention_days` and exact indexed artifact paths. Retrieve required retained bytes with the authorized proof-reading identity, compare digest/content and record actual ACL/retention/expiry behavior; a policy locator is not availability proof. Repeat after cleanup and cold resume. Missing/expired/denied/tampered proof blocks its dependent gate even with unchanged candidate. Never label local manual retention an enforced TTL.
 
 ### Cleanup
 
@@ -58,7 +66,7 @@ Always clean up owned resources, including after launch, doctor, drive, or evide
 
 Index all discovered user-facing features in `features/README.md`; initially write full journeys for the top three to five, or every feature when fewer exist. Explicitly list identified but unmapped surfaces as uncovered, never imply full coverage. Use [the worked feature-map example](references/feature-map-example.md) as the shape, not as assumed application behavior.
 
-Each feature file has `Sub-features`, `How to get to it (user POV)`, `Driving it with <actual harness>`, and `Gotchas`. Include preconditions, owned fixture construction, exact ordered user actions, expected output/visible and persistent state, a plausible negative/failure boundary, independent proof, and cleanup. Read existing feature files before extending them; preserve valid regression coverage. Missing prerequisite data is a reported gap with its source, not a reason to weaken a journey.
+Each feature file has `Sub-features`, `How to get to it (user POV)`, `Driving it with <actual harness>`, and `Gotchas`. Include requirement/invariant IDs, selected proof and risk, preconditions, owned fixture construction, exact ordered user actions, expected output/visible and persistent state, a plausible negative/failure boundary, independent proof, limitations, exact invalidation dependencies and cleanup. Read existing feature files before extending them; preserve valid regression coverage. Missing prerequisite data is a reported gap with its source, not a reason to weaken a journey.
 
 ## 4. Prove the generated procedure
 

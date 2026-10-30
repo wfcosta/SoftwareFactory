@@ -63,3 +63,17 @@ When screening design candidates, reject or heavily weight against designs that 
 - Comments that explain "what" instead of "why"
 - Dead code or commented-out blocks left in
 - TODOs or FIXMEs that never get addressed
+
+## Unproved quality and recovery
+
+- New services, queues, caches or extension points without evidence that the simpler current shape misses an accepted consumer scenario
+- Unnamed data owners or multiple sources of truth without a conflict/reconciliation rule
+- Global consistency or exactly-once claims built from local transactions, broker labels or in-memory deduplication
+- Capacity promises without representative load, tenant skew, dependency quotas and resource headroom
+- Retry/fallback logic without timeout budgets, ambiguous-effect reconciliation or a defined user-visible rejection/degraded state
+- Trust boundaries whose tenant/resource guards exist only in callers, or whose effective privileges are inferred from role names
+- A diagram or type sketch presented as actual failure, restore, accessibility or performance proof
+- Quality goals such as “fast,” “scalable” or “accessible” without an accepted measurable consumer scenario and real proof prerequisites
+- Rollback plans that ignore persisted data, in-flight effects, supported old versions or unavailable recovery keys
+
+Use the [architecture quality procedure](../../domain-review/references/architecture-quality.md) to resolve these concerns; missing evidence is a stated limitation or blocker, not a reason to add speculative infrastructure.
