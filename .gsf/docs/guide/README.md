@@ -49,6 +49,10 @@ The coordinator follows gsf-run to create/resume one exact job, snapshots accept
 5. Independent reviewers inspect the same candidate. Successful execution may return CHANGES; it is not approval.
 6. Approver audits the actual complete evidence set. Publication happens only under separate authority; otherwise return an approved local handoff.
 
+Intake investigates before asking: classify gaps as repository facts, product decisions, authorization or capability. Resolve repository facts from relevant authorized source/configuration/contracts and carry cited findings into specification. Only unresolved business choices go back as product questions; missing grants block the exact effect, and missing tools/access block their dependent tasks/claims. Intake records resolved and open items in its report, using its existing dispatch-local `gaps.md` only for open gaps. The coordinator checks that evidence before accepting a block; unrelated already-authorized work may continue, but required final gates remain blocked.
+
+For example, a pagination request first inspects existing list endpoints and response contracts rather than immediately asking for page size and response shape. Reuse a consistent applicable precedent; ask for a product decision if precedents conflict or the required behavior remains unspecified. An existing pattern never grants publication or deployment permission.
+
 Authorized local unit commits require the unit's checks and policy compliance. They do not require pretending the whole job is already approved. Final publication still requires the full gate. Protected tests require scoped authorization; TDD does not override it.
 
 ## Read-only work
