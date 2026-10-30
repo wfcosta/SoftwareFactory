@@ -1,7 +1,6 @@
 ---
 name: prove-it-works
 description: "After a task, before declaring done, verify against the real artifact, not a proxy or 'it compiles'. Use for final verification of any work."
-disable-model-invocation: true
 ---
 
 # Prove It Works

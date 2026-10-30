@@ -1,7 +1,6 @@
 ---
 name: correct
 description: Find repeated agent mistake classes and prevent them structurally, proving the fix against an observed mistake. Use for /correct or repeated operator corrections.
-disable-model-invocation: true
 ---
 
 # Correct

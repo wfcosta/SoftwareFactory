@@ -1,7 +1,6 @@
 ---
 name: no-comments
 description: "Request an independent read-only source-comment-reviewer, evaluate its findings, and apply accepted scoped comment or root-cause fixes without deleting legal, API, or justified external constraints."
-disable-model-invocation: true
 ---
 
 # No comments

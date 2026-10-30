@@ -1,7 +1,6 @@
 ---
 name: typescript-best-practices
 description: "Optional TypeScript-specific guidance when reading or editing a product's .ts or .tsx files. Use with the repository's existing type and runtime conventions; it adds no TypeScript runtime to GSF."
-disable-model-invocation: true
 ---
 
 # TypeScript best practices

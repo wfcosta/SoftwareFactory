@@ -1,7 +1,6 @@
 ---
 name: ketchup
 description: Catch the user up on changes since their preceding message and list every decision that still requires them, from observed evidence.
-disable-model-invocation: true
 ---
 
 # Ketchup

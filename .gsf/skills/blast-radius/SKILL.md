@@ -1,7 +1,6 @@
 ---
 name: blast-radius
 description: "Find what a change could break by mapping downstream callers, shared state, and test coverage. Use before making changes to assess impact, especially for small-looking changes that might have wide effects."
-disable-model-invocation: true
 ---
 
 # Blast Radius

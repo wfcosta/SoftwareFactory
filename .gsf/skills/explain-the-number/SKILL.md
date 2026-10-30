@@ -1,7 +1,6 @@
 ---
 name: explain-the-number
 description: "Before measuring, and before trusting, reporting, or acting on a measured number (speedup, regression, throughput, latency, eval result), find what limits it and rule out that it measured something other than the work you think."
-disable-model-invocation: true
 ---
 
 # Explain the Number

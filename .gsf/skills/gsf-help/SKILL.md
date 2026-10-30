@@ -1,7 +1,6 @@
 ---
 name: gsf-help
 description: "Navigate the actual GSF skills and playbooks, explain the best fit, and provide a ready-to-use invocation without starting the task. Use when new to GSF or unsure which workflow fits."
-disable-model-invocation: true
 ---
 
 # GSF help

@@ -1,7 +1,6 @@
 ---
 name: maintain-verification-skill
 description: "Audit an ordinary verification skill and feature map with source coverage per feature and live coverage of every feature. Report clean, changed, or blocked; never hide a product regression as doc drift."
-disable-model-invocation: true
 ---
 
 # Maintain a verification skill

@@ -1,7 +1,6 @@
 ---
 name: gsf-setup
 description: Inspect and prepare the real project environment, bootstrap default-deny Markdown factory policy only when authorized, and optionally configure actual model preferences.
-disable-model-invocation: true
 icon: settings
 color: blue
 ---

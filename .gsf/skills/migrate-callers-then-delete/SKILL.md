@@ -1,7 +1,6 @@
 ---
 name: migrate-callers-then-delete
 description: "When introducing a new internal API while old callers exist, migrate and delete in one wave. Don't leave dead code or parallel APIs."
-disable-model-invocation: true
 ---
 
 # Migrate Callers Then Delete

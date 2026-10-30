@@ -1,7 +1,6 @@
 ---
 name: show-me-your-work
 description: Keep an append-only, evidence-linked decision trail for long, unattended, or multi-phase work, and audit it before handoff.
-disable-model-invocation: true
 ---
 
 # Show me your work

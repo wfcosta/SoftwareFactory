@@ -1,7 +1,6 @@
 ---
 name: minimize-reader-load
 description: "When reviewing or shaping code that's hard to trace, count layers and hidden state, collapse one-caller wrappers, shrink mutable scope. Make code easy to understand."
-disable-model-invocation: true
 ---
 
 # Minimize Reader Load

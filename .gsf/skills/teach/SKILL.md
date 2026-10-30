@@ -1,7 +1,6 @@
 ---
 name: teach
 description: "Explain what a change or subsystem is, how it works, and why it is shaped that way using how and why. Use for teach me this or help me understand X, without changing it."
-disable-model-invocation: true
 ---
 
 # Teach

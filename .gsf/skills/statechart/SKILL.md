@@ -1,7 +1,6 @@
 ---
 name: statechart
 description: Consume a bounded model graph from an installed checker or existing extractor, distinguish checked properties from descriptive extraction, and explain transitions or counterexamples as Mermaid.
-disable-model-invocation: true
 ---
 
 # Statechart

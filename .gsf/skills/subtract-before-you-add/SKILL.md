@@ -1,7 +1,6 @@
 ---
 name: subtract-before-you-add
 description: "When sequencing an addition, refactor, or rewrite, remove dead weight first, then build on the simpler base. Apply laziness-protocol before adding."
-disable-model-invocation: true
 ---
 
 # Subtract Before You Add

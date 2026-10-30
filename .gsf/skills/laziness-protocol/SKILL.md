@@ -1,7 +1,6 @@
 ---
 name: laziness-protocol
 description: "Bias toward deletion and the smallest change that solves the problem. Never add abstraction, helper functions, or configuration flags speculatively. Delete obsolete code in the same commit where callers are migrated."
-disable-model-invocation: true
 ---
 
 # Laziness Protocol

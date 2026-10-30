@@ -1,7 +1,6 @@
 ---
 name: benchmark-checklist
 description: "Vet a performance number for limiter, fair production tuning, physical limits, actual errors, repeated comparisons, relevance, and completed timed work before reporting a speedup or regression."
-disable-model-invocation: true
 ---
 
 # Benchmark checklist

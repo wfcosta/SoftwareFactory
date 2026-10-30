@@ -1,7 +1,6 @@
 ---
 name: encode-lessons-in-structure
 description: "When you catch yourself writing the same instruction a second time, encode it as a lint, metadata flag, runtime check, or script instead of more text. Use for repeated patterns or recurring issues."
-disable-model-invocation: true
 ---
 
 # Encode Lessons in Structure

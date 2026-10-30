@@ -1,7 +1,6 @@
 ---
 name: foundational-thinking
 description: "Before writing logic: choose core types, data structures, and module shapes before writing implementation code. Sequence scaffold vs. feature work deliberately. Analyze concurrent actors and shared state before introducing synchronization."
-disable-model-invocation: true
 ---
 
 # Foundational Thinking

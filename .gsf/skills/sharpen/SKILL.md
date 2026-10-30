@@ -1,7 +1,6 @@
 ---
 name: sharpen
 description: "Deepen a task through four professional-method diagnostics, then rewrite its prompt without executing it. Use for /sharpen."
-disable-model-invocation: true
 ---
 
 # Sharpen

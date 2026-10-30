@@ -1,7 +1,6 @@
 ---
 name: recall
 description: "Rebuild recent working context from authorized workspace history, shared records, and live state. Use for catch me up, recall my work on X, or where did I leave off."
-disable-model-invocation: true
 ---
 
 # Recall

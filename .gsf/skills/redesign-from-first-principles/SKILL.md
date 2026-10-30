@@ -1,7 +1,6 @@
 ---
 name: redesign-from-first-principles
 description: "When integrating a new requirement into an existing design, redesign as if it had been foundational from day one. Don't bolt onto a shape that doesn't fit."
-disable-model-invocation: true
 ---
 
 # Redesign from First Principles

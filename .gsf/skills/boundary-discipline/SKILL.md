@@ -1,7 +1,6 @@
 ---
 name: boundary-discipline
 description: "Place guards at system boundaries, trust internal types, keep business logic pure. Use when wiring validation, error handling, or framework adapters."
-disable-model-invocation: true
 ---
 
 # Boundary Discipline

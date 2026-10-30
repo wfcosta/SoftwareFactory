@@ -1,7 +1,6 @@
 ---
 name: interrogate
 description: "Have models attempt to break changes, adversarial review for contested designs or critical code. Use for 'interrogate this', 'stress test this design', or when a design is contested and needs adversarial pressure before shipping."
-disable-model-invocation: true
 ---
 
 # Interrogate

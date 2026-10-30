@@ -1,7 +1,6 @@
 ---
 name: technical-writing
 description: "Layered documentation standard (Diátaxis + Google Style). Use for docs, RFCs, readmes, PR descriptions, or commit messages. Structure content into tutorials, how-to guides, explanations, and reference."
-disable-model-invocation: true
 ---
 
 # Technical Writing

@@ -1,7 +1,6 @@
 ---
 name: control-ui
 description: Drive and verify a browser or desktop UI on its actual surface, collecting reproducible state and visual evidence. Use for UI changes, visual parity, or UI bug reproduction.
-disable-model-invocation: true
 ---
 
 # Control UI

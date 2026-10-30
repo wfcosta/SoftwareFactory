@@ -1,7 +1,6 @@
 ---
 name: reflect
 description: "Review the active conversation for durable judgment, tooling, and divergent learnings; propose exact skill edits and wait for approval before applying them. Use for reflect or /reflect."
-disable-model-invocation: true
 ---
 
 # Reflect

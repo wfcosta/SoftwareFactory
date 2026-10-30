@@ -1,7 +1,6 @@
 ---
 name: figure-it-out
 description: Design and execute an auditable workflow when no narrower playbook fits, with falsifiable outcomes, isolated experiments, and a decision trail.
-disable-model-invocation: true
 ---
 
 # Figure it out

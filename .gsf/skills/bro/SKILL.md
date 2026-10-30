@@ -1,7 +1,6 @@
 ---
 name: bro
 description: Restate the previous assistant message plainly and concisely, without jargon.
-disable-model-invocation: true
 ---
 
 # Bro

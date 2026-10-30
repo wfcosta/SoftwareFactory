@@ -1,7 +1,6 @@
 ---
 name: separate-before-serializing-shared-state
 description: "When concurrent actors might write the same file, branch, key, or object, eliminate the sharing first. Only serialize when there's a real invariant that requires it."
-disable-model-invocation: true
 ---
 
 # Separate Before Serializing Shared State

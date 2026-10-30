@@ -1,7 +1,6 @@
 ---
 name: test-behavior-not-implementation
 description: "When writing, changing, or keeping a test, assert what the code's users can observe, so the test fails when that behavior breaks and keeps passing when only the internals change."
-disable-model-invocation: true
 ---
 
 # Test Behavior, Not Implementation

@@ -1,7 +1,6 @@
 ---
 name: automate-me
 description: "Create, update, or refresh a personal -mode skill from explicit preferences and authorized recurring history. Use for automate me or capture my working style."
-disable-model-invocation: true
 ---
 
 # Automate me

@@ -1,7 +1,6 @@
 ---
 name: never-block-on-the-human
 description: "When tempted to ask 'should I do X?' on reversible work, proceed, present the result, let the human course-correct. Don't block on decisions the operator can reverse."
-disable-model-invocation: true
 ---
 
 # Never Block on the Human

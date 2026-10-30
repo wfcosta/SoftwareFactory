@@ -1,7 +1,6 @@
 ---
 name: verify-gsf
 description: Verify the Markdown-only GSF distribution, policy and lifecycle contracts, and actual coordinator/worker behavior with isolated positive and negative scenarios before publication.
-disable-model-invocation: true
 ---
 
 # Verify GSF

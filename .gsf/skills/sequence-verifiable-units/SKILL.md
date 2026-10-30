@@ -1,7 +1,6 @@
 ---
 name: sequence-verifiable-units
 description: "For multi-step work (sweeps, migrations, runs of similar edits) and commit/PR stacking, break work into small units that each end in a check, verify each before the next, and order delivery so the sequence proves itself."
-disable-model-invocation: true
 ---
 
 # Sequence Work into Verifiable Units

@@ -1,7 +1,6 @@
 ---
 name: build-the-lever
 description: "Build the tool that does or proves it (codemod, script, generator), not by hand. The tool is the artifact a reviewer reruns. Use for any non-trivial work that can be automated."
-disable-model-invocation: true
 ---
 
 # Build the Lever

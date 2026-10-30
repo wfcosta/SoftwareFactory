@@ -1,7 +1,6 @@
 ---
 name: unslop
 description: "Remove AI writing tells and tighten text. Use for prose cleanup, removing AI-generated fluff, or when text sounds robotic or overly verbose."
-disable-model-invocation: true
 ---
 
 # Unslop

@@ -1,7 +1,6 @@
 ---
 name: gsf-mode
 description: GSF's rigorous agent style for factory execution, autonomous subagent orchestration, evidence-driven work, and verified production-grade output. Use for gsf, /gsf-mode, or requests to work in this factory style.
-disable-model-invocation: true
 icon: factory
 color: blue
 ---

@@ -1,7 +1,6 @@
 ---
 name: attack-the-premise
 description: "When two or more fixes that share one premise have failed the same gate, write the premise down and test it directly before writing another fix that assumes it. Use for debugging recurring failures or when multiple solutions fail."
-disable-model-invocation: true
 ---
 
 # Attack the Premise

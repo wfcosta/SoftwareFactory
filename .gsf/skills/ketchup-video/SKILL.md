@@ -1,7 +1,6 @@
 ---
 name: ketchup-video
 description: Produce an evidence-based subtitled video catch-up, with operator decisions as text, using an available renderer and existing artifacts.
-disable-model-invocation: true
 ---
 
 # Ketchup video

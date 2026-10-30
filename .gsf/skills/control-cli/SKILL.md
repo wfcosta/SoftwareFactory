@@ -1,7 +1,6 @@
 ---
 name: control-cli
 description: Launch a real CLI or TUI, exercise the changed command or interaction, and inspect output, exit status, and persistent state. Use for terminal-surface verification.
-disable-model-invocation: true
 ---
 
 # Control CLI

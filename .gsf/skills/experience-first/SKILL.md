@@ -1,7 +1,6 @@
 ---
 name: experience-first
 description: "For product, UX, or feature-scope tradeoffs, choose user delight over implementation convenience. Use when making decisions that affect user experience."
-disable-model-invocation: true
 ---
 
 # Experience First

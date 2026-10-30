@@ -1,7 +1,6 @@
 ---
 name: gsf-run
 description: Initialize or reconcile an authorized durable GSF job using Markdown policy, typed checks and fail-closed lifecycle evidence.
-disable-model-invocation: true
 icon: play
 color: blue
 ---

@@ -1,7 +1,6 @@
 ---
 name: create-skill
 description: Write or revise a complete agent skill with discoverable metadata, bounded actions, concrete artifacts, and an exercised handoff. Use when authoring SKILL.md or agent-facing procedures.
-disable-model-invocation: true
 ---
 
 # Create a skill

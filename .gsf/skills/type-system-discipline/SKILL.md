@@ -1,7 +1,6 @@
 ---
 name: type-system-discipline
 description: "When designing types or a signature in any typed language, make illegal states unrepresentable, brand primitives, parse external data at boundaries."
-disable-model-invocation: true
 ---
 
 # Type System Discipline

@@ -1,7 +1,6 @@
 ---
 name: in-your-own-words
 description: Have the agent play back your goal and the problem before it starts. Use when you want to ensure the agent understands what you're asking for before it begins work.
-disable-model-invocation: true
 ---
 
 # In Your Own Words

@@ -1,7 +1,6 @@
 ---
 name: guard-the-context-window
 description: "When context fills up (large outputs, long files, repeated reads, fan-out planning), route bulk to subagents, keep summaries in the main thread. Use to manage token limits."
-disable-model-invocation: true
 ---
 
 # Guard the Context Window

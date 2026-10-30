@@ -1,7 +1,6 @@
 ---
 name: outcome-oriented-execution
 description: "For planned rewrites and migrations with explicit phase boundaries, converge on the target architecture without preserving throwaway compatibility states."
-disable-model-invocation: true
 ---
 
 # Outcome-Oriented Execution

@@ -1,7 +1,6 @@
 ---
 name: exhaust-the-design-space
 description: "For novel interactions or architectural decisions with no precedent, build 2-3 competing prototypes and compare before committing. Use when there's no clear right answer from existing patterns."
-disable-model-invocation: true
 ---
 
 # Exhaust the Design Space

@@ -1,7 +1,6 @@
 ---
 name: make-operations-idempotent
 description: "For commands, lifecycle steps, or loops that run amid crashes and retries, design them to converge to the same end state regardless of how many times they run."
-disable-model-invocation: true
 ---
 
 # Make Operations Idempotent

@@ -1,7 +1,6 @@
 ---
 name: model-the-domain
 description: "For stateful logic, or code that branches a lot or repeats a shape assumption across files, encode the domain in a structure (state machine, typed model, table or registry, reducer, boundary, the right collection) instead of scattered conditionals."
-disable-model-invocation: true
 ---
 
 # Model the Domain

@@ -1,7 +1,6 @@
 ---
 name: swarm
 description: "N parallel workers across different slices or races, yielding an aggregated report. Use for coverage matrices, gauntlets, exploration partitions, or when you need parallel work across independent dimensions."
-disable-model-invocation: true
 ---
 
 # Swarm

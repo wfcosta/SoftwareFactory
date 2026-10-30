@@ -1,7 +1,6 @@
 ---
 name: tdd
 description: "Test-driven development: write failing tests first, then the minimal implementation to make them pass. Use for 'tdd this', 'test-first', or when implementing features or fixing bugs with a clear test path."
-disable-model-invocation: true
 ---
 
 # Test-Driven Development
