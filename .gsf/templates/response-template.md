@@ -36,7 +36,14 @@ Describe the assigned acceptance criteria and what actually happened. Execution 
 
 ## Acceptance and policy
 
-- Acceptance criterion → evidence/result:
+Reference each acceptance criterion from the persisted `task.md` by its existing ID, or position plus exact wording; do not redefine or duplicate the specification. Include every assigned criterion once. These row labels are not role verdicts or lifecycle states.
+
+| Assigned criterion reference | Actual observed result | Indexed evidence reference | Status: MET / NOT_MET / BLOCKED | Missing prerequisite or next action / owner |
+| --- | --- | --- | --- | --- |
+| <existing ID or frozen assignment position and exact wording> | <what was actually observed, or explicitly not run> | <retrievable indexed receipt/observation for this assignment and candidate> | <actual criterion disposition> | <precise action/owner for non-MET, otherwise none> |
+
+`MET` requires evidence of the assigned predicate; `NOT_MET` records an observed violation; missing/unrun/inconclusive proof is `BLOCKED`, not MET or an invented N/A. Do not weaken or omit a criterion to close the table. Coverage does not authorize unassigned tests/effects or replace the role verdict, configured checks, independent review or approval; a completed audit can have MET coverage and still return CHANGES. Completed attempts remain immutable; corrections after worker_done require a fresh authorized dispatch under WORKER_CONTRACT.md.
+
 - Configured checks/review surfaces applicable to this role:
 - Protected-path matches and scoped authorization, if any:
 - Immutable baseline and grants relied on (grant source, exact scope and validity):
