@@ -30,6 +30,7 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 | What is the status of this specific job, without resuming? | [gsf-status](../gsf-status/SKILL.md); recorded versus live facts, blockers and next safe action, read-only |
 | Inspect impact | [blast-radius](../blast-radius/SKILL.md) |
 | Explore a design before implementation | [architect](../architect/SKILL.md) |
+| Decide an unresolved product outcome or solution choice | [feature-discovery](../feature-discovery/SKILL.md); evidence-backed brief and no-build alternatives, no invented research or automatic experiment launch |
 | Investigate production/runtime evidence | [runtime-forensics](../gsf-mode/playbooks/runtime-forensics.md) or [trace-forensics](../gsf-mode/playbooks/trace-forensics.md) |
 
 ## Change and execution

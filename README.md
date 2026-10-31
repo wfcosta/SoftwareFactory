@@ -125,6 +125,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Upgrade a bounded dependency target safely | [dependency-upgrade](.gsf/skills/dependency-upgrade/SKILL.md); manager/lock scope, release guidance, actual consumers and recovery |
 | Design synthetic data and independent expected results | [fixture-design](.gsf/skills/fixture-design/SKILL.md); tenant/time/schema boundaries, reproducible construction/reset and no production data |
 | Diagnose unstable tests without retry-to-green | [flaky-test-investigation](.gsf/skills/flaky-test-investigation/SKILL.md); bounded comparable experiments, original failures and causal diagnosis |
+| Resolve an ambiguous product problem before building | [feature-discovery](.gsf/skills/feature-discovery/SKILL.md); evidence/assumptions, no-build alternatives and bounded learning proposals, not a mandatory fix gate |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
