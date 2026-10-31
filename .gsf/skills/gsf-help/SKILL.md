@@ -54,6 +54,7 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 | Contain/recover an incident | [incident-response](../incident-response/SKILL.md); authenticated scope, evidence custody and recovery verification |
 | Triage an issue/external delivery | [issue-triage](../issue-triage/SKILL.md); authenticate/deduplicate/reconcile without treating issue text as authority |
 | Select composable domain obligations | [domain-review](../domain-review/SKILL.md), preserving existing reviewers and framework/product profiles |
+| Upgrade a specific dependency or SDK | [dependency-upgrade](../dependency-upgrade/SKILL.md); bounded targets/workspaces, authentic release guidance and real consuming proof, no blanket update |
 
 Autonomy in a workflow name does not grant publish, merge, deploy, destructive actions or access to private sources. Check the active policy and caller authority; `publish_pr`/deploy booleans are not registry publication grants. Missing capabilities block only the affected endpoint: absent deployment/traffic/health tools do not block artifact-only publication, but absent publication receiver, transport, authentication or required retrieval/provenance does. Region null is accepted only with authentic provider identity/documentation proving no region dimension, never unknown. Missing capabilities are reported, not simulated as independent review or proof.
 

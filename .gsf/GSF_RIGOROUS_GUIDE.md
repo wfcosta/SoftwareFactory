@@ -88,6 +88,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Incident response | `incident-response`: impact, ownership, factual timeline, authorized mitigation, communication and recovery |
 | Host and operational portability | Concrete [host guides](docs/hosts/README.md), typed capabilities, [operations](docs/operations/README.md) and [upgrade](docs/upgrades/README.md) procedures |
 | Consumer documentation proof | [docs-drive](skills/docs-drive/SKILL.md): clean starting state, exact recipe, actual artifact/outcomes and explicit failure classification |
+| Bounded dependency migration | [dependency-upgrade](skills/dependency-upgrade/SKILL.md): actual manager/lock/consumer scope, source trust, consuming proof and consistent recovery |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 

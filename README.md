@@ -122,6 +122,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Requirement–risk–proof mapping and evidence invalidation | [verification-strategy](.gsf/skills/verification-strategy/SKILL.md) |
 | Verify this distribution | [verify-gsf](.gsf/skills/verify-gsf/SKILL.md) |
 | Validate onboarding/quickstart docs as a consumer | [docs-drive](.gsf/skills/docs-drive/SKILL.md); exact documented steps, real outcomes and no hidden workaround |
+| Upgrade a bounded dependency target safely | [dependency-upgrade](.gsf/skills/dependency-upgrade/SKILL.md); manager/lock scope, release guidance, actual consumers and recovery |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
