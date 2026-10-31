@@ -7,7 +7,7 @@ These are behavioral scenarios, not prefilled passes. The executor records actua
 | F01 | Markdown distribution and reference closure | Only operational Markdown plus Git ignore metadata; valid frontmatter, contracts, paths and license; no legacy operational names or dual formats |
 | F02 | Seven typed policy/state boundaries | Config/plan/event/models/candidate/environment/release schemas and new examples validated; unsupported versions and malformed fields rejected; semantic authority/DAG/identity checks performed separately |
 | F03 | Fresh initialization then cold pickup | Exact explicit job ID, bootstrap intake, preserved prior attempts/evidence, no duplicate finished work |
-| F04 | Configured layout without default copies | Configured policy/agents/skills/templates/jobs resolve inside repository; no fallback to stale defaults |
+| F04 | Configured layout without default resource copies | Canonical `.gsf/GSF_CONFIG.md` stays fixed; configured agents/skills/templates/jobs/constraints and corresponding checks resolve inside repository without stale default-resource fallback; missing canonical policy is a separate rejection case |
 | F05 | Real implementation and independent approval | Actual intake/spec/builder/check/reviewer/approver receipts; real product interaction passes; final candidate agrees; publication disabled yields local approved handoff |
 | F06 | Failed, unrun, stale and incomplete evidence | Missing security review, executed check failure, missing command, stale candidate or reviewer CHANGES keeps approval blocked |
 | F07 | Candidate versus evidence identity | Evidence append leaves candidate unchanged; same-HEAD source edit, untracked source addition, binary edit and deletion change it; policy change is separately tracked |
