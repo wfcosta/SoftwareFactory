@@ -104,6 +104,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 |---|---|
 | Rigorous task routing | `gsf-mode` and its 23 playbooks |
 | Setup, initialization, navigation | `gsf-setup`, `gsf-run`, `gsf-help` |
+| Read a specific job's recorded progress without resuming | [gsf-status](.gsf/skills/gsf-status/SKILL.md); accepted evidence, freshness/liveness limits and next safe action, no writes |
 | Architecture, rationale, teaching or prior context | `how`, `why`, `teach`, `recall` |
 | Design alternatives / independent coverage | `architect`, `arena`, `swarm` |
 | Adversarial review and change impact | `interrogate`, `blast-radius` |

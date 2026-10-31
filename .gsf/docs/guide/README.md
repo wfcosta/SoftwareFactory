@@ -80,6 +80,8 @@ with source evidence. Do not modify files, initialize a job or publish.
 
 Direct read-only use answers without filesystem writes. A separately authorized factory investigation can maintain job evidence but does not gain permission to modify/publish product code.
 
+Use [gsf-status](../../skills/gsf-status/SKILL.md) to inspect an explicitly identified job without resuming it. It reads accepted history and evidence, distinguishes recorded progress from current eligibility/liveness, lists unresolved findings and names the next safe action/owner. It never initializes a job, repairs stale projections or retries an ambiguous external action. Missing access or an offline snapshot limits the answer rather than authorizing a replacement job.
+
 ## Resume and suspend
 
 A pickup names the exact saved job, reads the accepted policy/instruction identities, then reconciles invocation receipts, worker liveness, complete events, accepted history and current plan/report projections before effects. Prior chat trails are evidence, not policy authority.

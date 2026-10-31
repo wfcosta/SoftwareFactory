@@ -24,7 +24,7 @@ Keep PR discussion triage distinct from read-only source-comment review. Legal/A
 
 ## Skill authoring
 
-Follow [create-skill](skills/create-skill/SKILL.md). Use matching kebab-case directory/name, concrete trigger/outcome description, boolean invocation flag, complete procedure, evidence and failures. Optional references must resolve relative to the skill. Operational GSF names must be truthful and consistent; preserve source attribution without inheriting foreign coordinator identities.
+Follow [create-skill](skills/create-skill/SKILL.md). Use matching kebab-case directory/name, a nonempty scalar trigger/outcome description, complete procedure, evidence and failures. Omit invocation restrictions by default; optional explicitly requested host metadata is not execution authority. Optional references must resolve relative to the skill. Operational GSF names must be truthful and consistent; preserve source attribution without inheriting foreign coordinator identities.
 
 The framework distributes Markdown only; `.gsf/.gitignore` is the technical exception. Policy/data use canonical structured blocks under their state contracts, not new executable generators or validators hidden in Markdown. Examples may illustrate product-language code, but are not a bundled GSF runtime. No plugin registration, model entitlement or private transcript API is assumed.
 
