@@ -72,6 +72,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Generated verification and upkeep | `create-verification-skill`, `maintain-verification-skill`; Launch/Doctor/Drive/Evidence/Cleanup and source/live correspondence |
 | Rationale research | `why` plus source-specific investigation recipes and preserved uncertainty |
 | Recent context / teaching / learning | `recall`, `teach`, `reflect`; authorized history, evidence and proposal-first durable edits |
+| Read-only job visibility | [gsf-status](skills/gsf-status/SKILL.md): accepted history, current-evidence limits, blockers and next safe action without resume or writes |
 | Working-style updates | `automate-me`, distinct create/update paths and established preference preservation |
 | Measurement integrity | `benchmark-checklist`, correct work/error counts, timed region, fair tuning and repeated comparisons |
 | Source-comment audit | Independent read-only source review; distinct from PR discussion triage |
@@ -91,7 +92,7 @@ Instruction updates require explicit reconciliation and revalidation; they do no
 
 ## Authoring and maintenance
 
-Every skill uses matching kebab-case directory/name, a concrete description and boolean invocation flag. The flag is host metadata, not authorization. Optional reference prompts are linked relatively and must resolve. Roles retain exactly Role, Context, Task, Constraints and Format; legal exceptions and important failure paths cannot be reduced to slogans.
+Every skill uses matching kebab-case directory/name and a nonempty scalar trigger description. Invocation restrictions are omitted by default; any explicitly requested supported host metadata is optional and cannot authorize execution. Optional reference prompts are linked relatively and must resolve. Roles retain exactly Role, Context, Task, Constraints and Format; legal exceptions and important failure paths cannot be reduced to slogans.
 
 Use `create-skill` for instructions and `technical-writing` for prose. Keep one normative source for a shared rule. Product verification skills have feature maps and maintenance loops; frozen formal models record correspondence and dirty snapshot identity separately from commit provenance.
 

@@ -27,6 +27,7 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 | Teach mechanics and rationale plainly | [teach](../teach/SKILL.md) |
 | Catch up across recent authorized work | [recall](../recall/SKILL.md) |
 | Resume a specific existing session | [session-pickup](../gsf-mode/playbooks/session-pickup.md) |
+| What is the status of this specific job, without resuming? | [gsf-status](../gsf-status/SKILL.md); recorded versus live facts, blockers and next safe action, read-only |
 | Inspect impact | [blast-radius](../blast-radius/SKILL.md) |
 | Explore a design before implementation | [architect](../architect/SKILL.md) |
 | Investigate production/runtime evidence | [runtime-forensics](../gsf-mode/playbooks/runtime-forensics.md) or [trace-forensics](../gsf-mode/playbooks/trace-forensics.md) |
