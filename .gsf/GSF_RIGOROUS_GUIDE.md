@@ -93,6 +93,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Unstable-test diagnosis | [flaky-test-investigation](skills/flaky-test-investigation/SKILL.md): bounded experiments, causal versus inconclusive results and no retry-to-green |
 | Product discovery | [feature-discovery](skills/feature-discovery/SKILL.md): unresolved choices, source-backed assumptions/options and bounded learning, not engineering approval |
 | Feature retirement | [retire-feature](skills/retire-feature/SKILL.md): consumer/deprecation inventory, disable/remove/dispose phase separation, shared-resource protection and restore-time obligations |
+| GSF instruction evaluation | [evaluate-gsf](skills/evaluate-gsf/SKILL.md): comparable frozen variants/tasks, fresh contexts, independent grading, complete denominators and no automatic adoption |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
