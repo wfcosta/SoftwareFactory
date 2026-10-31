@@ -65,6 +65,7 @@ Autonomy in a workflow name does not grant publish, merge, deploy, destructive a
 - Risk-to-invariant and surface proof planning: [verification-strategy](../verification-strategy/SKILL.md); apply the accepted impact matrix, actual isolated execution and evidence, not textual checks as behavioral proof.
 - Drive an actual interface with [control-ui](../control-ui/SKILL.md) or [control-cli](../control-cli/SKILL.md); preserve evidence with [show-me-your-work](../show-me-your-work/SKILL.md).
 - Validate a quickstart or documented consumer workflow: [docs-drive](../docs-drive/SKILL.md); bind actual document/product versions, preserve failed steps and classify docs/product/prerequisite gaps without silently repairing the recipe.
+- Design discriminating synthetic test data and independently derived oracles: [fixture-design](../fixture-design/SKILL.md); distinguish design from constructed/replayed proof, and preserve tenant/clock/schema/reset boundaries.
 - Author a reusable workflow with [create-skill](../create-skill/SKILL.md). Capture approved personal working conventions with [automate-me](../automate-me/SKILL.md). Propose session learnings first with [reflect](../reflect/SKILL.md).
 - Deepen a prompt without executing it: [sharpen](../sharpen/SKILL.md). Restate the previous assistant message plainly: [bro](../bro/SKILL.md). Improve prose: [unslop](../unslop/SKILL.md).
 - Review source comments safely: [no-comments](../no-comments/SKILL.md), which requests the independent source-comment-reviewer. It is not PR discussion triage.
