@@ -59,6 +59,10 @@ Review findings distinguish blocking defects from optional improvements. Each bl
 
 Re-reviews reconcile every prior blocker in the assigned task/surface using its original report/dispatch/finding ID and indexed history, not only the latest list. Each row records the proposed correction, current independent evidence, original resolution-condition result and `RESOLVED`, `OPEN` or `UNVERIFIED`, with rationale and remaining owner/action. An evidenced withdrawal may correct an incorrect original claim without rewriting its old report. Missing history, omitted findings or an unsupported new PASS never close a blocker; relevant candidate/dependency changes require closure re-evaluation. This stays in existing reports, without a separate finding ledger or new lifecycle states.
 
+The coordinator may group findings into one remediation task only when evidence demonstrates the same causal mechanism within a bounded authorized ownership scope. Record the rationale and original finding references in existing decision/plan/task fields; retain separate acceptance/resolution obligations and independent reviews for every member. Same file, severity or symptom is not common-cause proof. Unknown causes remain separate or receive scoped investigation; overlapping writers are serialized. Existing writers must be stopped/fenced and plan history preserved before reassignment, never overwritten by grouping.
+
+For example, code and security findings that demonstrably trace to the same missing tenant predicate can share one builder correction task, while both original findings still require their own current review evidence. An unrelated null-handling defect in that file is not included merely because the file overlaps. Grouping grants no extra permission and cannot turn one resolved finding into blanket closure.
+
 Authorized local unit commits require the unit's checks and policy compliance. They do not require pretending the whole job is already approved. Final publication still requires the full gate. Protected tests require scoped authorization; TDD does not override it.
 
 ## Read-only work

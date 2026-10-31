@@ -15,6 +15,12 @@
 
 Describe the assigned acceptance criteria and what actually happened. Execution success is distinct from a PASS/APPROVE verdict.
 
+### Grouped remediation (only when assigned)
+
+- Existing task/decision references and all original indexed report/dispatch/finding IDs:
+- Coordinator's recorded common-cause evidence, exclusive ownership and constraints/grants:
+- Actual correction and evidence per member, mapped to the existing acceptance-coverage rows below; distinguish shared evidence from separate unresolved obligations. State contradictions or scope/authority gaps and their coordinator action. This report never closes another reviewer's finding or replaces independent re-review. If no grouped remediation is assigned, state not applicable without inventing a group or extra work.
+
 ## Findings (highest severity first)
 
 - Blocking finding: ID, severity, exact candidate-bound file/line or evidence location, violated acceptance criterion/contract/invariant with its basis, concrete triggering conditions, causal evidence and impact, proposed action, verifiable resolution condition, and current disposition. Cite the existing criterion rather than rewriting the specification. Established security/correctness invariants can apply even if omitted from the spec. Distinguish demonstrated static reasoning from actual runtime observation; never invent a reproduction. Write `None` only when inspection supports it.
