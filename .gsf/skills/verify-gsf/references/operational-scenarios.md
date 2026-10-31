@@ -130,7 +130,7 @@ Also test a mutable “latest” locator: refuse evidence until pinned to the ex
 
 ## D11 — No old-root fallback and scalable identity
 
-**Fixture:** customized accepted policy/agents/skills/templates/jobs paths entirely inside the external repository; remove default operational copies. Plant an obsolete root-level policy with permissive publish flags and an old root skill with a distinctive `legacy-sentinel` instruction. Neither is authority. Default canonical policy absent/invalid is a separate negative fixture, not repaired through legacy discovery.
+**Fixture:** retain the only policy at repository-root `.gsf/GSF_CONFIG.md`; customize accepted `config.paths` agents/skills/templates/jobs/constraints and corresponding check paths entirely inside the external repository, removing only default copies of those relocated resources. The policy path is not configurable. Plant an obsolete root-level policy with permissive publish flags and an old root skill with a distinctive `legacy-sentinel` instruction. Neither is authority. Canonical policy absent/invalid is a separate negative fixture, not repaired through legacy discovery.
 
 **Drive/oracles:** initialize/read/resume uses only accepted configured paths; old-root sentinel never executes and permissive flags grant nothing. With no valid canonical policy, no job mutation or external effect is authorized. Unsupported schema versions fail closed. In source identity, edit a tracked file without committing, add ignored/untracked source, mutate a binary and delete tracked source one at a time: each changes candidate entries/identity. Genuine allowlisted evidence append changes evidence identity but not candidate. An unexpected file inside a job/build directory is not blanket ignored.
 
