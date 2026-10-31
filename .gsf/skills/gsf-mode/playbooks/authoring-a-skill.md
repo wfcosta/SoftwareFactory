@@ -3,7 +3,7 @@
 **You own the skill's voice.**
 
 1. Use the local [create-skill](../../create-skill/SKILL.md) skill. Name the trigger, caller, inputs, steps, outputs, and failure path. Read the existing skill and its callers before editing; preserve GSF conventions rather than installing a host-specific authoring runtime.
-2. Validate the skill: frontmatter has `name` and `description` and GSF invocation metadata required by the local authoring skill, referenced files exist, cross-skill links resolve.
+2. Validate the skill: frontmatter has matching `name` and a nonempty scalar `description`; optional host metadata follows the local authoring skill, with no invocation restriction required by default. Referenced files exist and cross-skill links resolve.
 3. For a structural change, exercise representative invocations including missing inputs and a failed gate. Validate frontmatter, file links, dispatch boundaries, and expected artifacts; capture the actual results. For a wording-only change, document why structural execution is unchanged instead of inventing a test.
 4. Run [Opening a PR](./opening-a-pr.md).
 

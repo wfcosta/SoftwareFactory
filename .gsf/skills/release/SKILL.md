@@ -1,7 +1,6 @@
 ---
 name: release
 description: Publish an immutable verified artifact to an authorized registry, or deploy/apply/recover it on an exact environment with real rollout and health receipts; choose the accepted intent first.
-disable-model-invocation: true
 ---
 
 # Release

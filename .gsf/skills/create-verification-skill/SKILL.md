@@ -25,7 +25,7 @@ A broken baseline is not a valid recipe. Establish whether the app builds and st
 
 ## 2. Write the five-section procedure
 
-Include valid YAML frontmatter with the actual `verify-<app>` name, explicit app/surface triggers, and `disable-model-invocation: true`. Populate every instruction from the repository; leave no guessed commands or placeholders in the deliverable.
+Include valid YAML frontmatter with the actual `verify-<app>` name and a nonempty description with explicit app/surface triggers. Follow [create-skill](../create-skill/SKILL.md) for optional host metadata; do not add an invocation restriction by default. Discovery never authorizes running checks or installing/registering the skill. Populate every instruction from the repository; leave no guessed commands or placeholders in the deliverable.
 
 ### Launch
 

@@ -1,7 +1,6 @@
 ---
 name: domain-review
 description: "Design, independently review, or prove task-specific data, API, async, security, supply-chain, quality, reliability and inclusive-experience obligations using real environment evidence."
-disable-model-invocation: true
 ---
 
 # Domain review

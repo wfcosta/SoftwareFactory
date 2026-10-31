@@ -1,7 +1,6 @@
 ---
 name: cloud-change
 description: Plan, authorize, execute and reconcile an exact cloud or infrastructure change with target identity, native ownership controls and observable recovery.
-disable-model-invocation: true
 ---
 
 # Cloud Change
