@@ -19,7 +19,7 @@ Create a strategy table in authorized job evidence with these columns; none may 
 |---|---|
 | Obligation | Requirement/invariant ID, risk and acceptance predicate, including adverse case |
 | Minimal proof | Selected check IDs and proof type; why it detects this failure; excluded types and reason |
-| Fixture | Exact inputs and expected outputs/state, fixture digest or reproducible construction, reset/ownership recipe |
+| Fixture | Exact inputs and expected outputs/state, fixture digest or reproducible construction, reset/ownership recipe; use [fixture-design](../fixture-design/SKILL.md) when independent oracles or construction/reset cases need design |
 | Environment | Environment record reference, capability/target observations and expiry, host/tool versions, readiness predicates |
 | Invocation | Actual command and repository-relative cwd or exact skill path; nested tools; timeout and resource bound |
 | Effects | Configured `effect` and `target`, actual side effects, required authentic grant and platform controls |
