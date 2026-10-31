@@ -69,6 +69,8 @@ Authorized local unit commits require the unit's checks and policy compliance. T
 
 Operational approval is phase-aware: readiness checks the current candidate, required checks/reviews, immutable build/artifact, target and applicable safeguards/authority prerequisites before an external effect. Only a passing gate plus separate scoped authority allows intent then execution; authentic receipts/readback and completed deployment observation follow the effect and are required for its completion. Requiring those future receipts before the first APPROVE creates a forbidden dependency cycle. Existing/ambiguous effects still require actual prior gate/authority and remote-state reconciliation; readiness approval never certifies published, deployed or healthy.
 
+Required reviews are resolved through accepted plan task/role/report bindings and current dispatch provenance, not a `review-*` filename search. Keep role vocabularies intact: code/security and source-comment reviews require PASS at their actual report destinations; the separate PR-thread comment-reviewer requires CLEAN at comment-review.md. Do not rename or coerce those outputs, accept a wrong-role verdict, or substitute a specialist for mandatory code/security review. Unknown/conflicting bindings and unresolved required findings block the gate.
+
 ## Read-only work
 
 ```text

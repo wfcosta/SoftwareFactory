@@ -65,7 +65,7 @@ A tick is an observation/action cycle, not a promise of unattended wakes. Regist
 
 - [ ] Run the declared nonduplicative verification coverage at the exact candidate/policy identity; reviewers inspect actual receipts and artifacts.
 - [ ] Any source change invalidates affected checks/reviews; only Shipping's documented narrow carry conditions permit carrying appropriate unchanged evidence.
-- [ ] Independent mandatory/applicable reviewers return PASS and approver returns APPROVE; missing reviews, failed/unrun checks, CHANGES or stale identity block readiness.
+- [ ] Independent mandatory/applicable reviewers satisfy their documented passing verdict at each accepted task.report binding (code/security PASS; comment-reviewer CLEAN), and approver returns APPROVE; missing reviews, failed/unrun checks, nonpassing verdicts or stale identity block readiness.
 - [ ] <Actual landing rule under shipping and separate merge authority, or explicit no-merge operator handoff.>
 - [ ] <If separately authorized, real release/cloud procedure with immutable artifact/config/target/env identity, observation/abort/recovery acceptance and actual receipts; otherwise no deployment/health claim.>
 

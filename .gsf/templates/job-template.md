@@ -52,7 +52,7 @@
 | Spec | spec.md | pending | pending | pending |
 | Build | build.md | pending | pending | pending |
 | Checks | checks.md | pending | pending | pending |
-| Required reviews | review-<role>.md (one row per required role) | pending | pending | pending |
+| Required reviews | Accepted task.report destination (one row per required role, with actual task/dispatch origin) | pending | pending | pending |
 | Approval | approval.md | pending | pending | pending |
 
 Only link reports that actually exist. Keep old attempts in dispatches/<dispatch_id>/; canonical reports identify the validated current attempt.
@@ -86,7 +86,7 @@ Only record actual items; each row links an existing immutable receipt or frozen
 - Effective policy_id and immutable baseline/grant evidence:
 - Frozen exact evidence allowlist / checkpoint evidence_id (separate from candidate identity):
 - Checks: pending (each typed command or skill must actually satisfy its acceptance).
-- Required reviewers: pending (independent PASS for the same candidate_id/policy_id).
+- Required reviewers: pending (independent documented passing verdict per accepted role/report for the same candidate_id/policy_id; code/security PASS, comment-reviewer CLEAN, no coercion or substitution).
 - Unresolved material findings:
 - Approval: pending (`APPROVE` or `FAIL`).
 - Private intermediate commit authority/unit evidence (not final readiness):
