@@ -23,6 +23,16 @@ Describe the assigned acceptance criteria and what actually happened. Execution 
 
 - Separate useful improvements from defects: suggestion, concrete benefit and optional follow-up. Optional means no accepted criterion/contract or established material invariant is violated; it does not expand authorized implementation scope. Severity alone does not determine blocking status. Missing required evidence belongs in gaps/limitations and blocks its dependent review/gate, never becomes an optional suggestion or unsupported PASS. Use the actual role's verdict vocabulary; this classification adds no event/state/verdict.
 
+## Prior finding reconciliation (re-reviews)
+
+Retrieve the accepted review history assigned by the coordinator for this task/surface, not just the most recent report. Account for every earlier blocking finding in that scope; new findings still belong in Findings above. Use the original job/task/dispatch, indexed report locator/digest and finding ID together, linking any repeated/new ID to that origin.
+
+| Original finding reference | Proposed correction | Current candidate evidence | Original resolution-condition result | Disposition: RESOLVED / OPEN / UNVERIFIED | Rationale and remaining action / owner |
+| --- | --- | --- | --- | --- | --- |
+| <job/task/dispatch, report locator/digest, finding ID> | <actual change or explicitly none> | <indexed current independent observation and identity> | <what was checked and observed, or not verified> | <actual disposition> | <why, and next action/owner if unresolved> |
+
+`RESOLVED` requires current independent evidence satisfying the original condition, or an explicitly evidenced withdrawal of an incorrect claim, with rationale. `OPEN` retains a demonstrated violation; `UNVERIFIED` retains a closure-proof gap. Neither unresolved disposition satisfies a passing dependency. An edit, renamed/deleted file, changed ID, newer PASS or omitted row is not closure. Re-evaluate resolved findings when consumed candidate/dependency assumptions change; do not reuse stale closure. Preserve old reports and their original verdicts: these are reconciliation labels, not new lifecycle states/verdicts. For an initial review, state no prior review history; unavailable/incomplete history on a re-review is a gap, never `None` or implicit resolution. Record out-of-scope findings as not verified and keep their affected gates blocked rather than claiming a partial review closes them.
+
 ## Evidence
 
 - Files inspected:

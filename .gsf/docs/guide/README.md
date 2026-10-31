@@ -57,6 +57,8 @@ Each worker report also maps every criterion from its frozen task assignment to 
 
 Review findings distinguish blocking defects from optional improvements. Each blocker identifies the violated criterion/contract/invariant, concrete trigger, candidate-bound causal evidence and a verifiable resolution condition; established security/correctness boundaries need not be explicitly repeated in the spec to apply. Static reasoning and actual runtime proof are labeled honestly. Optional suggestions alone do not force CHANGES or expand scope, while missing mandatory proof remains a review/gate blocker. The coordinator audits the distinction without overriding independent verdicts or rewriting completed reviews.
 
+Re-reviews reconcile every prior blocker in the assigned task/surface using its original report/dispatch/finding ID and indexed history, not only the latest list. Each row records the proposed correction, current independent evidence, original resolution-condition result and `RESOLVED`, `OPEN` or `UNVERIFIED`, with rationale and remaining owner/action. An evidenced withdrawal may correct an incorrect original claim without rewriting its old report. Missing history, omitted findings or an unsupported new PASS never close a blocker; relevant candidate/dependency changes require closure re-evaluation. This stays in existing reports, without a separate finding ledger or new lifecycle states.
+
 Authorized local unit commits require the unit's checks and policy compliance. They do not require pretending the whole job is already approved. Final publication still requires the full gate. Protected tests require scoped authorization; TDD does not override it.
 
 ## Read-only work
