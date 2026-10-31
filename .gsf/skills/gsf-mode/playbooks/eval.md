@@ -2,6 +2,8 @@
 
 **You own the experiment design. Plan, blind, run, synthesize.**
 
+For a change to GSF prompts, skills or orchestration under a declared comparable tool/model setup, follow [evaluate-gsf](../../evaluate-gsf/SKILL.md) instead of the multi-model arena procedure below. Freeze the actual task corpus, independent oracles, identities and all attempts; missing control or billing metadata limits the claim, not a reason to invent a causal winner. This playbook's multi-model steps remain for solution/model arena comparisons.
+
 **Non-negotiables for blinding:**
 
 - Keep evaluation-specific identities, variant labels, grading rubrics, scores, and experiment instructions out of candidate-visible paths/prompts/files. Sanitize metadata such as `eval`, `judge`, or `candidate` labels that reveal the experiment. Do not ban legitimate product test/benchmark files or the required GSF contracts merely because they contain those words.
