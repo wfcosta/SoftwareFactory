@@ -129,6 +129,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Retire a feature without orphaned consumers/resources | [retire-feature](.gsf/skills/retire-feature/SKILL.md); inventory, reversible disablement, independent disposition authority and restore obligations |
 | Compare changes to GSF instructions without inventing productivity gains | [evaluate-gsf](.gsf/skills/evaluate-gsf/SKILL.md); frozen tasks/oracles, isolated variants, independent grading, all outcomes and explicit adoption authority |
 | Explore risky state combinations through an actual product surface | [exploratory-tester](.gsf/agents/exploratory-tester.md); independent bounded charter, adaptive driving, reproducible findings and separate app-state authority |
+| Check whether the implementation actually solves the accepted consumer task | [product-reviewer](.gsf/agents/product-reviewer.md); independent outcome-fit review, real consumer evidence and no invented research/ROI gate |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
