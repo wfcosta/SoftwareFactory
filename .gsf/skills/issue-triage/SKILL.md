@@ -1,7 +1,6 @@
 ---
 name: issue-triage
 description: Read and classify an authenticated immutable issue snapshot, verify existing work, and publish bounded deduplicated tracker effects through one accountable authorized owner.
-disable-model-invocation: true
 ---
 
 # Issue Triage

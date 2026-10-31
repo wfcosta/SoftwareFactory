@@ -1,7 +1,6 @@
 ---
 name: verification-strategy
 description: Select minimal sufficient proofs from requirements, invariants and impact risks; bind real fixtures, typed effects, environment and immutable evidence before checks or approval.
-disable-model-invocation: true
 ---
 
 # Verification strategy

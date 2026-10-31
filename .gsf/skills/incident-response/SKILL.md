@@ -1,7 +1,6 @@
 ---
 name: incident-response
 description: Establish incident impact and ownership, investigate with bounded trustworthy signals, execute only authorized mitigation, and prove recovery with accountable communications and handoff.
-disable-model-invocation: true
 ---
 
 # Incident Response

@@ -29,7 +29,7 @@ Ask one or two focused questions about missing or changed preferences, ideally o
 
 Cluster only non-default, supported preferences into sections that earn their place: response style, autonomy, understanding, delegation, code/prose, verification, process, or skills. No required symmetric section set. Keep rules operational and reference existing skills rather than pasting them. Name the user generically in imperatives.
 
-For updates, edit contradicted sections and add genuinely new rules; do not silently erase established style or uncontradicted rules. Frontmatter must have one YAML scalar description naming the handle and explicit invocation, not generic coding keywords, and `disable-model-invocation: true` unless the user specifically opts into automatic application. A personal mode cannot override higher-priority instructions or grant publish/merge/deploy authority.
+For updates, edit contradicted sections and add genuinely new rules; do not silently erase established style or uncontradicted rules. Frontmatter must have one YAML scalar description naming the handle and relevant invocation context, not generic coding keywords. Follow [create-skill](../create-skill/SKILL.md): omit invocation restrictions by default for new modes and preserve an existing explicitly accepted invocation preference unless the user requests changing it. Host discovery is not execution permission. A personal mode cannot override higher-priority instructions or grant publish/merge/deploy authority.
 
 ## 5. Review before durable edits
 
