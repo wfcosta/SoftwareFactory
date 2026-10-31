@@ -55,6 +55,8 @@ For example, a pagination request first inspects existing list endpoints and res
 
 Each worker report also maps every criterion from its frozen task assignment to the actual observation, indexed evidence and `MET`, `NOT_MET` or `BLOCKED`, with a next action/owner for unresolved items. The coordinator checks that coverage before accepting completion or releasing dependents; edited files and worker_done alone are not proof. Missing/unrun evidence stays BLOCKED, observed violations stay NOT_MET, and required criteria cannot be silently dropped. Completed reports are immutable: correction after worker_done uses a fresh authorized dispatch. These row labels do not add lifecycle states or replace role verdicts, configured checks, independent reviews or final approval.
 
+Review findings distinguish blocking defects from optional improvements. Each blocker identifies the violated criterion/contract/invariant, concrete trigger, candidate-bound causal evidence and a verifiable resolution condition; established security/correctness boundaries need not be explicitly repeated in the spec to apply. Static reasoning and actual runtime proof are labeled honestly. Optional suggestions alone do not force CHANGES or expand scope, while missing mandatory proof remains a review/gate blocker. The coordinator audits the distinction without overriding independent verdicts or rewriting completed reviews.
+
 Authorized local unit commits require the unit's checks and policy compliance. They do not require pretending the whole job is already approved. Final publication still requires the full gate. Protected tests require scoped authorization; TDD does not override it.
 
 ## Read-only work

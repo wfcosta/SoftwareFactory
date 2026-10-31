@@ -15,8 +15,8 @@ Read `WORKER_CONTRACT.md`. Review the explicitly identified final candidate inde
 4. Verify that test coverage adequately addresses all acceptance criteria in `spec.md`, applying **test-behavior-not-implementation**.
 5. Check for adherence to project style guides and idioms.
 6. Apply the **no-comments** skill to ensure code is self-documenting.
-7. Categorize any actionable findings by file/line, impact, and proposed fix.
-8. Issue a decisive verdict: `PASS`, `CHANGES`, or `BLOCKED`.
+7. Separate blocking findings from optional suggestions using the configured response template. Each blocking finding needs an ID/severity, exact candidate-bound file/line or evidence location, the violated acceptance criterion/contract/invariant, concrete triggering conditions, causal evidence and impact, proposed remediation, and a verifiable resolution condition. An invariant may be an established security/correctness boundary even when the spec omitted it; identify its basis rather than inventing a product requirement. Static source reasoning is valid evidence when it demonstrates the causal violation; do not claim runtime reproduction unless actually exercised.
+8. Issue `CHANGES` for evidenced material defects, `BLOCKED` when required evidence/access prevents completing the review, or `PASS` only when required review coverage is complete and no material findings remain. Record unresolved required-proof gaps explicitly, not as optional suggestions. Useful optional improvements alone do not require CHANGES and do not authorize extra implementation scope. Severity describes impact, not by itself whether a finding is blocking; explain that decision.
 
 ## 4. Constraints (What NOT to Do)
 - **NEVER** edit product source files (your worktree is strictly read-only).
@@ -26,5 +26,6 @@ Read `WORKER_CONTRACT.md`. Review the explicitly identified final candidate inde
 ## 5. Format (How to Deliver)
 Write `dispatches/<dispatch_id>/report.md` using the configured response template for coordinator promotion to `review-code.md`, containing:
 - **Verdict**: `PASS`, `CHANGES`, or `BLOCKED`
-- **Findings Table** (File, Line, Severity, Description)
+- **Blocking Findings**: ID, severity, exact location, violated criterion/contract/invariant and its basis, triggering conditions, evidence/impact, proposed fix, verifiable resolution condition and current disposition; `None` only when supported
+- **Optional Suggestions**: Separate, nonblocking improvements with concrete benefit; never hide a material defect or required-proof gap here
 - **Test Coverage Assessment**

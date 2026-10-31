@@ -17,7 +17,11 @@ Describe the assigned acceptance criteria and what actually happened. Execution 
 
 ## Findings (highest severity first)
 
-- Finding ID, severity, exact file/line or evidence, preconditions, impact, proposed action, and resolution status. Write `None` only when inspection supports it.
+- Blocking finding: ID, severity, exact candidate-bound file/line or evidence location, violated acceptance criterion/contract/invariant with its basis, concrete triggering conditions, causal evidence and impact, proposed action, verifiable resolution condition, and current disposition. Cite the existing criterion rather than rewriting the specification. Established security/correctness invariants can apply even if omitted from the spec. Distinguish demonstrated static reasoning from actual runtime observation; never invent a reproduction. Write `None` only when inspection supports it.
+
+## Optional suggestions (nonblocking)
+
+- Separate useful improvements from defects: suggestion, concrete benefit and optional follow-up. Optional means no accepted criterion/contract or established material invariant is violated; it does not expand authorized implementation scope. Severity alone does not determine blocking status. Missing required evidence belongs in gaps/limitations and blocks its dependent review/gate, never becomes an optional suggestion or unsupported PASS. Use the actual role's verdict vocabulary; this classification adds no event/state/verdict.
 
 ## Evidence
 
