@@ -67,6 +67,8 @@ For example, code and security findings that demonstrably trace to the same miss
 
 Authorized local unit commits require the unit's checks and policy compliance. They do not require pretending the whole job is already approved. Final publication still requires the full gate. Protected tests require scoped authorization; TDD does not override it.
 
+Operational approval is phase-aware: readiness checks the current candidate, required checks/reviews, immutable build/artifact, target and applicable safeguards/authority prerequisites before an external effect. Only a passing gate plus separate scoped authority allows intent then execution; authentic receipts/readback and completed deployment observation follow the effect and are required for its completion. Requiring those future receipts before the first APPROVE creates a forbidden dependency cycle. Existing/ambiguous effects still require actual prior gate/authority and remote-state reconciliation; readiness approval never certifies published, deployed or healthy.
+
 ## Read-only work
 
 ```text
