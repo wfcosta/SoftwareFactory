@@ -90,6 +90,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Consumer documentation proof | [docs-drive](skills/docs-drive/SKILL.md): clean starting state, exact recipe, actual artifact/outcomes and explicit failure classification |
 | Bounded dependency migration | [dependency-upgrade](skills/dependency-upgrade/SKILL.md): actual manager/lock/consumer scope, source trust, consuming proof and consistent recovery |
 | Independent fixture design | [fixture-design](skills/fixture-design/SKILL.md): frozen oracle provenance, synthetic boundaries, deterministic construction/reset and reproducibility proof |
+| Unstable-test diagnosis | [flaky-test-investigation](skills/flaky-test-investigation/SKILL.md): bounded experiments, causal versus inconclusive results and no retry-to-green |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
