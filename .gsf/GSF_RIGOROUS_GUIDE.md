@@ -106,6 +106,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Business-data reconciliation | [data-reconciliation](skills/data-reconciliation/SKILL.md): explicit truth/key/tenant/cutoff, observed comparable frontiers, units/null/duplicate semantics and record-level discrepancies without repair authority |
 | Subject-data request handling | [privacy-request](skills/privacy-request/SKILL.md): authentic subject/action authority, actual copy inventory, restricted receiver, partial-effect reconciliation, legal holds and backup/restore limits without erasure by assertion |
 | Performance-history diagnosis | [performance-bisect](skills/performance-bisect/SKILL.md): regression-hunt measurement extension, frozen correct workload/threshold, counterbalanced repetition, uncertainty-aware endpoints and narrow causal confirmation |
+| Controlled feature exposure | [feature-flag-rollout](skills/feature-flag-rollout/SKILL.md): separate flag/deploy grants, actual provider readback, bounded private cohorts, accepted observations and recovery preserving committed data/work |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 

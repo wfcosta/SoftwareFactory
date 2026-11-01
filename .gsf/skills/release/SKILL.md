@@ -83,6 +83,8 @@ Respect execution/time/cost limits and evidence retention/ACL requirements. `exe
 
 Choose the simplest supported strategy appropriate to the service and data model. Gradual delivery is not mandatory when traffic cannot be partitioned meaningfully or the platform lacks it. Record the reason, blast radius and proof limits rather than pretending a canary exists.
 
+For flag-controlled exposure use [feature-flag-rollout](../feature-flag-rollout/SKILL.md) to define states, eligibility/stable private cohorts, both-state/mixed-version proof and accepted promotion/abort observations. Remote flag changes retain this branch's applicable configuration/target/intent/readback controls and a distinct action grant; deployment alone grants no flag write. Disablement is not reversal of committed data or queued work.
+
 | Strategy | Required evidence before use |
 | --- | --- |
 | Canary or weighted traffic | Real routing controls and cohort isolation, old/new compatibility, session/background-worker behavior, meaningful sample size, per-step traffic/exposure limit, hold duration and halt/rollback operation. Include cumulative population effects and cross-cohort shared data. |
