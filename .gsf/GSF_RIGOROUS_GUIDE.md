@@ -109,6 +109,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Controlled feature exposure | [feature-flag-rollout](skills/feature-flag-rollout/SKILL.md): separate flag/deploy grants, actual provider readback, bounded private cohorts, accepted observations and recovery preserving committed data/work |
 | Brownfield adoption | [gsf-adopt](skills/gsf-adopt/SKILL.md): preserve established CI/checks/protections/user changes and frozen jobs, expose incomplete mappings, then hand accepted reversible configuration to existing gsf-setup |
 | Independent pre-build acceptance challenge | [acceptance-challenger](agents/acceptance-challenger.md): measurable coherent criteria, accepted intent versus proposals, missing owner decisions and no dependency on future implementation proof |
+| Independent operability review | [operability-reviewer](agents/operability-reviewer.md): real diagnostic/access paths, actionable owner/runbook, uncertain-effect reconciliation and accepted recovery/resource evidence without operational repair authority |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
