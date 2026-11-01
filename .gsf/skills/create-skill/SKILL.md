@@ -13,7 +13,7 @@ Read the user's goal, the nearest existing skill, the host's discovery conventio
 
 ## Procedure
 
-1. Name the consumer-visible outcome and when this skill must not run. Inventory required tools, files, permissions, and external services. Discover capabilities; never invent host APIs.
+1. Name the consumer-visible outcome and a finite set of concrete use and do-not-use cases. Include an adjacent workflow that could plausibly be confused with this one, and identify the condition that selects each owner. Inventory required tools, files, permissions, and external services. Discover capabilities; never invent host APIs.
 2. Check existing skills for an owner of this workflow. Edit that owner instead of creating a synonym. Keep orchestration in gsf-mode and event contracts in WORKER_CONTRACT.md.
 3. Choose a lowercase kebab-case directory and matching `name`. Write YAML frontmatter with `name` and a nonempty description stating trigger and outcome. Omit `disable-model-invocation` by default so compatible hosts may select the skill automatically; only add a boolean value for an explicitly requested invocation policy on a host that documents the field. Do not infer execution permission or actual host registration from discovery metadata. Icons/colors are optional.
 4. Write inputs, ordered actions, branch conditions, outputs, evidence, and stop conditions. Distinguish observation from inference and success from blocked/inconclusive. Every filesystem path must resolve from an explicit working directory or from the skill file.
@@ -24,4 +24,8 @@ Read the user's goal, the nearest existing skill, the host's discovery conventio
 
 ## Acceptance
 
-The next agent can determine applicability, resolve all references, execute each step with available tools, and decide success or failure without the author's conversation. Do not leave placeholder commands or claim that a file automatically registers in every host.
+The next agent can determine applicability, resolve all references, execute each step with available tools, and decide success or failure without the author's conversation. Include at least one positive trigger and one negative trigger with the intended routing outcome; an absent execution grant must remain distinct from a skill being inapplicable to a read-only question. Keep these cases in ordinary procedure/acceptance prose, not new required frontmatter fields or a framework-wide trigger schema.
+
+For an API traversal workflow, a concrete positive case is “assess duplicate rows across supplied cursor pages against the accepted snapshot contract”: [pagination-review](../pagination-review/SKILL.md) owns this question. A negative/adjacent case is “check supported old/new clients across runtime versions”: [compatibility-check](../compatibility-check/SKILL.md) owns that question unless traversal is a separate accepted obligation. Replace this example with cases specific to the skill being authored; generic topic keywords are not sufficient.
+
+Acceptance must identify the expected artifact and at least one meaningful refusal or blocked boundary, with evidence from the authorized exercise, or explicitly unexercised limitations when capability/authority is absent. Do not leave placeholder commands, claim an unperformed exercise, infer external fetch/install permissions from a recommendation, or claim that a file automatically registers in every host.
