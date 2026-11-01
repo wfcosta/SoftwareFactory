@@ -101,6 +101,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Directional compatibility proof | [compatibility-check](skills/compatibility-check/SKILL.md): finite accepted producer/consumer/runtime/schema combinations, real journeys and no PASS inheritance across versions or platforms |
 | Scoped fault and recovery experiments | [failure-drill](skills/failure-drill/SKILL.md): predeclared hypothesis, real contained injection, independent bounded stop and consumer/durable-state recovery proof; no automatic production chaos |
 | Contract-versus-behavior drift | [contract-drift](skills/contract-drift/SKILL.md): compare accepted versioned clauses with independent artifact/config/consumer observations, preserving allowed extensions and unresolved runtime claims |
+| Independently grounded relational testing | [metamorphic-testing](skills/metamorphic-testing/SKILL.md): accepted relations/preconditions, finite exact replay corpus, every real execution side and domain-preserving counterexample reduction |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
