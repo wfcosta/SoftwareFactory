@@ -162,6 +162,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Add focused independent permission or artifact-trust review | Conditional [authorization-reviewer](.gsf/agents/authorization-reviewer.md) at `review-authorization.md` and [supply-chain-reviewer](.gsf/agents/supply-chain-reviewer.md) at `review-supply-chain.md`; stage-bound verdicts supplement mandatory code/security reviews |
 | Compose threat, authorization, provenance and privacy work | [Security pack](.gsf/packs/security.md); conditional Markdown composition, not a supported exporter `--pack security` selection |
 | Export native host packages or connect read-only evidence tools | [Plugin export and connectors](.gsf/docs/hosts/plugin-export.md); executable tooling lives in the separate private companion repository, never inside the Markdown core |
+| Review pagination without inventing snapshot guarantees | [pagination-review](.gsf/skills/pagination-review/SKILL.md); bounded traversal, independent membership/order evidence and cursor-scope boundaries |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
