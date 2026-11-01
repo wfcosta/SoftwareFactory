@@ -167,6 +167,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Review cache isolation, freshness and invalidation | [cache-correctness-review](.gsf/skills/cache-correctness-review/SKILL.md); response-varying key scope and bounded read/write timelines, not TTL or hit-rate assurance |
 | Choose between adjacent skills without running them | [skill-selection](.gsf/skills/skill-selection/SKILL.md); finite use/do-not-use triggers, exact owners and separately approved external candidates |
 | Establish third-party instruction, script and asset permission evidence | [license-dossier](.gsf/skills/license-dossier/SKILL.md); revision-bound reference/adapt/redistribute decisions and unresolved rights owners, not legal certification |
+| Compare alternatives using bounded, cited evidence | [comparative-research](.gsf/skills/comparative-research/SKILL.md); revision-bound claims, explicit conflicts and conditional recommendations, not invented rankings or user research |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

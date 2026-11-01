@@ -133,6 +133,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Review cache keys, scope and invalidation races | [cache-correctness-review](../../skills/cache-correctness-review/SKILL.md); accepted tenant/freshness contracts, negative entries and source-bound timelines, not hit-rate proof |
 | Select between adjacent installed procedures | [skill-selection](../../skills/skill-selection/SKILL.md); concrete use/do-not-use cases and no automatic execution or external adoption |
 | Review permission evidence for third-party materials | [license-dossier](../../skills/license-dossier/SKILL.md); separately licensed instructions/scripts/assets and reference/adapt/redistribute decisions |
+| Compare alternatives for an accepted decision | [comparative-research](../../skills/comparative-research/SKILL.md); comparable source-bound claims, retained conflicts and no fabricated user research or purchasing authority |
 
 ## Troubleshooting
 
