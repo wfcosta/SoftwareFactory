@@ -136,6 +136,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Exercise a selected failure and real recovery safely | [failure-drill](.gsf/skills/failure-drill/SKILL.md); bounded owned injection, independent stop controls and separate delivery/degraded/recovered-state evidence |
 | Find divergence between an accepted contract and observed behavior | [contract-drift](.gsf/skills/contract-drift/SKILL.md); normative precedence/version/direction, permitted extensions and static versus actual consumer findings |
 | Test justified relationships when exact individual outputs are difficult | [metamorphic-testing](.gsf/skills/metamorphic-testing/SKILL.md); accepted domain relations, actual source/follow-up runs, frozen tolerances and replayable counterexamples |
+| Model business-impacting threats before implementation | [threat-model](.gsf/skills/threat-model/SKILL.md); assets, actors, trust crossings, abuse scenarios, control/proof owners and authentic residual-risk decisions |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
