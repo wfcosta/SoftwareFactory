@@ -121,6 +121,13 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Compose a data/schema/backfill task | [Data pack](../../packs/data.md); accepted semantics, coexistence and conditional recovery with independent review |
 | Compose infrastructure/IAM/network work | [Cloud pack](../../packs/cloud.md); observed provider/state, actual grants and conditional release/operability proof |
 | Compose graphical or terminal consumer journeys | [Interface pack](../../packs/interface.md); actual applicable drivers, accepted criteria and independent surface proof |
+| Review accepted permissions and enforcement | [authorization-review](../../skills/authorization-review/SKILL.md); subject/action/resource/tenant decisions and explicit design/runtime proof gaps |
+| Review dependency/build/artifact trust | [supply-chain-review](../../skills/supply-chain-review/SKILL.md); bounded provenance/advisory claims without package execution |
+| Review localized consumer behavior | [localization-review](../../skills/localization-review/SKILL.md); accepted locales/fallback, independent formatting settings and linguistic/runtime limits |
+| Review diagnostic signal quality | [telemetry-review](../../skills/telemetry-review/SKILL.md); bounded questions, actual receiver/correlation evidence and privacy/cost limits |
+| Add focused independent security specialists | Conditional [authorization-reviewer](../../agents/authorization-reviewer.md) at `review-authorization.md` and [supply-chain-reviewer](../../agents/supply-chain-reviewer.md) at `review-supply-chain.md`; stage-bound verdicts retain mandatory code/security review |
+| Compose threat, permission, provenance and privacy work | [Security pack](../../packs/security.md); conditional Markdown composition, not exporter `--pack security` support |
+| Accept a native bundle on an exact host/version | [plugin-acceptance](../../skills/plugin-acceptance/SKILL.md), [export guide](../hosts/plugin-export.md); structural, installed/discovered and invoked proof are separate; host changes require separate authority |
 
 ## Troubleshooting
 

@@ -117,6 +117,14 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Data composition | [Data pack](packs/data.md): scoped storage/coexistence/reconciliation/recovery and independent semantic-quality proof, with existing source/data ownership and required gates |
 | Cloud composition | [Cloud pack](packs/cloud.md): actual provider/state/ownership boundaries, scoped effects and conditional release/operability proof; credentials and a reviewed plan are not apply authority |
 | Interface composition | [Interface pack](packs/interface.md): accepted consumer journeys, real graphical/terminal drivers and applicable independent criteria/UI/UX review; one surface/platform cannot certify another |
+| Authorization decisions and enforcement | [authorization-review](skills/authorization-review/SKILL.md): accepted subject/action/resource/tenant matrix, alternate paths and separate design/runtime evidence |
+| Dependency/build/artifact trust | [supply-chain-review](skills/supply-chain-review/SKILL.md): bounded graph, exact provenance/advisory claims and explicit unknowns without package execution |
+| Localization quality | [localization-review](skills/localization-review/SKILL.md): accepted locale/fallback behavior, independent zone/currency, actual consumer surfaces and linguistic/runtime limits |
+| Diagnostic signal quality | [telemetry-review](skills/telemetry-review/SKILL.md): bounded questions, actual signal delivery/correlation and privacy/cost evidence, not full operability |
+| Conditional independent authorization review | [authorization-reviewer](agents/authorization-reviewer.md): stage-bound PASS/CHANGES/BLOCKED at `review-authorization.md`, supplementing mandatory code/security review |
+| Conditional independent supply-chain review | [supply-chain-reviewer](agents/supply-chain-reviewer.md): stage-bound PASS/CHANGES/BLOCKED at `review-supply-chain.md`, without replacing security review or granting publication |
+| Security composition | [Security pack](packs/security.md): conditional threat/authorization/provenance/privacy procedures, not a profile, automatic gate or supported exporter `--pack security` selection |
+| Native bundle consumer acceptance | [plugin-acceptance](skills/plugin-acceptance/SKILL.md): exact bundle/host/version with separate structural, installed/discovered and invoked evidence; no-write assessments do not change host state |
 | Optional native packaging and evidence integrations | [Export/connectors guide](docs/hosts/plugin-export.md): external Cursor/Claude bundles and separately configured read-only GitHub, contract and observability MCP tools; no installation or execution grant |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.

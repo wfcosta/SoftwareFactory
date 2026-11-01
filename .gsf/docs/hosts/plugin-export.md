@@ -13,6 +13,8 @@ Use the companion's reviewed `PACKAGING.md` and its actual CLI help. In an expli
 | `--pack` | `all`, `api`, `data`, `cloud` or `interface`; domain selections come only from each pack's explicit table |
 | `--output` | A new external directory with an existing owned parent, disjoint from source; existing output is never replaced |
 
+The [Security composition](../../packs/security.md) is available as source Markdown, but does **not** add `security` to this supported `--pack` list. Read/attach its instructions directly; do not issue `--pack security` or infer companion support from a new core pack.
+
 For example, from the companion checkout with the two repositories as siblings, the following PowerShell recipe exports to a new owned temporary destination. It is a recipe, not an installation or a claim that your destination is absent:
 
 ```powershell
@@ -32,6 +34,8 @@ Retain the generated `gsf-package.json` inventory, source/output hashes, selecte
 | Devin / terminal-only | No native plugin format asserted by this exporter | Use the existing [host adapters](README.md) and actual Markdown instructions; do not rename another host's manifest or fabricate plugin support. |
 
 Core agents intentionally retain their canonical five-pillar format. Generated host wrappers add only supported discovery metadata and point to those instructions. A host-facing alias/namespace is not the accepted canonical GSF role or proof of independent execution. No hooks, tool/model permission expansions, credentials or automatic MCP registration are included.
+
+Use [plugin-acceptance](../../skills/plugin-acceptance/SKILL.md) for finite consumer acceptance of an exact bundle and host/version. It separates structural inspection, installed discovery, actual invocation and removal readback; none is inferred from the previous step. A direct no-write assessment uses existing files/receipts only and marks proposed observations NOT RUN; export, installation/enabling, invocation and removal each need their own authorized scope.
 
 The bundled reference policy is **not** the active product policy. Resolve the assigned product root and its accepted `.gsf/GSF_CONFIG.md`, constraints and frozen job baseline. An unadopted product uses [gsf-adopt](../../skills/gsf-adopt/SKILL.md) and the sole [gsf-setup](../../skills/gsf-setup/SKILL.md) configurator under separate authority before factory jobs. Never use the plugin installation directory as the product workspace or silently load its policy into a running job.
 

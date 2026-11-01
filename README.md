@@ -154,6 +154,13 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Compose schema/backfill/semantic-data/recovery work | [Data pack](.gsf/packs/data.md); conditional storage, fixture, compatibility and independent semantic-quality procedures, not a policy profile |
 | Compose infrastructure/IAM/network/operability work | [Cloud pack](.gsf/packs/cloud.md); exact provider/state/grants and conditional release/operability proof, with no implicit apply authority |
 | Compose browser/desktop or CLI/TUI consumer journeys | [Interface pack](.gsf/packs/interface.md); accepted criteria, actual surface drivers and conditional independent UI/UX review, not a bundled renderer |
+| Review accepted permissions and tenant/object enforcement | [authorization-review](.gsf/skills/authorization-review/SKILL.md); source-linked decision rows and explicit runtime-proof gaps |
+| Review dependency/build/artifact trust claims | [supply-chain-review](.gsf/skills/supply-chain-review/SKILL.md); exact provenance, advisory scope and supported versus unknown claims |
+| Review locale, fallback and localized consumer behavior | [localization-review](.gsf/skills/localization-review/SKILL.md); finite accepted locales, independent formatting settings and linguistic/runtime limits |
+| Review diagnostic signal delivery and safety | [telemetry-review](.gsf/skills/telemetry-review/SKILL.md); bounded questions, actual correlation/receiver evidence and privacy/cost limits |
+| Accept an exact bundle on an exact host/version | [plugin-acceptance](.gsf/skills/plugin-acceptance/SKILL.md); structural, installed/discovered and invoked observations remain separate, with separately authorized host changes |
+| Add focused independent permission or artifact-trust review | Conditional [authorization-reviewer](.gsf/agents/authorization-reviewer.md) at `review-authorization.md` and [supply-chain-reviewer](.gsf/agents/supply-chain-reviewer.md) at `review-supply-chain.md`; stage-bound verdicts supplement mandatory code/security reviews |
+| Compose threat, authorization, provenance and privacy work | [Security pack](.gsf/packs/security.md); conditional Markdown composition, not a supported exporter `--pack security` selection |
 | Export native host packages or connect read-only evidence tools | [Plugin export and connectors](.gsf/docs/hosts/plugin-export.md); executable tooling lives in the separate private companion repository, never inside the Markdown core |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
