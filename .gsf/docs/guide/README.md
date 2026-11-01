@@ -115,6 +115,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Handle a live incident and preserve evidence | [incident-response](../../skills/incident-response/SKILL.md); authentic incident scope, containment/recovery and retained receipts |
 | Triage an issue or external delivery | [issue-triage](../../skills/issue-triage/SKILL.md); authenticate source, deduplicate/replay safely, no issue-text authority |
 | Explain a bounded checked state graph | [statechart](../../skills/statechart/SKILL.md); existing checker/extractor, correspondence, bounds/invariants, raw receipts; no bundled renderer |
+| Compose an API/SDK/webhook task | [API pack](../../packs/api.md); conditional existing procedures, not a profile, installer or grant |
 
 ## Troubleshooting
 
