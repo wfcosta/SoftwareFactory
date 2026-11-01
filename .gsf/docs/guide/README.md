@@ -131,6 +131,8 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Review pagination consistency and cursor scope | [pagination-review](../../skills/pagination-review/SKILL.md); finite traversal evidence against accepted snapshot/live promises, not assumed exactly-once results |
 | Review retry budgets across callers and workers | [retry-budget-review](../../skills/retry-budget-review/SKILL.md); finite graph/attempt accounting, remaining deadlines and unresolved-effect boundaries |
 | Review cache keys, scope and invalidation races | [cache-correctness-review](../../skills/cache-correctness-review/SKILL.md); accepted tenant/freshness contracts, negative entries and source-bound timelines, not hit-rate proof |
+| Select between adjacent installed procedures | [skill-selection](../../skills/skill-selection/SKILL.md); concrete use/do-not-use cases and no automatic execution or external adoption |
+| Review permission evidence for third-party materials | [license-dossier](../../skills/license-dossier/SKILL.md); separately licensed instructions/scripts/assets and reference/adapt/redistribute decisions |
 
 ## Troubleshooting
 
