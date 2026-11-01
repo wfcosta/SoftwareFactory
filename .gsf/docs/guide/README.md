@@ -118,6 +118,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Compose an API/SDK/webhook task | [API pack](../../packs/api.md); conditional existing procedures, not a profile, installer or grant |
 | Compose a data/schema/backfill task | [Data pack](../../packs/data.md); accepted semantics, coexistence and conditional recovery with independent review |
 | Compose infrastructure/IAM/network work | [Cloud pack](../../packs/cloud.md); observed provider/state, actual grants and conditional release/operability proof |
+| Compose graphical or terminal consumer journeys | [Interface pack](../../packs/interface.md); actual applicable drivers, accepted criteria and independent surface proof |
 
 ## Troubleshooting
 

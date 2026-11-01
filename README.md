@@ -148,6 +148,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Compose API/SDK/webhook work from existing procedures | [API pack](.gsf/packs/api.md); finite conditional selection, actual consumers and retained mandatory gates, not a configuration profile |
 | Compose schema/backfill/semantic-data/recovery work | [Data pack](.gsf/packs/data.md); conditional storage, fixture, compatibility and independent semantic-quality procedures, not a policy profile |
 | Compose infrastructure/IAM/network/operability work | [Cloud pack](.gsf/packs/cloud.md); exact provider/state/grants and conditional release/operability proof, with no implicit apply authority |
+| Compose browser/desktop or CLI/TUI consumer journeys | [Interface pack](.gsf/packs/interface.md); accepted criteria, actual surface drivers and conditional independent UI/UX review, not a bundled renderer |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

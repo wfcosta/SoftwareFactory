@@ -114,6 +114,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | API composition | [API pack](packs/api.md): selected protocol/compatibility/drift/security entries and conditional consumer-proof flow; informational, not a policy profile or execution grant |
 | Data composition | [Data pack](packs/data.md): scoped storage/coexistence/reconciliation/recovery and independent semantic-quality proof, with existing source/data ownership and required gates |
 | Cloud composition | [Cloud pack](packs/cloud.md): actual provider/state/ownership boundaries, scoped effects and conditional release/operability proof; credentials and a reviewed plan are not apply authority |
+| Interface composition | [Interface pack](packs/interface.md): accepted consumer journeys, real graphical/terminal drivers and applicable independent criteria/UI/UX review; one surface/platform cannot certify another |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
