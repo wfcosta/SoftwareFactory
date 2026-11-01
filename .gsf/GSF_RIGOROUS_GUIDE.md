@@ -104,6 +104,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Independently grounded relational testing | [metamorphic-testing](skills/metamorphic-testing/SKILL.md): accepted relations/preconditions, finite exact replay corpus, every real execution side and domain-preserving counterexample reduction |
 | Accepted-boundary threat modeling | [threat-model](skills/threat-model/SKILL.md): grounded assets/flows, distinct abuse and legitimate-use scenarios, evidence versus assumptions, accountable controls and independent security assessment |
 | Business-data reconciliation | [data-reconciliation](skills/data-reconciliation/SKILL.md): explicit truth/key/tenant/cutoff, observed comparable frontiers, units/null/duplicate semantics and record-level discrepancies without repair authority |
+| Subject-data request handling | [privacy-request](skills/privacy-request/SKILL.md): authentic subject/action authority, actual copy inventory, restricted receiver, partial-effect reconciliation, legal holds and backup/restore limits without erasure by assertion |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
