@@ -117,6 +117,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Explain a bounded checked state graph | [statechart](../../skills/statechart/SKILL.md); existing checker/extractor, correspondence, bounds/invariants, raw receipts; no bundled renderer |
 | Compose an API/SDK/webhook task | [API pack](../../packs/api.md); conditional existing procedures, not a profile, installer or grant |
 | Compose a data/schema/backfill task | [Data pack](../../packs/data.md); accepted semantics, coexistence and conditional recovery with independent review |
+| Compose infrastructure/IAM/network work | [Cloud pack](../../packs/cloud.md); observed provider/state, actual grants and conditional release/operability proof |
 
 ## Troubleshooting
 
