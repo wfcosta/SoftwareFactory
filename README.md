@@ -140,6 +140,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Reconcile business records without trusting matching totals | [data-reconciliation](.gsf/skills/data-reconciliation/SKILL.md); accepted truth, tenant-qualified keys, snapshot/finality boundaries and independent semantic comparisons |
 | Handle an explicitly authorized personal-data request | [privacy-request](.gsf/skills/privacy-request/SKILL.md); verified subject/tenant scope, least-data export, per-store deletion/hold evidence and restore-time suppression |
 | Investigate a performance regression without treating noise as a bad revision | [performance-bisect](.gsf/skills/performance-bisect/SKILL.md); extends regression-hunt with accepted workloads, repeated measurements, uncertainty and conditional history search |
+| Expose a feature separately from deploying its code | [feature-flag-rollout](.gsf/skills/feature-flag-rollout/SKILL.md); accepted eligibility/stable cohorts, both-state compatibility, actual metric gates and data-safe disablement |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
