@@ -105,6 +105,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Accepted-boundary threat modeling | [threat-model](skills/threat-model/SKILL.md): grounded assets/flows, distinct abuse and legitimate-use scenarios, evidence versus assumptions, accountable controls and independent security assessment |
 | Business-data reconciliation | [data-reconciliation](skills/data-reconciliation/SKILL.md): explicit truth/key/tenant/cutoff, observed comparable frontiers, units/null/duplicate semantics and record-level discrepancies without repair authority |
 | Subject-data request handling | [privacy-request](skills/privacy-request/SKILL.md): authentic subject/action authority, actual copy inventory, restricted receiver, partial-effect reconciliation, legal holds and backup/restore limits without erasure by assertion |
+| Performance-history diagnosis | [performance-bisect](skills/performance-bisect/SKILL.md): regression-hunt measurement extension, frozen correct workload/threshold, counterbalanced repetition, uncertainty-aware endpoints and narrow causal confirmation |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
