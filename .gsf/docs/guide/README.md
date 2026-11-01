@@ -130,6 +130,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Accept a native bundle on an exact host/version | [plugin-acceptance](../../skills/plugin-acceptance/SKILL.md), [export guide](../hosts/plugin-export.md); structural, installed/discovered and invoked proof are separate; host changes require separate authority |
 | Review pagination consistency and cursor scope | [pagination-review](../../skills/pagination-review/SKILL.md); finite traversal evidence against accepted snapshot/live promises, not assumed exactly-once results |
 | Review retry budgets across callers and workers | [retry-budget-review](../../skills/retry-budget-review/SKILL.md); finite graph/attempt accounting, remaining deadlines and unresolved-effect boundaries |
+| Review cache keys, scope and invalidation races | [cache-correctness-review](../../skills/cache-correctness-review/SKILL.md); accepted tenant/freshness contracts, negative entries and source-bound timelines, not hit-rate proof |
 
 ## Troubleshooting
 

@@ -164,6 +164,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Export native host packages or connect read-only evidence tools | [Plugin export and connectors](.gsf/docs/hosts/plugin-export.md); executable tooling lives in the separate private companion repository, never inside the Markdown core |
 | Review pagination without inventing snapshot guarantees | [pagination-review](.gsf/skills/pagination-review/SKILL.md); bounded traversal, independent membership/order evidence and cursor-scope boundaries |
 | Review retry amplification and end-to-end budgets | [retry-budget-review](.gsf/skills/retry-budget-review/SKILL.md); total-attempt bounds, propagated deadlines and ambiguous-effect reconciliation |
+| Review cache isolation, freshness and invalidation | [cache-correctness-review](.gsf/skills/cache-correctness-review/SKILL.md); response-varying key scope and bounded read/write timelines, not TTL or hit-rate assurance |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

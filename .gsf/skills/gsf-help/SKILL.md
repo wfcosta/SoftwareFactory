@@ -103,6 +103,7 @@ Autonomy in a workflow name does not grant publish, merge, deploy, destructive a
 - Export selected native packages or configure optional read-only evidence tools: [plugin export/connectors](../../docs/hosts/plugin-export.md). The separate executable companion preserves this Markdown core; packaging/validation is not installation, and connector access still requires exact scope and authority.
 - Review paginated traversal: [pagination-review](../pagination-review/SKILL.md); independent ordering/membership, accepted snapshot versus live semantics and bounded cursor/consumer evidence.
 - Review layered retries: [retry-budget-review](../retry-budget-review/SKILL.md); sourced attempt/deadline budgets, nested amplification and no blind repetition of ambiguous effects.
+- Review cache correctness: [cache-correctness-review](../cache-correctness-review/SKILL.md); accepted isolation/freshness, actual key scope and invalidation timelines without implicit flushes or probes.
 - Author a reusable workflow with [create-skill](../create-skill/SKILL.md). Capture approved personal working conventions with [automate-me](../automate-me/SKILL.md). Propose session learnings first with [reflect](../reflect/SKILL.md).
 - Deepen a prompt without executing it: [sharpen](../sharpen/SKILL.md). Restate the previous assistant message plainly: [bro](../bro/SKILL.md). Improve prose: [unslop](../unslop/SKILL.md).
 - Review source comments safely: [no-comments](../no-comments/SKILL.md), which requests the independent source-comment-reviewer. It is not PR discussion triage.
