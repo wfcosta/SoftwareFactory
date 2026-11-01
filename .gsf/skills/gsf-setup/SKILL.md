@@ -9,6 +9,8 @@ color: blue
 
 Prepare the repository actually assigned, not an imagined GSF runtime. Use real session tools. GSF bundles no executable, parser, installer or coordination service. The shared authority/lifecycle contract is `<config.paths.agents>/WORKER_CONTRACT.md`; state contracts stay at repository-root `.gsf/state`. A direct no-write request is inspection only and must not create policy, jobs or model preferences.
 
+For an existing product use [gsf-adopt](../gsf-adopt/SKILL.md) to map established CI/runbooks/owners, expose conflicts and propose the minimal reversible adoption without writes. This setup remains the sole configurator; a map, plugin export or proposal does not authorize bootstrap, replace required checks, expand permissions or refresh frozen jobs.
+
 ## 1. Inspect before changing
 
 1. Resolve actual repository root, active branch, product/worktree and task authority. Read only repository-root-relative `.gsf/GSF_CONFIG.md` if present and active instructions/constraints; never discover or fall back to an old root-level policy. Factory policy is distinct from product application settings; do not overwrite or repurpose those settings.
