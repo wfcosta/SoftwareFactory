@@ -148,6 +148,8 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Explain task-level role, skill and requested/effective model choices | [Routing/context operations](.gsf/docs/operations/context-memory.md); exact plan task IDs, observed capabilities, current-role preferences and explicit fallback limits |
 | Prepare focused worker context without dropping obligations | [context-packet](.gsf/skills/context-packet/SKILL.md); five-pillar assignments, mandatory instruction loading, source-bound references and freshness |
 | Reuse project facts without turning memory into policy | [project-memory](.gsf/skills/project-memory/SKILL.md); scoped sources, invalidation and separately authorized bounded curation |
+| Design discriminating tests or author only assigned test paths | [test-engineer](.gsf/agents/test-engineer.md); independent oracle origins, explicit design/authorship mode and no substitute for real final checks |
+| Resolve accepted native/platform risks | [platform-specialist](.gsf/agents/platform-specialist.md); finite target rows, actual drivers and explicit design versus runtime proof |
 | Compose API/SDK/webhook work from existing procedures | [API pack](.gsf/packs/api.md); finite conditional selection, actual consumers and retained mandatory gates, not a configuration profile |
 | Compose schema/backfill/semantic-data/recovery work | [Data pack](.gsf/packs/data.md); conditional storage, fixture, compatibility and independent semantic-quality procedures, not a policy profile |
 | Compose infrastructure/IAM/network/operability work | [Cloud pack](.gsf/packs/cloud.md); exact provider/state/grants and conditional release/operability proof, with no implicit apply authority |
