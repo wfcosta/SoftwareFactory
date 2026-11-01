@@ -168,6 +168,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Choose between adjacent skills without running them | [skill-selection](.gsf/skills/skill-selection/SKILL.md); finite use/do-not-use triggers, exact owners and separately approved external candidates |
 | Establish third-party instruction, script and asset permission evidence | [license-dossier](.gsf/skills/license-dossier/SKILL.md); revision-bound reference/adapt/redistribute decisions and unresolved rights owners, not legal certification |
 | Compare alternatives using bounded, cited evidence | [comparative-research](.gsf/skills/comparative-research/SKILL.md); revision-bound claims, explicit conflicts and conditional recommendations, not invented rankings or user research |
+| Answer procurement questions without unsupported assurance claims | [procurement-evidence](.gsf/skills/procurement-evidence/SKILL.md); scoped question-to-artifact mapping, qualified answers, freshness and recipient-specific disclosure |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
