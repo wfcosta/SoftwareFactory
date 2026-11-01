@@ -48,6 +48,10 @@ Do not demand every test type for every change. Do not drop an accepted configur
 
 Source-text assertions, mock responses that echo the expected value, tests that merely forward to the same helper, and checks asserting only that another check was invoked cannot establish product behavior. Structural schema/reference checks are useful only for their explicit structural claim. Reuse an existing trustworthy harness before adding product-side tests; no executable or test application belongs in the GSF distribution.
 
+Selected diagnostic extensions apply only when accepted risks warrant them; they do not replace configured checks or require every workflow for every change:
+
+- Use [mutation-check](../mutation-check/SKILL.md) to assess whether frozen selected tests detect predeclared requirement-linked defects in disposable product copies. Relevant assertion kills, survivors, invalid builds, attempted inconclusive outcomes and unattempted work remain distinct; report all counts and the exact ratio denominator without turning it into a universal quality gate.
+
 ## 3. Freeze fixture, authority and environment
 
 1. Discover actual repository/host interfaces and record precise versions before writing the recipe. Check capability evidence in `JOB_DIR/environment.md` under its canonical contract; an available shell does not imply browser, cloud, broker, model entitlement or scheduler capability. Never invent a target account, privilege, isolation or live receipt.
