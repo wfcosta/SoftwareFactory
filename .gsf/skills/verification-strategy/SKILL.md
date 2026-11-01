@@ -51,6 +51,7 @@ Source-text assertions, mock responses that echo the expected value, tests that 
 Selected diagnostic extensions apply only when accepted risks warrant them; they do not replace configured checks or require every workflow for every change:
 
 - Use [mutation-check](../mutation-check/SKILL.md) to assess whether frozen selected tests detect predeclared requirement-linked defects in disposable product copies. Relevant assertion kills, survivors, invalid builds, attempted inconclusive outcomes and unattempted work remain distinct; report all counts and the exact ratio denominator without turning it into a universal quality gate.
+- Use [failure-drill](../failure-drill/SKILL.md) for explicitly assigned fault/recovery hypotheses at real integration/concurrency boundaries. Require independently reachable bounded stop controls before injection, then separate actual fault delivery, consumer behavior and restored durable state; local fixtures do not authorize production chaos or certify provider recovery.
 
 ## 3. Freeze fixture, authority and environment
 
