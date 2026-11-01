@@ -103,6 +103,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Contract-versus-behavior drift | [contract-drift](skills/contract-drift/SKILL.md): compare accepted versioned clauses with independent artifact/config/consumer observations, preserving allowed extensions and unresolved runtime claims |
 | Independently grounded relational testing | [metamorphic-testing](skills/metamorphic-testing/SKILL.md): accepted relations/preconditions, finite exact replay corpus, every real execution side and domain-preserving counterexample reduction |
 | Accepted-boundary threat modeling | [threat-model](skills/threat-model/SKILL.md): grounded assets/flows, distinct abuse and legitimate-use scenarios, evidence versus assumptions, accountable controls and independent security assessment |
+| Business-data reconciliation | [data-reconciliation](skills/data-reconciliation/SKILL.md): explicit truth/key/tenant/cutoff, observed comparable frontiers, units/null/duplicate semantics and record-level discrepancies without repair authority |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
