@@ -2,6 +2,8 @@
 
 GSF is instructions, not a host SDK, permission sandbox, installer or scheduler. These adapters translate the same [setup procedure](../../skills/gsf-setup/SKILL.md) to documented host surfaces; they do not ship host configuration. Read the actual tool descriptions and installed-version help before invocation. Documentation establishes a possible interface, never that this session has it. Registering skills, installing plugins, creating sessions and changing host permission rules are writes requiring separate authorization. Reading the actual `.gsf/skills/.../SKILL.md` works without registration.
 
+Optional [native package export and read-only connectors](plugin-export.md) live in a separate executable companion repository. The core remains Markdown-only; generated Cursor/Claude discovery wrappers are not portable raw role copies, an active product policy, independent execution or implicit host installation. Use documented actual host validation and separate setup/access authority.
+
 ## Common adapter contract
 
 1. Resolve the assigned repository/worktree and accepted policy from its root. Read [policy](../../state/config-contract.md), [worker authority](../../agents/WORKER_CONTRACT.md) and [environment record](../../state/environment-contract.md). Use only authorized discovery; a direct read-only request creates no job or record. Do not scan unrelated chats, user directories or credentials.
