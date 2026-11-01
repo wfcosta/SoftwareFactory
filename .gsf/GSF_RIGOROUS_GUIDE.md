@@ -111,6 +111,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Independent pre-build acceptance challenge | [acceptance-challenger](agents/acceptance-challenger.md): measurable coherent criteria, accepted intent versus proposals, missing owner decisions and no dependency on future implementation proof |
 | Independent operability review | [operability-reviewer](agents/operability-reviewer.md): real diagnostic/access paths, actionable owner/runbook, uncertain-effect reconciliation and accepted recovery/resource evidence without operational repair authority |
 | Independent semantic data-quality review | [data-quality-reviewer](agents/data-quality-reviewer.md): accepted units/currency/time/null/key/late/duplicate semantics, independent expectations and provenance without population certification from tiny fixtures |
+| API composition | [API pack](packs/api.md): selected protocol/compatibility/drift/security entries and conditional consumer-proof flow; informational, not a policy profile or execution grant |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
