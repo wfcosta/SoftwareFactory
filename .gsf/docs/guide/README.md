@@ -128,6 +128,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Add focused independent security specialists | Conditional [authorization-reviewer](../../agents/authorization-reviewer.md) at `review-authorization.md` and [supply-chain-reviewer](../../agents/supply-chain-reviewer.md) at `review-supply-chain.md`; stage-bound verdicts retain mandatory code/security review |
 | Compose threat, permission, provenance and privacy work | [Security pack](../../packs/security.md); conditional Markdown composition, not exporter `--pack security` support |
 | Accept a native bundle on an exact host/version | [plugin-acceptance](../../skills/plugin-acceptance/SKILL.md), [export guide](../hosts/plugin-export.md); structural, installed/discovered and invoked proof are separate; host changes require separate authority |
+| Review pagination consistency and cursor scope | [pagination-review](../../skills/pagination-review/SKILL.md); finite traversal evidence against accepted snapshot/live promises, not assumed exactly-once results |
 
 ## Troubleshooting
 
