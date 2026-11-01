@@ -133,6 +133,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Locate a regression across exact versions without false historical blame | [regression-hunt](.gsf/skills/regression-hunt/SKILL.md); demonstrated endpoints, unclassified skips, bounded search and separate causal confirmation |
 | Check whether selected tests actually detect meaningful defects | [mutation-check](.gsf/skills/mutation-check/SKILL.md); isolated requirement-linked mutations, relevant assertion kills, survivors and explicit inconclusive/excluded counts |
 | Verify accepted version/platform/consumer compatibility promises | [compatibility-check](.gsf/skills/compatibility-check/SKILL.md); finite directional combinations, actual consumers and separate unsupported/untested/unknown coverage |
+| Exercise a selected failure and real recovery safely | [failure-drill](.gsf/skills/failure-drill/SKILL.md); bounded owned injection, independent stop controls and separate delivery/degraded/recovered-state evidence |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

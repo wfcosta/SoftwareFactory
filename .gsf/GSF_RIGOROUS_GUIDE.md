@@ -99,6 +99,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Historical regression diagnosis | [regression-hunt](skills/regression-hunt/SKILL.md): independently demonstrated good/bad endpoints, controlled historical comparisons, honest skipped intervals and isolated causal confirmation |
 | Targeted test sensitivity | [mutation-check](skills/mutation-check/SKILL.md): frozen independent assertions, disposable product mutations, relevant kills versus survivors/invalid attempts and transparent denominators |
 | Directional compatibility proof | [compatibility-check](skills/compatibility-check/SKILL.md): finite accepted producer/consumer/runtime/schema combinations, real journeys and no PASS inheritance across versions or platforms |
+| Scoped fault and recovery experiments | [failure-drill](skills/failure-drill/SKILL.md): predeclared hypothesis, real contained injection, independent bounded stop and consumer/durable-state recovery proof; no automatic production chaos |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
