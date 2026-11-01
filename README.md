@@ -146,6 +146,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Review whether a service can actually be operated and recovered | [operability-reviewer](.gsf/agents/operability-reviewer.md); independent diagnosis, actionable alerts, stop/reconcile/resume and accepted recovery/capacity obligations |
 | Review data meaning beyond valid schemas and matching counts | [data-quality-reviewer](.gsf/agents/data-quality-reviewer.md); independent units/null/time/identity/provenance analysis and honest population limits |
 | Compose API/SDK/webhook work from existing procedures | [API pack](.gsf/packs/api.md); finite conditional selection, actual consumers and retained mandatory gates, not a configuration profile |
+| Compose schema/backfill/semantic-data/recovery work | [Data pack](.gsf/packs/data.md); conditional storage, fixture, compatibility and independent semantic-quality procedures, not a policy profile |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

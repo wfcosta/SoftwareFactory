@@ -112,6 +112,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Independent operability review | [operability-reviewer](agents/operability-reviewer.md): real diagnostic/access paths, actionable owner/runbook, uncertain-effect reconciliation and accepted recovery/resource evidence without operational repair authority |
 | Independent semantic data-quality review | [data-quality-reviewer](agents/data-quality-reviewer.md): accepted units/currency/time/null/key/late/duplicate semantics, independent expectations and provenance without population certification from tiny fixtures |
 | API composition | [API pack](packs/api.md): selected protocol/compatibility/drift/security entries and conditional consumer-proof flow; informational, not a policy profile or execution grant |
+| Data composition | [Data pack](packs/data.md): scoped storage/coexistence/reconciliation/recovery and independent semantic-quality proof, with existing source/data ownership and required gates |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
