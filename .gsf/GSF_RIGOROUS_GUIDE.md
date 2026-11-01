@@ -102,6 +102,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | Scoped fault and recovery experiments | [failure-drill](skills/failure-drill/SKILL.md): predeclared hypothesis, real contained injection, independent bounded stop and consumer/durable-state recovery proof; no automatic production chaos |
 | Contract-versus-behavior drift | [contract-drift](skills/contract-drift/SKILL.md): compare accepted versioned clauses with independent artifact/config/consumer observations, preserving allowed extensions and unresolved runtime claims |
 | Independently grounded relational testing | [metamorphic-testing](skills/metamorphic-testing/SKILL.md): accepted relations/preconditions, finite exact replay corpus, every real execution side and domain-preserving counterexample reduction |
+| Accepted-boundary threat modeling | [threat-model](skills/threat-model/SKILL.md): grounded assets/flows, distinct abuse and legitimate-use scenarios, evidence versus assumptions, accountable controls and independent security assessment |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
