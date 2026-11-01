@@ -28,6 +28,7 @@ Find the smallest existing workflow matching the user's goal. Infer intent from 
 | Catch up across recent authorized work | [recall](../recall/SKILL.md) |
 | Resume a specific existing session | [session-pickup](../gsf-mode/playbooks/session-pickup.md) |
 | What is the status of this specific job, without resuming? | [gsf-status](../gsf-status/SKILL.md); recorded versus live facts, blockers and next safe action, read-only |
+| Locate when a reproducible regression appeared | [regression-hunt](../regression-hunt/SKILL.md); comparable demonstrated endpoints, bounded historical search and causal confirmation distinct from suspicion |
 | Inspect impact | [blast-radius](../blast-radius/SKILL.md) |
 | Explore a design before implementation | [architect](../architect/SKILL.md) |
 | Decide an unresolved product outcome or solution choice | [feature-discovery](../feature-discovery/SKILL.md); evidence-backed brief and no-build alternatives, no invented research or automatic experiment launch |

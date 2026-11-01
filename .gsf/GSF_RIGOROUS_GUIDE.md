@@ -96,6 +96,7 @@ GSF combines task-specific procedures with configured authority, explicit eviden
 | GSF instruction evaluation | [evaluate-gsf](skills/evaluate-gsf/SKILL.md): comparable frozen variants/tasks, fresh contexts, independent grading, complete denominators and no automatic adoption |
 | Adaptive product exploration | [exploratory-tester](agents/exploratory-tester.md): independently drive real authorized surfaces under a bounded charter, retain reproducible findings and coverage gaps without source repair or exhaustive claims |
 | Independent product-outcome review | [product-reviewer](agents/product-reviewer.md): assess accepted consumer-task fit through source and real evidence, reconcile prior findings and distinguish scoped correctness from unvalidated business value |
+| Historical regression diagnosis | [regression-hunt](skills/regression-hunt/SKILL.md): independently demonstrated good/bad endpoints, controlled historical comparisons, honest skipped intervals and isolated causal confirmation |
 
 Instruction updates require explicit reconciliation and revalidation; they do not silently expand permissions.
 
