@@ -176,6 +176,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Explain configuration overrides without exposing secrets | [configuration-precedence-review](.gsf/skills/configuration-precedence-review/SKILL.md); version-bound per-key resolution, declared versus observed state and narrowly authorized evidence |
 | Apply approved own-brand wording and supported identity rules | [approved-brand-identity](.gsf/skills/approved-brand-identity/SKILL.md); scoped approval, actual text changes, asset rights and explicit conflict/rendering limits |
 | Turn authorized customer reports into evidence-linked candidate requirements | [customer-feedback-requirements](.gsf/skills/customer-feedback-requirements/SKILL.md); duplicate lineage, conflicting contexts, validation gaps and no invented priorities |
+| Deliver documents with actual rendered inspection | [rendered-document-delivery](.gsf/skills/rendered-document-delivery/SKILL.md); exact editable/output identity, finite page coverage, observed corrections and separate rights/accessibility/publication |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
