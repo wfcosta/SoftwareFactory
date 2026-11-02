@@ -142,6 +142,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Trace configuration candidates and actual effective evidence | [configuration-precedence-review](../../skills/configuration-precedence-review/SKILL.md); per-key native rules, secret-safe comparisons and explicit unknown live state |
 | Apply accepted names, tone and supported visual identity | [approved-brand-identity](../../skills/approved-brand-identity/SKILL.md); approved mappings, occurrence-level traceability and separate rendering/publication evidence |
 | Group customer feedback without inflating demand or intent | [customer-feedback-requirements](../../skills/customer-feedback-requirements/SKILL.md); revision-bound problem/candidate traceability, preserved counterevidence and owner-only prioritization |
+| Produce and inspect the exact rendered document revision | [rendered-document-delivery](../../skills/rendered-document-delivery/SKILL.md); full finite visual coverage and rerendered correction evidence, not generated-byte assurance |
 
 ## Troubleshooting
 
