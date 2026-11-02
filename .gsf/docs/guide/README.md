@@ -135,6 +135,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Review permission evidence for third-party materials | [license-dossier](../../skills/license-dossier/SKILL.md); separately licensed instructions/scripts/assets and reference/adapt/redistribute decisions |
 | Compare alternatives for an accepted decision | [comparative-research](../../skills/comparative-research/SKILL.md); comparable source-bound claims, retained conflicts and no fabricated user research or purchasing authority |
 | Prepare evidence-backed procurement answers | [procurement-evidence](../../skills/procurement-evidence/SKILL.md); real artifacts, yes/partial/no/unknown qualifications, accountable gaps and separate disclosure approval |
+| Review stream delivery and lifecycle guarantees | [streaming-review](../../skills/streaming-review/SKILL.md); finite ordering/framing/replay scenarios, complete buffer-bound assumptions and observed stop boundaries |
 
 ## Troubleshooting
 
