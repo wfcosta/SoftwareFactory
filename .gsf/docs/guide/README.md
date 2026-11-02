@@ -139,6 +139,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Triage supplier commitments and exit dependencies | [supplier-contract-triage](../../skills/supplier-contract-triage/SKILL.md); preserve clause uncertainty, technical evidence and qualified legal/service ownership |
 | Assess readiness for operational handover | [operational-handover](../../skills/operational-handover/SKILL.md); actual recipient observations and acceptance, mandatory gaps remain blocking |
 | Trace decisions and accepted follow-ups from supplied notes | [meeting-decision-trace](../../skills/meeting-decision-trace/SKILL.md); bounded citations, authority gaps, action acknowledgment and disclosure limits |
+| Trace configuration candidates and actual effective evidence | [configuration-precedence-review](../../skills/configuration-precedence-review/SKILL.md); per-key native rules, secret-safe comparisons and explicit unknown live state |
 
 ## Troubleshooting
 
