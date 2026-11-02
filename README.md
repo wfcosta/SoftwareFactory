@@ -172,6 +172,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Review streaming delivery, resource bounds and cancellation | [streaming-review](.gsf/skills/streaming-review/SKILL.md); source-bound framing, replay, backpressure and stop evidence, not inferred exactly-once effects or live transport proof |
 | Triage supplier clauses without legal or purchasing authority | [supplier-contract-triage](.gsf/skills/supplier-contract-triage/SKILL.md); revision-bound commitments, missing annexes, technical mismatches and qualified human decisions |
 | Prepare an accountable operational transfer | [operational-handover](.gsf/skills/operational-handover/SKILL.md); finite runbook journeys, recipient teach-back and authentic bounded acceptance, not document-upload sign-off |
+| Turn meeting records into evidence-linked decisions and actions | [meeting-decision-trace](.gsf/skills/meeting-decision-trace/SKILL.md); exact attribution, disputed approvals, owner acknowledgment and date ambiguity without inferred sign-off |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
