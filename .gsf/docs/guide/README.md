@@ -136,6 +136,8 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Compare alternatives for an accepted decision | [comparative-research](../../skills/comparative-research/SKILL.md); comparable source-bound claims, retained conflicts and no fabricated user research or purchasing authority |
 | Prepare evidence-backed procurement answers | [procurement-evidence](../../skills/procurement-evidence/SKILL.md); real artifacts, yes/partial/no/unknown qualifications, accountable gaps and separate disclosure approval |
 | Review stream delivery and lifecycle guarantees | [streaming-review](../../skills/streaming-review/SKILL.md); finite ordering/framing/replay scenarios, complete buffer-bound assumptions and observed stop boundaries |
+| Triage supplier commitments and exit dependencies | [supplier-contract-triage](../../skills/supplier-contract-triage/SKILL.md); preserve clause uncertainty, technical evidence and qualified legal/service ownership |
+| Assess readiness for operational handover | [operational-handover](../../skills/operational-handover/SKILL.md); actual recipient observations and acceptance, mandatory gaps remain blocking |
 
 ## Troubleshooting
 
