@@ -187,6 +187,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Assess native WebMCP discovery and invocation within explicit browser authority | [webmcp-acceptance](.gsf/skills/webmcp-acceptance/SKILL.md); version-bound availability, exact document/origin/schema grants, effect-aware acceptance and explicit blocked native prerequisites |
 | Reconcile orders and payment facts without moving money | [payment-reconciliation](.gsf/skills/payment-reconciliation/SKILL.md); authorized existing read routes or accepted receipts, qualified account/mode/currency partitions and separate capture/refund/fee/payout/settlement evidence |
 | Deliver a recipient-readable index of change, outcomes, before/after proof and limits | [navigable-delivery](.gsf/skills/navigable-delivery/SKILL.md); exact existing evidence, actual bounded reading routes, permitted disclosure and no invented acceptance or publication |
+| Review actual code, telemetry, audio and artifact destinations before enabling an integration | [data-residency-review](.gsf/skills/data-residency-review/SKILL.md); source versus effective routing versus observed transmission and physical copies, with required unknowns blocking only dependent enablement |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
