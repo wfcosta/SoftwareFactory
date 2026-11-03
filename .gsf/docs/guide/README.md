@@ -154,6 +154,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Assemble and exercise a navigable delivery packet | [navigable-delivery](../../skills/navigable-delivery/SKILL.md); one index over existing exact change/outcome/before-after/limit evidence, real viewer navigation and explicit recipient/publication gaps |
 | Assess a named integration's actual data destinations before enablement | [data-residency-review](../../skills/data-residency-review/SKILL.md); all four categories, nested routes/copies, geography/access/retention evidence and no inferred residency from endpoint labels |
 | Propose a reusable procedure from bounded actual experience | [experience-to-skill](../../skills/experience-to-skill/SKILL.md); complete five-pillar candidate, source/finding mapping and qualified variants without automatic learning, installation or trust promotion |
+| Map a skill's actual source and curation jurisdiction | [skill-curation-authority](../../skills/skill-curation-authority/SKILL.md); exact source/package/snapshot mapping and per-action authority without converting local edit access, installation or a license into curator acceptance |
 
 ## Troubleshooting
 
