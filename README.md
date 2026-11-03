@@ -183,6 +183,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Reconcile PR review discussions against original closure conditions | [review-thread closure](.gsf/skills/gsf-mode/references/review-thread-closure.md) within babysit; complete thread/comment pagination, exact-head independent proof and separate reply/resolution authority |
 | Correct obsolete documentation in bounded source-grounded units | [documentation-gardening](.gsf/skills/documentation-gardening/SKILL.md); preserve intentional history, migrate affected references and separate scoped edits from fresh-consumer proof and publication |
 | Decide whether a linked worktree can be kept, archived or removed | [worktree-archive](.gsf/skills/worktree-archive/SKILL.md); actual liveness, dirty/index/untracked/ignored coverage and witnessed recovery before separately authorized non-force removal |
+| Reconcile a pinned upstream source update without losing local intent | [upstream-sync](.gsf/skills/upstream-sync/SKILL.md); real three-way source mapping, explicit customization/conflict decisions, preserved notices and separately verified consumer behavior |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
