@@ -179,6 +179,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Deliver documents with actual rendered inspection | [rendered-document-delivery](.gsf/skills/rendered-document-delivery/SKILL.md); exact editable/output identity, finite page coverage, observed corrections and separate rights/accessibility/publication |
 | Review spreadsheet formulas and results against independent expectations | [spreadsheet-formula-review](.gsf/skills/spreadsheet-formula-review/SKILL.md); unit-aware dependencies, cache versus fresh calculation and explicit engine/coverage limits |
 | Trace notebook analysis to data, transformations and authentic execution | [notebook-data-lineage](.gsf/skills/notebook-data-lineage/SKILL.md); immutable inputs/cells, observed profiles and independent result checks without fabricated kernel runs |
+| Assess retrieval, answer support and insufficient-source behavior separately | [rag-product-evaluation](.gsf/skills/rag-product-evaluation/SKILL.md); pinned cases, source-linked judgments and explicit metric/evaluator limits without invented product quality |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 

@@ -145,6 +145,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Produce and inspect the exact rendered document revision | [rendered-document-delivery](../../skills/rendered-document-delivery/SKILL.md); full finite visual coverage and rerendered correction evidence, not generated-byte assurance |
 | Trace workbook formulas, units and independent result evidence | [spreadsheet-formula-review](../../skills/spreadsheet-formula-review/SKILL.md); finite cell coverage, hidden/circular dependencies and no cached-value recalc claims |
 | Bind notebook conclusions to actual data/code/state lineage | [notebook-data-lineage](../../skills/notebook-data-lineage/SKILL.md); genuine execution evidence, qualified alternatives and explicit stale/unobserved kernel state |
+| Review a finite RAG record on three independent axes | [rag-product-evaluation](../../skills/rag-product-evaluation/SKILL.md); retrieval coverage, claim support and qualified abstention with unknowns kept distinct from passes |
 
 ## Troubleshooting
 
