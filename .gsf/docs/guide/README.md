@@ -105,7 +105,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Keep verification accurate | `maintain-verification-skill`; source plus live coverage |
 | Capture learning | `reflect`; proposal before durable instruction edits |
 | Write product docs / write a skill | `technical-writing` / authoring-a-skill + `create-skill` |
-| Get PR review-ready / land authorized green work | babysit / shipping; separate grants and current-candidate evidence |
+| Get PR review-ready / land authorized green work | babysit / shipping with [review-thread closure](../../skills/gsf-mode/references/review-thread-closure.md); complete conversation evidence, exact-head proof and separate reply/resolve/merge grants |
 | Verify the framework | `verify-gsf` and its scenario matrix |
 | Establish supported host tools/versions and environment | [host adapters](../hosts/README.md), [gsf-setup](../../skills/gsf-setup/SKILL.md); mandatory unknown/stale resource blocks dependent effect |
 | Upgrade accepted policy/instructions safely | [compatibility/upgrade guide](../upgrades/README.md); read-only dry-run, authentic acceptance, frozen predecessor jobs |
