@@ -144,6 +144,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Group customer feedback without inflating demand or intent | [customer-feedback-requirements](../../skills/customer-feedback-requirements/SKILL.md); revision-bound problem/candidate traceability, preserved counterevidence and owner-only prioritization |
 | Produce and inspect the exact rendered document revision | [rendered-document-delivery](../../skills/rendered-document-delivery/SKILL.md); full finite visual coverage and rerendered correction evidence, not generated-byte assurance |
 | Trace workbook formulas, units and independent result evidence | [spreadsheet-formula-review](../../skills/spreadsheet-formula-review/SKILL.md); finite cell coverage, hidden/circular dependencies and no cached-value recalc claims |
+| Bind notebook conclusions to actual data/code/state lineage | [notebook-data-lineage](../../skills/notebook-data-lineage/SKILL.md); genuine execution evidence, qualified alternatives and explicit stale/unobserved kernel state |
 
 ## Troubleshooting
 
