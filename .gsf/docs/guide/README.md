@@ -153,6 +153,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Compare accepted orders, payment objects and financial movements | [payment-reconciliation](../../skills/payment-reconciliation/SKILL.md); existing authorized connector/receipt provenance, event replay/conflict identity, fee-safe arithmetic and explicit unknown settlement |
 | Assemble and exercise a navigable delivery packet | [navigable-delivery](../../skills/navigable-delivery/SKILL.md); one index over existing exact change/outcome/before-after/limit evidence, real viewer navigation and explicit recipient/publication gaps |
 | Assess a named integration's actual data destinations before enablement | [data-residency-review](../../skills/data-residency-review/SKILL.md); all four categories, nested routes/copies, geography/access/retention evidence and no inferred residency from endpoint labels |
+| Propose a reusable procedure from bounded actual experience | [experience-to-skill](../../skills/experience-to-skill/SKILL.md); complete five-pillar candidate, source/finding mapping and qualified variants without automatic learning, installation or trust promotion |
 
 ## Troubleshooting
 
