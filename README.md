@@ -189,6 +189,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Deliver a recipient-readable index of change, outcomes, before/after proof and limits | [navigable-delivery](.gsf/skills/navigable-delivery/SKILL.md); exact existing evidence, actual bounded reading routes, permitted disclosure and no invented acceptance or publication |
 | Review actual code, telemetry, audio and artifact destinations before enabling an integration | [data-residency-review](.gsf/skills/data-residency-review/SKILL.md); source versus effective routing versus observed transmission and physical copies, with required unknowns blocking only dependent enablement |
 | Turn an evidenced procedure into a complete untrusted skill candidate | [experience-to-skill](.gsf/skills/experience-to-skill/SKILL.md); original before/fix/after evidence, independent expectations, reuse limits and separate curator acceptance, registration and effect authority |
+| Determine who may propose, accept or distribute a skill change | [skill-curation-authority](.gsf/skills/skill-curation-authority/SKILL.md); version-bound authored/managed/adopted source, separate source/manager/publisher/consumer authority and retained license and frozen-job obligations |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
