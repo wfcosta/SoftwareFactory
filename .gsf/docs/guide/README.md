@@ -148,6 +148,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Review a finite RAG record on three independent axes | [rag-product-evaluation](../../skills/rag-product-evaluation/SKILL.md); retrieval coverage, claim support and qualified abstention with unknowns kept distinct from passes |
 | Garden an evidenced obsolete reference or recipe | [documentation-gardening](../../skills/documentation-gardening/SKILL.md); pinned authoritative sources, minimal complete corrections and separately authorized docs-drive verification |
 | Assess a suspected orphan linked worktree without losing state | [worktree-archive](../../skills/worktree-archive/SKILL.md); unknown liveness means keep, tracked bundles are not complete captures and removal needs separate recovery-backed authority |
+| Update imported source while preserving customizations and obligations | [upstream-sync](../../skills/upstream-sync/SKILL.md); pinned old/local/new evidence, explicit conflicts and component rights, with canonical GSF upgrades and frozen jobs preserved |
 
 ## Troubleshooting
 
