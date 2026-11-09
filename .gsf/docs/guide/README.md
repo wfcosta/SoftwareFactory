@@ -179,6 +179,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Plan one-objective PRs without pretending to schedule workers | [small-pr-planning](../../skills/small-pr-planning/SKILL.md); DAG/overlap blockers, hypothetical capacity and separate actual publication authority |
 | Review native built-in visibility and additional-only approval | [tool-control-review](../../skills/tool-control-review/SKILL.md); unchanged/empty/list distinction, exact supported profile and native enforcement unknown |
 | Propose consolidation without silently retiring a source or refreshing frozen consumers | [skill-consolidation-map](../../skills/skill-consolidation-map/SKILL.md); complete five-pillar candidate, rights and per-obligation coverage, exact migration/return patch and distinct blocked prerequisites |
+| Review a future job's authority, calendar, recovery and pinned inputs | [scheduled-job-commissioning](../../skills/scheduled-job-commissioning/SKILL.md); all temporal branches, real native wake/receipt controls, delivery uncertainty, no implicit chat/context/model inheritance |
 | Locate every retired implementation's current Markdown owner | [complete migration map](../operations/markdown-capability-migration.md); 37 module and 30 documentation dispositions, native prerequisites and distinct deletion evidence |
 
 ## Troubleshooting
