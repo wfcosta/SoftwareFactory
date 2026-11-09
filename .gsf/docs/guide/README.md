@@ -162,6 +162,23 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Review an exact memory decision before handing off any effect | [memory-change-acceptance](../../skills/memory-change-acceptance/SKILL.md); unchanged original before/parent binding, real writer exclusion and receipt recovery, never approval inferred from a proposal |
 | Relate knowledge changes to original actor, session, reason and exact material | [memory-mutation-history](../../skills/memory-mutation-history/SKILL.md); before/proposed-after/original readback kept separate, no omitted unresolved rows or historical-target filesystem probes |
 | Preserve skills used by active, paused, frozen or archived consumers | [referenced-skill-protection](../../skills/referenced-skill-protection/SKILL.md); complete approved reference/asset/hash coverage and recovery handoff, with unknown consumers or liveness blocking withdrawal |
+| Reconcile competing native resource ownership | [ownership-collision-review](../../skills/ownership-collision-review/SKILL.md); concrete overlap, exact owners/fences and blocked reuse while uncertain |
+| Qualify worker liveness independently from completion | [worker-liveness-review](../../skills/worker-liveness-review/SKILL.md); source/time/birth/session identity and no guessed process death |
+| Confirm an exact owned cancellation and effect outcome | [cancellation-confirmation](../../skills/cancellation-confirmation/SKILL.md); actual native stop/readback, separate acknowledgment and no uncertain release |
+| Review complete checkpoint coverage and restoration limits | [checkpoint-coverage-review](../../skills/checkpoint-coverage-review/SKILL.md); five independent domains, original artifacts and missing-state owners |
+| Assess cold resume against the original frozen basis | [cold-resume-review](../../skills/cold-resume-review/SKILL.md); current owners/grants/effects and accepted history, with no projection-only replay |
+| Review actual MCP initialization/listing and structural drift | [mcp-evidence-review](../../skills/mcp-evidence-review/SKILL.md); exact native target, all pages and pinned complete descriptors |
+| Demand real bounded-input/privacy/lifecycle controls | [bounded-evidence-review](../../skills/bounded-evidence-review/SKILL.md); raw/preallocation versus decoded guarantees and owned cleanup |
+| Review separately authorized native deferred discovery | [progressive-tool-discovery](../../skills/progressive-tool-discovery/SKILL.md); exact deterministic selection, full schemas and actual matched-call/history evidence |
+| Compare bounded original MCP exchanges without semantic overclaim | [mcp-exchange-review](../../skills/mcp-exchange-review/SKILL.md); private-safe correlation, ordered descriptive dimensions and partial outcomes |
+| Reconcile source-bound usage quantities | [usage-evidence-review](../../skills/usage-evidence-review/SKILL.md); exact decimal/unit/cohort arithmetic and explicit missing billing evidence |
+| Preserve mandatory context across bounded reading views | [context-view-review](../../skills/context-view-review/SKILL.md); exact source pins, whole records and measured raw bytes distinct from native rendered capacity |
+| Inventory named public/sanitized loader surfaces statically | [loader-surface-review](../../skills/loader-surface-review/SKILL.md); profile-specific predicates and finite exclusions, never execute discovered content |
+| Review static CI permissions and related declaration findings | [ci-privilege-review](../../skills/ci-privilege-review/SKILL.md); replacement versus inheritance and unknown native defaults/effects |
+| Assess exact pinned documentation changes | [deprecation-evidence-review](../../skills/deprecation-evidence-review/SKILL.md); independent baselines, exact quotes and qualified native contradictions |
+| Plan one-objective PRs without pretending to schedule workers | [small-pr-planning](../../skills/small-pr-planning/SKILL.md); DAG/overlap blockers, hypothetical capacity and separate actual publication authority |
+| Review native built-in visibility and additional-only approval | [tool-control-review](../../skills/tool-control-review/SKILL.md); unchanged/empty/list distinction, exact supported profile and native enforcement unknown |
+| Locate every retired implementation's current Markdown owner | [complete migration map](../operations/markdown-capability-migration.md); 37 module and 30 documentation dispositions, native prerequisites and distinct deletion evidence |
 
 ## Troubleshooting
 

@@ -1,0 +1,71 @@
+# Markdown capability migration
+
+The user-authorized cutover keeps product delivery exclusively in Markdown in the existing main repository. The additional implementation is retired, not a prerequisite, package to install or service to start. Canonical procedures below preserve its review decisions, boundaries and native handoffs without copying executable implementations.
+
+The inventory covered **37 implementation modules plus the inert package initializer, 30 root documentation files**, and associated examples, packaging and verification artifacts. A named row is a functional disposition, not proof that a native host was exercised. Publication references identify actual merged main PRs; source and acceptance evidence remain distinct.
+
+## Complete implementation-to-procedure map
+
+Paths below are the main repository's canonical reading routes. They are usable without access to the removed additional repository.
+
+| Former implementation | Current Markdown owner | Preserved behavior and native limit | Merged main PR |
+| --- | --- | --- | --- |
+| `config` | [provider evidence](../../skills/provider-evidence-review/SKILL.md), [boundaries](evidence-boundaries.md) | Exact accepted provider/identity/endpoint, explicit missing configuration, secret-safe provenance; no credential discovery or implied transport policy. | #88 |
+| `transport` | [provider evidence](../../skills/provider-evidence-review/SKILL.md) | Authorized destination, redirects/proxy/TLS, finite attempts/pages/time/bytes and original-versus-retained capture; native controls required before dependent reads. | #88 |
+| `github` | [provider evidence](../../skills/provider-evidence-review/SKILL.md) | Immutable repository identity, complete pagination/CI attempts and exact revision, without inferring no effects from a missing receipt. | #88 |
+| `contracts` | [provider evidence](../../skills/provider-evidence-review/SKILL.md) | Complete pinned contract bytes, source identity and authoritative drift decision, not an adjacent digest treated as approval. | #88 |
+| `observability` | [provider evidence](../../skills/provider-evidence-review/SKILL.md) | Exact metric/trace query, interval, units, coverage, source and retention; sample/result absence is not system health. | #88 |
+| `server` | [host preparation](../hosts/plugin-export.md), [provider evidence](../../skills/provider-evidence-review/SKILL.md) | Separate existing native read routes, tool schemas/arguments and invocation authority; no replacement MCP server. | #85–88 |
+| `packaging` | [host preparation](../hosts/plugin-export.md) | Selected canonical entries, finite closure, rights, exact targets and native artifact-profile distinctions, without a new exporter. | #85 |
+| `package_validation` | [plugin acceptance](../../skills/plugin-acceptance/SKILL.md), [third-party inspection](../hosts/plugin-export.md#native-format-versus-observed-host-support) | Offline structure versus actual native discovery/invocation/removal; precise discovery defaults/overrides/precedence and package-root identity; reference-only roles distinct from native dispatch. | #85, #111 |
+| `capability_catalog` | [capability distribution](../hosts/capability-distribution.md) | Bounded selected catalog, identities, required dependencies, duplicate/conflicting targets and complete closure; no automatic full-tree publication. | #86 |
+| `package_provenance` | [capability distribution](../hosts/capability-distribution.md) | Original/derived bytes, source notices, mapping and custody; a digest does not prove rights, authenticity or acceptance. | #86 |
+| `native_support` | [host profiles](../hosts/README.md), [historical observations](../hosts/plugin-export.md#interpret-historical-native-support-observations-exactly), [plugin acceptance](../../skills/plugin-acceptance/SKILL.md) | Format/configuration/discovery/activation/invocation stages and historical stream-prefix/process/dependency/directory/conflict predicates, bound to exact observed identity. | #85–87, #111 |
+| `tool_controls` | [tool-control review](../../skills/tool-control-review/SKILL.md) | Exact historical Claude CLI 2.1.101 bounded profile; unchanged/empty/list visibility, separate nonexclusive additions, subset errors and preserved argument boundaries. No native enforcement claim. | #109 |
+| `context_views` | [context-view review](../../skills/context-view-review/SKILL.md), [context owner](context-memory.md) | Reference/description/full views, exact source pins and raw-byte accounting, complete mandatory material, stable/volatile separation and invalidation; no invented tokens/cache/rendering. | #104 |
+| `loader_inventory` | [loader-surface review](../../skills/loader-surface-review/SKILL.md) | Finite approved public/sanitized roots, exact documented profile predicates, hidden/private directory exclusions including flat/bundled providers and gateway exception; never execute discovered code. | #105 |
+| `ci_privileges` | [CI privilege review](../../skills/ci-privilege-review/SKILL.md) | Complete static finding families, workflow/job replacement rather than union, unknown defaults and untrusted declarations, without CI execution or effective-token claims. | #106 |
+| `deprecation_radar` | [deprecation evidence](../../skills/deprecation-evidence-review/SKILL.md) | Independently accepted whole baseline/candidate pins, exact quotes and identity/stage-matched native evidence; changed documentation does not automatically mean deprecation. | #107 |
+| `pr_planning` | [small-PR planning](../../skills/small-pr-planning/SKILL.md) | One-objective units, concrete ownership, full DAG/overlap blockers, hypothetical capacity waves and separately authorized exact-head merge receipts. | #108 |
+| `progressive_tools` | [progressive discovery](../../skills/progressive-tool-discovery/SKILL.md) | Supported native client search, exact goal/name priority and bounded deterministic 4+1 lexical selection, reviewed full schemas, matched calls and complete history; no fake protocol from a shortlist. | #101, #110 |
+| `tool_inventory` | [MCP evidence](../../skills/mcp-evidence-review/SKILL.md) | Complete bounded initialize/list capture, paging, tool-name/schema identity, source pins and completeness qualifications; no implicit invocation grant. | #99 |
+| `mcp_surface` | [MCP evidence](../../skills/mcp-evidence-review/SKILL.md) | Pinned inventory comparison, exact schemas and distinctions among advertised, configured and exercised support. | #99 |
+| `mcp_http` | [MCP evidence](../../skills/mcp-evidence-review/SKILL.md) | Actual authorized native HTTP identity, initialize/session/protocol evidence and complete listing; no endpoint probe or new transport by reading this procedure. | #99 |
+| `sdk_context` | [bounded evidence](../../skills/bounded-evidence-review/SKILL.md) | Explicit ambient SDK/telemetry context boundary and independently accepted native control prerequisites, without global mutation or monkeypatches. | #100 |
+| `bounded_json` | [bounded evidence](../../skills/bounded-evidence-review/SKILL.md) | Raw-input versus decoded-object guarantees, strict keys/types/numbers/depth and preallocation bounds; unavailable native readers block claims rather than invite a new parser. | #100 |
+| `bounded_stdio` | [bounded evidence](../../skills/bounded-evidence-review/SKILL.md) | Frame, byte, allocation, deadline, diagnostic and owned-process cleanup requirements; postdecode counting is not preallocation enforcement. | #100 |
+| `mcp_exchange_observation` | [exchange review](../../skills/mcp-exchange-review/SKILL.md) | Original ordered capture, session and exact call/result correlation, redaction provenance, completeness and failed/unknown outcomes. | #102 |
+| `trajectory_diff` | [exchange review](../../skills/mcp-exchange-review/SKILL.md) | Independently pinned original captures; descriptive ordered direction/method paths, counts and safe dimensions with partial/failure qualifications. Extra operations are not penalties; equal structures prove neither semantic equivalence nor business effects. | #102 |
+| `usage_reporting` | [usage evidence](../../skills/usage-evidence-review/SKILL.md) | Exact same-unit/cohort decimal sums, event deduplication/conflicts, missing meters and estimates distinct from billing; no float or fabricated spend. | #103 |
+| `checkpoint_coverage` | [checkpoint coverage](../../skills/checkpoint-coverage-review/SKILL.md) | Separate code, conversation, configuration, database and external-state coverage, current recovery authority and explicit missing domains. | #97 |
+| `processes` | [worker liveness](../../skills/worker-liveness-review/SKILL.md), [cancellation](../../skills/cancellation-confirmation/SKILL.md) | Exact owner/native process identity, qualified observations and existing scoped stop controls; completion messages are not OS death or business acceptance. | #95–96 |
+| `liveness_observation` | [worker liveness](../../skills/worker-liveness-review/SKILL.md) | Observation time/source/identity and alive/dead/unknown distinctions; uncertainty blocks overlapping retry. | #95 |
+| `ownership_execution` | [ownership collision](../../skills/ownership-collision-review/SKILL.md), [cancellation](../../skills/cancellation-confirmation/SKILL.md) | Concrete overlapping write/effect claims, native fence/stop prerequisites, no ownership release through an unconfirmed cancellation. | #94, #96 |
+| `cold_resume` | [cold-resume review](../../skills/cold-resume-review/SKILL.md) | Original frozen identity, accepted event/effect reconciliation and unresolved grants; never replay from a stale projection or silently refresh authority. | #98 |
+| `memory_proposals` | [memory proposal](../../skills/memory-change-proposal/SKILL.md) | Complete original and proposed bytes, existence, exact parent/version, full line-ending-aware diff and review material; proposed is not applied. | #90 |
+| `memory_acceptance` | [memory acceptance](../../skills/memory-change-acceptance/SKILL.md) | Independent exact decision, native unchanged-before/parent and writer exclusion, durable intent/readback and ambiguous-effect recovery. | #91 |
+| `scoped_memory` | [scope review](../../skills/scope-memory-review/SKILL.md) | Explicit personal/project/organization binding, current native access, fact source/audience/expiry and no implicit store creation. | #89 |
+| `memory_history` | [mutation history](../../skills/memory-mutation-history/SKILL.md) | Original actor/session/reason/material/receipt relations, complete accepted coverage and unresolved outcomes; never inspect today's historical target as original proof. | #92 |
+| `skill_withdrawal` | [referenced-skill protection](../../skills/referenced-skill-protection/SKILL.md), [archive proposal](../../skills/skill-archive-proposal/SKILL.md) | Complete approved direct/transitive/frozen references, retained bytes and exact inverse recovery. Unknown consumers block withdrawal; no private-job-tree scan or deletion interceptor. | #93, #83 |
+
+The former `__init__` initializer has no executable counterpart. Reading Markdown performs no discovery, initialization, registration, installation, store creation or dispatch. Native registration, when separately requested, is an independently authorized host write and supplies no implicit execution grant.
+
+## Documentation and nonproduct dispositions
+
+All 30 former root documents are represented above, rather than linked as required external instructions:
+
+- `README`, `PACKAGING`, `PACKAGE_VALIDATION`, `CATALOG`, `PROVENANCE`, `NATIVE_SUPPORT`, `TOOL_CONTROLS`: current host preparation/distribution/acceptance and tool-control procedures.
+- `CONTEXT_VIEWS`, `LOADER_INVENTORY`, `CI_PRIVILEGES`, `DEPRECATION_RADAR`, `PR_PLANNING`: the five exact context/governance owners.
+- `PROGRESSIVE_TOOLS`, `MCP_SURFACE`, `MCP_HTTP`, `TOOL_INVENTORY`, `BOUNDED_STDIO`, `MCP_EXCHANGE_OBSERVATION`, `TRAJECTORY_DIFF`, `USAGE_REPORTING`: the five current discovery/MCP/bounded/exchange/usage owners.
+- `CHECKPOINT_COVERAGE`, `LIVENESS_OBSERVATION`, `OWNERSHIP_EXECUTION`, `COLD_RESUME`, `CANCELLATION_CONFIRMATION`: the five current fleet owners.
+- `MEMORY_PROPOSALS`, `MEMORY_ACCEPTANCE`, `SCOPED_MEMORY`, `SKILL_WITHDRAWAL`, `MEMORY_HISTORY`: the five current memory owners.
+
+Do not copy executable modules, test programs, bytecode/caches, build/virtual-environment/dependency files, Git metadata, runtime stores/locks, private configuration, captures, credentials, model transcripts or private job state into product Markdown. Example/schema semantics are explained by procedures, not recreated as executable fenced programs or disguised configuration artifacts. Preserve legitimate source attribution/notices and component rights where applicable; absence of a license is not permission to invent one or redistribute third-party payloads.
+
+## Native prerequisites and honest acceptance
+
+A procedure can perform an authorized bounded review now; an effect still requires the actual separately authorized native tool and its identity, controls and receipt. Filesystem race exclusion, stable raw readers, allocation limits, egress/IAM, scheduler capacity, ownership fences, job termination, native protocol submission, host activation and durable conditional memory writes are not supplied by Markdown. Missing prerequisites block the dependent effect, not unrelated safe analysis. No replacement backend, parser, wrapper, SDK shim, server or registry is part of this cutover.
+
+Actual cutover verification comprised whole-source manual instruction consumption and independent source reviews, plus narrowly qualified existing-tool observations: file hashes/identities/raw byte counts, explicit decimal arithmetic and actual full-head-matched forge merges. It did not execute the retired runtime, run tests/suites or establish native host/parser/scheduler/token/cache behavior. Supplied manual boundary fixtures were not represented as production receipts.
+
+The remote-deletion gate is complete coverage and merged canonical sources/navigation with no remaining operational dependency on the retired repository. Removing the remote must preserve the user's dirty local checkout and unrelated data. A deletion request, actual deletion result and verified remote absence are separate observations; this coverage map alone claims none of them.
