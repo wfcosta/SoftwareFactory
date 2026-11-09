@@ -193,6 +193,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Assess reversible withdrawal from a named skill catalog without retiring content automatically | [skill-archive-proposal](.gsf/skills/skill-archive-proposal/SKILL.md); qualified use and consumer references, whole conditional patch, retained-byte recovery and exact return mapping, with low use never proving uselessness |
 | Review exact repository, CI, contract, metric or trace evidence without installing a connector | [provider-evidence-review](.gsf/skills/provider-evidence-review/SKILL.md); existing scoped tools, complete attempts/pages, raw-versus-retained provenance and explicit native limits |
 | Review personal, project and organization memory without crossing scope | [scope-memory-review](.gsf/skills/scope-memory-review/SKILL.md); explicit bindings, current native access, sourced facts and separate commissioning, with no automatic store creation |
+| Review a full memory change before any application | [memory-change-proposal](.gsf/skills/memory-change-proposal/SKILL.md); exact complete before/proposed-after, original versions, line endings and full diff, always proposed and not applied |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
