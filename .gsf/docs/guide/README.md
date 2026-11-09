@@ -160,6 +160,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Establish exact memory scope, audience and current access before retrieval | [scope-memory-review](../../skills/scope-memory-review/SKILL.md); personal/project/organization boundaries, fact provenance and expiry, with native permissions unknown until actually observed |
 | Prepare or retrieve complete private memory review material | [memory-change-proposal](../../skills/memory-change-proposal/SKILL.md); create/replace/delete existence, exact bytes and full newline-aware review, with actor/session/reason declarations never granting acceptance |
 | Review an exact memory decision before handing off any effect | [memory-change-acceptance](../../skills/memory-change-acceptance/SKILL.md); unchanged original before/parent binding, real writer exclusion and receipt recovery, never approval inferred from a proposal |
+| Relate knowledge changes to original actor, session, reason and exact material | [memory-mutation-history](../../skills/memory-mutation-history/SKILL.md); before/proposed-after/original readback kept separate, no omitted unresolved rows or historical-target filesystem probes |
 
 ## Troubleshooting
 
