@@ -158,6 +158,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Suggest keeping or withdrawing one pinned skill from a bounded catalog | [skill-archive-proposal](../../skills/skill-archive-proposal/SKILL.md); complete reference/criticality and recovery evidence, preserved frozen consumers, separate effect authority and explicit inverse catalog route |
 | Retrieve or assess bounded provider evidence through existing authorized tools | [provider-evidence-review](../../skills/provider-evidence-review/SKILL.md); immutable repository/contract identity, all observed CI attempts, qualified metrics/traces and [native evidence boundaries](../operations/evidence-boundaries.md), with unavailable controls blocking dependent reads |
 | Establish exact memory scope, audience and current access before retrieval | [scope-memory-review](../../skills/scope-memory-review/SKILL.md); personal/project/organization boundaries, fact provenance and expiry, with native permissions unknown until actually observed |
+| Prepare or retrieve complete private memory review material | [memory-change-proposal](../../skills/memory-change-proposal/SKILL.md); create/replace/delete existence, exact bytes and full newline-aware review, with actor/session/reason declarations never granting acceptance |
 
 ## Troubleshooting
 
