@@ -181,6 +181,65 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Propose consolidation without silently retiring a source or refreshing frozen consumers | [skill-consolidation-map](../../skills/skill-consolidation-map/SKILL.md); complete five-pillar candidate, rights and per-obligation coverage, exact migration/return patch and distinct blocked prerequisites |
 | Review a future job's authority, calendar, recovery and pinned inputs | [scheduled-job-commissioning](../../skills/scheduled-job-commissioning/SKILL.md); all temporal branches, real native wake/receipt controls, delivery uncertainty, no implicit chat/context/model inheritance |
 | Select a version-bound native host handoff | [additional adapters](../hosts/README.md#additional-native-adapter-procedures); seven exact product routes, explicit loading/approval/result/usage/liveness evidence and no runtime installation or unsupported protocol translation |
+| Classify exact nested tool effects independently from annotations | [tool-effect-decision](../../skills/tool-effect-decision/SKILL.md); actual read/write/destructive scope and separate authentic execution authority |
+| Assess OAuth preparation on each actual consumer surface | [oauth-surface-passport](../../skills/oauth-surface-passport/SKILL.md); IDE/CLI/headless, real supported flow/consent/callback and resource identity |
+| Reconcile native long-running MCP tasks | [mcp-task-reconciliation](../../skills/mcp-task-reconciliation/SKILL.md); exact negotiated support/task/result/cancel and remote-effect uncertainty |
+| Review a pinned exposed A2A card | [a2a-agent-card-review](../../skills/a2a-agent-card-review/SKILL.md); genuine identity/capabilities/transport and complete security alternatives |
+| Preserve origin, authority and artifacts in A2A handoff | [a2a-task-handoff](../../skills/a2a-task-handoff/SKILL.md); exact task/caller/native IDs and final-stream versus accepted-task boundaries |
+| Review native hook observation coverage | [hook-event-mapping](../../skills/hook-event-mapping/SKILL.md); build/frontend-specific events and missing lifecycle equivalents |
+| Interpret actual hook failures and prevention | [hook-failure-review](../../skills/hook-failure-review/SKILL.md); exact version/event/handler/timeout/parse and applied decision |
+| Establish a genuinely restricted native reviewer | [native-auditor-boundary](../../skills/native-auditor-boundary/SKILL.md); full reachable tool/process controls and unresolved alternate effects |
+| Scope an existing credential identity to a task | [task-secret-scope](../../skills/task-secret-scope/SKILL.md); permission/lifetime/noninheritance metadata and protected references without values |
+| Review every relevant data-egress channel | [multichannel-egress-review](../../skills/multichannel-egress-review/SKILL.md); separate shell/MCP/search/browser/connector/native background controls |
+| Preserve lower-trust content provenance | [untrusted-content-provenance](../../skills/untrusted-content-provenance/SKILL.md); original/derivative source and no embedded grants |
+| Assess an inert extension before activation | [extension-quarantine-review](../../skills/extension-quarantine-review/SKILL.md); complete pinned dependencies and opaque activation blockers |
+| Withhold unsafe artifacts before transmission | [pre-export-redaction](../../skills/pre-export-redaction/SKILL.md); all payload/metadata routes and actual native pre-egress controls |
+| Respond to a compromised distributed revision | [compromised-revision-response](../../skills/compromised-revision-response/SKILL.md); known/offline consumers, notice and separately authorized native containment |
+| Review SDK memory and configuration inheritance | [sdk-memory-isolation](../../skills/sdk-memory-isolation/SKILL.md); settings sources alone do not disable personal auto-memory, environment or foreign sessions |
+| Explain source selection versus actual instruction loading | [effective-instruction-review](../../skills/effective-instruction-review/SKILL.md); accepted mandatory authorities, whole reading and host-specific conflict rules |
+| Preserve monorepo path-rule applicability | [monorepo-instruction-scope](../../skills/monorepo-instruction-scope/SKILL.md); finite positive/negative paths across native bases, globs and relocation |
+| Retrieve semantic evidence through an existing authorized backend | [semantic-retrieval-handoff](../../skills/semantic-retrieval-handoff/SKILL.md); current ACL, pinned source revision and whole-source supported claims |
+| Compare compaction with independently frozen originals | [compaction-audit](../../skills/compaction-audit/SKILL.md); criteria, blockers, ownership, decisions, uncertain effects and counters |
+| Retain large output in a genuinely recoverable artifact | [large-output-offload](../../skills/large-output-offload/SKILL.md); exact whole object, reader access and real retention |
+| Assess synchronized withdrawal and forgetting | [synchronized-forgetting](../../skills/synchronized-forgetting/SKILL.md); finite lineage/copies/holds and exact native reconciliation before retry |
+| Present an observed accepted DAG without mutating it | [dag-observation-panel](../../skills/dag-observation-panel/SKILL.md); complete attempts/dependencies, authentic verdicts and qualified waits |
+| Review worker capacity, resource exclusion and placement | [worker-admission-review](../../skills/worker-admission-review/SKILL.md); actual native cap/admission protocol, beyond-Git isolation and observed machine |
+| Review an experimental session fork | [session-fork-review](../../skills/session-fork-review/SKILL.md); exact native lineage, independent child authority and no resume/new-context substitution |
+| Bind remote/voice supervision to a fresh exact question | [remote-action-supervision](../../skills/remote-action-supervision/SKILL.md); channel/audio privacy and authenticated action identity, not spoken yes alone |
+| Assess an authentic source event before intake | [authenticated-event-intake](../../skills/authenticated-event-intake/SKILL.md); exact producer/receiver/freshness/replay and separate requester grants |
+| Qualify artifact delivery and uncertain sends | [delivery-receipt-review](../../skills/delivery-receipt-review/SKILL.md); prepared/submitted/delivered/read/accepted and intended-reader whole access |
+| Review workspace-scoped native observability lifecycle | [ephemeral-observability-review](../../skills/ephemeral-observability-review/SKILL.md); actual receivers/copies/TTL/ACLs and owned teardown |
+| Admit effects only within evidenced native economic controls | [budget-admission-control](../../skills/budget-admission-control/SKILL.md); exact incurred/disjoint-reserved exposure and no uncertain-cancel release |
+| Relate all-attempt charges to independently accepted outcomes | [accepted-outcome-cost](../../skills/accepted-outcome-cost/SKILL.md); exact allocation/currency and undefined zero-acceptance ratio |
+| Review capability- and budget-bound native routing | [capability-budget-routing](../../skills/capability-budget-routing/SKILL.md); exact effective deployment/protocol/entitlement/residency and no self-switch |
+| Hand off a revision-bound Figma design | [figma-identity-handoff](../../skills/figma-identity-handoff/SKILL.md); exact file/branch/node/library and authentic source-to-product mapping |
+| Review actual Storybook states and interactions | [storybook-state-review](../../skills/storybook-state-review/SKILL.md); runtime state/args/globals and real product effects separate from spies |
+| Assess native accessibility automation within its limits | [accessibility-automation-review](../../skills/accessibility-automation-review/SKILL.md); full accepted state/rule scope and separate keyboard/AT evidence |
+| Review a real physical mobile device path | [physical-mobile-device-review](../../skills/physical-mobile-device-review/SKILL.md); hardware/session/app/build/driver identity and original-effect readback |
+| Establish exact private-registry access | [private-registry-access-review](../../skills/private-registry-access-review/SKILL.md); package/principal/revision/native role and read versus publish/admin |
+| Distinguish installation from permission to act | [distribution-authorization-boundary](../../skills/distribution-authorization-boundary/SKILL.md); distribution/loading/disclosure/effects and actual permission deltas |
+| Review accepted artifact retention and deletion | [artifact-retention-deletion](../../skills/artifact-retention-deletion/SKILL.md); actual copy-specific receipts, legal holds and erasure limits |
+| Assemble an objective complete audit export | [objective-audit-export](../../skills/objective-audit-export/SKILL.md); original decisions/effects/pages/owners and explicit missing evidence |
+| Use an already commissioned recoverable evidence facility | [recoverable-evidence-store](../../skills/recoverable-evidence-store/SKILL.md); intended-reviewer retrieval, whole identity, retention and restoration |
+| Map complete policy to existing native enforcement | [policy-native-control-map](../../skills/policy-native-control-map/SKILL.md); desired versus configured/effective/applied with gap owners |
+| Reconcile real publication intent and receipt | [publication-intent-receipt](../../skills/publication-intent-receipt/SKILL.md); exact target/bytes/authority and no fabricated maintenance events |
+| Track a native merge queue at exact SHA generation | [exact-sha-merge-queue](../../skills/exact-sha-merge-queue/SKILL.md); head/base/group/checks/approvals and no queue-as-merge claim |
+| Assess a full pinned upstream update | [pinned-update-review](../../skills/pinned-update-review/SKILL.md); three-way customization/rights and preserved frozen consumers |
+| Resolve an actual architectural invariant violation | [architecture-guard-remediation](../../skills/architecture-guard-remediation/SKILL.md); existing checker coverage plus actual consumer-path proof |
+| Execute an authorized paired evaluation via the existing harness | [paired-evaluation-execution](../../skills/paired-evaluation-execution/SKILL.md); controlled inputs/evaluator and retained failed-arm accounting |
+| Measure genuine skill trigger behavior | [skill-trigger-measurement](../../skills/skill-trigger-measurement/SKILL.md); complete activation capture, labels and explicit metric denominators |
+| Curate safe adversarial boundary cases | [adversarial-boundary-corpus](../../skills/adversarial-boundary-corpus/SKILL.md); independent oracle and malicious payloads never promoted to instructions |
+| Calibrate authentic blinded human and judge assessments | [blind-judge-calibration](../../skills/blind-judge-calibration/SKILL.md); actual ratings, independent custody and qualified agreement |
+| Pin the evaluator before candidate-result exposure | [evaluator-version-review](../../skills/evaluator-version-review/SKILL.md); whole effective rubric/threshold/version and separate changed comparisons |
+| Measure repeated-run consistency without overclaiming reliability | [consistency-measurement](../../skills/consistency-measurement/SKILL.md); complete condition-bound trials and dependence/sample limits |
+| Derive a permitted sanitized case from a real trace | [trace-to-sanitized-case](../../skills/trace-to-sanitized-case/SKILL.md); original/derivative pins, rights and no private source disclosure |
+| Review corpus health and holdout integrity | [corpus-health-review](../../skills/corpus-health-review/SKILL.md); provenance/coverage/expiry/family duplication and split leakage |
+| Plan a controlled factorial harness experiment | [harness-factorial-experiment](../../skills/harness-factorial-experiment/SKILL.md); accepted cells/factors/allocation and confounding limits |
+| Detect unproved clean-state trial assumptions | [trial-contamination-review](../../skills/trial-contamination-review/SKILL.md); actual memory/cache/resource isolation and no global reset |
+| Map lifecycle evidence to an existing OTel pipeline | [lifecycle-otel-handoff](../../skills/lifecycle-otel-handoff/SKILL.md); native source/emitter/propagation/receiver receipts, not a new exporter |
+| Reconstruct bounded waits without double-counting wall time | [wait-cause-timeline](../../skills/wait-cause-timeline/SKILL.md); comparable intervals, explicit overlap and independently evidenced causes |
+| Trace a reported score to the exact evaluator judgment | [evaluator-score-trace](../../skills/evaluator-score-trace/SKILL.md); original request/response/output/evaluator/trace correspondence and gaps |
+| Find each remaining original criterion's source and merged PR | [feature delivery index](../operations/feature-delivery-index.md); 75 individual acceptance items and complete canonical Markdown, with native limits explicit |
 | Locate every retired implementation's current Markdown owner | [complete migration map](../operations/markdown-capability-migration.md); 37 module and 30 documentation dispositions, native prerequisites and distinct deletion evidence |
 
 ## Troubleshooting
