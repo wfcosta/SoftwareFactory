@@ -161,6 +161,7 @@ Decision history is append-only `decisions.md`; corrections supersede old decisi
 | Prepare or retrieve complete private memory review material | [memory-change-proposal](../../skills/memory-change-proposal/SKILL.md); create/replace/delete existence, exact bytes and full newline-aware review, with actor/session/reason declarations never granting acceptance |
 | Review an exact memory decision before handing off any effect | [memory-change-acceptance](../../skills/memory-change-acceptance/SKILL.md); unchanged original before/parent binding, real writer exclusion and receipt recovery, never approval inferred from a proposal |
 | Relate knowledge changes to original actor, session, reason and exact material | [memory-mutation-history](../../skills/memory-mutation-history/SKILL.md); before/proposed-after/original readback kept separate, no omitted unresolved rows or historical-target filesystem probes |
+| Preserve skills used by active, paused, frozen or archived consumers | [referenced-skill-protection](../../skills/referenced-skill-protection/SKILL.md); complete approved reference/asset/hash coverage and recovery handoff, with unknown consumers or liveness blocking withdrawal |
 
 ## Troubleshooting
 

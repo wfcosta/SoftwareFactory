@@ -196,6 +196,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Review a full memory change before any application | [memory-change-proposal](.gsf/skills/memory-change-proposal/SKILL.md); exact complete before/proposed-after, original versions, line endings and full diff, always proposed and not applied |
 | Bind memory acceptance to the exact original proposal and version | [memory-change-acceptance](.gsf/skills/memory-change-acceptance/SKILL.md); independent decision, actual native preconditions, durable intent/readback and no replay through unresolved effects |
 | Reconstruct original memory mutations without reading today's target | [memory-mutation-history](.gsf/skills/memory-mutation-history/SKILL.md); complete accepted coverage, original declarations/material/receipts and explicit pending or missing effects |
+| Refuse withdrawal of skill content with unresolved consumers | [referenced-skill-protection](.gsf/skills/referenced-skill-protection/SKILL.md); direct/transitive and frozen references, retained bytes and exact return routes, without claiming an OS deletion interceptor |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
 
