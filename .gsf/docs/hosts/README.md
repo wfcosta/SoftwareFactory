@@ -150,6 +150,23 @@ An explicitly approved public inert portable MCP configuration may be proposed u
 
 For Cursor, Claude Code, Codex, Copilot, Devin and an identified portable client alike, use [offline versus installed proof](plugin-export.md#offline-inspection-before-host-qualification) and [finite plugin acceptance](../../skills/plugin-acceptance/SKILL.md). Evidence of one stage never proves activation, entitlement, full-reference loading, execution or product qualification at the next.
 
+## Additional native adapter procedures
+
+These complete Markdown adapters preserve the common contract and canonical GSF authority. They are documented existing-native handoff routes, not bundled launchers, installed integrations or observed native support. Each binds actual frontend/build, complete source loading, separate grants, native/canonical identities, result/usage/acceptance, uncertain effects and safe cleanup.
+
+| Exact product | Procedure | Distinct boundary |
+| --- | --- | --- |
+| Nous Hermes Agent | [Hermes](hermes.md) | Gateway/profile/origin and plugin capabilities; full skill read, recovered delivery and handler liveness. |
+| Google Antigravity | [Antigravity](antigravity.md) | App/IDE/CLI identities and permissions differ; no assumed Gemini CLI parity. |
+| Factory Droid | [Droid](factory-droid.md) | Existing headless Exec, separate session/result/usage and partial-effect recovery. |
+| Cline | [Cline](cline.md) | Explicit approvals/state/backend and ordered structured result/abort capture; no inherited broad defaults. |
+| OpenCode | [OpenCode](opencode.md) | Exact effective client/server generation, coherent configuration/protocol and no V1/V2 translation by guesswork. |
+| Herdr terminal control | [Herdr](herdr.md) | Real machine/server/session/pane/occupant routing; visual status is not accepted completion. |
+| NickGuAI Herd meta-harness | [Herd](herd.md) | Existing version-bound UI mission/worker handoff; API-family prose supplies no dispatch schema or second coordinator. |
+
+Use only separately authorized actual native tools and receipts. Missing installed capability, complete instructions, identity, enforcement, capture, meter or stop evidence blocks the dependent operation; it never authorizes installation, another repository, a model/provider fallback or fabricated execution.
+
+
 ## Terminal-only adapter and acceptance
 
 Map reads to existing filesystem commands, commands to the actual shell, and receipts to actual command outputs. Record OS, shell, installed tools and root using the baseline. A terminal alone provides **no** independent model context, UI control, forge/cloud credentials, sandbox, cost meter, durable evidence store or continuing service. An existing external browser runner, review service or CI may supply a capability only after actual access/version/result evidence; never manufacture it by renaming terminal output. Serial implementation is possible within authority; required independent code/security reviews remain blocked until separately obtained against the same candidate.
