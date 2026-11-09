@@ -6,7 +6,7 @@ Use for an accepted threat/trust-boundary, authorization/tenant, dependency/buil
 
 A direct read-only question inspects existing permitted material and answers in chat: no jobs, files, scans, probes, installs, endpoint calls, data exports/deletions or experiments. Execution requires an explicit assignment and separately authorized effects/targets. A threat model, credential, risk recommendation or reviewer PASS grants no operational authority.
 
-**Exporter boundary:** this new composition does not add `security` to the external companion exporter's `--pack` choices. The [plugin export guide](../docs/hosts/plugin-export.md) documents the companion's current supported choices; its actual reviewed revision/help is authoritative for its interface. Do not issue `--pack security`, rename another export or claim exporter support from this table. Read/attach these source instructions directly; any future companion support needs its own implementation and acceptance. This pack changes neither product policy nor host registration.
+**Distribution boundary:** this composition selects source Markdown; it is not a command, exporter implementation, permission profile or native plugin registration. Use the [plugin preparation guide](../docs/hosts/plugin-export.md) for separately requested host-specific preparation with existing authorized tools. Do not invent a pack flag, rename another host's manifest or assume installed support from this table. This pack changes neither product policy nor host registration.
 
 ## Selected entries
 
