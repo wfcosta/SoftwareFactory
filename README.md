@@ -213,6 +213,7 @@ Checks are explicit typed entries: a real command with its repository-relative w
 | Compare independently pinned documentation and native evidence | [deprecation-evidence-review](.gsf/skills/deprecation-evidence-review/SKILL.md); exact claims and qualified stages, no automatic deprecation or upgrade |
 | Plan small independently mergeable units | [small-pr-planning](.gsf/skills/small-pr-planning/SKILL.md); concrete ownership, full DAG, hypothetical waves and separately authorized exact-head publication |
 | Separate built-in visibility from additional preapproval | [tool-control-review](.gsf/skills/tool-control-review/SKILL.md); exact historical profile, unchanged/empty/list arguments and no exclusive-permission or enforcement claim |
+| Assess a complete version-bound skill union without losing consumers or rights | [skill-consolidation-map](.gsf/skills/skill-consolidation-map/SKILL.md); whole obligation/reference/variant coverage, full untrusted candidate and exact forward/return maps, or an explicit keep-separate decision |
 | Trace the complete Markdown-only migration and native prerequisites | [capability migration map](.gsf/docs/operations/markdown-capability-migration.md); all 37 implementation dispositions, 30 documentation dispositions and excluded executable/private artifacts |
 
 The 24 principle skills remain unprefixed directories under `.gsf/skills/`. They guide decisions; they do not override policy. Media rendering and formal checkers require actual tools and have separate evidence requirements.
